@@ -5,20 +5,1330 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
-export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
-export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+export { ApiFilterArgs, ApiFilterState } from "./apiFilter";
+export type ApiFilter = import("./apiFilter").ApiFilter;
+export const ApiFilter: typeof import("./apiFilter").ApiFilter = null as any;
+utilities.lazyLoad(exports, ["ApiFilter"], () => require("./apiFilter"));
+
+export { ApiTokenArgs, ApiTokenState } from "./apiToken";
+export type ApiToken = import("./apiToken").ApiToken;
+export const ApiToken: typeof import("./apiToken").ApiToken = null as any;
+utilities.lazyLoad(exports, ["ApiToken"], () => require("./apiToken"));
+
+export { CatalogArgs, CatalogState } from "./catalog";
+export type Catalog = import("./catalog").Catalog;
+export const Catalog: typeof import("./catalog").Catalog = null as any;
+utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
+
+export { CatalogAccessControlArgs, CatalogAccessControlState } from "./catalogAccessControl";
+export type CatalogAccessControl = import("./catalogAccessControl").CatalogAccessControl;
+export const CatalogAccessControl: typeof import("./catalogAccessControl").CatalogAccessControl = null as any;
+utilities.lazyLoad(exports, ["CatalogAccessControl"], () => require("./catalogAccessControl"));
+
+export { CatalogItemArgs, CatalogItemState } from "./catalogItem";
+export type CatalogItem = import("./catalogItem").CatalogItem;
+export const CatalogItem: typeof import("./catalogItem").CatalogItem = null as any;
+utilities.lazyLoad(exports, ["CatalogItem"], () => require("./catalogItem"));
+
+export { CatalogMediaArgs, CatalogMediaState } from "./catalogMedia";
+export type CatalogMedia = import("./catalogMedia").CatalogMedia;
+export const CatalogMedia: typeof import("./catalogMedia").CatalogMedia = null as any;
+utilities.lazyLoad(exports, ["CatalogMedia"], () => require("./catalogMedia"));
+
+export { CatalogVappTemplateArgs, CatalogVappTemplateState } from "./catalogVappTemplate";
+export type CatalogVappTemplate = import("./catalogVappTemplate").CatalogVappTemplate;
+export const CatalogVappTemplate: typeof import("./catalogVappTemplate").CatalogVappTemplate = null as any;
+utilities.lazyLoad(exports, ["CatalogVappTemplate"], () => require("./catalogVappTemplate"));
+
+export { ClonedVappArgs, ClonedVappState } from "./clonedVapp";
+export type ClonedVapp = import("./clonedVapp").ClonedVapp;
+export const ClonedVapp: typeof import("./clonedVapp").ClonedVapp = null as any;
+utilities.lazyLoad(exports, ["ClonedVapp"], () => require("./clonedVapp"));
+
+export { CseKubernetesClusterArgs, CseKubernetesClusterState } from "./cseKubernetesCluster";
+export type CseKubernetesCluster = import("./cseKubernetesCluster").CseKubernetesCluster;
+export const CseKubernetesCluster: typeof import("./cseKubernetesCluster").CseKubernetesCluster = null as any;
+utilities.lazyLoad(exports, ["CseKubernetesCluster"], () => require("./cseKubernetesCluster"));
+
+export { DseRegistryConfigurationArgs, DseRegistryConfigurationState } from "./dseRegistryConfiguration";
+export type DseRegistryConfiguration = import("./dseRegistryConfiguration").DseRegistryConfiguration;
+export const DseRegistryConfiguration: typeof import("./dseRegistryConfiguration").DseRegistryConfiguration = null as any;
+utilities.lazyLoad(exports, ["DseRegistryConfiguration"], () => require("./dseRegistryConfiguration"));
+
+export { DseSolutionPublishArgs, DseSolutionPublishState } from "./dseSolutionPublish";
+export type DseSolutionPublish = import("./dseSolutionPublish").DseSolutionPublish;
+export const DseSolutionPublish: typeof import("./dseSolutionPublish").DseSolutionPublish = null as any;
+utilities.lazyLoad(exports, ["DseSolutionPublish"], () => require("./dseSolutionPublish"));
+
+export { EdgegatewayArgs, EdgegatewayState } from "./edgegateway";
+export type Edgegateway = import("./edgegateway").Edgegateway;
+export const Edgegateway: typeof import("./edgegateway").Edgegateway = null as any;
+utilities.lazyLoad(exports, ["Edgegateway"], () => require("./edgegateway"));
+
+export { EdgegatewaySettingsArgs, EdgegatewaySettingsState } from "./edgegatewaySettings";
+export type EdgegatewaySettings = import("./edgegatewaySettings").EdgegatewaySettings;
+export const EdgegatewaySettings: typeof import("./edgegatewaySettings").EdgegatewaySettings = null as any;
+utilities.lazyLoad(exports, ["EdgegatewaySettings"], () => require("./edgegatewaySettings"));
+
+export { EdgegatewayVpnArgs, EdgegatewayVpnState } from "./edgegatewayVpn";
+export type EdgegatewayVpn = import("./edgegatewayVpn").EdgegatewayVpn;
+export const EdgegatewayVpn: typeof import("./edgegatewayVpn").EdgegatewayVpn = null as any;
+utilities.lazyLoad(exports, ["EdgegatewayVpn"], () => require("./edgegatewayVpn"));
+
+export { ExternalEndpointArgs, ExternalEndpointState } from "./externalEndpoint";
+export type ExternalEndpoint = import("./externalEndpoint").ExternalEndpoint;
+export const ExternalEndpoint: typeof import("./externalEndpoint").ExternalEndpoint = null as any;
+utilities.lazyLoad(exports, ["ExternalEndpoint"], () => require("./externalEndpoint"));
+
+export { ExternalNetworkArgs, ExternalNetworkState } from "./externalNetwork";
+export type ExternalNetwork = import("./externalNetwork").ExternalNetwork;
+export const ExternalNetwork: typeof import("./externalNetwork").ExternalNetwork = null as any;
+utilities.lazyLoad(exports, ["ExternalNetwork"], () => require("./externalNetwork"));
+
+export { ExternalNetworkV2Args, ExternalNetworkV2State } from "./externalNetworkV2";
+export type ExternalNetworkV2 = import("./externalNetworkV2").ExternalNetworkV2;
+export const ExternalNetworkV2: typeof import("./externalNetworkV2").ExternalNetworkV2 = null as any;
+utilities.lazyLoad(exports, ["ExternalNetworkV2"], () => require("./externalNetworkV2"));
+
+export { GetApiFilterArgs, GetApiFilterResult, GetApiFilterOutputArgs } from "./getApiFilter";
+export const getApiFilter: typeof import("./getApiFilter").getApiFilter = null as any;
+export const getApiFilterOutput: typeof import("./getApiFilter").getApiFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getApiFilter","getApiFilterOutput"], () => require("./getApiFilter"));
+
+export { GetCatalogArgs, GetCatalogResult, GetCatalogOutputArgs } from "./getCatalog";
+export const getCatalog: typeof import("./getCatalog").getCatalog = null as any;
+export const getCatalogOutput: typeof import("./getCatalog").getCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalog","getCatalogOutput"], () => require("./getCatalog"));
+
+export { GetCatalogAccessControlArgs, GetCatalogAccessControlResult, GetCatalogAccessControlOutputArgs } from "./getCatalogAccessControl";
+export const getCatalogAccessControl: typeof import("./getCatalogAccessControl").getCatalogAccessControl = null as any;
+export const getCatalogAccessControlOutput: typeof import("./getCatalogAccessControl").getCatalogAccessControlOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogAccessControl","getCatalogAccessControlOutput"], () => require("./getCatalogAccessControl"));
+
+export { GetCatalogItemArgs, GetCatalogItemResult, GetCatalogItemOutputArgs } from "./getCatalogItem";
+export const getCatalogItem: typeof import("./getCatalogItem").getCatalogItem = null as any;
+export const getCatalogItemOutput: typeof import("./getCatalogItem").getCatalogItemOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogItem","getCatalogItemOutput"], () => require("./getCatalogItem"));
+
+export { GetCatalogMediaArgs, GetCatalogMediaResult, GetCatalogMediaOutputArgs } from "./getCatalogMedia";
+export const getCatalogMedia: typeof import("./getCatalogMedia").getCatalogMedia = null as any;
+export const getCatalogMediaOutput: typeof import("./getCatalogMedia").getCatalogMediaOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogMedia","getCatalogMediaOutput"], () => require("./getCatalogMedia"));
+
+export { GetCatalogVappTemplateArgs, GetCatalogVappTemplateResult, GetCatalogVappTemplateOutputArgs } from "./getCatalogVappTemplate";
+export const getCatalogVappTemplate: typeof import("./getCatalogVappTemplate").getCatalogVappTemplate = null as any;
+export const getCatalogVappTemplateOutput: typeof import("./getCatalogVappTemplate").getCatalogVappTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getCatalogVappTemplate","getCatalogVappTemplateOutput"], () => require("./getCatalogVappTemplate"));
+
+export { GetCseKubernetesClusterArgs, GetCseKubernetesClusterResult, GetCseKubernetesClusterOutputArgs } from "./getCseKubernetesCluster";
+export const getCseKubernetesCluster: typeof import("./getCseKubernetesCluster").getCseKubernetesCluster = null as any;
+export const getCseKubernetesClusterOutput: typeof import("./getCseKubernetesCluster").getCseKubernetesClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCseKubernetesCluster","getCseKubernetesClusterOutput"], () => require("./getCseKubernetesCluster"));
+
+export { GetDseRegistryConfigurationArgs, GetDseRegistryConfigurationResult, GetDseRegistryConfigurationOutputArgs } from "./getDseRegistryConfiguration";
+export const getDseRegistryConfiguration: typeof import("./getDseRegistryConfiguration").getDseRegistryConfiguration = null as any;
+export const getDseRegistryConfigurationOutput: typeof import("./getDseRegistryConfiguration").getDseRegistryConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDseRegistryConfiguration","getDseRegistryConfigurationOutput"], () => require("./getDseRegistryConfiguration"));
+
+export { GetDseSolutionPublishArgs, GetDseSolutionPublishResult, GetDseSolutionPublishOutputArgs } from "./getDseSolutionPublish";
+export const getDseSolutionPublish: typeof import("./getDseSolutionPublish").getDseSolutionPublish = null as any;
+export const getDseSolutionPublishOutput: typeof import("./getDseSolutionPublish").getDseSolutionPublishOutput = null as any;
+utilities.lazyLoad(exports, ["getDseSolutionPublish","getDseSolutionPublishOutput"], () => require("./getDseSolutionPublish"));
+
+export { GetEdgegatewayArgs, GetEdgegatewayResult, GetEdgegatewayOutputArgs } from "./getEdgegateway";
+export const getEdgegateway: typeof import("./getEdgegateway").getEdgegateway = null as any;
+export const getEdgegatewayOutput: typeof import("./getEdgegateway").getEdgegatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgegateway","getEdgegatewayOutput"], () => require("./getEdgegateway"));
+
+export { GetExternalEndpointArgs, GetExternalEndpointResult, GetExternalEndpointOutputArgs } from "./getExternalEndpoint";
+export const getExternalEndpoint: typeof import("./getExternalEndpoint").getExternalEndpoint = null as any;
+export const getExternalEndpointOutput: typeof import("./getExternalEndpoint").getExternalEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getExternalEndpoint","getExternalEndpointOutput"], () => require("./getExternalEndpoint"));
+
+export { GetExternalNetworkArgs, GetExternalNetworkResult, GetExternalNetworkOutputArgs } from "./getExternalNetwork";
+export const getExternalNetwork: typeof import("./getExternalNetwork").getExternalNetwork = null as any;
+export const getExternalNetworkOutput: typeof import("./getExternalNetwork").getExternalNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getExternalNetwork","getExternalNetworkOutput"], () => require("./getExternalNetwork"));
+
+export { GetExternalNetworkV2Args, GetExternalNetworkV2Result, GetExternalNetworkV2OutputArgs } from "./getExternalNetworkV2";
+export const getExternalNetworkV2: typeof import("./getExternalNetworkV2").getExternalNetworkV2 = null as any;
+export const getExternalNetworkV2Output: typeof import("./getExternalNetworkV2").getExternalNetworkV2Output = null as any;
+utilities.lazyLoad(exports, ["getExternalNetworkV2","getExternalNetworkV2Output"], () => require("./getExternalNetworkV2"));
+
+export { GetGlobalRoleArgs, GetGlobalRoleResult, GetGlobalRoleOutputArgs } from "./getGlobalRole";
+export const getGlobalRole: typeof import("./getGlobalRole").getGlobalRole = null as any;
+export const getGlobalRoleOutput: typeof import("./getGlobalRole").getGlobalRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalRole","getGlobalRoleOutput"], () => require("./getGlobalRole"));
+
+export { GetIndependentDiskArgs, GetIndependentDiskResult, GetIndependentDiskOutputArgs } from "./getIndependentDisk";
+export const getIndependentDisk: typeof import("./getIndependentDisk").getIndependentDisk = null as any;
+export const getIndependentDiskOutput: typeof import("./getIndependentDisk").getIndependentDiskOutput = null as any;
+utilities.lazyLoad(exports, ["getIndependentDisk","getIndependentDiskOutput"], () => require("./getIndependentDisk"));
+
+export { GetIpSpaceArgs, GetIpSpaceResult, GetIpSpaceOutputArgs } from "./getIpSpace";
+export const getIpSpace: typeof import("./getIpSpace").getIpSpace = null as any;
+export const getIpSpaceOutput: typeof import("./getIpSpace").getIpSpaceOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSpace","getIpSpaceOutput"], () => require("./getIpSpace"));
+
+export { GetIpSpaceCustomQuotaArgs, GetIpSpaceCustomQuotaResult, GetIpSpaceCustomQuotaOutputArgs } from "./getIpSpaceCustomQuota";
+export const getIpSpaceCustomQuota: typeof import("./getIpSpaceCustomQuota").getIpSpaceCustomQuota = null as any;
+export const getIpSpaceCustomQuotaOutput: typeof import("./getIpSpaceCustomQuota").getIpSpaceCustomQuotaOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSpaceCustomQuota","getIpSpaceCustomQuotaOutput"], () => require("./getIpSpaceCustomQuota"));
+
+export { GetIpSpaceIpAllocationArgs, GetIpSpaceIpAllocationResult, GetIpSpaceIpAllocationOutputArgs } from "./getIpSpaceIpAllocation";
+export const getIpSpaceIpAllocation: typeof import("./getIpSpaceIpAllocation").getIpSpaceIpAllocation = null as any;
+export const getIpSpaceIpAllocationOutput: typeof import("./getIpSpaceIpAllocation").getIpSpaceIpAllocationOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSpaceIpAllocation","getIpSpaceIpAllocationOutput"], () => require("./getIpSpaceIpAllocation"));
+
+export { GetIpSpaceUplinkArgs, GetIpSpaceUplinkResult, GetIpSpaceUplinkOutputArgs } from "./getIpSpaceUplink";
+export const getIpSpaceUplink: typeof import("./getIpSpaceUplink").getIpSpaceUplink = null as any;
+export const getIpSpaceUplinkOutput: typeof import("./getIpSpaceUplink").getIpSpaceUplinkOutput = null as any;
+utilities.lazyLoad(exports, ["getIpSpaceUplink","getIpSpaceUplinkOutput"], () => require("./getIpSpaceUplink"));
+
+export { GetLbAppProfileArgs, GetLbAppProfileResult, GetLbAppProfileOutputArgs } from "./getLbAppProfile";
+export const getLbAppProfile: typeof import("./getLbAppProfile").getLbAppProfile = null as any;
+export const getLbAppProfileOutput: typeof import("./getLbAppProfile").getLbAppProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getLbAppProfile","getLbAppProfileOutput"], () => require("./getLbAppProfile"));
+
+export { GetLbAppRuleArgs, GetLbAppRuleResult, GetLbAppRuleOutputArgs } from "./getLbAppRule";
+export const getLbAppRule: typeof import("./getLbAppRule").getLbAppRule = null as any;
+export const getLbAppRuleOutput: typeof import("./getLbAppRule").getLbAppRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getLbAppRule","getLbAppRuleOutput"], () => require("./getLbAppRule"));
+
+export { GetLbServerPoolArgs, GetLbServerPoolResult, GetLbServerPoolOutputArgs } from "./getLbServerPool";
+export const getLbServerPool: typeof import("./getLbServerPool").getLbServerPool = null as any;
+export const getLbServerPoolOutput: typeof import("./getLbServerPool").getLbServerPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getLbServerPool","getLbServerPoolOutput"], () => require("./getLbServerPool"));
+
+export { GetLbServiceMonitorArgs, GetLbServiceMonitorResult, GetLbServiceMonitorOutputArgs } from "./getLbServiceMonitor";
+export const getLbServiceMonitor: typeof import("./getLbServiceMonitor").getLbServiceMonitor = null as any;
+export const getLbServiceMonitorOutput: typeof import("./getLbServiceMonitor").getLbServiceMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getLbServiceMonitor","getLbServiceMonitorOutput"], () => require("./getLbServiceMonitor"));
+
+export { GetLbVirtualServerArgs, GetLbVirtualServerResult, GetLbVirtualServerOutputArgs } from "./getLbVirtualServer";
+export const getLbVirtualServer: typeof import("./getLbVirtualServer").getLbVirtualServer = null as any;
+export const getLbVirtualServerOutput: typeof import("./getLbVirtualServer").getLbVirtualServerOutput = null as any;
+utilities.lazyLoad(exports, ["getLbVirtualServer","getLbVirtualServerOutput"], () => require("./getLbVirtualServer"));
+
+export { GetLibraryCertificateArgs, GetLibraryCertificateResult, GetLibraryCertificateOutputArgs } from "./getLibraryCertificate";
+export const getLibraryCertificate: typeof import("./getLibraryCertificate").getLibraryCertificate = null as any;
+export const getLibraryCertificateOutput: typeof import("./getLibraryCertificate").getLibraryCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getLibraryCertificate","getLibraryCertificateOutput"], () => require("./getLibraryCertificate"));
+
+export { GetMultisiteOrgAssociationArgs, GetMultisiteOrgAssociationResult, GetMultisiteOrgAssociationOutputArgs } from "./getMultisiteOrgAssociation";
+export const getMultisiteOrgAssociation: typeof import("./getMultisiteOrgAssociation").getMultisiteOrgAssociation = null as any;
+export const getMultisiteOrgAssociationOutput: typeof import("./getMultisiteOrgAssociation").getMultisiteOrgAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getMultisiteOrgAssociation","getMultisiteOrgAssociationOutput"], () => require("./getMultisiteOrgAssociation"));
+
+export { GetMultisiteOrgDataArgs, GetMultisiteOrgDataResult, GetMultisiteOrgDataOutputArgs } from "./getMultisiteOrgData";
+export const getMultisiteOrgData: typeof import("./getMultisiteOrgData").getMultisiteOrgData = null as any;
+export const getMultisiteOrgDataOutput: typeof import("./getMultisiteOrgData").getMultisiteOrgDataOutput = null as any;
+utilities.lazyLoad(exports, ["getMultisiteOrgData","getMultisiteOrgDataOutput"], () => require("./getMultisiteOrgData"));
+
+export { GetMultisiteSiteResult } from "./getMultisiteSite";
+export const getMultisiteSite: typeof import("./getMultisiteSite").getMultisiteSite = null as any;
+export const getMultisiteSiteOutput: typeof import("./getMultisiteSite").getMultisiteSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getMultisiteSite","getMultisiteSiteOutput"], () => require("./getMultisiteSite"));
+
+export { GetMultisiteSiteAssociationArgs, GetMultisiteSiteAssociationResult, GetMultisiteSiteAssociationOutputArgs } from "./getMultisiteSiteAssociation";
+export const getMultisiteSiteAssociation: typeof import("./getMultisiteSiteAssociation").getMultisiteSiteAssociation = null as any;
+export const getMultisiteSiteAssociationOutput: typeof import("./getMultisiteSiteAssociation").getMultisiteSiteAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getMultisiteSiteAssociation","getMultisiteSiteAssociationOutput"], () => require("./getMultisiteSiteAssociation"));
+
+export { GetMultisiteSiteDataArgs, GetMultisiteSiteDataResult, GetMultisiteSiteDataOutputArgs } from "./getMultisiteSiteData";
+export const getMultisiteSiteData: typeof import("./getMultisiteSiteData").getMultisiteSiteData = null as any;
+export const getMultisiteSiteDataOutput: typeof import("./getMultisiteSiteData").getMultisiteSiteDataOutput = null as any;
+utilities.lazyLoad(exports, ["getMultisiteSiteData","getMultisiteSiteDataOutput"], () => require("./getMultisiteSiteData"));
+
+export { GetNetworkDirectArgs, GetNetworkDirectResult, GetNetworkDirectOutputArgs } from "./getNetworkDirect";
+export const getNetworkDirect: typeof import("./getNetworkDirect").getNetworkDirect = null as any;
+export const getNetworkDirectOutput: typeof import("./getNetworkDirect").getNetworkDirectOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkDirect","getNetworkDirectOutput"], () => require("./getNetworkDirect"));
+
+export { GetNetworkIsolatedArgs, GetNetworkIsolatedResult, GetNetworkIsolatedOutputArgs } from "./getNetworkIsolated";
+export const getNetworkIsolated: typeof import("./getNetworkIsolated").getNetworkIsolated = null as any;
+export const getNetworkIsolatedOutput: typeof import("./getNetworkIsolated").getNetworkIsolatedOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkIsolated","getNetworkIsolatedOutput"], () => require("./getNetworkIsolated"));
+
+export { GetNetworkIsolatedV2Args, GetNetworkIsolatedV2Result, GetNetworkIsolatedV2OutputArgs } from "./getNetworkIsolatedV2";
+export const getNetworkIsolatedV2: typeof import("./getNetworkIsolatedV2").getNetworkIsolatedV2 = null as any;
+export const getNetworkIsolatedV2Output: typeof import("./getNetworkIsolatedV2").getNetworkIsolatedV2Output = null as any;
+utilities.lazyLoad(exports, ["getNetworkIsolatedV2","getNetworkIsolatedV2Output"], () => require("./getNetworkIsolatedV2"));
+
+export { GetNetworkPoolArgs, GetNetworkPoolResult, GetNetworkPoolOutputArgs } from "./getNetworkPool";
+export const getNetworkPool: typeof import("./getNetworkPool").getNetworkPool = null as any;
+export const getNetworkPoolOutput: typeof import("./getNetworkPool").getNetworkPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkPool","getNetworkPoolOutput"], () => require("./getNetworkPool"));
+
+export { GetNetworkRoutedArgs, GetNetworkRoutedResult, GetNetworkRoutedOutputArgs } from "./getNetworkRouted";
+export const getNetworkRouted: typeof import("./getNetworkRouted").getNetworkRouted = null as any;
+export const getNetworkRoutedOutput: typeof import("./getNetworkRouted").getNetworkRoutedOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkRouted","getNetworkRoutedOutput"], () => require("./getNetworkRouted"));
+
+export { GetNetworkRoutedV2Args, GetNetworkRoutedV2Result, GetNetworkRoutedV2OutputArgs } from "./getNetworkRoutedV2";
+export const getNetworkRoutedV2: typeof import("./getNetworkRoutedV2").getNetworkRoutedV2 = null as any;
+export const getNetworkRoutedV2Output: typeof import("./getNetworkRoutedV2").getNetworkRoutedV2Output = null as any;
+utilities.lazyLoad(exports, ["getNetworkRoutedV2","getNetworkRoutedV2Output"], () => require("./getNetworkRoutedV2"));
+
+export { GetNsxtAlbCloudArgs, GetNsxtAlbCloudResult, GetNsxtAlbCloudOutputArgs } from "./getNsxtAlbCloud";
+export const getNsxtAlbCloud: typeof import("./getNsxtAlbCloud").getNsxtAlbCloud = null as any;
+export const getNsxtAlbCloudOutput: typeof import("./getNsxtAlbCloud").getNsxtAlbCloudOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbCloud","getNsxtAlbCloudOutput"], () => require("./getNsxtAlbCloud"));
+
+export { GetNsxtAlbControllerArgs, GetNsxtAlbControllerResult, GetNsxtAlbControllerOutputArgs } from "./getNsxtAlbController";
+export const getNsxtAlbController: typeof import("./getNsxtAlbController").getNsxtAlbController = null as any;
+export const getNsxtAlbControllerOutput: typeof import("./getNsxtAlbController").getNsxtAlbControllerOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbController","getNsxtAlbControllerOutput"], () => require("./getNsxtAlbController"));
+
+export { GetNsxtAlbEdgegatewayServiceEngineGroupArgs, GetNsxtAlbEdgegatewayServiceEngineGroupResult, GetNsxtAlbEdgegatewayServiceEngineGroupOutputArgs } from "./getNsxtAlbEdgegatewayServiceEngineGroup";
+export const getNsxtAlbEdgegatewayServiceEngineGroup: typeof import("./getNsxtAlbEdgegatewayServiceEngineGroup").getNsxtAlbEdgegatewayServiceEngineGroup = null as any;
+export const getNsxtAlbEdgegatewayServiceEngineGroupOutput: typeof import("./getNsxtAlbEdgegatewayServiceEngineGroup").getNsxtAlbEdgegatewayServiceEngineGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbEdgegatewayServiceEngineGroup","getNsxtAlbEdgegatewayServiceEngineGroupOutput"], () => require("./getNsxtAlbEdgegatewayServiceEngineGroup"));
+
+export { GetNsxtAlbImportableCloudArgs, GetNsxtAlbImportableCloudResult, GetNsxtAlbImportableCloudOutputArgs } from "./getNsxtAlbImportableCloud";
+export const getNsxtAlbImportableCloud: typeof import("./getNsxtAlbImportableCloud").getNsxtAlbImportableCloud = null as any;
+export const getNsxtAlbImportableCloudOutput: typeof import("./getNsxtAlbImportableCloud").getNsxtAlbImportableCloudOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbImportableCloud","getNsxtAlbImportableCloudOutput"], () => require("./getNsxtAlbImportableCloud"));
+
+export { GetNsxtAlbPoolArgs, GetNsxtAlbPoolResult, GetNsxtAlbPoolOutputArgs } from "./getNsxtAlbPool";
+export const getNsxtAlbPool: typeof import("./getNsxtAlbPool").getNsxtAlbPool = null as any;
+export const getNsxtAlbPoolOutput: typeof import("./getNsxtAlbPool").getNsxtAlbPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbPool","getNsxtAlbPoolOutput"], () => require("./getNsxtAlbPool"));
+
+export { GetNsxtAlbServiceEngineGroupArgs, GetNsxtAlbServiceEngineGroupResult, GetNsxtAlbServiceEngineGroupOutputArgs } from "./getNsxtAlbServiceEngineGroup";
+export const getNsxtAlbServiceEngineGroup: typeof import("./getNsxtAlbServiceEngineGroup").getNsxtAlbServiceEngineGroup = null as any;
+export const getNsxtAlbServiceEngineGroupOutput: typeof import("./getNsxtAlbServiceEngineGroup").getNsxtAlbServiceEngineGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbServiceEngineGroup","getNsxtAlbServiceEngineGroupOutput"], () => require("./getNsxtAlbServiceEngineGroup"));
+
+export { GetNsxtAlbSettingsArgs, GetNsxtAlbSettingsResult, GetNsxtAlbSettingsOutputArgs } from "./getNsxtAlbSettings";
+export const getNsxtAlbSettings: typeof import("./getNsxtAlbSettings").getNsxtAlbSettings = null as any;
+export const getNsxtAlbSettingsOutput: typeof import("./getNsxtAlbSettings").getNsxtAlbSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbSettings","getNsxtAlbSettingsOutput"], () => require("./getNsxtAlbSettings"));
+
+export { GetNsxtAlbVirtualServiceArgs, GetNsxtAlbVirtualServiceResult, GetNsxtAlbVirtualServiceOutputArgs } from "./getNsxtAlbVirtualService";
+export const getNsxtAlbVirtualService: typeof import("./getNsxtAlbVirtualService").getNsxtAlbVirtualService = null as any;
+export const getNsxtAlbVirtualServiceOutput: typeof import("./getNsxtAlbVirtualService").getNsxtAlbVirtualServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbVirtualService","getNsxtAlbVirtualServiceOutput"], () => require("./getNsxtAlbVirtualService"));
+
+export { GetNsxtAlbVirtualServiceHttpReqRulesArgs, GetNsxtAlbVirtualServiceHttpReqRulesResult, GetNsxtAlbVirtualServiceHttpReqRulesOutputArgs } from "./getNsxtAlbVirtualServiceHttpReqRules";
+export const getNsxtAlbVirtualServiceHttpReqRules: typeof import("./getNsxtAlbVirtualServiceHttpReqRules").getNsxtAlbVirtualServiceHttpReqRules = null as any;
+export const getNsxtAlbVirtualServiceHttpReqRulesOutput: typeof import("./getNsxtAlbVirtualServiceHttpReqRules").getNsxtAlbVirtualServiceHttpReqRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbVirtualServiceHttpReqRules","getNsxtAlbVirtualServiceHttpReqRulesOutput"], () => require("./getNsxtAlbVirtualServiceHttpReqRules"));
+
+export { GetNsxtAlbVirtualServiceHttpRespRulesArgs, GetNsxtAlbVirtualServiceHttpRespRulesResult, GetNsxtAlbVirtualServiceHttpRespRulesOutputArgs } from "./getNsxtAlbVirtualServiceHttpRespRules";
+export const getNsxtAlbVirtualServiceHttpRespRules: typeof import("./getNsxtAlbVirtualServiceHttpRespRules").getNsxtAlbVirtualServiceHttpRespRules = null as any;
+export const getNsxtAlbVirtualServiceHttpRespRulesOutput: typeof import("./getNsxtAlbVirtualServiceHttpRespRules").getNsxtAlbVirtualServiceHttpRespRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbVirtualServiceHttpRespRules","getNsxtAlbVirtualServiceHttpRespRulesOutput"], () => require("./getNsxtAlbVirtualServiceHttpRespRules"));
+
+export { GetNsxtAlbVirtualServiceHttpSecRulesArgs, GetNsxtAlbVirtualServiceHttpSecRulesResult, GetNsxtAlbVirtualServiceHttpSecRulesOutputArgs } from "./getNsxtAlbVirtualServiceHttpSecRules";
+export const getNsxtAlbVirtualServiceHttpSecRules: typeof import("./getNsxtAlbVirtualServiceHttpSecRules").getNsxtAlbVirtualServiceHttpSecRules = null as any;
+export const getNsxtAlbVirtualServiceHttpSecRulesOutput: typeof import("./getNsxtAlbVirtualServiceHttpSecRules").getNsxtAlbVirtualServiceHttpSecRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAlbVirtualServiceHttpSecRules","getNsxtAlbVirtualServiceHttpSecRulesOutput"], () => require("./getNsxtAlbVirtualServiceHttpSecRules"));
+
+export { GetNsxtAppPortProfileArgs, GetNsxtAppPortProfileResult, GetNsxtAppPortProfileOutputArgs } from "./getNsxtAppPortProfile";
+export const getNsxtAppPortProfile: typeof import("./getNsxtAppPortProfile").getNsxtAppPortProfile = null as any;
+export const getNsxtAppPortProfileOutput: typeof import("./getNsxtAppPortProfile").getNsxtAppPortProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtAppPortProfile","getNsxtAppPortProfileOutput"], () => require("./getNsxtAppPortProfile"));
+
+export { GetNsxtDistributedFirewallArgs, GetNsxtDistributedFirewallResult, GetNsxtDistributedFirewallOutputArgs } from "./getNsxtDistributedFirewall";
+export const getNsxtDistributedFirewall: typeof import("./getNsxtDistributedFirewall").getNsxtDistributedFirewall = null as any;
+export const getNsxtDistributedFirewallOutput: typeof import("./getNsxtDistributedFirewall").getNsxtDistributedFirewallOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtDistributedFirewall","getNsxtDistributedFirewallOutput"], () => require("./getNsxtDistributedFirewall"));
+
+export { GetNsxtDistributedFirewallRuleArgs, GetNsxtDistributedFirewallRuleResult, GetNsxtDistributedFirewallRuleOutputArgs } from "./getNsxtDistributedFirewallRule";
+export const getNsxtDistributedFirewallRule: typeof import("./getNsxtDistributedFirewallRule").getNsxtDistributedFirewallRule = null as any;
+export const getNsxtDistributedFirewallRuleOutput: typeof import("./getNsxtDistributedFirewallRule").getNsxtDistributedFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtDistributedFirewallRule","getNsxtDistributedFirewallRuleOutput"], () => require("./getNsxtDistributedFirewallRule"));
+
+export { GetNsxtDynamicSecurityGroupArgs, GetNsxtDynamicSecurityGroupResult, GetNsxtDynamicSecurityGroupOutputArgs } from "./getNsxtDynamicSecurityGroup";
+export const getNsxtDynamicSecurityGroup: typeof import("./getNsxtDynamicSecurityGroup").getNsxtDynamicSecurityGroup = null as any;
+export const getNsxtDynamicSecurityGroupOutput: typeof import("./getNsxtDynamicSecurityGroup").getNsxtDynamicSecurityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtDynamicSecurityGroup","getNsxtDynamicSecurityGroupOutput"], () => require("./getNsxtDynamicSecurityGroup"));
+
+export { GetNsxtEdgeClusterArgs, GetNsxtEdgeClusterResult, GetNsxtEdgeClusterOutputArgs } from "./getNsxtEdgeCluster";
+export const getNsxtEdgeCluster: typeof import("./getNsxtEdgeCluster").getNsxtEdgeCluster = null as any;
+export const getNsxtEdgeClusterOutput: typeof import("./getNsxtEdgeCluster").getNsxtEdgeClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgeCluster","getNsxtEdgeClusterOutput"], () => require("./getNsxtEdgeCluster"));
+
+export { GetNsxtEdgegatewayArgs, GetNsxtEdgegatewayResult, GetNsxtEdgegatewayOutputArgs } from "./getNsxtEdgegateway";
+export const getNsxtEdgegateway: typeof import("./getNsxtEdgegateway").getNsxtEdgegateway = null as any;
+export const getNsxtEdgegatewayOutput: typeof import("./getNsxtEdgegateway").getNsxtEdgegatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegateway","getNsxtEdgegatewayOutput"], () => require("./getNsxtEdgegateway"));
+
+export { GetNsxtEdgegatewayBgpConfigurationArgs, GetNsxtEdgegatewayBgpConfigurationResult, GetNsxtEdgegatewayBgpConfigurationOutputArgs } from "./getNsxtEdgegatewayBgpConfiguration";
+export const getNsxtEdgegatewayBgpConfiguration: typeof import("./getNsxtEdgegatewayBgpConfiguration").getNsxtEdgegatewayBgpConfiguration = null as any;
+export const getNsxtEdgegatewayBgpConfigurationOutput: typeof import("./getNsxtEdgegatewayBgpConfiguration").getNsxtEdgegatewayBgpConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayBgpConfiguration","getNsxtEdgegatewayBgpConfigurationOutput"], () => require("./getNsxtEdgegatewayBgpConfiguration"));
+
+export { GetNsxtEdgegatewayBgpIpPrefixListArgs, GetNsxtEdgegatewayBgpIpPrefixListResult, GetNsxtEdgegatewayBgpIpPrefixListOutputArgs } from "./getNsxtEdgegatewayBgpIpPrefixList";
+export const getNsxtEdgegatewayBgpIpPrefixList: typeof import("./getNsxtEdgegatewayBgpIpPrefixList").getNsxtEdgegatewayBgpIpPrefixList = null as any;
+export const getNsxtEdgegatewayBgpIpPrefixListOutput: typeof import("./getNsxtEdgegatewayBgpIpPrefixList").getNsxtEdgegatewayBgpIpPrefixListOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayBgpIpPrefixList","getNsxtEdgegatewayBgpIpPrefixListOutput"], () => require("./getNsxtEdgegatewayBgpIpPrefixList"));
+
+export { GetNsxtEdgegatewayBgpNeighborArgs, GetNsxtEdgegatewayBgpNeighborResult, GetNsxtEdgegatewayBgpNeighborOutputArgs } from "./getNsxtEdgegatewayBgpNeighbor";
+export const getNsxtEdgegatewayBgpNeighbor: typeof import("./getNsxtEdgegatewayBgpNeighbor").getNsxtEdgegatewayBgpNeighbor = null as any;
+export const getNsxtEdgegatewayBgpNeighborOutput: typeof import("./getNsxtEdgegatewayBgpNeighbor").getNsxtEdgegatewayBgpNeighborOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayBgpNeighbor","getNsxtEdgegatewayBgpNeighborOutput"], () => require("./getNsxtEdgegatewayBgpNeighbor"));
+
+export { GetNsxtEdgegatewayDhcpForwardingArgs, GetNsxtEdgegatewayDhcpForwardingResult, GetNsxtEdgegatewayDhcpForwardingOutputArgs } from "./getNsxtEdgegatewayDhcpForwarding";
+export const getNsxtEdgegatewayDhcpForwarding: typeof import("./getNsxtEdgegatewayDhcpForwarding").getNsxtEdgegatewayDhcpForwarding = null as any;
+export const getNsxtEdgegatewayDhcpForwardingOutput: typeof import("./getNsxtEdgegatewayDhcpForwarding").getNsxtEdgegatewayDhcpForwardingOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayDhcpForwarding","getNsxtEdgegatewayDhcpForwardingOutput"], () => require("./getNsxtEdgegatewayDhcpForwarding"));
+
+export { GetNsxtEdgegatewayDhcpv6Args, GetNsxtEdgegatewayDhcpv6Result, GetNsxtEdgegatewayDhcpv6OutputArgs } from "./getNsxtEdgegatewayDhcpv6";
+export const getNsxtEdgegatewayDhcpv6: typeof import("./getNsxtEdgegatewayDhcpv6").getNsxtEdgegatewayDhcpv6 = null as any;
+export const getNsxtEdgegatewayDhcpv6Output: typeof import("./getNsxtEdgegatewayDhcpv6").getNsxtEdgegatewayDhcpv6Output = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayDhcpv6","getNsxtEdgegatewayDhcpv6Output"], () => require("./getNsxtEdgegatewayDhcpv6"));
+
+export { GetNsxtEdgegatewayDnsArgs, GetNsxtEdgegatewayDnsResult, GetNsxtEdgegatewayDnsOutputArgs } from "./getNsxtEdgegatewayDns";
+export const getNsxtEdgegatewayDns: typeof import("./getNsxtEdgegatewayDns").getNsxtEdgegatewayDns = null as any;
+export const getNsxtEdgegatewayDnsOutput: typeof import("./getNsxtEdgegatewayDns").getNsxtEdgegatewayDnsOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayDns","getNsxtEdgegatewayDnsOutput"], () => require("./getNsxtEdgegatewayDns"));
+
+export { GetNsxtEdgegatewayL2VpnTunnelArgs, GetNsxtEdgegatewayL2VpnTunnelResult, GetNsxtEdgegatewayL2VpnTunnelOutputArgs } from "./getNsxtEdgegatewayL2VpnTunnel";
+export const getNsxtEdgegatewayL2VpnTunnel: typeof import("./getNsxtEdgegatewayL2VpnTunnel").getNsxtEdgegatewayL2VpnTunnel = null as any;
+export const getNsxtEdgegatewayL2VpnTunnelOutput: typeof import("./getNsxtEdgegatewayL2VpnTunnel").getNsxtEdgegatewayL2VpnTunnelOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayL2VpnTunnel","getNsxtEdgegatewayL2VpnTunnelOutput"], () => require("./getNsxtEdgegatewayL2VpnTunnel"));
+
+export { GetNsxtEdgegatewayQosProfileArgs, GetNsxtEdgegatewayQosProfileResult, GetNsxtEdgegatewayQosProfileOutputArgs } from "./getNsxtEdgegatewayQosProfile";
+export const getNsxtEdgegatewayQosProfile: typeof import("./getNsxtEdgegatewayQosProfile").getNsxtEdgegatewayQosProfile = null as any;
+export const getNsxtEdgegatewayQosProfileOutput: typeof import("./getNsxtEdgegatewayQosProfile").getNsxtEdgegatewayQosProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayQosProfile","getNsxtEdgegatewayQosProfileOutput"], () => require("./getNsxtEdgegatewayQosProfile"));
+
+export { GetNsxtEdgegatewayRateLimitingArgs, GetNsxtEdgegatewayRateLimitingResult, GetNsxtEdgegatewayRateLimitingOutputArgs } from "./getNsxtEdgegatewayRateLimiting";
+export const getNsxtEdgegatewayRateLimiting: typeof import("./getNsxtEdgegatewayRateLimiting").getNsxtEdgegatewayRateLimiting = null as any;
+export const getNsxtEdgegatewayRateLimitingOutput: typeof import("./getNsxtEdgegatewayRateLimiting").getNsxtEdgegatewayRateLimitingOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayRateLimiting","getNsxtEdgegatewayRateLimitingOutput"], () => require("./getNsxtEdgegatewayRateLimiting"));
+
+export { GetNsxtEdgegatewayStaticRouteArgs, GetNsxtEdgegatewayStaticRouteResult, GetNsxtEdgegatewayStaticRouteOutputArgs } from "./getNsxtEdgegatewayStaticRoute";
+export const getNsxtEdgegatewayStaticRoute: typeof import("./getNsxtEdgegatewayStaticRoute").getNsxtEdgegatewayStaticRoute = null as any;
+export const getNsxtEdgegatewayStaticRouteOutput: typeof import("./getNsxtEdgegatewayStaticRoute").getNsxtEdgegatewayStaticRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtEdgegatewayStaticRoute","getNsxtEdgegatewayStaticRouteOutput"], () => require("./getNsxtEdgegatewayStaticRoute"));
+
+export { GetNsxtFirewallArgs, GetNsxtFirewallResult, GetNsxtFirewallOutputArgs } from "./getNsxtFirewall";
+export const getNsxtFirewall: typeof import("./getNsxtFirewall").getNsxtFirewall = null as any;
+export const getNsxtFirewallOutput: typeof import("./getNsxtFirewall").getNsxtFirewallOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtFirewall","getNsxtFirewallOutput"], () => require("./getNsxtFirewall"));
+
+export { GetNsxtGlobalDefaultSegmentProfileTemplateResult } from "./getNsxtGlobalDefaultSegmentProfileTemplate";
+export const getNsxtGlobalDefaultSegmentProfileTemplate: typeof import("./getNsxtGlobalDefaultSegmentProfileTemplate").getNsxtGlobalDefaultSegmentProfileTemplate = null as any;
+export const getNsxtGlobalDefaultSegmentProfileTemplateOutput: typeof import("./getNsxtGlobalDefaultSegmentProfileTemplate").getNsxtGlobalDefaultSegmentProfileTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtGlobalDefaultSegmentProfileTemplate","getNsxtGlobalDefaultSegmentProfileTemplateOutput"], () => require("./getNsxtGlobalDefaultSegmentProfileTemplate"));
+
+export { GetNsxtIpSetArgs, GetNsxtIpSetResult, GetNsxtIpSetOutputArgs } from "./getNsxtIpSet";
+export const getNsxtIpSet: typeof import("./getNsxtIpSet").getNsxtIpSet = null as any;
+export const getNsxtIpSetOutput: typeof import("./getNsxtIpSet").getNsxtIpSetOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtIpSet","getNsxtIpSetOutput"], () => require("./getNsxtIpSet"));
+
+export { GetNsxtIpsecVpnTunnelArgs, GetNsxtIpsecVpnTunnelResult, GetNsxtIpsecVpnTunnelOutputArgs } from "./getNsxtIpsecVpnTunnel";
+export const getNsxtIpsecVpnTunnel: typeof import("./getNsxtIpsecVpnTunnel").getNsxtIpsecVpnTunnel = null as any;
+export const getNsxtIpsecVpnTunnelOutput: typeof import("./getNsxtIpsecVpnTunnel").getNsxtIpsecVpnTunnelOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtIpsecVpnTunnel","getNsxtIpsecVpnTunnelOutput"], () => require("./getNsxtIpsecVpnTunnel"));
+
+export { GetNsxtManagerArgs, GetNsxtManagerResult, GetNsxtManagerOutputArgs } from "./getNsxtManager";
+export const getNsxtManager: typeof import("./getNsxtManager").getNsxtManager = null as any;
+export const getNsxtManagerOutput: typeof import("./getNsxtManager").getNsxtManagerOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtManager","getNsxtManagerOutput"], () => require("./getNsxtManager"));
+
+export { GetNsxtNatRuleArgs, GetNsxtNatRuleResult, GetNsxtNatRuleOutputArgs } from "./getNsxtNatRule";
+export const getNsxtNatRule: typeof import("./getNsxtNatRule").getNsxtNatRule = null as any;
+export const getNsxtNatRuleOutput: typeof import("./getNsxtNatRule").getNsxtNatRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtNatRule","getNsxtNatRuleOutput"], () => require("./getNsxtNatRule"));
+
+export { GetNsxtNetworkContextProfileArgs, GetNsxtNetworkContextProfileResult, GetNsxtNetworkContextProfileOutputArgs } from "./getNsxtNetworkContextProfile";
+export const getNsxtNetworkContextProfile: typeof import("./getNsxtNetworkContextProfile").getNsxtNetworkContextProfile = null as any;
+export const getNsxtNetworkContextProfileOutput: typeof import("./getNsxtNetworkContextProfile").getNsxtNetworkContextProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtNetworkContextProfile","getNsxtNetworkContextProfileOutput"], () => require("./getNsxtNetworkContextProfile"));
+
+export { GetNsxtNetworkDhcpArgs, GetNsxtNetworkDhcpResult, GetNsxtNetworkDhcpOutputArgs } from "./getNsxtNetworkDhcp";
+export const getNsxtNetworkDhcp: typeof import("./getNsxtNetworkDhcp").getNsxtNetworkDhcp = null as any;
+export const getNsxtNetworkDhcpOutput: typeof import("./getNsxtNetworkDhcp").getNsxtNetworkDhcpOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtNetworkDhcp","getNsxtNetworkDhcpOutput"], () => require("./getNsxtNetworkDhcp"));
+
+export { GetNsxtNetworkDhcpBindingArgs, GetNsxtNetworkDhcpBindingResult, GetNsxtNetworkDhcpBindingOutputArgs } from "./getNsxtNetworkDhcpBinding";
+export const getNsxtNetworkDhcpBinding: typeof import("./getNsxtNetworkDhcpBinding").getNsxtNetworkDhcpBinding = null as any;
+export const getNsxtNetworkDhcpBindingOutput: typeof import("./getNsxtNetworkDhcpBinding").getNsxtNetworkDhcpBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtNetworkDhcpBinding","getNsxtNetworkDhcpBindingOutput"], () => require("./getNsxtNetworkDhcpBinding"));
+
+export { GetNsxtNetworkImportedArgs, GetNsxtNetworkImportedResult, GetNsxtNetworkImportedOutputArgs } from "./getNsxtNetworkImported";
+export const getNsxtNetworkImported: typeof import("./getNsxtNetworkImported").getNsxtNetworkImported = null as any;
+export const getNsxtNetworkImportedOutput: typeof import("./getNsxtNetworkImported").getNsxtNetworkImportedOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtNetworkImported","getNsxtNetworkImportedOutput"], () => require("./getNsxtNetworkImported"));
+
+export { GetNsxtNetworkSegmentProfileArgs, GetNsxtNetworkSegmentProfileResult, GetNsxtNetworkSegmentProfileOutputArgs } from "./getNsxtNetworkSegmentProfile";
+export const getNsxtNetworkSegmentProfile: typeof import("./getNsxtNetworkSegmentProfile").getNsxtNetworkSegmentProfile = null as any;
+export const getNsxtNetworkSegmentProfileOutput: typeof import("./getNsxtNetworkSegmentProfile").getNsxtNetworkSegmentProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtNetworkSegmentProfile","getNsxtNetworkSegmentProfileOutput"], () => require("./getNsxtNetworkSegmentProfile"));
+
+export { GetNsxtRouteAdvertisementArgs, GetNsxtRouteAdvertisementResult, GetNsxtRouteAdvertisementOutputArgs } from "./getNsxtRouteAdvertisement";
+export const getNsxtRouteAdvertisement: typeof import("./getNsxtRouteAdvertisement").getNsxtRouteAdvertisement = null as any;
+export const getNsxtRouteAdvertisementOutput: typeof import("./getNsxtRouteAdvertisement").getNsxtRouteAdvertisementOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtRouteAdvertisement","getNsxtRouteAdvertisementOutput"], () => require("./getNsxtRouteAdvertisement"));
+
+export { GetNsxtSecurityGroupArgs, GetNsxtSecurityGroupResult, GetNsxtSecurityGroupOutputArgs } from "./getNsxtSecurityGroup";
+export const getNsxtSecurityGroup: typeof import("./getNsxtSecurityGroup").getNsxtSecurityGroup = null as any;
+export const getNsxtSecurityGroupOutput: typeof import("./getNsxtSecurityGroup").getNsxtSecurityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSecurityGroup","getNsxtSecurityGroupOutput"], () => require("./getNsxtSecurityGroup"));
+
+export { GetNsxtSegmentIpDiscoveryProfileArgs, GetNsxtSegmentIpDiscoveryProfileResult, GetNsxtSegmentIpDiscoveryProfileOutputArgs } from "./getNsxtSegmentIpDiscoveryProfile";
+export const getNsxtSegmentIpDiscoveryProfile: typeof import("./getNsxtSegmentIpDiscoveryProfile").getNsxtSegmentIpDiscoveryProfile = null as any;
+export const getNsxtSegmentIpDiscoveryProfileOutput: typeof import("./getNsxtSegmentIpDiscoveryProfile").getNsxtSegmentIpDiscoveryProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSegmentIpDiscoveryProfile","getNsxtSegmentIpDiscoveryProfileOutput"], () => require("./getNsxtSegmentIpDiscoveryProfile"));
+
+export { GetNsxtSegmentMacDiscoveryProfileArgs, GetNsxtSegmentMacDiscoveryProfileResult, GetNsxtSegmentMacDiscoveryProfileOutputArgs } from "./getNsxtSegmentMacDiscoveryProfile";
+export const getNsxtSegmentMacDiscoveryProfile: typeof import("./getNsxtSegmentMacDiscoveryProfile").getNsxtSegmentMacDiscoveryProfile = null as any;
+export const getNsxtSegmentMacDiscoveryProfileOutput: typeof import("./getNsxtSegmentMacDiscoveryProfile").getNsxtSegmentMacDiscoveryProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSegmentMacDiscoveryProfile","getNsxtSegmentMacDiscoveryProfileOutput"], () => require("./getNsxtSegmentMacDiscoveryProfile"));
+
+export { GetNsxtSegmentProfileTemplateArgs, GetNsxtSegmentProfileTemplateResult, GetNsxtSegmentProfileTemplateOutputArgs } from "./getNsxtSegmentProfileTemplate";
+export const getNsxtSegmentProfileTemplate: typeof import("./getNsxtSegmentProfileTemplate").getNsxtSegmentProfileTemplate = null as any;
+export const getNsxtSegmentProfileTemplateOutput: typeof import("./getNsxtSegmentProfileTemplate").getNsxtSegmentProfileTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSegmentProfileTemplate","getNsxtSegmentProfileTemplateOutput"], () => require("./getNsxtSegmentProfileTemplate"));
+
+export { GetNsxtSegmentQosProfileArgs, GetNsxtSegmentQosProfileResult, GetNsxtSegmentQosProfileOutputArgs } from "./getNsxtSegmentQosProfile";
+export const getNsxtSegmentQosProfile: typeof import("./getNsxtSegmentQosProfile").getNsxtSegmentQosProfile = null as any;
+export const getNsxtSegmentQosProfileOutput: typeof import("./getNsxtSegmentQosProfile").getNsxtSegmentQosProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSegmentQosProfile","getNsxtSegmentQosProfileOutput"], () => require("./getNsxtSegmentQosProfile"));
+
+export { GetNsxtSegmentSecurityProfileArgs, GetNsxtSegmentSecurityProfileResult, GetNsxtSegmentSecurityProfileOutputArgs } from "./getNsxtSegmentSecurityProfile";
+export const getNsxtSegmentSecurityProfile: typeof import("./getNsxtSegmentSecurityProfile").getNsxtSegmentSecurityProfile = null as any;
+export const getNsxtSegmentSecurityProfileOutput: typeof import("./getNsxtSegmentSecurityProfile").getNsxtSegmentSecurityProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSegmentSecurityProfile","getNsxtSegmentSecurityProfileOutput"], () => require("./getNsxtSegmentSecurityProfile"));
+
+export { GetNsxtSegmentSpoofGuardProfileArgs, GetNsxtSegmentSpoofGuardProfileResult, GetNsxtSegmentSpoofGuardProfileOutputArgs } from "./getNsxtSegmentSpoofGuardProfile";
+export const getNsxtSegmentSpoofGuardProfile: typeof import("./getNsxtSegmentSpoofGuardProfile").getNsxtSegmentSpoofGuardProfile = null as any;
+export const getNsxtSegmentSpoofGuardProfileOutput: typeof import("./getNsxtSegmentSpoofGuardProfile").getNsxtSegmentSpoofGuardProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtSegmentSpoofGuardProfile","getNsxtSegmentSpoofGuardProfileOutput"], () => require("./getNsxtSegmentSpoofGuardProfile"));
+
+export { GetNsxtTier0RouterArgs, GetNsxtTier0RouterResult, GetNsxtTier0RouterOutputArgs } from "./getNsxtTier0Router";
+export const getNsxtTier0Router: typeof import("./getNsxtTier0Router").getNsxtTier0Router = null as any;
+export const getNsxtTier0RouterOutput: typeof import("./getNsxtTier0Router").getNsxtTier0RouterOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtTier0Router","getNsxtTier0RouterOutput"], () => require("./getNsxtTier0Router"));
+
+export { GetNsxtTier0RouterInterfaceArgs, GetNsxtTier0RouterInterfaceResult, GetNsxtTier0RouterInterfaceOutputArgs } from "./getNsxtTier0RouterInterface";
+export const getNsxtTier0RouterInterface: typeof import("./getNsxtTier0RouterInterface").getNsxtTier0RouterInterface = null as any;
+export const getNsxtTier0RouterInterfaceOutput: typeof import("./getNsxtTier0RouterInterface").getNsxtTier0RouterInterfaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxtTier0RouterInterface","getNsxtTier0RouterInterfaceOutput"], () => require("./getNsxtTier0RouterInterface"));
+
+export { GetNsxvApplicationArgs, GetNsxvApplicationResult, GetNsxvApplicationOutputArgs } from "./getNsxvApplication";
+export const getNsxvApplication: typeof import("./getNsxvApplication").getNsxvApplication = null as any;
+export const getNsxvApplicationOutput: typeof import("./getNsxvApplication").getNsxvApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvApplication","getNsxvApplicationOutput"], () => require("./getNsxvApplication"));
+
+export { GetNsxvApplicationFinderArgs, GetNsxvApplicationFinderResult, GetNsxvApplicationFinderOutputArgs } from "./getNsxvApplicationFinder";
+export const getNsxvApplicationFinder: typeof import("./getNsxvApplicationFinder").getNsxvApplicationFinder = null as any;
+export const getNsxvApplicationFinderOutput: typeof import("./getNsxvApplicationFinder").getNsxvApplicationFinderOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvApplicationFinder","getNsxvApplicationFinderOutput"], () => require("./getNsxvApplicationFinder"));
+
+export { GetNsxvApplicationGroupArgs, GetNsxvApplicationGroupResult, GetNsxvApplicationGroupOutputArgs } from "./getNsxvApplicationGroup";
+export const getNsxvApplicationGroup: typeof import("./getNsxvApplicationGroup").getNsxvApplicationGroup = null as any;
+export const getNsxvApplicationGroupOutput: typeof import("./getNsxvApplicationGroup").getNsxvApplicationGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvApplicationGroup","getNsxvApplicationGroupOutput"], () => require("./getNsxvApplicationGroup"));
+
+export { GetNsxvDhcpRelayArgs, GetNsxvDhcpRelayResult, GetNsxvDhcpRelayOutputArgs } from "./getNsxvDhcpRelay";
+export const getNsxvDhcpRelay: typeof import("./getNsxvDhcpRelay").getNsxvDhcpRelay = null as any;
+export const getNsxvDhcpRelayOutput: typeof import("./getNsxvDhcpRelay").getNsxvDhcpRelayOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvDhcpRelay","getNsxvDhcpRelayOutput"], () => require("./getNsxvDhcpRelay"));
+
+export { GetNsxvDistributedFirewallArgs, GetNsxvDistributedFirewallResult, GetNsxvDistributedFirewallOutputArgs } from "./getNsxvDistributedFirewall";
+export const getNsxvDistributedFirewall: typeof import("./getNsxvDistributedFirewall").getNsxvDistributedFirewall = null as any;
+export const getNsxvDistributedFirewallOutput: typeof import("./getNsxvDistributedFirewall").getNsxvDistributedFirewallOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvDistributedFirewall","getNsxvDistributedFirewallOutput"], () => require("./getNsxvDistributedFirewall"));
+
+export { GetNsxvDnatArgs, GetNsxvDnatResult, GetNsxvDnatOutputArgs } from "./getNsxvDnat";
+export const getNsxvDnat: typeof import("./getNsxvDnat").getNsxvDnat = null as any;
+export const getNsxvDnatOutput: typeof import("./getNsxvDnat").getNsxvDnatOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvDnat","getNsxvDnatOutput"], () => require("./getNsxvDnat"));
+
+export { GetNsxvFirewallRuleArgs, GetNsxvFirewallRuleResult, GetNsxvFirewallRuleOutputArgs } from "./getNsxvFirewallRule";
+export const getNsxvFirewallRule: typeof import("./getNsxvFirewallRule").getNsxvFirewallRule = null as any;
+export const getNsxvFirewallRuleOutput: typeof import("./getNsxvFirewallRule").getNsxvFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvFirewallRule","getNsxvFirewallRuleOutput"], () => require("./getNsxvFirewallRule"));
+
+export { GetNsxvIpSetArgs, GetNsxvIpSetResult, GetNsxvIpSetOutputArgs } from "./getNsxvIpSet";
+export const getNsxvIpSet: typeof import("./getNsxvIpSet").getNsxvIpSet = null as any;
+export const getNsxvIpSetOutput: typeof import("./getNsxvIpSet").getNsxvIpSetOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvIpSet","getNsxvIpSetOutput"], () => require("./getNsxvIpSet"));
+
+export { GetNsxvSnatArgs, GetNsxvSnatResult, GetNsxvSnatOutputArgs } from "./getNsxvSnat";
+export const getNsxvSnat: typeof import("./getNsxvSnat").getNsxvSnat = null as any;
+export const getNsxvSnatOutput: typeof import("./getNsxvSnat").getNsxvSnatOutput = null as any;
+utilities.lazyLoad(exports, ["getNsxvSnat","getNsxvSnatOutput"], () => require("./getNsxvSnat"));
+
+export { GetOrgArgs, GetOrgResult, GetOrgOutputArgs } from "./getOrg";
+export const getOrg: typeof import("./getOrg").getOrg = null as any;
+export const getOrgOutput: typeof import("./getOrg").getOrgOutput = null as any;
+utilities.lazyLoad(exports, ["getOrg","getOrgOutput"], () => require("./getOrg"));
+
+export { GetOrgGroupArgs, GetOrgGroupResult, GetOrgGroupOutputArgs } from "./getOrgGroup";
+export const getOrgGroup: typeof import("./getOrgGroup").getOrgGroup = null as any;
+export const getOrgGroupOutput: typeof import("./getOrgGroup").getOrgGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgGroup","getOrgGroupOutput"], () => require("./getOrgGroup"));
+
+export { GetOrgLdapArgs, GetOrgLdapResult, GetOrgLdapOutputArgs } from "./getOrgLdap";
+export const getOrgLdap: typeof import("./getOrgLdap").getOrgLdap = null as any;
+export const getOrgLdapOutput: typeof import("./getOrgLdap").getOrgLdapOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgLdap","getOrgLdapOutput"], () => require("./getOrgLdap"));
+
+export { GetOrgOidcArgs, GetOrgOidcResult, GetOrgOidcOutputArgs } from "./getOrgOidc";
+export const getOrgOidc: typeof import("./getOrgOidc").getOrgOidc = null as any;
+export const getOrgOidcOutput: typeof import("./getOrgOidc").getOrgOidcOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgOidc","getOrgOidcOutput"], () => require("./getOrgOidc"));
+
+export { GetOrgSamlArgs, GetOrgSamlResult, GetOrgSamlOutputArgs } from "./getOrgSaml";
+export const getOrgSaml: typeof import("./getOrgSaml").getOrgSaml = null as any;
+export const getOrgSamlOutput: typeof import("./getOrgSaml").getOrgSamlOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgSaml","getOrgSamlOutput"], () => require("./getOrgSaml"));
+
+export { GetOrgSamlMetadataArgs, GetOrgSamlMetadataResult, GetOrgSamlMetadataOutputArgs } from "./getOrgSamlMetadata";
+export const getOrgSamlMetadata: typeof import("./getOrgSamlMetadata").getOrgSamlMetadata = null as any;
+export const getOrgSamlMetadataOutput: typeof import("./getOrgSamlMetadata").getOrgSamlMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgSamlMetadata","getOrgSamlMetadataOutput"], () => require("./getOrgSamlMetadata"));
+
+export { GetOrgUserArgs, GetOrgUserResult, GetOrgUserOutputArgs } from "./getOrgUser";
+export const getOrgUser: typeof import("./getOrgUser").getOrgUser = null as any;
+export const getOrgUserOutput: typeof import("./getOrgUser").getOrgUserOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgUser","getOrgUserOutput"], () => require("./getOrgUser"));
+
+export { GetOrgVdcArgs, GetOrgVdcResult, GetOrgVdcOutputArgs } from "./getOrgVdc";
+export const getOrgVdc: typeof import("./getOrgVdc").getOrgVdc = null as any;
+export const getOrgVdcOutput: typeof import("./getOrgVdc").getOrgVdcOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgVdc","getOrgVdcOutput"], () => require("./getOrgVdc"));
+
+export { GetOrgVdcNsxtNetworkProfileArgs, GetOrgVdcNsxtNetworkProfileResult, GetOrgVdcNsxtNetworkProfileOutputArgs } from "./getOrgVdcNsxtNetworkProfile";
+export const getOrgVdcNsxtNetworkProfile: typeof import("./getOrgVdcNsxtNetworkProfile").getOrgVdcNsxtNetworkProfile = null as any;
+export const getOrgVdcNsxtNetworkProfileOutput: typeof import("./getOrgVdcNsxtNetworkProfile").getOrgVdcNsxtNetworkProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgVdcNsxtNetworkProfile","getOrgVdcNsxtNetworkProfileOutput"], () => require("./getOrgVdcNsxtNetworkProfile"));
+
+export { GetOrgVdcTemplateArgs, GetOrgVdcTemplateResult, GetOrgVdcTemplateOutputArgs } from "./getOrgVdcTemplate";
+export const getOrgVdcTemplate: typeof import("./getOrgVdcTemplate").getOrgVdcTemplate = null as any;
+export const getOrgVdcTemplateOutput: typeof import("./getOrgVdcTemplate").getOrgVdcTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getOrgVdcTemplate","getOrgVdcTemplateOutput"], () => require("./getOrgVdcTemplate"));
+
+export { GetPortgroupArgs, GetPortgroupResult, GetPortgroupOutputArgs } from "./getPortgroup";
+export const getPortgroup: typeof import("./getPortgroup").getPortgroup = null as any;
+export const getPortgroupOutput: typeof import("./getPortgroup").getPortgroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPortgroup","getPortgroupOutput"], () => require("./getPortgroup"));
+
+export { GetProviderVdcArgs, GetProviderVdcResult, GetProviderVdcOutputArgs } from "./getProviderVdc";
+export const getProviderVdc: typeof import("./getProviderVdc").getProviderVdc = null as any;
+export const getProviderVdcOutput: typeof import("./getProviderVdc").getProviderVdcOutput = null as any;
+utilities.lazyLoad(exports, ["getProviderVdc","getProviderVdcOutput"], () => require("./getProviderVdc"));
+
+export { GetRdeArgs, GetRdeResult, GetRdeOutputArgs } from "./getRde";
+export const getRde: typeof import("./getRde").getRde = null as any;
+export const getRdeOutput: typeof import("./getRde").getRdeOutput = null as any;
+utilities.lazyLoad(exports, ["getRde","getRdeOutput"], () => require("./getRde"));
+
+export { GetRdeBehaviorInvocationArgs, GetRdeBehaviorInvocationResult, GetRdeBehaviorInvocationOutputArgs } from "./getRdeBehaviorInvocation";
+export const getRdeBehaviorInvocation: typeof import("./getRdeBehaviorInvocation").getRdeBehaviorInvocation = null as any;
+export const getRdeBehaviorInvocationOutput: typeof import("./getRdeBehaviorInvocation").getRdeBehaviorInvocationOutput = null as any;
+utilities.lazyLoad(exports, ["getRdeBehaviorInvocation","getRdeBehaviorInvocationOutput"], () => require("./getRdeBehaviorInvocation"));
+
+export { GetRdeInterfaceArgs, GetRdeInterfaceResult, GetRdeInterfaceOutputArgs } from "./getRdeInterface";
+export const getRdeInterface: typeof import("./getRdeInterface").getRdeInterface = null as any;
+export const getRdeInterfaceOutput: typeof import("./getRdeInterface").getRdeInterfaceOutput = null as any;
+utilities.lazyLoad(exports, ["getRdeInterface","getRdeInterfaceOutput"], () => require("./getRdeInterface"));
+
+export { GetRdeInterfaceBehaviorArgs, GetRdeInterfaceBehaviorResult, GetRdeInterfaceBehaviorOutputArgs } from "./getRdeInterfaceBehavior";
+export const getRdeInterfaceBehavior: typeof import("./getRdeInterfaceBehavior").getRdeInterfaceBehavior = null as any;
+export const getRdeInterfaceBehaviorOutput: typeof import("./getRdeInterfaceBehavior").getRdeInterfaceBehaviorOutput = null as any;
+utilities.lazyLoad(exports, ["getRdeInterfaceBehavior","getRdeInterfaceBehaviorOutput"], () => require("./getRdeInterfaceBehavior"));
+
+export { GetRdeTypeArgs, GetRdeTypeResult, GetRdeTypeOutputArgs } from "./getRdeType";
+export const getRdeType: typeof import("./getRdeType").getRdeType = null as any;
+export const getRdeTypeOutput: typeof import("./getRdeType").getRdeTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getRdeType","getRdeTypeOutput"], () => require("./getRdeType"));
+
+export { GetRdeTypeBehaviorArgs, GetRdeTypeBehaviorResult, GetRdeTypeBehaviorOutputArgs } from "./getRdeTypeBehavior";
+export const getRdeTypeBehavior: typeof import("./getRdeTypeBehavior").getRdeTypeBehavior = null as any;
+export const getRdeTypeBehaviorOutput: typeof import("./getRdeTypeBehavior").getRdeTypeBehaviorOutput = null as any;
+utilities.lazyLoad(exports, ["getRdeTypeBehavior","getRdeTypeBehaviorOutput"], () => require("./getRdeTypeBehavior"));
+
+export { GetRdeTypeBehaviorAclArgs, GetRdeTypeBehaviorAclResult, GetRdeTypeBehaviorAclOutputArgs } from "./getRdeTypeBehaviorAcl";
+export const getRdeTypeBehaviorAcl: typeof import("./getRdeTypeBehaviorAcl").getRdeTypeBehaviorAcl = null as any;
+export const getRdeTypeBehaviorAclOutput: typeof import("./getRdeTypeBehaviorAcl").getRdeTypeBehaviorAclOutput = null as any;
+utilities.lazyLoad(exports, ["getRdeTypeBehaviorAcl","getRdeTypeBehaviorAclOutput"], () => require("./getRdeTypeBehaviorAcl"));
+
+export { GetResourceListArgs, GetResourceListResult, GetResourceListOutputArgs } from "./getResourceList";
+export const getResourceList: typeof import("./getResourceList").getResourceList = null as any;
+export const getResourceListOutput: typeof import("./getResourceList").getResourceListOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceList","getResourceListOutput"], () => require("./getResourceList"));
+
+export { GetResourcePoolArgs, GetResourcePoolResult, GetResourcePoolOutputArgs } from "./getResourcePool";
+export const getResourcePool: typeof import("./getResourcePool").getResourcePool = null as any;
+export const getResourcePoolOutput: typeof import("./getResourcePool").getResourcePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePool","getResourcePoolOutput"], () => require("./getResourcePool"));
+
+export { GetResourceSchemaArgs, GetResourceSchemaResult, GetResourceSchemaOutputArgs } from "./getResourceSchema";
+export const getResourceSchema: typeof import("./getResourceSchema").getResourceSchema = null as any;
+export const getResourceSchemaOutput: typeof import("./getResourceSchema").getResourceSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceSchema","getResourceSchemaOutput"], () => require("./getResourceSchema"));
+
+export { GetRightArgs, GetRightResult, GetRightOutputArgs } from "./getRight";
+export const getRight: typeof import("./getRight").getRight = null as any;
+export const getRightOutput: typeof import("./getRight").getRightOutput = null as any;
+utilities.lazyLoad(exports, ["getRight","getRightOutput"], () => require("./getRight"));
+
+export { GetRightsBundleArgs, GetRightsBundleResult, GetRightsBundleOutputArgs } from "./getRightsBundle";
+export const getRightsBundle: typeof import("./getRightsBundle").getRightsBundle = null as any;
+export const getRightsBundleOutput: typeof import("./getRightsBundle").getRightsBundleOutput = null as any;
+utilities.lazyLoad(exports, ["getRightsBundle","getRightsBundleOutput"], () => require("./getRightsBundle"));
+
+export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
+export const getRole: typeof import("./getRole").getRole = null as any;
+export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+
+export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
+export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
+export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceAccount","getServiceAccountOutput"], () => require("./getServiceAccount"));
+
+export { GetSolutionAddOnArgs, GetSolutionAddOnResult, GetSolutionAddOnOutputArgs } from "./getSolutionAddOn";
+export const getSolutionAddOn: typeof import("./getSolutionAddOn").getSolutionAddOn = null as any;
+export const getSolutionAddOnOutput: typeof import("./getSolutionAddOn").getSolutionAddOnOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionAddOn","getSolutionAddOnOutput"], () => require("./getSolutionAddOn"));
+
+export { GetSolutionAddOnInstanceArgs, GetSolutionAddOnInstanceResult, GetSolutionAddOnInstanceOutputArgs } from "./getSolutionAddOnInstance";
+export const getSolutionAddOnInstance: typeof import("./getSolutionAddOnInstance").getSolutionAddOnInstance = null as any;
+export const getSolutionAddOnInstanceOutput: typeof import("./getSolutionAddOnInstance").getSolutionAddOnInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionAddOnInstance","getSolutionAddOnInstanceOutput"], () => require("./getSolutionAddOnInstance"));
+
+export { GetSolutionAddOnInstancePublishArgs, GetSolutionAddOnInstancePublishResult, GetSolutionAddOnInstancePublishOutputArgs } from "./getSolutionAddOnInstancePublish";
+export const getSolutionAddOnInstancePublish: typeof import("./getSolutionAddOnInstancePublish").getSolutionAddOnInstancePublish = null as any;
+export const getSolutionAddOnInstancePublishOutput: typeof import("./getSolutionAddOnInstancePublish").getSolutionAddOnInstancePublishOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionAddOnInstancePublish","getSolutionAddOnInstancePublishOutput"], () => require("./getSolutionAddOnInstancePublish"));
+
+export { GetSolutionLandingZoneArgs, GetSolutionLandingZoneResult, GetSolutionLandingZoneOutputArgs } from "./getSolutionLandingZone";
+export const getSolutionLandingZone: typeof import("./getSolutionLandingZone").getSolutionLandingZone = null as any;
+export const getSolutionLandingZoneOutput: typeof import("./getSolutionLandingZone").getSolutionLandingZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getSolutionLandingZone","getSolutionLandingZoneOutput"], () => require("./getSolutionLandingZone"));
+
+export { GetStorageProfileArgs, GetStorageProfileResult, GetStorageProfileOutputArgs } from "./getStorageProfile";
+export const getStorageProfile: typeof import("./getStorageProfile").getStorageProfile = null as any;
+export const getStorageProfileOutput: typeof import("./getStorageProfile").getStorageProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageProfile","getStorageProfileOutput"], () => require("./getStorageProfile"));
+
+export { GetSubscribedCatalogArgs, GetSubscribedCatalogResult, GetSubscribedCatalogOutputArgs } from "./getSubscribedCatalog";
+export const getSubscribedCatalog: typeof import("./getSubscribedCatalog").getSubscribedCatalog = null as any;
+export const getSubscribedCatalogOutput: typeof import("./getSubscribedCatalog").getSubscribedCatalogOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscribedCatalog","getSubscribedCatalogOutput"], () => require("./getSubscribedCatalog"));
+
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+
+export { GetUiPluginArgs, GetUiPluginResult, GetUiPluginOutputArgs } from "./getUiPlugin";
+export const getUiPlugin: typeof import("./getUiPlugin").getUiPlugin = null as any;
+export const getUiPluginOutput: typeof import("./getUiPlugin").getUiPluginOutput = null as any;
+utilities.lazyLoad(exports, ["getUiPlugin","getUiPluginOutput"], () => require("./getUiPlugin"));
+
+export { GetVappArgs, GetVappResult, GetVappOutputArgs } from "./getVapp";
+export const getVapp: typeof import("./getVapp").getVapp = null as any;
+export const getVappOutput: typeof import("./getVapp").getVappOutput = null as any;
+utilities.lazyLoad(exports, ["getVapp","getVappOutput"], () => require("./getVapp"));
+
+export { GetVappNetworkArgs, GetVappNetworkResult, GetVappNetworkOutputArgs } from "./getVappNetwork";
+export const getVappNetwork: typeof import("./getVappNetwork").getVappNetwork = null as any;
+export const getVappNetworkOutput: typeof import("./getVappNetwork").getVappNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getVappNetwork","getVappNetworkOutput"], () => require("./getVappNetwork"));
+
+export { GetVappOrgNetworkArgs, GetVappOrgNetworkResult, GetVappOrgNetworkOutputArgs } from "./getVappOrgNetwork";
+export const getVappOrgNetwork: typeof import("./getVappOrgNetwork").getVappOrgNetwork = null as any;
+export const getVappOrgNetworkOutput: typeof import("./getVappOrgNetwork").getVappOrgNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getVappOrgNetwork","getVappOrgNetworkOutput"], () => require("./getVappOrgNetwork"));
+
+export { GetVappVmArgs, GetVappVmResult, GetVappVmOutputArgs } from "./getVappVm";
+export const getVappVm: typeof import("./getVappVm").getVappVm = null as any;
+export const getVappVmOutput: typeof import("./getVappVm").getVappVmOutput = null as any;
+utilities.lazyLoad(exports, ["getVappVm","getVappVmOutput"], () => require("./getVappVm"));
+
+export { GetVcenterArgs, GetVcenterResult, GetVcenterOutputArgs } from "./getVcenter";
+export const getVcenter: typeof import("./getVcenter").getVcenter = null as any;
+export const getVcenterOutput: typeof import("./getVcenter").getVcenterOutput = null as any;
+utilities.lazyLoad(exports, ["getVcenter","getVcenterOutput"], () => require("./getVcenter"));
+
+export { GetVdcGroupArgs, GetVdcGroupResult, GetVdcGroupOutputArgs } from "./getVdcGroup";
+export const getVdcGroup: typeof import("./getVdcGroup").getVdcGroup = null as any;
+export const getVdcGroupOutput: typeof import("./getVdcGroup").getVdcGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVdcGroup","getVdcGroupOutput"], () => require("./getVdcGroup"));
+
+export { GetVersionArgs, GetVersionResult, GetVersionOutputArgs } from "./getVersion";
+export const getVersion: typeof import("./getVersion").getVersion = null as any;
+export const getVersionOutput: typeof import("./getVersion").getVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getVersion","getVersionOutput"], () => require("./getVersion"));
+
+export { GetVgpuProfileArgs, GetVgpuProfileResult, GetVgpuProfileOutputArgs } from "./getVgpuProfile";
+export const getVgpuProfile: typeof import("./getVgpuProfile").getVgpuProfile = null as any;
+export const getVgpuProfileOutput: typeof import("./getVgpuProfile").getVgpuProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getVgpuProfile","getVgpuProfileOutput"], () => require("./getVgpuProfile"));
+
+export { GetVmArgs, GetVmResult, GetVmOutputArgs } from "./getVm";
+export const getVm: typeof import("./getVm").getVm = null as any;
+export const getVmOutput: typeof import("./getVm").getVmOutput = null as any;
+utilities.lazyLoad(exports, ["getVm","getVmOutput"], () => require("./getVm"));
+
+export { GetVmAffinityRuleArgs, GetVmAffinityRuleResult, GetVmAffinityRuleOutputArgs } from "./getVmAffinityRule";
+export const getVmAffinityRule: typeof import("./getVmAffinityRule").getVmAffinityRule = null as any;
+export const getVmAffinityRuleOutput: typeof import("./getVmAffinityRule").getVmAffinityRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getVmAffinityRule","getVmAffinityRuleOutput"], () => require("./getVmAffinityRule"));
+
+export { GetVmGroupArgs, GetVmGroupResult, GetVmGroupOutputArgs } from "./getVmGroup";
+export const getVmGroup: typeof import("./getVmGroup").getVmGroup = null as any;
+export const getVmGroupOutput: typeof import("./getVmGroup").getVmGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVmGroup","getVmGroupOutput"], () => require("./getVmGroup"));
+
+export { GetVmPlacementPolicyArgs, GetVmPlacementPolicyResult, GetVmPlacementPolicyOutputArgs } from "./getVmPlacementPolicy";
+export const getVmPlacementPolicy: typeof import("./getVmPlacementPolicy").getVmPlacementPolicy = null as any;
+export const getVmPlacementPolicyOutput: typeof import("./getVmPlacementPolicy").getVmPlacementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getVmPlacementPolicy","getVmPlacementPolicyOutput"], () => require("./getVmPlacementPolicy"));
+
+export { GetVmSizingPolicyArgs, GetVmSizingPolicyResult, GetVmSizingPolicyOutputArgs } from "./getVmSizingPolicy";
+export const getVmSizingPolicy: typeof import("./getVmSizingPolicy").getVmSizingPolicy = null as any;
+export const getVmSizingPolicyOutput: typeof import("./getVmSizingPolicy").getVmSizingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getVmSizingPolicy","getVmSizingPolicyOutput"], () => require("./getVmSizingPolicy"));
+
+export { GetVmVgpuPolicyArgs, GetVmVgpuPolicyResult, GetVmVgpuPolicyOutputArgs } from "./getVmVgpuPolicy";
+export const getVmVgpuPolicy: typeof import("./getVmVgpuPolicy").getVmVgpuPolicy = null as any;
+export const getVmVgpuPolicyOutput: typeof import("./getVmVgpuPolicy").getVmVgpuPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getVmVgpuPolicy","getVmVgpuPolicyOutput"], () => require("./getVmVgpuPolicy"));
+
+export { GlobalRoleArgs, GlobalRoleState } from "./globalRole";
+export type GlobalRole = import("./globalRole").GlobalRole;
+export const GlobalRole: typeof import("./globalRole").GlobalRole = null as any;
+utilities.lazyLoad(exports, ["GlobalRole"], () => require("./globalRole"));
+
+export { IndependentDiskArgs, IndependentDiskState } from "./independentDisk";
+export type IndependentDisk = import("./independentDisk").IndependentDisk;
+export const IndependentDisk: typeof import("./independentDisk").IndependentDisk = null as any;
+utilities.lazyLoad(exports, ["IndependentDisk"], () => require("./independentDisk"));
+
+export { InsertedMediaArgs, InsertedMediaState } from "./insertedMedia";
+export type InsertedMedia = import("./insertedMedia").InsertedMedia;
+export const InsertedMedia: typeof import("./insertedMedia").InsertedMedia = null as any;
+utilities.lazyLoad(exports, ["InsertedMedia"], () => require("./insertedMedia"));
+
+export { IpSpaceArgs, IpSpaceState } from "./ipSpace";
+export type IpSpace = import("./ipSpace").IpSpace;
+export const IpSpace: typeof import("./ipSpace").IpSpace = null as any;
+utilities.lazyLoad(exports, ["IpSpace"], () => require("./ipSpace"));
+
+export { IpSpaceCustomQuotaArgs, IpSpaceCustomQuotaState } from "./ipSpaceCustomQuota";
+export type IpSpaceCustomQuota = import("./ipSpaceCustomQuota").IpSpaceCustomQuota;
+export const IpSpaceCustomQuota: typeof import("./ipSpaceCustomQuota").IpSpaceCustomQuota = null as any;
+utilities.lazyLoad(exports, ["IpSpaceCustomQuota"], () => require("./ipSpaceCustomQuota"));
+
+export { IpSpaceIpAllocationArgs, IpSpaceIpAllocationState } from "./ipSpaceIpAllocation";
+export type IpSpaceIpAllocation = import("./ipSpaceIpAllocation").IpSpaceIpAllocation;
+export const IpSpaceIpAllocation: typeof import("./ipSpaceIpAllocation").IpSpaceIpAllocation = null as any;
+utilities.lazyLoad(exports, ["IpSpaceIpAllocation"], () => require("./ipSpaceIpAllocation"));
+
+export { IpSpaceUplinkArgs, IpSpaceUplinkState } from "./ipSpaceUplink";
+export type IpSpaceUplink = import("./ipSpaceUplink").IpSpaceUplink;
+export const IpSpaceUplink: typeof import("./ipSpaceUplink").IpSpaceUplink = null as any;
+utilities.lazyLoad(exports, ["IpSpaceUplink"], () => require("./ipSpaceUplink"));
+
+export { LbAppProfileArgs, LbAppProfileState } from "./lbAppProfile";
+export type LbAppProfile = import("./lbAppProfile").LbAppProfile;
+export const LbAppProfile: typeof import("./lbAppProfile").LbAppProfile = null as any;
+utilities.lazyLoad(exports, ["LbAppProfile"], () => require("./lbAppProfile"));
+
+export { LbAppRuleArgs, LbAppRuleState } from "./lbAppRule";
+export type LbAppRule = import("./lbAppRule").LbAppRule;
+export const LbAppRule: typeof import("./lbAppRule").LbAppRule = null as any;
+utilities.lazyLoad(exports, ["LbAppRule"], () => require("./lbAppRule"));
+
+export { LbServerPoolArgs, LbServerPoolState } from "./lbServerPool";
+export type LbServerPool = import("./lbServerPool").LbServerPool;
+export const LbServerPool: typeof import("./lbServerPool").LbServerPool = null as any;
+utilities.lazyLoad(exports, ["LbServerPool"], () => require("./lbServerPool"));
+
+export { LbServiceMonitorArgs, LbServiceMonitorState } from "./lbServiceMonitor";
+export type LbServiceMonitor = import("./lbServiceMonitor").LbServiceMonitor;
+export const LbServiceMonitor: typeof import("./lbServiceMonitor").LbServiceMonitor = null as any;
+utilities.lazyLoad(exports, ["LbServiceMonitor"], () => require("./lbServiceMonitor"));
+
+export { LbVirtualServerArgs, LbVirtualServerState } from "./lbVirtualServer";
+export type LbVirtualServer = import("./lbVirtualServer").LbVirtualServer;
+export const LbVirtualServer: typeof import("./lbVirtualServer").LbVirtualServer = null as any;
+utilities.lazyLoad(exports, ["LbVirtualServer"], () => require("./lbVirtualServer"));
+
+export { LibraryCertificateArgs, LibraryCertificateState } from "./libraryCertificate";
+export type LibraryCertificate = import("./libraryCertificate").LibraryCertificate;
+export const LibraryCertificate: typeof import("./libraryCertificate").LibraryCertificate = null as any;
+utilities.lazyLoad(exports, ["LibraryCertificate"], () => require("./libraryCertificate"));
+
+export { MultisiteOrgAssociationArgs, MultisiteOrgAssociationState } from "./multisiteOrgAssociation";
+export type MultisiteOrgAssociation = import("./multisiteOrgAssociation").MultisiteOrgAssociation;
+export const MultisiteOrgAssociation: typeof import("./multisiteOrgAssociation").MultisiteOrgAssociation = null as any;
+utilities.lazyLoad(exports, ["MultisiteOrgAssociation"], () => require("./multisiteOrgAssociation"));
+
+export { MultisiteSiteAssociationArgs, MultisiteSiteAssociationState } from "./multisiteSiteAssociation";
+export type MultisiteSiteAssociation = import("./multisiteSiteAssociation").MultisiteSiteAssociation;
+export const MultisiteSiteAssociation: typeof import("./multisiteSiteAssociation").MultisiteSiteAssociation = null as any;
+utilities.lazyLoad(exports, ["MultisiteSiteAssociation"], () => require("./multisiteSiteAssociation"));
+
+export { NetworkDirectArgs, NetworkDirectState } from "./networkDirect";
+export type NetworkDirect = import("./networkDirect").NetworkDirect;
+export const NetworkDirect: typeof import("./networkDirect").NetworkDirect = null as any;
+utilities.lazyLoad(exports, ["NetworkDirect"], () => require("./networkDirect"));
+
+export { NetworkIsolatedArgs, NetworkIsolatedState } from "./networkIsolated";
+export type NetworkIsolated = import("./networkIsolated").NetworkIsolated;
+export const NetworkIsolated: typeof import("./networkIsolated").NetworkIsolated = null as any;
+utilities.lazyLoad(exports, ["NetworkIsolated"], () => require("./networkIsolated"));
+
+export { NetworkIsolatedV2Args, NetworkIsolatedV2State } from "./networkIsolatedV2";
+export type NetworkIsolatedV2 = import("./networkIsolatedV2").NetworkIsolatedV2;
+export const NetworkIsolatedV2: typeof import("./networkIsolatedV2").NetworkIsolatedV2 = null as any;
+utilities.lazyLoad(exports, ["NetworkIsolatedV2"], () => require("./networkIsolatedV2"));
+
+export { NetworkPoolArgs, NetworkPoolState } from "./networkPool";
+export type NetworkPool = import("./networkPool").NetworkPool;
+export const NetworkPool: typeof import("./networkPool").NetworkPool = null as any;
+utilities.lazyLoad(exports, ["NetworkPool"], () => require("./networkPool"));
+
+export { NetworkRoutedArgs, NetworkRoutedState } from "./networkRouted";
+export type NetworkRouted = import("./networkRouted").NetworkRouted;
+export const NetworkRouted: typeof import("./networkRouted").NetworkRouted = null as any;
+utilities.lazyLoad(exports, ["NetworkRouted"], () => require("./networkRouted"));
+
+export { NetworkRoutedV2Args, NetworkRoutedV2State } from "./networkRoutedV2";
+export type NetworkRoutedV2 = import("./networkRoutedV2").NetworkRoutedV2;
+export const NetworkRoutedV2: typeof import("./networkRoutedV2").NetworkRoutedV2 = null as any;
+utilities.lazyLoad(exports, ["NetworkRoutedV2"], () => require("./networkRoutedV2"));
+
+export { NsxtAlbCloudArgs, NsxtAlbCloudState } from "./nsxtAlbCloud";
+export type NsxtAlbCloud = import("./nsxtAlbCloud").NsxtAlbCloud;
+export const NsxtAlbCloud: typeof import("./nsxtAlbCloud").NsxtAlbCloud = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbCloud"], () => require("./nsxtAlbCloud"));
+
+export { NsxtAlbControllerArgs, NsxtAlbControllerState } from "./nsxtAlbController";
+export type NsxtAlbController = import("./nsxtAlbController").NsxtAlbController;
+export const NsxtAlbController: typeof import("./nsxtAlbController").NsxtAlbController = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbController"], () => require("./nsxtAlbController"));
+
+export { NsxtAlbEdgegatewayServiceEngineGroupArgs, NsxtAlbEdgegatewayServiceEngineGroupState } from "./nsxtAlbEdgegatewayServiceEngineGroup";
+export type NsxtAlbEdgegatewayServiceEngineGroup = import("./nsxtAlbEdgegatewayServiceEngineGroup").NsxtAlbEdgegatewayServiceEngineGroup;
+export const NsxtAlbEdgegatewayServiceEngineGroup: typeof import("./nsxtAlbEdgegatewayServiceEngineGroup").NsxtAlbEdgegatewayServiceEngineGroup = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbEdgegatewayServiceEngineGroup"], () => require("./nsxtAlbEdgegatewayServiceEngineGroup"));
+
+export { NsxtAlbPoolArgs, NsxtAlbPoolState } from "./nsxtAlbPool";
+export type NsxtAlbPool = import("./nsxtAlbPool").NsxtAlbPool;
+export const NsxtAlbPool: typeof import("./nsxtAlbPool").NsxtAlbPool = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbPool"], () => require("./nsxtAlbPool"));
+
+export { NsxtAlbServiceEngineGroupArgs, NsxtAlbServiceEngineGroupState } from "./nsxtAlbServiceEngineGroup";
+export type NsxtAlbServiceEngineGroup = import("./nsxtAlbServiceEngineGroup").NsxtAlbServiceEngineGroup;
+export const NsxtAlbServiceEngineGroup: typeof import("./nsxtAlbServiceEngineGroup").NsxtAlbServiceEngineGroup = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbServiceEngineGroup"], () => require("./nsxtAlbServiceEngineGroup"));
+
+export { NsxtAlbSettingsArgs, NsxtAlbSettingsState } from "./nsxtAlbSettings";
+export type NsxtAlbSettings = import("./nsxtAlbSettings").NsxtAlbSettings;
+export const NsxtAlbSettings: typeof import("./nsxtAlbSettings").NsxtAlbSettings = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbSettings"], () => require("./nsxtAlbSettings"));
+
+export { NsxtAlbVirtualServiceArgs, NsxtAlbVirtualServiceState } from "./nsxtAlbVirtualService";
+export type NsxtAlbVirtualService = import("./nsxtAlbVirtualService").NsxtAlbVirtualService;
+export const NsxtAlbVirtualService: typeof import("./nsxtAlbVirtualService").NsxtAlbVirtualService = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbVirtualService"], () => require("./nsxtAlbVirtualService"));
+
+export { NsxtAlbVirtualServiceHttpReqRulesArgs, NsxtAlbVirtualServiceHttpReqRulesState } from "./nsxtAlbVirtualServiceHttpReqRules";
+export type NsxtAlbVirtualServiceHttpReqRules = import("./nsxtAlbVirtualServiceHttpReqRules").NsxtAlbVirtualServiceHttpReqRules;
+export const NsxtAlbVirtualServiceHttpReqRules: typeof import("./nsxtAlbVirtualServiceHttpReqRules").NsxtAlbVirtualServiceHttpReqRules = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbVirtualServiceHttpReqRules"], () => require("./nsxtAlbVirtualServiceHttpReqRules"));
+
+export { NsxtAlbVirtualServiceHttpRespRulesArgs, NsxtAlbVirtualServiceHttpRespRulesState } from "./nsxtAlbVirtualServiceHttpRespRules";
+export type NsxtAlbVirtualServiceHttpRespRules = import("./nsxtAlbVirtualServiceHttpRespRules").NsxtAlbVirtualServiceHttpRespRules;
+export const NsxtAlbVirtualServiceHttpRespRules: typeof import("./nsxtAlbVirtualServiceHttpRespRules").NsxtAlbVirtualServiceHttpRespRules = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbVirtualServiceHttpRespRules"], () => require("./nsxtAlbVirtualServiceHttpRespRules"));
+
+export { NsxtAlbVirtualServiceHttpSecRulesArgs, NsxtAlbVirtualServiceHttpSecRulesState } from "./nsxtAlbVirtualServiceHttpSecRules";
+export type NsxtAlbVirtualServiceHttpSecRules = import("./nsxtAlbVirtualServiceHttpSecRules").NsxtAlbVirtualServiceHttpSecRules;
+export const NsxtAlbVirtualServiceHttpSecRules: typeof import("./nsxtAlbVirtualServiceHttpSecRules").NsxtAlbVirtualServiceHttpSecRules = null as any;
+utilities.lazyLoad(exports, ["NsxtAlbVirtualServiceHttpSecRules"], () => require("./nsxtAlbVirtualServiceHttpSecRules"));
+
+export { NsxtAppPortProfileArgs, NsxtAppPortProfileState } from "./nsxtAppPortProfile";
+export type NsxtAppPortProfile = import("./nsxtAppPortProfile").NsxtAppPortProfile;
+export const NsxtAppPortProfile: typeof import("./nsxtAppPortProfile").NsxtAppPortProfile = null as any;
+utilities.lazyLoad(exports, ["NsxtAppPortProfile"], () => require("./nsxtAppPortProfile"));
+
+export { NsxtDistributedFirewallArgs, NsxtDistributedFirewallState } from "./nsxtDistributedFirewall";
+export type NsxtDistributedFirewall = import("./nsxtDistributedFirewall").NsxtDistributedFirewall;
+export const NsxtDistributedFirewall: typeof import("./nsxtDistributedFirewall").NsxtDistributedFirewall = null as any;
+utilities.lazyLoad(exports, ["NsxtDistributedFirewall"], () => require("./nsxtDistributedFirewall"));
+
+export { NsxtDistributedFirewallRuleArgs, NsxtDistributedFirewallRuleState } from "./nsxtDistributedFirewallRule";
+export type NsxtDistributedFirewallRule = import("./nsxtDistributedFirewallRule").NsxtDistributedFirewallRule;
+export const NsxtDistributedFirewallRule: typeof import("./nsxtDistributedFirewallRule").NsxtDistributedFirewallRule = null as any;
+utilities.lazyLoad(exports, ["NsxtDistributedFirewallRule"], () => require("./nsxtDistributedFirewallRule"));
+
+export { NsxtDynamicSecurityGroupArgs, NsxtDynamicSecurityGroupState } from "./nsxtDynamicSecurityGroup";
+export type NsxtDynamicSecurityGroup = import("./nsxtDynamicSecurityGroup").NsxtDynamicSecurityGroup;
+export const NsxtDynamicSecurityGroup: typeof import("./nsxtDynamicSecurityGroup").NsxtDynamicSecurityGroup = null as any;
+utilities.lazyLoad(exports, ["NsxtDynamicSecurityGroup"], () => require("./nsxtDynamicSecurityGroup"));
+
+export { NsxtEdgegatewayArgs, NsxtEdgegatewayState } from "./nsxtEdgegateway";
+export type NsxtEdgegateway = import("./nsxtEdgegateway").NsxtEdgegateway;
+export const NsxtEdgegateway: typeof import("./nsxtEdgegateway").NsxtEdgegateway = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegateway"], () => require("./nsxtEdgegateway"));
+
+export { NsxtEdgegatewayBgpConfigurationArgs, NsxtEdgegatewayBgpConfigurationState } from "./nsxtEdgegatewayBgpConfiguration";
+export type NsxtEdgegatewayBgpConfiguration = import("./nsxtEdgegatewayBgpConfiguration").NsxtEdgegatewayBgpConfiguration;
+export const NsxtEdgegatewayBgpConfiguration: typeof import("./nsxtEdgegatewayBgpConfiguration").NsxtEdgegatewayBgpConfiguration = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayBgpConfiguration"], () => require("./nsxtEdgegatewayBgpConfiguration"));
+
+export { NsxtEdgegatewayBgpIpPrefixListArgs, NsxtEdgegatewayBgpIpPrefixListState } from "./nsxtEdgegatewayBgpIpPrefixList";
+export type NsxtEdgegatewayBgpIpPrefixList = import("./nsxtEdgegatewayBgpIpPrefixList").NsxtEdgegatewayBgpIpPrefixList;
+export const NsxtEdgegatewayBgpIpPrefixList: typeof import("./nsxtEdgegatewayBgpIpPrefixList").NsxtEdgegatewayBgpIpPrefixList = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayBgpIpPrefixList"], () => require("./nsxtEdgegatewayBgpIpPrefixList"));
+
+export { NsxtEdgegatewayBgpNeighborArgs, NsxtEdgegatewayBgpNeighborState } from "./nsxtEdgegatewayBgpNeighbor";
+export type NsxtEdgegatewayBgpNeighbor = import("./nsxtEdgegatewayBgpNeighbor").NsxtEdgegatewayBgpNeighbor;
+export const NsxtEdgegatewayBgpNeighbor: typeof import("./nsxtEdgegatewayBgpNeighbor").NsxtEdgegatewayBgpNeighbor = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayBgpNeighbor"], () => require("./nsxtEdgegatewayBgpNeighbor"));
+
+export { NsxtEdgegatewayDhcpForwardingArgs, NsxtEdgegatewayDhcpForwardingState } from "./nsxtEdgegatewayDhcpForwarding";
+export type NsxtEdgegatewayDhcpForwarding = import("./nsxtEdgegatewayDhcpForwarding").NsxtEdgegatewayDhcpForwarding;
+export const NsxtEdgegatewayDhcpForwarding: typeof import("./nsxtEdgegatewayDhcpForwarding").NsxtEdgegatewayDhcpForwarding = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayDhcpForwarding"], () => require("./nsxtEdgegatewayDhcpForwarding"));
+
+export { NsxtEdgegatewayDhcpv6Args, NsxtEdgegatewayDhcpv6State } from "./nsxtEdgegatewayDhcpv6";
+export type NsxtEdgegatewayDhcpv6 = import("./nsxtEdgegatewayDhcpv6").NsxtEdgegatewayDhcpv6;
+export const NsxtEdgegatewayDhcpv6: typeof import("./nsxtEdgegatewayDhcpv6").NsxtEdgegatewayDhcpv6 = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayDhcpv6"], () => require("./nsxtEdgegatewayDhcpv6"));
+
+export { NsxtEdgegatewayDnsArgs, NsxtEdgegatewayDnsState } from "./nsxtEdgegatewayDns";
+export type NsxtEdgegatewayDns = import("./nsxtEdgegatewayDns").NsxtEdgegatewayDns;
+export const NsxtEdgegatewayDns: typeof import("./nsxtEdgegatewayDns").NsxtEdgegatewayDns = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayDns"], () => require("./nsxtEdgegatewayDns"));
+
+export { NsxtEdgegatewayL2VpnTunnelArgs, NsxtEdgegatewayL2VpnTunnelState } from "./nsxtEdgegatewayL2VpnTunnel";
+export type NsxtEdgegatewayL2VpnTunnel = import("./nsxtEdgegatewayL2VpnTunnel").NsxtEdgegatewayL2VpnTunnel;
+export const NsxtEdgegatewayL2VpnTunnel: typeof import("./nsxtEdgegatewayL2VpnTunnel").NsxtEdgegatewayL2VpnTunnel = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayL2VpnTunnel"], () => require("./nsxtEdgegatewayL2VpnTunnel"));
+
+export { NsxtEdgegatewayRateLimitingArgs, NsxtEdgegatewayRateLimitingState } from "./nsxtEdgegatewayRateLimiting";
+export type NsxtEdgegatewayRateLimiting = import("./nsxtEdgegatewayRateLimiting").NsxtEdgegatewayRateLimiting;
+export const NsxtEdgegatewayRateLimiting: typeof import("./nsxtEdgegatewayRateLimiting").NsxtEdgegatewayRateLimiting = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayRateLimiting"], () => require("./nsxtEdgegatewayRateLimiting"));
+
+export { NsxtEdgegatewayStaticRouteArgs, NsxtEdgegatewayStaticRouteState } from "./nsxtEdgegatewayStaticRoute";
+export type NsxtEdgegatewayStaticRoute = import("./nsxtEdgegatewayStaticRoute").NsxtEdgegatewayStaticRoute;
+export const NsxtEdgegatewayStaticRoute: typeof import("./nsxtEdgegatewayStaticRoute").NsxtEdgegatewayStaticRoute = null as any;
+utilities.lazyLoad(exports, ["NsxtEdgegatewayStaticRoute"], () => require("./nsxtEdgegatewayStaticRoute"));
+
+export { NsxtFirewallArgs, NsxtFirewallState } from "./nsxtFirewall";
+export type NsxtFirewall = import("./nsxtFirewall").NsxtFirewall;
+export const NsxtFirewall: typeof import("./nsxtFirewall").NsxtFirewall = null as any;
+utilities.lazyLoad(exports, ["NsxtFirewall"], () => require("./nsxtFirewall"));
+
+export { NsxtGlobalDefaultSegmentProfileTemplateArgs, NsxtGlobalDefaultSegmentProfileTemplateState } from "./nsxtGlobalDefaultSegmentProfileTemplate";
+export type NsxtGlobalDefaultSegmentProfileTemplate = import("./nsxtGlobalDefaultSegmentProfileTemplate").NsxtGlobalDefaultSegmentProfileTemplate;
+export const NsxtGlobalDefaultSegmentProfileTemplate: typeof import("./nsxtGlobalDefaultSegmentProfileTemplate").NsxtGlobalDefaultSegmentProfileTemplate = null as any;
+utilities.lazyLoad(exports, ["NsxtGlobalDefaultSegmentProfileTemplate"], () => require("./nsxtGlobalDefaultSegmentProfileTemplate"));
+
+export { NsxtIpSetArgs, NsxtIpSetState } from "./nsxtIpSet";
+export type NsxtIpSet = import("./nsxtIpSet").NsxtIpSet;
+export const NsxtIpSet: typeof import("./nsxtIpSet").NsxtIpSet = null as any;
+utilities.lazyLoad(exports, ["NsxtIpSet"], () => require("./nsxtIpSet"));
+
+export { NsxtIpsecVpnTunnelArgs, NsxtIpsecVpnTunnelState } from "./nsxtIpsecVpnTunnel";
+export type NsxtIpsecVpnTunnel = import("./nsxtIpsecVpnTunnel").NsxtIpsecVpnTunnel;
+export const NsxtIpsecVpnTunnel: typeof import("./nsxtIpsecVpnTunnel").NsxtIpsecVpnTunnel = null as any;
+utilities.lazyLoad(exports, ["NsxtIpsecVpnTunnel"], () => require("./nsxtIpsecVpnTunnel"));
+
+export { NsxtNatRuleArgs, NsxtNatRuleState } from "./nsxtNatRule";
+export type NsxtNatRule = import("./nsxtNatRule").NsxtNatRule;
+export const NsxtNatRule: typeof import("./nsxtNatRule").NsxtNatRule = null as any;
+utilities.lazyLoad(exports, ["NsxtNatRule"], () => require("./nsxtNatRule"));
+
+export { NsxtNetworkDhcpArgs, NsxtNetworkDhcpState } from "./nsxtNetworkDhcp";
+export type NsxtNetworkDhcp = import("./nsxtNetworkDhcp").NsxtNetworkDhcp;
+export const NsxtNetworkDhcp: typeof import("./nsxtNetworkDhcp").NsxtNetworkDhcp = null as any;
+utilities.lazyLoad(exports, ["NsxtNetworkDhcp"], () => require("./nsxtNetworkDhcp"));
+
+export { NsxtNetworkDhcpBindingArgs, NsxtNetworkDhcpBindingState } from "./nsxtNetworkDhcpBinding";
+export type NsxtNetworkDhcpBinding = import("./nsxtNetworkDhcpBinding").NsxtNetworkDhcpBinding;
+export const NsxtNetworkDhcpBinding: typeof import("./nsxtNetworkDhcpBinding").NsxtNetworkDhcpBinding = null as any;
+utilities.lazyLoad(exports, ["NsxtNetworkDhcpBinding"], () => require("./nsxtNetworkDhcpBinding"));
+
+export { NsxtNetworkImportedArgs, NsxtNetworkImportedState } from "./nsxtNetworkImported";
+export type NsxtNetworkImported = import("./nsxtNetworkImported").NsxtNetworkImported;
+export const NsxtNetworkImported: typeof import("./nsxtNetworkImported").NsxtNetworkImported = null as any;
+utilities.lazyLoad(exports, ["NsxtNetworkImported"], () => require("./nsxtNetworkImported"));
+
+export { NsxtNetworkSegmentProfileArgs, NsxtNetworkSegmentProfileState } from "./nsxtNetworkSegmentProfile";
+export type NsxtNetworkSegmentProfile = import("./nsxtNetworkSegmentProfile").NsxtNetworkSegmentProfile;
+export const NsxtNetworkSegmentProfile: typeof import("./nsxtNetworkSegmentProfile").NsxtNetworkSegmentProfile = null as any;
+utilities.lazyLoad(exports, ["NsxtNetworkSegmentProfile"], () => require("./nsxtNetworkSegmentProfile"));
+
+export { NsxtRouteAdvertisementArgs, NsxtRouteAdvertisementState } from "./nsxtRouteAdvertisement";
+export type NsxtRouteAdvertisement = import("./nsxtRouteAdvertisement").NsxtRouteAdvertisement;
+export const NsxtRouteAdvertisement: typeof import("./nsxtRouteAdvertisement").NsxtRouteAdvertisement = null as any;
+utilities.lazyLoad(exports, ["NsxtRouteAdvertisement"], () => require("./nsxtRouteAdvertisement"));
+
+export { NsxtSecurityGroupArgs, NsxtSecurityGroupState } from "./nsxtSecurityGroup";
+export type NsxtSecurityGroup = import("./nsxtSecurityGroup").NsxtSecurityGroup;
+export const NsxtSecurityGroup: typeof import("./nsxtSecurityGroup").NsxtSecurityGroup = null as any;
+utilities.lazyLoad(exports, ["NsxtSecurityGroup"], () => require("./nsxtSecurityGroup"));
+
+export { NsxtSegmentProfileTemplateArgs, NsxtSegmentProfileTemplateState } from "./nsxtSegmentProfileTemplate";
+export type NsxtSegmentProfileTemplate = import("./nsxtSegmentProfileTemplate").NsxtSegmentProfileTemplate;
+export const NsxtSegmentProfileTemplate: typeof import("./nsxtSegmentProfileTemplate").NsxtSegmentProfileTemplate = null as any;
+utilities.lazyLoad(exports, ["NsxtSegmentProfileTemplate"], () => require("./nsxtSegmentProfileTemplate"));
+
+export { NsxvDhcpRelayArgs, NsxvDhcpRelayState } from "./nsxvDhcpRelay";
+export type NsxvDhcpRelay = import("./nsxvDhcpRelay").NsxvDhcpRelay;
+export const NsxvDhcpRelay: typeof import("./nsxvDhcpRelay").NsxvDhcpRelay = null as any;
+utilities.lazyLoad(exports, ["NsxvDhcpRelay"], () => require("./nsxvDhcpRelay"));
+
+export { NsxvDistributedFirewallArgs, NsxvDistributedFirewallState } from "./nsxvDistributedFirewall";
+export type NsxvDistributedFirewall = import("./nsxvDistributedFirewall").NsxvDistributedFirewall;
+export const NsxvDistributedFirewall: typeof import("./nsxvDistributedFirewall").NsxvDistributedFirewall = null as any;
+utilities.lazyLoad(exports, ["NsxvDistributedFirewall"], () => require("./nsxvDistributedFirewall"));
+
+export { NsxvDnatArgs, NsxvDnatState } from "./nsxvDnat";
+export type NsxvDnat = import("./nsxvDnat").NsxvDnat;
+export const NsxvDnat: typeof import("./nsxvDnat").NsxvDnat = null as any;
+utilities.lazyLoad(exports, ["NsxvDnat"], () => require("./nsxvDnat"));
+
+export { NsxvFirewallRuleArgs, NsxvFirewallRuleState } from "./nsxvFirewallRule";
+export type NsxvFirewallRule = import("./nsxvFirewallRule").NsxvFirewallRule;
+export const NsxvFirewallRule: typeof import("./nsxvFirewallRule").NsxvFirewallRule = null as any;
+utilities.lazyLoad(exports, ["NsxvFirewallRule"], () => require("./nsxvFirewallRule"));
+
+export { NsxvIpSetArgs, NsxvIpSetState } from "./nsxvIpSet";
+export type NsxvIpSet = import("./nsxvIpSet").NsxvIpSet;
+export const NsxvIpSet: typeof import("./nsxvIpSet").NsxvIpSet = null as any;
+utilities.lazyLoad(exports, ["NsxvIpSet"], () => require("./nsxvIpSet"));
+
+export { NsxvSnatArgs, NsxvSnatState } from "./nsxvSnat";
+export type NsxvSnat = import("./nsxvSnat").NsxvSnat;
+export const NsxvSnat: typeof import("./nsxvSnat").NsxvSnat = null as any;
+utilities.lazyLoad(exports, ["NsxvSnat"], () => require("./nsxvSnat"));
+
+export { OrgArgs, OrgState } from "./org";
+export type Org = import("./org").Org;
+export const Org: typeof import("./org").Org = null as any;
+utilities.lazyLoad(exports, ["Org"], () => require("./org"));
+
+export { OrgGroupArgs, OrgGroupState } from "./orgGroup";
+export type OrgGroup = import("./orgGroup").OrgGroup;
+export const OrgGroup: typeof import("./orgGroup").OrgGroup = null as any;
+utilities.lazyLoad(exports, ["OrgGroup"], () => require("./orgGroup"));
+
+export { OrgLdapArgs, OrgLdapState } from "./orgLdap";
+export type OrgLdap = import("./orgLdap").OrgLdap;
+export const OrgLdap: typeof import("./orgLdap").OrgLdap = null as any;
+utilities.lazyLoad(exports, ["OrgLdap"], () => require("./orgLdap"));
+
+export { OrgOidcArgs, OrgOidcState } from "./orgOidc";
+export type OrgOidc = import("./orgOidc").OrgOidc;
+export const OrgOidc: typeof import("./orgOidc").OrgOidc = null as any;
+utilities.lazyLoad(exports, ["OrgOidc"], () => require("./orgOidc"));
+
+export { OrgSamlArgs, OrgSamlState } from "./orgSaml";
+export type OrgSaml = import("./orgSaml").OrgSaml;
+export const OrgSaml: typeof import("./orgSaml").OrgSaml = null as any;
+utilities.lazyLoad(exports, ["OrgSaml"], () => require("./orgSaml"));
+
+export { OrgUserArgs, OrgUserState } from "./orgUser";
+export type OrgUser = import("./orgUser").OrgUser;
+export const OrgUser: typeof import("./orgUser").OrgUser = null as any;
+utilities.lazyLoad(exports, ["OrgUser"], () => require("./orgUser"));
+
+export { OrgVdcArgs, OrgVdcState } from "./orgVdc";
+export type OrgVdc = import("./orgVdc").OrgVdc;
+export const OrgVdc: typeof import("./orgVdc").OrgVdc = null as any;
+utilities.lazyLoad(exports, ["OrgVdc"], () => require("./orgVdc"));
+
+export { OrgVdcAccessControlArgs, OrgVdcAccessControlState } from "./orgVdcAccessControl";
+export type OrgVdcAccessControl = import("./orgVdcAccessControl").OrgVdcAccessControl;
+export const OrgVdcAccessControl: typeof import("./orgVdcAccessControl").OrgVdcAccessControl = null as any;
+utilities.lazyLoad(exports, ["OrgVdcAccessControl"], () => require("./orgVdcAccessControl"));
+
+export { OrgVdcNsxtNetworkProfileArgs, OrgVdcNsxtNetworkProfileState } from "./orgVdcNsxtNetworkProfile";
+export type OrgVdcNsxtNetworkProfile = import("./orgVdcNsxtNetworkProfile").OrgVdcNsxtNetworkProfile;
+export const OrgVdcNsxtNetworkProfile: typeof import("./orgVdcNsxtNetworkProfile").OrgVdcNsxtNetworkProfile = null as any;
+utilities.lazyLoad(exports, ["OrgVdcNsxtNetworkProfile"], () => require("./orgVdcNsxtNetworkProfile"));
+
+export { OrgVdcTemplateArgs, OrgVdcTemplateState } from "./orgVdcTemplate";
+export type OrgVdcTemplate = import("./orgVdcTemplate").OrgVdcTemplate;
+export const OrgVdcTemplate: typeof import("./orgVdcTemplate").OrgVdcTemplate = null as any;
+utilities.lazyLoad(exports, ["OrgVdcTemplate"], () => require("./orgVdcTemplate"));
+
+export { OrgVdcTemplateInstanceArgs, OrgVdcTemplateInstanceState } from "./orgVdcTemplateInstance";
+export type OrgVdcTemplateInstance = import("./orgVdcTemplateInstance").OrgVdcTemplateInstance;
+export const OrgVdcTemplateInstance: typeof import("./orgVdcTemplateInstance").OrgVdcTemplateInstance = null as any;
+utilities.lazyLoad(exports, ["OrgVdcTemplateInstance"], () => require("./orgVdcTemplateInstance"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
-export { ResourceArgs, ResourceState } from "./resource";
-export type Resource = import("./resource").Resource;
-export const Resource: typeof import("./resource").Resource = null as any;
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+export { ProviderVdcArgs, ProviderVdcState } from "./providerVdc";
+export type ProviderVdc = import("./providerVdc").ProviderVdc;
+export const ProviderVdc: typeof import("./providerVdc").ProviderVdc = null as any;
+utilities.lazyLoad(exports, ["ProviderVdc"], () => require("./providerVdc"));
+
+export { RdeArgs, RdeState } from "./rde";
+export type Rde = import("./rde").Rde;
+export const Rde: typeof import("./rde").Rde = null as any;
+utilities.lazyLoad(exports, ["Rde"], () => require("./rde"));
+
+export { RdeInterfaceArgs, RdeInterfaceState } from "./rdeInterface";
+export type RdeInterface = import("./rdeInterface").RdeInterface;
+export const RdeInterface: typeof import("./rdeInterface").RdeInterface = null as any;
+utilities.lazyLoad(exports, ["RdeInterface"], () => require("./rdeInterface"));
+
+export { RdeInterfaceBehaviorArgs, RdeInterfaceBehaviorState } from "./rdeInterfaceBehavior";
+export type RdeInterfaceBehavior = import("./rdeInterfaceBehavior").RdeInterfaceBehavior;
+export const RdeInterfaceBehavior: typeof import("./rdeInterfaceBehavior").RdeInterfaceBehavior = null as any;
+utilities.lazyLoad(exports, ["RdeInterfaceBehavior"], () => require("./rdeInterfaceBehavior"));
+
+export { RdeTypeArgs, RdeTypeState } from "./rdeType";
+export type RdeType = import("./rdeType").RdeType;
+export const RdeType: typeof import("./rdeType").RdeType = null as any;
+utilities.lazyLoad(exports, ["RdeType"], () => require("./rdeType"));
+
+export { RdeTypeBehaviorArgs, RdeTypeBehaviorState } from "./rdeTypeBehavior";
+export type RdeTypeBehavior = import("./rdeTypeBehavior").RdeTypeBehavior;
+export const RdeTypeBehavior: typeof import("./rdeTypeBehavior").RdeTypeBehavior = null as any;
+utilities.lazyLoad(exports, ["RdeTypeBehavior"], () => require("./rdeTypeBehavior"));
+
+export { RdeTypeBehaviorAclArgs, RdeTypeBehaviorAclState } from "./rdeTypeBehaviorAcl";
+export type RdeTypeBehaviorAcl = import("./rdeTypeBehaviorAcl").RdeTypeBehaviorAcl;
+export const RdeTypeBehaviorAcl: typeof import("./rdeTypeBehaviorAcl").RdeTypeBehaviorAcl = null as any;
+utilities.lazyLoad(exports, ["RdeTypeBehaviorAcl"], () => require("./rdeTypeBehaviorAcl"));
+
+export { RightsBundleArgs, RightsBundleState } from "./rightsBundle";
+export type RightsBundle = import("./rightsBundle").RightsBundle;
+export const RightsBundle: typeof import("./rightsBundle").RightsBundle = null as any;
+utilities.lazyLoad(exports, ["RightsBundle"], () => require("./rightsBundle"));
+
+export { RoleArgs, RoleState } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+
+export { SecurityTagArgs, SecurityTagState } from "./securityTag";
+export type SecurityTag = import("./securityTag").SecurityTag;
+export const SecurityTag: typeof import("./securityTag").SecurityTag = null as any;
+utilities.lazyLoad(exports, ["SecurityTag"], () => require("./securityTag"));
+
+export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
+export type ServiceAccount = import("./serviceAccount").ServiceAccount;
+export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
+utilities.lazyLoad(exports, ["ServiceAccount"], () => require("./serviceAccount"));
+
+export { SolutionAddOnArgs, SolutionAddOnState } from "./solutionAddOn";
+export type SolutionAddOn = import("./solutionAddOn").SolutionAddOn;
+export const SolutionAddOn: typeof import("./solutionAddOn").SolutionAddOn = null as any;
+utilities.lazyLoad(exports, ["SolutionAddOn"], () => require("./solutionAddOn"));
+
+export { SolutionAddOnInstanceArgs, SolutionAddOnInstanceState } from "./solutionAddOnInstance";
+export type SolutionAddOnInstance = import("./solutionAddOnInstance").SolutionAddOnInstance;
+export const SolutionAddOnInstance: typeof import("./solutionAddOnInstance").SolutionAddOnInstance = null as any;
+utilities.lazyLoad(exports, ["SolutionAddOnInstance"], () => require("./solutionAddOnInstance"));
+
+export { SolutionAddOnInstancePublishArgs, SolutionAddOnInstancePublishState } from "./solutionAddOnInstancePublish";
+export type SolutionAddOnInstancePublish = import("./solutionAddOnInstancePublish").SolutionAddOnInstancePublish;
+export const SolutionAddOnInstancePublish: typeof import("./solutionAddOnInstancePublish").SolutionAddOnInstancePublish = null as any;
+utilities.lazyLoad(exports, ["SolutionAddOnInstancePublish"], () => require("./solutionAddOnInstancePublish"));
+
+export { SolutionLandingZoneArgs, SolutionLandingZoneState } from "./solutionLandingZone";
+export type SolutionLandingZone = import("./solutionLandingZone").SolutionLandingZone;
+export const SolutionLandingZone: typeof import("./solutionLandingZone").SolutionLandingZone = null as any;
+utilities.lazyLoad(exports, ["SolutionLandingZone"], () => require("./solutionLandingZone"));
+
+export { SubscribedCatalogArgs, SubscribedCatalogState } from "./subscribedCatalog";
+export type SubscribedCatalog = import("./subscribedCatalog").SubscribedCatalog;
+export const SubscribedCatalog: typeof import("./subscribedCatalog").SubscribedCatalog = null as any;
+utilities.lazyLoad(exports, ["SubscribedCatalog"], () => require("./subscribedCatalog"));
+
+export { UiPluginArgs, UiPluginState } from "./uiPlugin";
+export type UiPlugin = import("./uiPlugin").UiPlugin;
+export const UiPlugin: typeof import("./uiPlugin").UiPlugin = null as any;
+utilities.lazyLoad(exports, ["UiPlugin"], () => require("./uiPlugin"));
+
+export { VappArgs, VappState } from "./vapp";
+export type Vapp = import("./vapp").Vapp;
+export const Vapp: typeof import("./vapp").Vapp = null as any;
+utilities.lazyLoad(exports, ["Vapp"], () => require("./vapp"));
+
+export { VappAccessControlArgs, VappAccessControlState } from "./vappAccessControl";
+export type VappAccessControl = import("./vappAccessControl").VappAccessControl;
+export const VappAccessControl: typeof import("./vappAccessControl").VappAccessControl = null as any;
+utilities.lazyLoad(exports, ["VappAccessControl"], () => require("./vappAccessControl"));
+
+export { VappFirewallRulesArgs, VappFirewallRulesState } from "./vappFirewallRules";
+export type VappFirewallRules = import("./vappFirewallRules").VappFirewallRules;
+export const VappFirewallRules: typeof import("./vappFirewallRules").VappFirewallRules = null as any;
+utilities.lazyLoad(exports, ["VappFirewallRules"], () => require("./vappFirewallRules"));
+
+export { VappNatRulesArgs, VappNatRulesState } from "./vappNatRules";
+export type VappNatRules = import("./vappNatRules").VappNatRules;
+export const VappNatRules: typeof import("./vappNatRules").VappNatRules = null as any;
+utilities.lazyLoad(exports, ["VappNatRules"], () => require("./vappNatRules"));
+
+export { VappNetworkArgs, VappNetworkState } from "./vappNetwork";
+export type VappNetwork = import("./vappNetwork").VappNetwork;
+export const VappNetwork: typeof import("./vappNetwork").VappNetwork = null as any;
+utilities.lazyLoad(exports, ["VappNetwork"], () => require("./vappNetwork"));
+
+export { VappOrgNetworkArgs, VappOrgNetworkState } from "./vappOrgNetwork";
+export type VappOrgNetwork = import("./vappOrgNetwork").VappOrgNetwork;
+export const VappOrgNetwork: typeof import("./vappOrgNetwork").VappOrgNetwork = null as any;
+utilities.lazyLoad(exports, ["VappOrgNetwork"], () => require("./vappOrgNetwork"));
+
+export { VappStaticRoutingArgs, VappStaticRoutingState } from "./vappStaticRouting";
+export type VappStaticRouting = import("./vappStaticRouting").VappStaticRouting;
+export const VappStaticRouting: typeof import("./vappStaticRouting").VappStaticRouting = null as any;
+utilities.lazyLoad(exports, ["VappStaticRouting"], () => require("./vappStaticRouting"));
+
+export { VappVmArgs, VappVmState } from "./vappVm";
+export type VappVm = import("./vappVm").VappVm;
+export const VappVm: typeof import("./vappVm").VappVm = null as any;
+utilities.lazyLoad(exports, ["VappVm"], () => require("./vappVm"));
+
+export { VdcGroupArgs, VdcGroupState } from "./vdcGroup";
+export type VdcGroup = import("./vdcGroup").VdcGroup;
+export const VdcGroup: typeof import("./vdcGroup").VdcGroup = null as any;
+utilities.lazyLoad(exports, ["VdcGroup"], () => require("./vdcGroup"));
+
+export { VmArgs, VmState } from "./vm";
+export type Vm = import("./vm").Vm;
+export const Vm: typeof import("./vm").Vm = null as any;
+utilities.lazyLoad(exports, ["Vm"], () => require("./vm"));
+
+export { VmAffinityRuleArgs, VmAffinityRuleState } from "./vmAffinityRule";
+export type VmAffinityRule = import("./vmAffinityRule").VmAffinityRule;
+export const VmAffinityRule: typeof import("./vmAffinityRule").VmAffinityRule = null as any;
+utilities.lazyLoad(exports, ["VmAffinityRule"], () => require("./vmAffinityRule"));
+
+export { VmInternalDiskArgs, VmInternalDiskState } from "./vmInternalDisk";
+export type VmInternalDisk = import("./vmInternalDisk").VmInternalDisk;
+export const VmInternalDisk: typeof import("./vmInternalDisk").VmInternalDisk = null as any;
+utilities.lazyLoad(exports, ["VmInternalDisk"], () => require("./vmInternalDisk"));
+
+export { VmPlacementPolicyArgs, VmPlacementPolicyState } from "./vmPlacementPolicy";
+export type VmPlacementPolicy = import("./vmPlacementPolicy").VmPlacementPolicy;
+export const VmPlacementPolicy: typeof import("./vmPlacementPolicy").VmPlacementPolicy = null as any;
+utilities.lazyLoad(exports, ["VmPlacementPolicy"], () => require("./vmPlacementPolicy"));
+
+export { VmSizingPolicyArgs, VmSizingPolicyState } from "./vmSizingPolicy";
+export type VmSizingPolicy = import("./vmSizingPolicy").VmSizingPolicy;
+export const VmSizingPolicy: typeof import("./vmSizingPolicy").VmSizingPolicy = null as any;
+utilities.lazyLoad(exports, ["VmSizingPolicy"], () => require("./vmSizingPolicy"));
+
+export { VmVgpuPolicyArgs, VmVgpuPolicyState } from "./vmVgpuPolicy";
+export type VmVgpuPolicy = import("./vmVgpuPolicy").VmVgpuPolicy;
+export const VmVgpuPolicy: typeof import("./vmVgpuPolicy").VmVgpuPolicy = null as any;
+utilities.lazyLoad(exports, ["VmVgpuPolicy"], () => require("./vmVgpuPolicy"));
 
 
 // Export sub-modules:
@@ -36,18 +1346,384 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "xyz:index/resource:Resource":
-                return new Resource(name, <any>undefined, { urn })
+            case "vcd:index/apiFilter:ApiFilter":
+                return new ApiFilter(name, <any>undefined, { urn })
+            case "vcd:index/apiToken:ApiToken":
+                return new ApiToken(name, <any>undefined, { urn })
+            case "vcd:index/catalog:Catalog":
+                return new Catalog(name, <any>undefined, { urn })
+            case "vcd:index/catalogAccessControl:CatalogAccessControl":
+                return new CatalogAccessControl(name, <any>undefined, { urn })
+            case "vcd:index/catalogItem:CatalogItem":
+                return new CatalogItem(name, <any>undefined, { urn })
+            case "vcd:index/catalogMedia:CatalogMedia":
+                return new CatalogMedia(name, <any>undefined, { urn })
+            case "vcd:index/catalogVappTemplate:CatalogVappTemplate":
+                return new CatalogVappTemplate(name, <any>undefined, { urn })
+            case "vcd:index/clonedVapp:ClonedVapp":
+                return new ClonedVapp(name, <any>undefined, { urn })
+            case "vcd:index/cseKubernetesCluster:CseKubernetesCluster":
+                return new CseKubernetesCluster(name, <any>undefined, { urn })
+            case "vcd:index/dseRegistryConfiguration:DseRegistryConfiguration":
+                return new DseRegistryConfiguration(name, <any>undefined, { urn })
+            case "vcd:index/dseSolutionPublish:DseSolutionPublish":
+                return new DseSolutionPublish(name, <any>undefined, { urn })
+            case "vcd:index/edgegateway:Edgegateway":
+                return new Edgegateway(name, <any>undefined, { urn })
+            case "vcd:index/edgegatewaySettings:EdgegatewaySettings":
+                return new EdgegatewaySettings(name, <any>undefined, { urn })
+            case "vcd:index/edgegatewayVpn:EdgegatewayVpn":
+                return new EdgegatewayVpn(name, <any>undefined, { urn })
+            case "vcd:index/externalEndpoint:ExternalEndpoint":
+                return new ExternalEndpoint(name, <any>undefined, { urn })
+            case "vcd:index/externalNetwork:ExternalNetwork":
+                return new ExternalNetwork(name, <any>undefined, { urn })
+            case "vcd:index/externalNetworkV2:ExternalNetworkV2":
+                return new ExternalNetworkV2(name, <any>undefined, { urn })
+            case "vcd:index/globalRole:GlobalRole":
+                return new GlobalRole(name, <any>undefined, { urn })
+            case "vcd:index/independentDisk:IndependentDisk":
+                return new IndependentDisk(name, <any>undefined, { urn })
+            case "vcd:index/insertedMedia:InsertedMedia":
+                return new InsertedMedia(name, <any>undefined, { urn })
+            case "vcd:index/ipSpace:IpSpace":
+                return new IpSpace(name, <any>undefined, { urn })
+            case "vcd:index/ipSpaceCustomQuota:IpSpaceCustomQuota":
+                return new IpSpaceCustomQuota(name, <any>undefined, { urn })
+            case "vcd:index/ipSpaceIpAllocation:IpSpaceIpAllocation":
+                return new IpSpaceIpAllocation(name, <any>undefined, { urn })
+            case "vcd:index/ipSpaceUplink:IpSpaceUplink":
+                return new IpSpaceUplink(name, <any>undefined, { urn })
+            case "vcd:index/lbAppProfile:LbAppProfile":
+                return new LbAppProfile(name, <any>undefined, { urn })
+            case "vcd:index/lbAppRule:LbAppRule":
+                return new LbAppRule(name, <any>undefined, { urn })
+            case "vcd:index/lbServerPool:LbServerPool":
+                return new LbServerPool(name, <any>undefined, { urn })
+            case "vcd:index/lbServiceMonitor:LbServiceMonitor":
+                return new LbServiceMonitor(name, <any>undefined, { urn })
+            case "vcd:index/lbVirtualServer:LbVirtualServer":
+                return new LbVirtualServer(name, <any>undefined, { urn })
+            case "vcd:index/libraryCertificate:LibraryCertificate":
+                return new LibraryCertificate(name, <any>undefined, { urn })
+            case "vcd:index/multisiteOrgAssociation:MultisiteOrgAssociation":
+                return new MultisiteOrgAssociation(name, <any>undefined, { urn })
+            case "vcd:index/multisiteSiteAssociation:MultisiteSiteAssociation":
+                return new MultisiteSiteAssociation(name, <any>undefined, { urn })
+            case "vcd:index/networkDirect:NetworkDirect":
+                return new NetworkDirect(name, <any>undefined, { urn })
+            case "vcd:index/networkIsolated:NetworkIsolated":
+                return new NetworkIsolated(name, <any>undefined, { urn })
+            case "vcd:index/networkIsolatedV2:NetworkIsolatedV2":
+                return new NetworkIsolatedV2(name, <any>undefined, { urn })
+            case "vcd:index/networkPool:NetworkPool":
+                return new NetworkPool(name, <any>undefined, { urn })
+            case "vcd:index/networkRouted:NetworkRouted":
+                return new NetworkRouted(name, <any>undefined, { urn })
+            case "vcd:index/networkRoutedV2:NetworkRoutedV2":
+                return new NetworkRoutedV2(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbCloud:NsxtAlbCloud":
+                return new NsxtAlbCloud(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbController:NsxtAlbController":
+                return new NsxtAlbController(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbEdgegatewayServiceEngineGroup:NsxtAlbEdgegatewayServiceEngineGroup":
+                return new NsxtAlbEdgegatewayServiceEngineGroup(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbPool:NsxtAlbPool":
+                return new NsxtAlbPool(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbServiceEngineGroup:NsxtAlbServiceEngineGroup":
+                return new NsxtAlbServiceEngineGroup(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbSettings:NsxtAlbSettings":
+                return new NsxtAlbSettings(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbVirtualService:NsxtAlbVirtualService":
+                return new NsxtAlbVirtualService(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbVirtualServiceHttpReqRules:NsxtAlbVirtualServiceHttpReqRules":
+                return new NsxtAlbVirtualServiceHttpReqRules(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbVirtualServiceHttpRespRules:NsxtAlbVirtualServiceHttpRespRules":
+                return new NsxtAlbVirtualServiceHttpRespRules(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAlbVirtualServiceHttpSecRules:NsxtAlbVirtualServiceHttpSecRules":
+                return new NsxtAlbVirtualServiceHttpSecRules(name, <any>undefined, { urn })
+            case "vcd:index/nsxtAppPortProfile:NsxtAppPortProfile":
+                return new NsxtAppPortProfile(name, <any>undefined, { urn })
+            case "vcd:index/nsxtDistributedFirewall:NsxtDistributedFirewall":
+                return new NsxtDistributedFirewall(name, <any>undefined, { urn })
+            case "vcd:index/nsxtDistributedFirewallRule:NsxtDistributedFirewallRule":
+                return new NsxtDistributedFirewallRule(name, <any>undefined, { urn })
+            case "vcd:index/nsxtDynamicSecurityGroup:NsxtDynamicSecurityGroup":
+                return new NsxtDynamicSecurityGroup(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegateway:NsxtEdgegateway":
+                return new NsxtEdgegateway(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayBgpConfiguration:NsxtEdgegatewayBgpConfiguration":
+                return new NsxtEdgegatewayBgpConfiguration(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayBgpIpPrefixList:NsxtEdgegatewayBgpIpPrefixList":
+                return new NsxtEdgegatewayBgpIpPrefixList(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayBgpNeighbor:NsxtEdgegatewayBgpNeighbor":
+                return new NsxtEdgegatewayBgpNeighbor(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayDhcpForwarding:NsxtEdgegatewayDhcpForwarding":
+                return new NsxtEdgegatewayDhcpForwarding(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayDhcpv6:NsxtEdgegatewayDhcpv6":
+                return new NsxtEdgegatewayDhcpv6(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayDns:NsxtEdgegatewayDns":
+                return new NsxtEdgegatewayDns(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayL2VpnTunnel:NsxtEdgegatewayL2VpnTunnel":
+                return new NsxtEdgegatewayL2VpnTunnel(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayRateLimiting:NsxtEdgegatewayRateLimiting":
+                return new NsxtEdgegatewayRateLimiting(name, <any>undefined, { urn })
+            case "vcd:index/nsxtEdgegatewayStaticRoute:NsxtEdgegatewayStaticRoute":
+                return new NsxtEdgegatewayStaticRoute(name, <any>undefined, { urn })
+            case "vcd:index/nsxtFirewall:NsxtFirewall":
+                return new NsxtFirewall(name, <any>undefined, { urn })
+            case "vcd:index/nsxtGlobalDefaultSegmentProfileTemplate:NsxtGlobalDefaultSegmentProfileTemplate":
+                return new NsxtGlobalDefaultSegmentProfileTemplate(name, <any>undefined, { urn })
+            case "vcd:index/nsxtIpSet:NsxtIpSet":
+                return new NsxtIpSet(name, <any>undefined, { urn })
+            case "vcd:index/nsxtIpsecVpnTunnel:NsxtIpsecVpnTunnel":
+                return new NsxtIpsecVpnTunnel(name, <any>undefined, { urn })
+            case "vcd:index/nsxtNatRule:NsxtNatRule":
+                return new NsxtNatRule(name, <any>undefined, { urn })
+            case "vcd:index/nsxtNetworkDhcp:NsxtNetworkDhcp":
+                return new NsxtNetworkDhcp(name, <any>undefined, { urn })
+            case "vcd:index/nsxtNetworkDhcpBinding:NsxtNetworkDhcpBinding":
+                return new NsxtNetworkDhcpBinding(name, <any>undefined, { urn })
+            case "vcd:index/nsxtNetworkImported:NsxtNetworkImported":
+                return new NsxtNetworkImported(name, <any>undefined, { urn })
+            case "vcd:index/nsxtNetworkSegmentProfile:NsxtNetworkSegmentProfile":
+                return new NsxtNetworkSegmentProfile(name, <any>undefined, { urn })
+            case "vcd:index/nsxtRouteAdvertisement:NsxtRouteAdvertisement":
+                return new NsxtRouteAdvertisement(name, <any>undefined, { urn })
+            case "vcd:index/nsxtSecurityGroup:NsxtSecurityGroup":
+                return new NsxtSecurityGroup(name, <any>undefined, { urn })
+            case "vcd:index/nsxtSegmentProfileTemplate:NsxtSegmentProfileTemplate":
+                return new NsxtSegmentProfileTemplate(name, <any>undefined, { urn })
+            case "vcd:index/nsxvDhcpRelay:NsxvDhcpRelay":
+                return new NsxvDhcpRelay(name, <any>undefined, { urn })
+            case "vcd:index/nsxvDistributedFirewall:NsxvDistributedFirewall":
+                return new NsxvDistributedFirewall(name, <any>undefined, { urn })
+            case "vcd:index/nsxvDnat:NsxvDnat":
+                return new NsxvDnat(name, <any>undefined, { urn })
+            case "vcd:index/nsxvFirewallRule:NsxvFirewallRule":
+                return new NsxvFirewallRule(name, <any>undefined, { urn })
+            case "vcd:index/nsxvIpSet:NsxvIpSet":
+                return new NsxvIpSet(name, <any>undefined, { urn })
+            case "vcd:index/nsxvSnat:NsxvSnat":
+                return new NsxvSnat(name, <any>undefined, { urn })
+            case "vcd:index/org:Org":
+                return new Org(name, <any>undefined, { urn })
+            case "vcd:index/orgGroup:OrgGroup":
+                return new OrgGroup(name, <any>undefined, { urn })
+            case "vcd:index/orgLdap:OrgLdap":
+                return new OrgLdap(name, <any>undefined, { urn })
+            case "vcd:index/orgOidc:OrgOidc":
+                return new OrgOidc(name, <any>undefined, { urn })
+            case "vcd:index/orgSaml:OrgSaml":
+                return new OrgSaml(name, <any>undefined, { urn })
+            case "vcd:index/orgUser:OrgUser":
+                return new OrgUser(name, <any>undefined, { urn })
+            case "vcd:index/orgVdc:OrgVdc":
+                return new OrgVdc(name, <any>undefined, { urn })
+            case "vcd:index/orgVdcAccessControl:OrgVdcAccessControl":
+                return new OrgVdcAccessControl(name, <any>undefined, { urn })
+            case "vcd:index/orgVdcNsxtNetworkProfile:OrgVdcNsxtNetworkProfile":
+                return new OrgVdcNsxtNetworkProfile(name, <any>undefined, { urn })
+            case "vcd:index/orgVdcTemplate:OrgVdcTemplate":
+                return new OrgVdcTemplate(name, <any>undefined, { urn })
+            case "vcd:index/orgVdcTemplateInstance:OrgVdcTemplateInstance":
+                return new OrgVdcTemplateInstance(name, <any>undefined, { urn })
+            case "vcd:index/providerVdc:ProviderVdc":
+                return new ProviderVdc(name, <any>undefined, { urn })
+            case "vcd:index/rde:Rde":
+                return new Rde(name, <any>undefined, { urn })
+            case "vcd:index/rdeInterface:RdeInterface":
+                return new RdeInterface(name, <any>undefined, { urn })
+            case "vcd:index/rdeInterfaceBehavior:RdeInterfaceBehavior":
+                return new RdeInterfaceBehavior(name, <any>undefined, { urn })
+            case "vcd:index/rdeType:RdeType":
+                return new RdeType(name, <any>undefined, { urn })
+            case "vcd:index/rdeTypeBehavior:RdeTypeBehavior":
+                return new RdeTypeBehavior(name, <any>undefined, { urn })
+            case "vcd:index/rdeTypeBehaviorAcl:RdeTypeBehaviorAcl":
+                return new RdeTypeBehaviorAcl(name, <any>undefined, { urn })
+            case "vcd:index/rightsBundle:RightsBundle":
+                return new RightsBundle(name, <any>undefined, { urn })
+            case "vcd:index/role:Role":
+                return new Role(name, <any>undefined, { urn })
+            case "vcd:index/securityTag:SecurityTag":
+                return new SecurityTag(name, <any>undefined, { urn })
+            case "vcd:index/serviceAccount:ServiceAccount":
+                return new ServiceAccount(name, <any>undefined, { urn })
+            case "vcd:index/solutionAddOn:SolutionAddOn":
+                return new SolutionAddOn(name, <any>undefined, { urn })
+            case "vcd:index/solutionAddOnInstance:SolutionAddOnInstance":
+                return new SolutionAddOnInstance(name, <any>undefined, { urn })
+            case "vcd:index/solutionAddOnInstancePublish:SolutionAddOnInstancePublish":
+                return new SolutionAddOnInstancePublish(name, <any>undefined, { urn })
+            case "vcd:index/solutionLandingZone:SolutionLandingZone":
+                return new SolutionLandingZone(name, <any>undefined, { urn })
+            case "vcd:index/subscribedCatalog:SubscribedCatalog":
+                return new SubscribedCatalog(name, <any>undefined, { urn })
+            case "vcd:index/uiPlugin:UiPlugin":
+                return new UiPlugin(name, <any>undefined, { urn })
+            case "vcd:index/vapp:Vapp":
+                return new Vapp(name, <any>undefined, { urn })
+            case "vcd:index/vappAccessControl:VappAccessControl":
+                return new VappAccessControl(name, <any>undefined, { urn })
+            case "vcd:index/vappFirewallRules:VappFirewallRules":
+                return new VappFirewallRules(name, <any>undefined, { urn })
+            case "vcd:index/vappNatRules:VappNatRules":
+                return new VappNatRules(name, <any>undefined, { urn })
+            case "vcd:index/vappNetwork:VappNetwork":
+                return new VappNetwork(name, <any>undefined, { urn })
+            case "vcd:index/vappOrgNetwork:VappOrgNetwork":
+                return new VappOrgNetwork(name, <any>undefined, { urn })
+            case "vcd:index/vappStaticRouting:VappStaticRouting":
+                return new VappStaticRouting(name, <any>undefined, { urn })
+            case "vcd:index/vappVm:VappVm":
+                return new VappVm(name, <any>undefined, { urn })
+            case "vcd:index/vdcGroup:VdcGroup":
+                return new VdcGroup(name, <any>undefined, { urn })
+            case "vcd:index/vm:Vm":
+                return new Vm(name, <any>undefined, { urn })
+            case "vcd:index/vmAffinityRule:VmAffinityRule":
+                return new VmAffinityRule(name, <any>undefined, { urn })
+            case "vcd:index/vmInternalDisk:VmInternalDisk":
+                return new VmInternalDisk(name, <any>undefined, { urn })
+            case "vcd:index/vmPlacementPolicy:VmPlacementPolicy":
+                return new VmPlacementPolicy(name, <any>undefined, { urn })
+            case "vcd:index/vmSizingPolicy:VmSizingPolicy":
+                return new VmSizingPolicy(name, <any>undefined, { urn })
+            case "vcd:index/vmVgpuPolicy:VmVgpuPolicy":
+                return new VmVgpuPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("xyz", "index/resource", _module)
-pulumi.runtime.registerResourcePackage("xyz", {
+pulumi.runtime.registerResourceModule("vcd", "index/apiFilter", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/apiToken", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/catalog", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/catalogAccessControl", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/catalogItem", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/catalogMedia", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/catalogVappTemplate", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/clonedVapp", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/cseKubernetesCluster", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/dseRegistryConfiguration", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/dseSolutionPublish", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/edgegateway", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/edgegatewaySettings", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/edgegatewayVpn", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/externalEndpoint", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/externalNetwork", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/externalNetworkV2", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/globalRole", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/independentDisk", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/insertedMedia", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/ipSpace", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/ipSpaceCustomQuota", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/ipSpaceIpAllocation", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/ipSpaceUplink", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/lbAppProfile", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/lbAppRule", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/lbServerPool", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/lbServiceMonitor", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/lbVirtualServer", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/libraryCertificate", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/multisiteOrgAssociation", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/multisiteSiteAssociation", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/networkDirect", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/networkIsolated", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/networkIsolatedV2", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/networkPool", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/networkRouted", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/networkRoutedV2", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbCloud", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbController", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbEdgegatewayServiceEngineGroup", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbPool", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbServiceEngineGroup", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbSettings", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbVirtualService", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbVirtualServiceHttpReqRules", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbVirtualServiceHttpRespRules", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAlbVirtualServiceHttpSecRules", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtAppPortProfile", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtDistributedFirewall", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtDistributedFirewallRule", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtDynamicSecurityGroup", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegateway", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayBgpConfiguration", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayBgpIpPrefixList", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayBgpNeighbor", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayDhcpForwarding", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayDhcpv6", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayDns", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayL2VpnTunnel", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayRateLimiting", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtEdgegatewayStaticRoute", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtFirewall", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtGlobalDefaultSegmentProfileTemplate", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtIpSet", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtIpsecVpnTunnel", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtNatRule", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtNetworkDhcp", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtNetworkDhcpBinding", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtNetworkImported", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtNetworkSegmentProfile", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtRouteAdvertisement", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtSecurityGroup", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxtSegmentProfileTemplate", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxvDhcpRelay", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxvDistributedFirewall", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxvDnat", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxvFirewallRule", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxvIpSet", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/nsxvSnat", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/org", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgGroup", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgLdap", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgOidc", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgSaml", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgUser", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgVdc", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgVdcAccessControl", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgVdcNsxtNetworkProfile", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgVdcTemplate", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/orgVdcTemplateInstance", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/providerVdc", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rde", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rdeInterface", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rdeInterfaceBehavior", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rdeType", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rdeTypeBehavior", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rdeTypeBehaviorAcl", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/rightsBundle", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/role", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/securityTag", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/serviceAccount", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/solutionAddOn", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/solutionAddOnInstance", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/solutionAddOnInstancePublish", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/solutionLandingZone", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/subscribedCatalog", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/uiPlugin", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vapp", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappAccessControl", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappFirewallRules", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappNatRules", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappNetwork", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappOrgNetwork", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappStaticRouting", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vappVm", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vdcGroup", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vm", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vmAffinityRule", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vmInternalDisk", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vmPlacementPolicy", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vmSizingPolicy", _module)
+pulumi.runtime.registerResourceModule("vcd", "index/vmVgpuPolicy", _module)
+pulumi.runtime.registerResourcePackage("vcd", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:xyz") {
+        if (type !== "pulumi:providers:vcd") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

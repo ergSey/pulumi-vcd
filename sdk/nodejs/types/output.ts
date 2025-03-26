@@ -6,3 +6,7925 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 
+export interface CatalogAccessControlSharedWith {
+    /**
+     * The access level for the user or group to which we are sharing. (One of `ReadOnly`, 
+     * `Change`, `FullControl`, but it can only be `ReadOnly` when we share to an Organization)
+     */
+    accessLevel: string;
+    /**
+     * The ID of a group with which we are sharing. Required if `userId` or `orgId` is not set.
+     */
+    groupId?: string;
+    /**
+     * The ID of a group with which we are sharing. Required if `userId` or `groupId` is not set.
+     */
+    orgId?: string;
+    /**
+     * the name of the subject (Org, group, or user) with which we are sharing.
+     */
+    subjectName: string;
+    /**
+     * The ID of a user with which we are sharing. Required if `groupId` or `orgId` is not set.
+     */
+    userId?: string;
+}
+
+export interface CatalogItemMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface CatalogMediaMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface CatalogMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface CatalogVappTemplateCaptureVapp {
+    /**
+     * Defines if Trusted Platform Module should be copied (false) or created (true). Default 'false'. VCD 10.4.2+
+     */
+    copyTpmOnInstantiate?: boolean;
+    /**
+     * Marks if instantiating applies customization settings ('true'). Default is 'false` - create an identical copy.
+     */
+    customizeOnInstantiate?: boolean;
+    /**
+     * An existing catalog item ID to overwrite
+     */
+    overwriteCatalogItemId?: string;
+    /**
+     * Source vApp ID (can be a vApp ID or 'vapp_id' field of standalone VM 'vcd_vm')
+     */
+    sourceId?: string;
+}
+
+export interface CatalogVappTemplateLease {
+    /**
+     * How long the vApp Template is available before being automatically deleted or marked as expired. 0 means never expires (or maximum allowed by parent Org). Regular values accepted from 3600+.
+     */
+    storageLeaseInSec: number;
+}
+
+export interface CatalogVappTemplateMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface CseKubernetesClusterControlPlane {
+    /**
+     * Disk size, in **Gibibytes (Gi)**, for the control plane VMs. Must be at least `20`. Defaults to `20`
+     */
+    diskSizeGi?: number;
+    /**
+     * IP for the control plane. It will be automatically assigned during cluster creation if left empty
+     */
+    ip: string;
+    /**
+     * The number of nodes that the control plane has. Must be an odd number and higher than `0`. Defaults to `3`
+     */
+    machineCount?: number;
+    /**
+     * VM Placement policy for the control plane VMs
+     */
+    placementPolicyId?: string;
+    /**
+     * VM Sizing policy for the control plane VMs. Must be one of the ones made available during CSE installation
+     */
+    sizingPolicyId?: string;
+    /**
+     * Storage profile for the control plane VMs
+     */
+    storageProfileId?: string;
+}
+
+export interface CseKubernetesClusterDefaultStorageClass {
+    /**
+     * Filesystem of the storage class, can be either `ext4` or `xfs`
+     */
+    filesystem: string;
+    /**
+     * The name of the default storage class. It must contain only lowercase alphanumeric characters or "-",
+     * start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters
+     */
+    name: string;
+    /**
+     * A value of `delete` deletes the volume when the PersistentVolumeClaim is deleted. `retain` does not,
+     * and the volume can be manually reclaimed
+     */
+    reclaimPolicy: string;
+    /**
+     * Storage profile for the default storage class
+     */
+    storageProfileId: string;
+}
+
+export interface CseKubernetesClusterEvent {
+    /**
+     * Details of the event
+     */
+    details: string;
+    /**
+     * The name of the Kubernetes cluster. It must contain only lowercase alphanumeric characters or "-",
+     * start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters
+     */
+    name: string;
+    /**
+     * When the event happened
+     */
+    occurredAt: string;
+    /**
+     * ID of the resource that caused the event
+     */
+    resourceId: string;
+    /**
+     * Type of the event, either `event` or `error`
+     */
+    type: string;
+}
+
+export interface CseKubernetesClusterWorkerPool {
+    /**
+     * Maximum replicas for the autoscaling capabilities of this worker pool. Requires 'autoscaler_min_replicas'
+     */
+    autoscalerMaxReplicas?: number;
+    /**
+     * Minimum replicas for the autoscaling capabilities of this worker pool. Requires 'autoscaler_max_replicas'
+     */
+    autoscalerMinReplicas?: number;
+    /**
+     * Disk size, in Gibibytes (Gi), for this worker pool
+     */
+    diskSizeGi?: number;
+    /**
+     * The number of nodes that this worker pool has. Must be higher than or equal to 0. Ignored if 'autoscaler_max_replicas' and 'autoscaler_min_replicas' are set
+     */
+    machineCount?: number;
+    /**
+     * The name of the Kubernetes cluster. It must contain only lowercase alphanumeric characters or "-",
+     * start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters
+     */
+    name: string;
+    /**
+     * VM Placement policy for this worker pool
+     */
+    placementPolicyId?: string;
+    /**
+     * VM Sizing policy for this worker pool
+     */
+    sizingPolicyId?: string;
+    /**
+     * Storage profile for this worker pool
+     */
+    storageProfileId?: string;
+    /**
+     * vGPU policy for this worker pool
+     */
+    vgpuPolicyId?: string;
+}
+
+export interface DseRegistryConfigurationContainerRegistry {
+    /**
+     * Registry description
+     */
+    description: string;
+    /**
+     * Registry host
+     */
+    host: string;
+    /**
+     * Password for registry user
+     */
+    password?: string;
+    /**
+     * Username for registry access
+     */
+    username?: string;
+}
+
+export interface EdgegatewayExternalNetwork {
+    /**
+     * Enable rate limiting
+     */
+    enableRateLimit?: boolean;
+    /**
+     * Incoming rate limit (Mbps)
+     */
+    incomingRateLimit?: number;
+    /**
+     * A unique name for the edge gateway.
+     */
+    name: string;
+    /**
+     * Outgoing rate limit (Mbps)
+     */
+    outgoingRateLimit?: number;
+    subnets: outputs.EdgegatewayExternalNetworkSubnet[];
+}
+
+export interface EdgegatewayExternalNetworkSubnet {
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * IP address on the edge gateway - will be auto-assigned if not defined
+     */
+    ipAddress?: string;
+    /**
+     * Netmask address for a subnet
+     */
+    netmask: string;
+    /**
+     * Define zero or more blocks to sub-allocate pools on the edge gateway
+     */
+    suballocatePools?: outputs.EdgegatewayExternalNetworkSubnetSuballocatePool[];
+    /**
+     * Defines if this subnet should be used as default gateway for edge
+     */
+    useForDefaultRoute?: boolean;
+}
+
+export interface EdgegatewayExternalNetworkSubnetSuballocatePool {
+    endAddress: string;
+    startAddress: string;
+}
+
+export interface EdgegatewayVpnLocalSubnet {
+    localSubnetGateway: string;
+    localSubnetMask: string;
+    localSubnetName: string;
+}
+
+export interface EdgegatewayVpnPeerSubnet {
+    peerSubnetGateway: string;
+    peerSubnetMask: string;
+    peerSubnetName: string;
+}
+
+export interface ExternalNetworkIpScope {
+    /**
+     * Primary DNS server
+     */
+    dns1?: string;
+    /**
+     * Secondary DNS server
+     */
+    dns2?: string;
+    /**
+     * DNS suffix
+     */
+    dnsSuffix?: string;
+    /**
+     * Gateway of the network
+     */
+    gateway: string;
+    /**
+     * Network mask
+     */
+    netmask: string;
+    /**
+     * IP ranges used for static pool allocation in the network
+     */
+    staticIpPools?: outputs.ExternalNetworkIpScopeStaticIpPool[];
+}
+
+export interface ExternalNetworkIpScopeStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface ExternalNetworkV2IpScope {
+    /**
+     * Primary DNS server
+     */
+    dns1?: string;
+    /**
+     * Secondary DNS server
+     */
+    dns2?: string;
+    /**
+     * DNS suffix
+     */
+    dnsSuffix?: string;
+    /**
+     * If subnet is enabled
+     */
+    enabled?: boolean;
+    /**
+     * Gateway of the network
+     */
+    gateway: string;
+    /**
+     * Network mask
+     */
+    prefixLength: number;
+    /**
+     * IP ranges used for static pool allocation in the network
+     */
+    staticIpPools?: outputs.ExternalNetworkV2IpScopeStaticIpPool[];
+}
+
+export interface ExternalNetworkV2IpScopeStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface ExternalNetworkV2NsxtNetwork {
+    /**
+     * ID of NSX-T manager
+     */
+    nsxtManagerId: string;
+    /**
+     * Name of NSX-T segment (for NSX-T segment backed external network)
+     */
+    nsxtSegmentName?: string;
+    /**
+     * ID of NSX-T Tier-0 router (for T0 gateway backed external network)
+     */
+    nsxtTier0RouterId?: string;
+}
+
+export interface ExternalNetworkV2VsphereNetwork {
+    /**
+     * The name of the port group
+     */
+    portgroupId: string;
+    /**
+     * The vCenter server name
+     */
+    vcenterId: string;
+}
+
+export interface ExternalNetworkVsphereNetwork {
+    /**
+     * A unique name for the network
+     */
+    name: string;
+    /**
+     * The vSphere port group type. One of: DV_PORTGROUP (distributed virtual port group), NETWORK
+     */
+    type: string;
+    /**
+     * The vCenter server name
+     */
+    vcenter: string;
+}
+
+export interface GetCatalogAccessControlSharedWith {
+    /**
+     * The access level for the org, user, or group to which we are sharing. One of [ReadOnly, Change, FullControl] for users and groups, but just ReadOnly for Organizations
+     */
+    accessLevel: string;
+    /**
+     * ID of the group to which we are sharing
+     */
+    groupId: string;
+    /**
+     * ID of the Org to which we are sharing
+     */
+    orgId: string;
+    /**
+     * Name of the subject (org, group, or user) with which we are sharing
+     */
+    subjectName: string;
+    /**
+     * ID of the user to which we are sharing
+     */
+    userId: string;
+}
+
+export interface GetCatalogFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * (Deprecated; *v3.6+*) Use `metadataEntry` instead. Key value map of metadata.
+     */
+    metadatas?: outputs.GetCatalogFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogItemFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * Key value map of metadata assigned to the associated vApp template.
+     */
+    metadatas?: outputs.GetCatalogItemFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogItemFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogItemMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetCatalogMediaFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * metadata filter
+     */
+    metadatas?: outputs.GetCatalogMediaFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogMediaFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogMediaMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetCatalogMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetCatalogVappTemplateFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * (Deprecated) Use `metadataEntry` instead. Key/value map of metadata for the associated vApp template.
+     */
+    metadatas?: outputs.GetCatalogVappTemplateFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogVappTemplateFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogVappTemplateLease {
+    /**
+     * How long the vApp Template is available before being automatically deleted or marked as expired. 0 means never expires (or maximum allowed by parent Org allows).
+     */
+    storageLeaseInSec: number;
+}
+
+export interface GetCatalogVappTemplateMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetCseKubernetesClusterControlPlane {
+    /**
+     * Disk size, in Gibibytes (Gi), of the control plane nodes
+     */
+    diskSizeGi: number;
+    /**
+     * IP of the control plane
+     */
+    ip: string;
+    /**
+     * The number of nodes that the control plane has
+     */
+    machineCount: number;
+    /**
+     * VM Placement policy of the control plane nodes
+     */
+    placementPolicyId: string;
+    /**
+     * VM Sizing policy of the control plane nodes
+     */
+    sizingPolicyId: string;
+    /**
+     * Storage profile of the control plane nodes
+     */
+    storageProfileId: string;
+}
+
+export interface GetCseKubernetesClusterDefaultStorageClass {
+    /**
+     * Filesystem of the storage class, can be either 'ext4' or 'xfs'
+     */
+    filesystem: string;
+    /**
+     * Allows to find a Kubernetes cluster by name inside the given Organization with ID `orgId`. Either `clusterId` or `name` must be set. This argument requires `cseVersion` and `orgId` to be set.
+     */
+    name: string;
+    /**
+     * 'delete' deletes the volume when the PersistentVolumeClaim is deleted. 'retain' does not, and the volume can be manually reclaimed
+     */
+    reclaimPolicy: string;
+    /**
+     * ID of the storage profile used by the storage class
+     */
+    storageProfileId: string;
+}
+
+export interface GetCseKubernetesClusterEvent {
+    /**
+     * Details of the event
+     */
+    details: string;
+    /**
+     * Allows to find a Kubernetes cluster by name inside the given Organization with ID `orgId`. Either `clusterId` or `name` must be set. This argument requires `cseVersion` and `orgId` to be set.
+     */
+    name: string;
+    /**
+     * When the event happened
+     */
+    occurredAt: string;
+    /**
+     * ID of the resource that caused the event
+     */
+    resourceId: string;
+    /**
+     * Type of the event, either 'event' or 'error'
+     */
+    type: string;
+}
+
+export interface GetCseKubernetesClusterWorkerPool {
+    /**
+     * Maximum replicas of the autoscaling capabilities of this worker pool
+     */
+    autoscalerMaxReplicas: number;
+    /**
+     * Minimum replicas of the autoscaling capabilities of this worker pool
+     */
+    autoscalerMinReplicas: number;
+    /**
+     * Disk size, in Gibibytes (Gi), of the control plane nodes
+     */
+    diskSizeGi: number;
+    /**
+     * The number of nodes that this node pool has
+     */
+    machineCount: number;
+    /**
+     * Allows to find a Kubernetes cluster by name inside the given Organization with ID `orgId`. Either `clusterId` or `name` must be set. This argument requires `cseVersion` and `orgId` to be set.
+     */
+    name: string;
+    /**
+     * VM Placement policy of the control plane nodes
+     */
+    placementPolicyId: string;
+    /**
+     * VM Sizing policy of the control plane nodes
+     */
+    sizingPolicyId: string;
+    /**
+     * Storage profile of the control plane nodes
+     */
+    storageProfileId: string;
+    /**
+     * vGPU policy of the control plane nodes
+     */
+    vgpuPolicyId: string;
+}
+
+export interface GetDseRegistryConfigurationContainerRegistry {
+    /**
+     * Registry description
+     */
+    description: string;
+    /**
+     * Registry host
+     */
+    host: string;
+    /**
+     * Password for registry user
+     */
+    password?: string;
+    /**
+     * Username for registry access
+     */
+    username?: string;
+}
+
+export interface GetEdgegatewayExternalNetwork {
+    /**
+     * Enable rate limiting
+     */
+    enableRateLimit: boolean;
+    /**
+     * Incoming rate limit (Mbps)
+     */
+    incomingRateLimit: number;
+    /**
+     * A unique name for the edge gateway (optional when `filter` is used)
+     */
+    name: string;
+    /**
+     * Outgoing rate limit (Mbps)
+     */
+    outgoingRateLimit: number;
+    subnets: outputs.GetEdgegatewayExternalNetworkSubnet[];
+}
+
+export interface GetEdgegatewayExternalNetworkSubnet {
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * IP address on the edge gateway - will be auto-assigned if not defined
+     */
+    ipAddress: string;
+    /**
+     * Netmask address for a subnet
+     */
+    netmask: string;
+    /**
+     * Define zero or more blocks to sub-allocate pools on the edge gateway
+     */
+    suballocatePools: outputs.GetEdgegatewayExternalNetworkSubnetSuballocatePool[];
+    /**
+     * Defines if this subnet should be used as default gateway for edge
+     */
+    useForDefaultRoute: boolean;
+}
+
+export interface GetEdgegatewayExternalNetworkSubnetSuballocatePool {
+    endAddress: string;
+    startAddress: string;
+}
+
+export interface GetEdgegatewayFilter {
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetExternalNetworkIpScope {
+    /**
+     * Primary DNS server
+     */
+    dns1: string;
+    /**
+     * Secondary DNS server
+     */
+    dns2: string;
+    /**
+     * DNS suffix
+     */
+    dnsSuffix: string;
+    /**
+     * Gateway of the network
+     */
+    gateway: string;
+    /**
+     * Network mask
+     */
+    netmask: string;
+    /**
+     * IP ranges used for static pool allocation in the network
+     */
+    staticIpPools: outputs.GetExternalNetworkIpScopeStaticIpPool[];
+}
+
+export interface GetExternalNetworkIpScopeStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetExternalNetworkV2IpScope {
+    /**
+     * Primary DNS server
+     */
+    dns1?: string;
+    /**
+     * Secondary DNS server
+     */
+    dns2?: string;
+    /**
+     * DNS suffix
+     */
+    dnsSuffix?: string;
+    /**
+     * If subnet is enabled
+     */
+    enabled?: boolean;
+    /**
+     * Gateway of the network
+     */
+    gateway: string;
+    /**
+     * Network mask
+     */
+    prefixLength: number;
+    /**
+     * IP ranges used for static pool allocation in the network
+     */
+    staticIpPools?: outputs.GetExternalNetworkV2IpScopeStaticIpPool[];
+}
+
+export interface GetExternalNetworkV2IpScopeStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetExternalNetworkV2NsxtNetwork {
+    /**
+     * ID of NSX-T manager
+     */
+    nsxtManagerId: string;
+    /**
+     * Name of NSX-T segment (for NSX-T segment backed external network)
+     */
+    nsxtSegmentName: string;
+    /**
+     * ID of NSX-T Tier-0 router (for T0 gateway backed external network)
+     */
+    nsxtTier0RouterId: string;
+}
+
+export interface GetExternalNetworkV2VsphereNetwork {
+    /**
+     * The portgroup ID
+     */
+    portgroupId: string;
+    /**
+     * The vCenter server ID
+     */
+    vcenterId: string;
+}
+
+export interface GetExternalNetworkVsphereNetwork {
+    /**
+     * external network name
+     */
+    name: string;
+    /**
+     * The vSphere port group type. One of: DV_PORTGROUP (distributed virtual port group), NETWORK
+     */
+    type: string;
+    /**
+     * The vCenter server name
+     */
+    vcenter: string;
+}
+
+export interface GetIndependentDiskMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetIpSpaceCustomQuotaIpPrefixQuota {
+    /**
+     * Prefix length
+     */
+    prefixLength: string;
+    /**
+     * IP Prefix Quota
+     */
+    quota: string;
+}
+
+export interface GetIpSpaceIpPrefix {
+    /**
+     * Floating IP quota
+     */
+    defaultQuota: string;
+    /**
+     * IP Prefix
+     */
+    prefixes: outputs.GetIpSpaceIpPrefixPrefix[];
+}
+
+export interface GetIpSpaceIpPrefixPrefix {
+    /**
+     * First IP
+     */
+    firstIp: string;
+    /**
+     * ID of IP Prefix
+     */
+    id: string;
+    /**
+     * Prefix count
+     */
+    prefixCount: string;
+    /**
+     * Prefix length
+     */
+    prefixLength: string;
+}
+
+export interface GetIpSpaceIpRange {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * ID of IP Range
+     */
+    id: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetLbServerPoolMember {
+    /**
+     * Defines member state. One of enabled, drain, disabled.
+     */
+    condition: string;
+    /**
+     * Pool member id (formatted as member-xx, where xx is a number)
+     */
+    id: string;
+    /**
+     * IP address of member in server pool
+     */
+    ipAddress: string;
+    /**
+     * The maximum number of concurrent connections the member can handle. If exceeded requests are queued and the load balancer waits for a connection to be released
+     */
+    maxConnections: number;
+    /**
+     * Minimum number of concurrent connections a member must always accept
+     */
+    minConnections: number;
+    /**
+     * Port at which the member is to receive health monitor requests. Can be the same as port
+     */
+    monitorPort: number;
+    /**
+     * Server Pool name for identifying the exact server pool
+     */
+    name: string;
+    /**
+     * Port at which the member is to receive traffic from the load balancer
+     */
+    port: number;
+    /**
+     * Proportion of traffic this member is to handle. Must be an integer in the range 1-256
+     */
+    weight: number;
+}
+
+export interface GetNetworkDirectFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * metadata filter
+     */
+    metadatas?: outputs.GetNetworkDirectFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkDirectFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetNetworkDirectMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetNetworkIsolatedDhcpPool {
+    /**
+     * The default DHCP lease time to use
+     */
+    defaultLeaseTime: number;
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The maximum DHCP lease time to use
+     */
+    maxLeaseTime: number;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkIsolatedFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * metadata filter
+     */
+    metadatas?: outputs.GetNetworkIsolatedFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkIsolatedFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetNetworkIsolatedMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetNetworkIsolatedStaticIpPool {
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkIsolatedV2Filter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkIsolatedV2MetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetNetworkIsolatedV2SecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkIsolatedV2StaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkPoolBacking {
+    /**
+     * Distributed switch backing
+     */
+    distributedSwitches: outputs.GetNetworkPoolBackingDistributedSwitch[];
+    /**
+     * Port Group backing
+     */
+    portGroups: outputs.GetNetworkPoolBackingPortGroup[];
+    /**
+     * Distributed Switch ID ranges (used with VLAN backing)
+     */
+    rangeIds: outputs.GetNetworkPoolBackingRangeId[];
+    /**
+     * Transport Zone Backing
+     */
+    transportZones: outputs.GetNetworkPoolBackingTransportZone[];
+}
+
+export interface GetNetworkPoolBackingDistributedSwitch {
+    /**
+     * Backing ID
+     */
+    id: string;
+    /**
+     * network pool name.
+     */
+    name: string;
+    /**
+     * Backing Type (one of 'Transport Zone', 'Port Group', 'Distributed Switch')
+     */
+    type: string;
+}
+
+export interface GetNetworkPoolBackingPortGroup {
+    /**
+     * Backing ID
+     */
+    id: string;
+    /**
+     * network pool name.
+     */
+    name: string;
+    /**
+     * Backing Type (one of 'Transport Zone', 'Port Group', 'Distributed Switch')
+     */
+    type: string;
+}
+
+export interface GetNetworkPoolBackingRangeId {
+    /**
+     * End of the IDs range
+     */
+    endId: number;
+    /**
+     * Start of the IDs range
+     */
+    startId: number;
+}
+
+export interface GetNetworkPoolBackingTransportZone {
+    /**
+     * Backing ID
+     */
+    id: string;
+    /**
+     * network pool name.
+     */
+    name: string;
+    /**
+     * Backing Type (one of 'Transport Zone', 'Port Group', 'Distributed Switch')
+     */
+    type: string;
+}
+
+export interface GetNetworkRoutedDhcpPool {
+    /**
+     * The default DHCP lease time to use
+     */
+    defaultLeaseTime: number;
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The maximum DHCP lease time to use
+     */
+    maxLeaseTime: number;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkRoutedFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * metadata filter
+     */
+    metadatas?: outputs.GetNetworkRoutedFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkRoutedFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetNetworkRoutedMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetNetworkRoutedStaticIpPool {
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkRoutedV2Filter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkRoutedV2MetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetNetworkRoutedV2SecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNetworkRoutedV2StaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNsxtAlbPoolHealthMonitor {
+    /**
+     * Name of existing ALB Pool.
+     */
+    name: string;
+    systemDefined: boolean;
+    /**
+     * Type of health monitor
+     */
+    type: string;
+}
+
+export interface GetNsxtAlbPoolMember {
+    /**
+     * Detailed health message
+     */
+    detailedHealthMessage: string;
+    /**
+     * Shows is the member is enabled or not
+     */
+    enabled: boolean;
+    /**
+     * Health status
+     */
+    healthStatus: string;
+    /**
+     * IP Address of pool member
+     */
+    ipAddress: string;
+    /**
+     * Marked down by provides a set of health monitors that marked the service down
+     */
+    markedDownBies: string[];
+    /**
+     * Service port
+     */
+    port: number;
+    /**
+     * Load ratio
+     */
+    ratio: number;
+}
+
+export interface GetNsxtAlbPoolPersistenceProfile {
+    /**
+     * Name of existing ALB Pool.
+     */
+    name: string;
+    /**
+     * Type of persistence strategy
+     */
+    type: string;
+    /**
+     * Value of attribute based on persistence type
+     */
+    value: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleAction[];
+    /**
+     * Defines if the rule is active or not
+     */
+    active: boolean;
+    /**
+     * Defines whether logging with headers on rule match is enabled or not
+     */
+    logging: boolean;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriterias: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteria[];
+    /**
+     * Name of the rule
+     */
+    name: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleAction {
+    /**
+     * A set of header modification rules
+     */
+    modifyHeaders: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleActionModifyHeader[];
+    /**
+     * Redirect request
+     */
+    redirects: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleActionRedirect[];
+    /**
+     * URL rewrite rules
+     */
+    rewriteUrls: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleActionRewriteUrl[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleActionModifyHeader {
+    /**
+     * One of the following HTTP header actions
+     */
+    action: string;
+    /**
+     * HTTP header name
+     */
+    name: string;
+    /**
+     * HTTP header value
+     */
+    value: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleActionRedirect {
+    /**
+     * Host to which redirect the request
+     */
+    host: string;
+    /**
+     * Path to which redirect the request
+     */
+    keepQuery: boolean;
+    /**
+     * Port to which redirect the request
+     */
+    path: string;
+    /**
+     * Port to which the request will be redirected
+     */
+    port: string;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: string;
+    /**
+     * Redirect status code
+     */
+    statusCode: number;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleActionRewriteUrl {
+    /**
+     * Path to use for the rewritten URL
+     */
+    existingPath: string;
+    /**
+     * Host to use for the rewritten URL
+     */
+    hostHeader: string;
+    /**
+     * Whether or not to keep the existing query string when rewriting the URL
+     */
+    keepQuery: boolean;
+    /**
+     * Query string to use or append to the existing query string in the rewritten URL
+     */
+    query: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddresses: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaClientIpAddress[];
+    /**
+     * Rule for matching cookie
+     */
+    cookies: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaCookie[];
+    /**
+     * HTTP methods that are matched
+     */
+    httpMethods: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaHttpMethod[];
+    /**
+     * HTTP request path that will be matched
+     */
+    paths: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaPath[];
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType: string;
+    /**
+     * HTTP request query strings to match
+     */
+    queries: string[];
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaRequestHeader[];
+    /**
+     * Service Port criteria
+     */
+    servicePorts: outputs.GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaServicePort[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request
+     */
+    criteria: string;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaHttpMethod {
+    /**
+     * Criteria to use for HTTP method matching in the HTTP request
+     */
+    criteria: string;
+    /**
+     * HTTP methods that will be matched
+     */
+    methods: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI
+     */
+    criteria: string;
+    /**
+     * String values to match the path
+     */
+    paths: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaServicePort {
+    /**
+     * Criteria to use for service port matching the HTTP request
+     */
+    criteria: string;
+    /**
+     * A set of TCP ports
+     */
+    ports: number[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleAction[];
+    /**
+     * Defines if the rule is active or not
+     */
+    active: boolean;
+    /**
+     * Defines whether logging with headers on rule match is enabled or not
+     */
+    logging: boolean;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriterias: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteria[];
+    /**
+     * Name of the rule
+     */
+    name: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleAction {
+    /**
+     * Modify header
+     */
+    modifyHeaders: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleActionModifyHeader[];
+    /**
+     * Rewrite location header
+     */
+    rewriteLocationHeaders: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleActionRewriteLocationHeader[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleActionModifyHeader {
+    /**
+     * One of the following HTTP header actions
+     */
+    action: string;
+    /**
+     * HTTP header name
+     */
+    name: string;
+    /**
+     * HTTP header value
+     */
+    value: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleActionRewriteLocationHeader {
+    /**
+     * Host to which redirect the request
+     */
+    host: string;
+    /**
+     * Path to which redirect the request
+     */
+    keepQuery: boolean;
+    /**
+     * Port to which redirect the request
+     */
+    path: string;
+    /**
+     * Port to which redirect the request
+     */
+    port: string;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteria {
+    /**
+     * Criteria for matching client IP Address
+     */
+    clientIpAddresses: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaClientIpAddress[];
+    /**
+     * Rule for matching cookie
+     */
+    cookies: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaCookie[];
+    /**
+     * Criteria to match HTTP methods
+     */
+    httpMethods: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaHttpMethod[];
+    /**
+     * A matching criteria for Location header
+     */
+    locationHeaders: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaLocationHeader[];
+    /**
+     * Criteria for matching request paths
+     */
+    paths: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaPath[];
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType: string;
+    /**
+     * HTTP request query strings to match
+     */
+    queries: string[];
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaRequestHeader[];
+    /**
+     * A set of criteria to match response headers
+     */
+    responseHeaders: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaResponseHeader[];
+    /**
+     * Criteria for matching service ports
+     */
+    servicePorts: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaServicePort[];
+    /**
+     * HTTP Status code to match
+     */
+    statusCodes: outputs.GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaStatusCode[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request
+     */
+    criteria: string;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaHttpMethod {
+    /**
+     * Criteria to use for HTTP methods matching the request
+     */
+    criteria: string;
+    /**
+     * HTTP methods to match
+     */
+    methods: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaLocationHeader {
+    /**
+     * Criteria to use for matching location header
+     */
+    criteria: string;
+    /**
+     * A set of values to match for criteria
+     */
+    values: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI
+     */
+    criteria: string;
+    /**
+     * String values to match the path
+     */
+    paths: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaResponseHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * A set of values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaServicePort {
+    /**
+     * Criteria to use for service ports matching the HTTP request
+     */
+    criteria: string;
+    /**
+     * A set of TCP ports
+     */
+    ports: number[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaStatusCode {
+    /**
+     * Criteria to use for status code matching the HTTP request.
+     */
+    criteria: string;
+    /**
+     * HTTP status code or range of this rule matching
+     */
+    httpStatusCode: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleAction[];
+    /**
+     * Defines is the rule is active or not
+     */
+    active: boolean;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging: boolean;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriterias: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteria[];
+    /**
+     * Name of the rule
+     */
+    name: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleAction {
+    /**
+     * ALLOW or CLOSE connections
+     */
+    connections: string;
+    /**
+     * Apply actions based on rate limits
+     */
+    rateLimits: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleActionRateLimit[];
+    /**
+     * Port number that should be redirected to HTTPS
+     */
+    redirectToHttps: string;
+    /**
+     * Send custom response
+     */
+    sendResponses: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleActionSendResponse[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleActionRateLimit {
+    /**
+     * True if the connection should be closed
+     */
+    actionCloseConnection: boolean;
+    /**
+     * Send custom response
+     */
+    actionLocalResponses: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleActionRateLimitActionLocalResponse[];
+    /**
+     * Redirect request
+     */
+    actionRedirects: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleActionRateLimitActionRedirect[];
+    /**
+     * Maximum number of connections, requests or packets permitted each period. The count must be between 1 and 1000000000
+     */
+    count: string;
+    /**
+     * Time value in seconds to enforce rate count. The period must be between 1 and 1000000000
+     */
+    period: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleActionRateLimitActionLocalResponse {
+    /**
+     * Base64 encoded content
+     */
+    content: string;
+    /**
+     * MIME type for the content
+     */
+    contentType: string;
+    /**
+     * HTTP Status code to send
+     */
+    statusCode: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleActionRateLimitActionRedirect {
+    /**
+     * Host to which redirect the request. Default is the original host
+     */
+    host: string;
+    /**
+     * Path to which redirect the request. Default is the original path
+     */
+    keepQuery: boolean;
+    /**
+     * Port to which redirect the request. Default is 80 for HTTP and 443 for HTTPS protocol
+     */
+    path: string;
+    /**
+     * Port to which redirect the request. Default is 80 for HTTP and 443 for HTTPS protocol
+     */
+    port: string;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: string;
+    /**
+     * One of the redirect status codes - 301, 302, 307
+     */
+    statusCode: number;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleActionSendResponse {
+    /**
+     * Base64 encoded content
+     */
+    content: string;
+    /**
+     * MIME type for the content
+     */
+    contentType: string;
+    /**
+     * HTTP Status code to send
+     */
+    statusCode: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddresses: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaClientIpAddress[];
+    /**
+     * Rule for matching cookie
+     */
+    cookies: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaCookie[];
+    /**
+     * HTTP methods that are matched
+     */
+    httpMethods: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaHttpMethod[];
+    /**
+     * HTTP request path that will be matched
+     */
+    paths: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaPath[];
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType: string;
+    /**
+     * HTTP request query strings to match
+     */
+    queries: string[];
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaRequestHeader[];
+    /**
+     * Service Port criteria
+     */
+    servicePorts: outputs.GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaServicePort[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request
+     */
+    criteria: string;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: string;
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaHttpMethod {
+    /**
+     * Criteria to use for HTTP method matching in the HTTP request
+     */
+    criteria: string;
+    /**
+     * HTTP methods that will be matched
+     */
+    methods: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI
+     */
+    criteria: string;
+    /**
+     * String values to match the path
+     */
+    paths: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface GetNsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaServicePort {
+    /**
+     * Criteria to use for service port matching the HTTP request
+     */
+    criteria: string;
+    /**
+     * A set of TCP ports
+     */
+    ports: number[];
+}
+
+export interface GetNsxtAlbVirtualServiceServicePort {
+    /**
+     * Last port in the range
+     */
+    endPort: number;
+    /**
+     * Starting port in the range
+     */
+    sslEnabled: boolean;
+    /**
+     * Starting port in the range
+     */
+    startPort: number;
+    /**
+     * One of 'TCP_PROXY', 'TCP_FAST_PATH', 'UDP_FAST_PATH'
+     */
+    type: string;
+}
+
+export interface GetNsxtAppPortProfileAppPort {
+    /**
+     * Set of ports or ranges
+     */
+    ports: string[];
+    protocol: string;
+}
+
+export interface GetNsxtDistributedFirewallRule {
+    /**
+     * Defines if the rule should 'ALLOW', 'DROP', 'REJECT' matching traffic
+     */
+    action: string;
+    /**
+     * A set of Application Port Profile IDs.'
+     */
+    appPortProfileIds: string[];
+    /**
+     * Comment that is shown next to rule in UI (VCD 10.3.2+)
+     */
+    comment: string;
+    /**
+     * Description (not shown in UI)
+     */
+    description: string;
+    /**
+     * Reverses firewall matching for to match all except Destinations Groups specified in 'destination_ids' (VCD 10.3.2+)
+     */
+    destinationGroupsExcluded: boolean;
+    /**
+     * A set of Destination Firewall Group IDs (IP Sets or Security Groups). Empty means 'Any'
+     */
+    destinationIds: string[];
+    /**
+     * Direction on which Firewall Rule applies (One of 'IN', 'OUT', 'IN_OUT')
+     */
+    direction: string;
+    /**
+     * Defines if Firewall Rule is active
+     */
+    enabled: boolean;
+    /**
+     * Firewall Rule ID
+     */
+    id: string;
+    /**
+     * Firewall Rule Protocol (One of 'IPV4', 'IPV6', 'IPV4_IPV6')
+     */
+    ipProtocol: string;
+    /**
+     * Defines if matching traffic should be logged
+     */
+    logging: boolean;
+    /**
+     * Firewall Rule name
+     */
+    name: string;
+    /**
+     * A set of Network Context Profile IDs.
+     */
+    networkContextProfileIds: string[];
+    /**
+     * Reverses firewall matching for to match all except Source Groups specified in 'source_ids' (VCD 10.3.2+)
+     */
+    sourceGroupsExcluded: boolean;
+    /**
+     * A set of Source Firewall Group IDs (IP Sets or Security Groups). Empty means 'Any'
+     */
+    sourceIds: string[];
+}
+
+export interface GetNsxtDynamicSecurityGroupCriteria {
+    /**
+     * Up to 4 rules can be used to define single criteria
+     */
+    rules: outputs.GetNsxtDynamicSecurityGroupCriteriaRule[];
+}
+
+export interface GetNsxtDynamicSecurityGroupCriteriaRule {
+    /**
+     * Operator can be one of 'EQUALS', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH'
+     */
+    operator: string;
+    /**
+     * Type of object matching 'VM_TAG' or 'VM_NAME'
+     */
+    type: string;
+    /**
+     * Filter value
+     */
+    value: string;
+}
+
+export interface GetNsxtDynamicSecurityGroupMemberVm {
+    /**
+     * Parent vApp name (if exists) for member VM
+     */
+    vappId: string;
+    /**
+     * Parent vApp ID (if exists) for member VM
+     */
+    vappName: string;
+    /**
+     * Member VM ID
+     */
+    vmId: string;
+    /**
+     * Member VM Name
+     */
+    vmName: string;
+}
+
+export interface GetNsxtEdgegatewayBgpIpPrefixListIpPrefix {
+    /**
+     * Action 'PERMIT' or 'DENY'
+     */
+    action: string;
+    /**
+     * Greater than or equal to (ge) subnet mask
+     */
+    greaterThanOrEqualTo: number;
+    /**
+     * Less than or equal to (le) subnet mask
+     */
+    lessThanOrEqualTo: number;
+    /**
+     * Network in CIDR notation (e.g. '192.168.100.0/24', '2001:db8::/48')
+     */
+    network: string;
+}
+
+export interface GetNsxtEdgegatewayDnsConditionalForwarderZone {
+    /**
+     * Set of domain names on which conditional forwarding is based.
+     */
+    domainNames: string[];
+    /**
+     * Unique ID of the forwarder zone.
+     */
+    id: string;
+    /**
+     * Name of the forwarder zone.
+     */
+    name: string;
+    /**
+     * Servers to which DNS requests should be forwarded to.
+     */
+    upstreamServers: string[];
+}
+
+export interface GetNsxtEdgegatewayDnsDefaultForwarderZone {
+    /**
+     * Unique ID of the forwarder zone.
+     */
+    id: string;
+    /**
+     * Name of the forwarder zone.
+     */
+    name: string;
+    /**
+     * Servers to which DNS requests should be forwarded to.
+     */
+    upstreamServers: string[];
+}
+
+export interface GetNsxtEdgegatewayExternalNetwork {
+    /**
+     * Number of allocated IPs
+     */
+    allocatedIpCount: number;
+    /**
+     * NSX-T Segment backed External Network ID
+     */
+    externalNetworkId: string;
+    /**
+     * Gateway IP Address
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address for the Edge Gateway
+     */
+    primaryIp: string;
+}
+
+export interface GetNsxtEdgegatewayL2VpnTunnelStretchedNetwork {
+    /**
+     * ID of the Org VDC network
+     */
+    networkId: string;
+    /**
+     * Tunnel ID of the network for the tunnel. Read-only for `SERVER` sessions.
+     */
+    tunnelId: number;
+}
+
+export interface GetNsxtEdgegatewayStaticRouteNextHop {
+    /**
+     * Admin distance of next hop
+     */
+    adminDistance: number;
+    /**
+     * IP Address of next hop
+     */
+    ipAddress: string;
+    scopes: outputs.GetNsxtEdgegatewayStaticRouteNextHopScope[];
+}
+
+export interface GetNsxtEdgegatewayStaticRouteNextHopScope {
+    /**
+     * ID of Scope element
+     */
+    id: string;
+    /**
+     * Name of Static Route. **Note** names *can be duplicate* and one can use
+     * `networkCidr` to make filtering more precise
+     */
+    name: string;
+    /**
+     * Scope type - One of 'NETWORK', 'SYSTEM_OWNED'
+     */
+    type: string;
+}
+
+export interface GetNsxtEdgegatewaySubnet {
+    /**
+     * One or more blocks to sub-allocate pools on the edge gateway
+     */
+    allocatedIps: outputs.GetNsxtEdgegatewaySubnetAllocatedIp[];
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * IP address on the edge gateway
+     */
+    primaryIp: string;
+}
+
+export interface GetNsxtEdgegatewaySubnetAllocatedIp {
+    endAddress: string;
+    startAddress: string;
+}
+
+export interface GetNsxtEdgegatewaySubnetWithIpCount {
+    /**
+     * Number of IP addresses to allocate
+     */
+    allocatedIpCount: number;
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address for the Edge Gateway - will be auto-assigned if not defined
+     */
+    primaryIp: string;
+}
+
+export interface GetNsxtEdgegatewaySubnetWithTotalIpCount {
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address for the Edge Gateway
+     */
+    primaryIp: string;
+}
+
+export interface GetNsxtFirewallRule {
+    action: string;
+    /**
+     * A set of Application Port Profile IDs. Leaving it empty means 'Any'
+     */
+    appPortProfileIds: string[];
+    /**
+     * A set of Destination Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    destinationIds: string[];
+    /**
+     * IN OUT IN_OUT
+     */
+    direction: string;
+    /**
+     * Firewall Rule name
+     */
+    enabled: boolean;
+    /**
+     * Firewall Rule ID
+     */
+    id: string;
+    /**
+     * IPV4,  IPV6, IPV4_IPV6
+     */
+    ipProtocol: string;
+    /**
+     * Firewall Rule name
+     */
+    logging: boolean;
+    /**
+     * Firewall Rule name
+     */
+    name: string;
+    /**
+     * A set of Source Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    sourceIds: string[];
+}
+
+export interface GetNsxtIpsecVpnTunnelSecurityProfileCustomization {
+    /**
+     * Value in seconds of dead probe detection interval. Minimum is 3 seconds and the maximum is 60 seconds
+     */
+    dpdProbeInternal: number;
+    /**
+     * Diffie-Hellman groups to be used if Perfect Forward Secrecy is enabled. One of GROUP2, GROUP5, GROUP14, GROUP15, GROUP16, GROUP19, GROUP20, GROUP21
+     */
+    ikeDhGroups: string[];
+    /**
+     * Secure hashing algorithms to use during the IKE negotiation. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    ikeDigestAlgorithms: string[];
+    /**
+     * Encryption algorithms. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    ikeEncryptionAlgorithms: string[];
+    /**
+     * Security Association life time (in seconds). It is number of seconds before the IPsec tunnel needs to reestablish
+     */
+    ikeSaLifetime: number;
+    /**
+     * IKE version one of IKE_V1, IKE_V2, IKE_FLEX
+     */
+    ikeVersion: string;
+    /**
+     * Policy for handling defragmentation bit. One of COPY, CLEAR
+     */
+    tunnelDfPolicy: string;
+    /**
+     * Diffie-Hellman groups to be used is PFS is enabled. One of GROUP2, GROUP5, GROUP14, GROUP15, GROUP16, GROUP19, GROUP20, GROUP21
+     */
+    tunnelDhGroups: string[];
+    /**
+     * Digest algorithms to be used for message digest. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    tunnelDigestAlgorithms: string[];
+    /**
+     * Encryption algorithms to use in IPSec tunnel establishment. One of AES_128, AES_256, AES_GCM_128, AES_GCM_192, AES_GCM_256, NO_ENCRYPTION_AUTH_AES_GMAC_128, NO_ENCRYPTION_AUTH_AES_GMAC_192, NO_ENCRYPTION_AUTH_AES_GMAC_256, NO_ENCRYPTION
+     */
+    tunnelEncryptionAlgorithms: string[];
+    /**
+     * Perfect Forward Secrecy Enabled or Disabled. Default (enabled)
+     */
+    tunnelPfsEnabled: boolean;
+    /**
+     * Security Association life time (in seconds)
+     */
+    tunnelSaLifetime: number;
+}
+
+export interface GetNsxtNetworkDhcpBindingDhcpV4Config {
+    /**
+     * Gateway IP address to be used by the DHCP client
+     */
+    gatewayIpAddress: string;
+    /**
+     * Hostname to be used by the DHCP client
+     */
+    hostname: string;
+}
+
+export interface GetNsxtNetworkDhcpBindingDhcpV6Config {
+    /**
+     * List of DNS servers to be used by the DHCP client
+     */
+    dnsServers: string[];
+    /**
+     * List of SNTP servers to be used by the DHCP client
+     */
+    sntpServers: string[];
+}
+
+export interface GetNsxtNetworkDhcpPool {
+    /**
+     * End address of DHCP pool IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of DHCP pool IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNsxtNetworkImportedFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNsxtNetworkImportedSecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNsxtNetworkImportedStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetNsxtSecurityGroupMemberVm {
+    /**
+     * Parent vApp name (if exists) for member VM
+     */
+    vappId: string;
+    /**
+     * Parent vApp ID (if exists) for member VM
+     */
+    vappName: string;
+    /**
+     * Member VM ID
+     */
+    vmId: string;
+    /**
+     * Member VM Name
+     */
+    vmName: string;
+}
+
+export interface GetNsxvApplicationFinderObject {
+    /**
+     * The name of the object
+     */
+    name: string;
+    /**
+     * What kind of application we seek. One of `application`, `applicationGroup`
+     */
+    type: string;
+    /**
+     * The identifier of the object
+     */
+    value: string;
+}
+
+export interface GetNsxvApplicationGroupApplication {
+    /**
+     * The name of the application group
+     */
+    name: string;
+    /**
+     * The identifier of the application
+     */
+    value: string;
+}
+
+export interface GetNsxvDhcpRelayRelayAgent {
+    /**
+     * Optional gateway IP address of org network which is to be used for relaying DHCP message to specified servers
+     */
+    gatewayIpAddress: string;
+    /**
+     * Org network which is to be used for relaying DHCP message to specified servers
+     */
+    networkName: string;
+}
+
+export interface GetNsxvDistributedFirewallRule {
+    /**
+     * Action of the rule (allow, deny)
+     */
+    action: string;
+    /**
+     * Application definitions for this rule. An empty value means 'any'
+     */
+    applications: outputs.GetNsxvDistributedFirewallRuleApplication[];
+    /**
+     * List of elements to which this rule applies
+     */
+    appliedTos: outputs.GetNsxvDistributedFirewallRuleAppliedTo[];
+    /**
+     * List of destination traffic for this rule. An empty value means 'any'
+     */
+    destinations: outputs.GetNsxvDistributedFirewallRuleDestination[];
+    /**
+     * Direction of the rule (in, out, inout)
+     */
+    direction: string;
+    /**
+     * Whether the rule is enabled
+     */
+    enabled: boolean;
+    /**
+     * If true, the content of the destination elements is reversed
+     */
+    excludeDestination: boolean;
+    /**
+     * If true, the content of the source elements is reversed
+     */
+    excludeSource: boolean;
+    /**
+     * Firewall Rule ID
+     */
+    id: number;
+    /**
+     * Whether the rule traffic is logged
+     */
+    logged: boolean;
+    /**
+     * Firewall Rule name
+     */
+    name: string;
+    /**
+     * Packet type of the rule (any, ipv4, ipv6)
+     */
+    packetType: string;
+    /**
+     * List of source traffic for this rule. An empty value means 'any'
+     */
+    sources: outputs.GetNsxvDistributedFirewallRuleSource[];
+}
+
+export interface GetNsxvDistributedFirewallRuleApplication {
+    /**
+     * Destination port for this application. Leaving it empty means 'any' port
+     */
+    destinationPort: string;
+    /**
+     * Name of application (Application, ApplicationGroup)
+     */
+    name: string;
+    /**
+     * Protocol of the application (one of TCP, UDP, ICMP) (When not using name/value)
+     */
+    protocol: string;
+    /**
+     * Source port for this application. Leaving it empty means 'any' port
+     */
+    sourcePort: string;
+    /**
+     * Type of application
+     */
+    type: string;
+    /**
+     * Value of the application
+     */
+    value: string;
+}
+
+export interface GetNsxvDistributedFirewallRuleAppliedTo {
+    /**
+     * Name of the applied-to entity
+     */
+    name: string;
+    /**
+     * Type of the applied-to entity (one of Network, Edge, VirtualMachine, IPSet, VDC, Ipv4Address)
+     */
+    type: string;
+    /**
+     * Value of the applied-to entity
+     */
+    value: string;
+}
+
+export interface GetNsxvDistributedFirewallRuleDestination {
+    /**
+     * Name of the destination entity
+     */
+    name: string;
+    /**
+     * Type of the destination entity (one of Network, Edge, VirtualMachine, IpSet, VDC, Ipv4Address)
+     */
+    type: string;
+    /**
+     * Value of the destination entity
+     */
+    value: string;
+}
+
+export interface GetNsxvDistributedFirewallRuleSource {
+    /**
+     * Name of the source entity
+     */
+    name: string;
+    /**
+     * Type of the source entity (one of Network, Edge, VirtualMachine, IpSet, VDC, Ipv4Address)
+     */
+    type: string;
+    /**
+     * Value of the source entity
+     */
+    value: string;
+}
+
+export interface GetNsxvFirewallRuleDestination {
+    /**
+     * Rule is applied to traffic going to any destinations except for the excluded destination. Default 'false'
+     */
+    exclude: boolean;
+    /**
+     * 'vse', 'internal', 'external' or network name
+     */
+    gatewayInterfaces: string[];
+    /**
+     * IP address, CIDR, an IP range, or the keyword 'any'
+     */
+    ipAddresses: string[];
+    /**
+     * Set of IP set names
+     */
+    ipSets: string[];
+    /**
+     * Set of org network names
+     */
+    orgNetworks: string[];
+    /**
+     * Set of VM IDs
+     */
+    vmIds: string[];
+}
+
+export interface GetNsxvFirewallRuleService {
+    port: string;
+    protocol: string;
+    sourcePort: string;
+}
+
+export interface GetNsxvFirewallRuleSource {
+    /**
+     * Rule is applied to traffic coming from all sources except for the excluded source. Default 'false'
+     */
+    exclude: boolean;
+    /**
+     * 'vse', 'internal', 'external' or network name
+     */
+    gatewayInterfaces: string[];
+    /**
+     * IP address, CIDR, an IP range, or the keyword 'any'
+     */
+    ipAddresses: string[];
+    /**
+     * Set of IP set names
+     */
+    ipSets: string[];
+    /**
+     * Set of org network names
+     */
+    orgNetworks: string[];
+    /**
+     * Set of VM IDs
+     */
+    vmIds: string[];
+}
+
+export interface GetOrgAccountLockout {
+    /**
+     * Whether account lockout is enabled or not
+     */
+    enabled: boolean;
+    /**
+     * Number of login attempts that will trigger an account lockout for the given user
+     */
+    invalidLoginsBeforeLockout: number;
+    /**
+     * Once a user is locked out, they will not be able to log back in for this time period
+     */
+    lockoutIntervalMinutes: number;
+}
+
+export interface GetOrgLdapCustomSetting {
+    /**
+     * authentication method: one of SIMPLE, MD5DIGEST, NTLM
+     */
+    authenticationMethod: string;
+    /**
+     * LDAP search base
+     */
+    baseDistinguishedName: string;
+    /**
+     * type of connector: one of OPEN_LDAP, ACTIVE_DIRECTORY
+     */
+    connectorType: string;
+    /**
+     * Custom settings when `ldapMode` is CUSTOM
+     */
+    groupAttributes: outputs.GetOrgLdapCustomSettingGroupAttribute[];
+    /**
+     * True if the LDAP service requires an SSL connection
+     */
+    isSsl: boolean;
+    /**
+     * Password for the user identified by UserName. This value is never returned by GET. It is inspected on create and modify. On modify, the absence of this element indicates that the password should not be changed
+     */
+    password: string;
+    /**
+     * Port number for LDAP service
+     */
+    port: number;
+    /**
+     * host name or IP of the LDAP server
+     */
+    server: string;
+    /**
+     * Custom settings when `ldapMode` is CUSTOM
+     */
+    userAttributes: outputs.GetOrgLdapCustomSettingUserAttribute[];
+    /**
+     * Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn="ldap-admin", c="example", dc="com")
+     */
+    username: string;
+}
+
+export interface GetOrgLdapCustomSettingGroupAttribute {
+    /**
+     * LDAP group attribute used to identify a group member
+     */
+    groupBackLinkIdentifier: string;
+    /**
+     * LDAP attribute that identifies a group as a member of another group. For example, dn
+     */
+    groupMembershipIdentifier: string;
+    /**
+     * LDAP attribute to use when getting the members of a group. For example, member
+     */
+    membership: string;
+    /**
+     * LDAP attribute to use for the group name. For example, cn
+     */
+    name: string;
+    /**
+     * LDAP objectClass of which imported groups are members. For example, group
+     */
+    objectClass: string;
+    /**
+     * LDAP attribute to use as the unique identifier for a group. For example, objectGuid
+     */
+    uniqueIdentifier: string;
+}
+
+export interface GetOrgLdapCustomSettingUserAttribute {
+    /**
+     * LDAP attribute to use for the user's full name. For example, displayName
+     */
+    displayName: string;
+    /**
+     * LDAP attribute to use for the user's email address. For example, mail
+     */
+    email: string;
+    /**
+     * LDAP attribute to use for the user's given name. For example, givenName
+     */
+    givenName: string;
+    /**
+     * LDAP attribute that returns the identifiers of all the groups of which the user is a member
+     */
+    groupBackLinkIdentifier: string;
+    /**
+     * LDAP attribute that identifies a user as a member of a group. For example, dn
+     */
+    groupMembershipIdentifier: string;
+    /**
+     * LDAP objectClass of which imported users are members. For example, user or person
+     */
+    objectClass: string;
+    /**
+     * LDAP attribute to use for the user's surname. For example, sn
+     */
+    surname: string;
+    /**
+     * LDAP attribute to use for the user's telephone number. For example, telephoneNumber
+     */
+    telephone: string;
+    /**
+     * LDAP attribute to use as the unique identifier for a user. For example, objectGuid
+     */
+    uniqueIdentifier: string;
+    /**
+     * LDAP attribute to use when looking up a user name to import. For example, userPrincipalName or samAccountName
+     */
+    username: string;
+}
+
+export interface GetOrgMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetOrgOidcClaimsMapping {
+    /**
+     * Email claim mapping
+     */
+    email: string;
+    /**
+     * First name claim mapping
+     */
+    firstName: string;
+    /**
+     * Full name claim mapping
+     */
+    fullName: string;
+    /**
+     * Groups claim mapping
+     */
+    groups: string;
+    /**
+     * Last name claim mapping
+     */
+    lastName: string;
+    /**
+     * Roles claim mapping
+     */
+    roles: string;
+    /**
+     * Subject claim mapping
+     */
+    subject: string;
+}
+
+export interface GetOrgOidcKey {
+    /**
+     * Algorithm of the key
+     */
+    algorithm: string;
+    /**
+     * The certificate contents
+     */
+    certificate: string;
+    /**
+     * Expiration date for the certificate
+     */
+    expirationDate: string;
+    /**
+     * ID of the key
+     */
+    id: string;
+}
+
+export interface GetOrgVappLease {
+    /**
+     * If true, storage for a vApp is deleted when the vApp's lease expires. If false, the storage is flagged for deletion, but not deleted.
+     */
+    deleteOnStorageLeaseExpiration: boolean;
+    /**
+     * How long vApps can run before they are automatically stopped (in seconds)
+     */
+    maximumRuntimeLeaseInSec: number;
+    /**
+     * How long stopped vApps are available before being automatically cleaned up (in seconds)
+     */
+    maximumStorageLeaseInSec: number;
+    /**
+     * When true, vApps are powered off when the runtime lease expires. When false, vApps are suspended when the runtime lease expires
+     */
+    powerOffOnRuntimeLeaseExpiration: boolean;
+}
+
+export interface GetOrgVappTemplateLease {
+    /**
+     * If true, storage for a vAppTemplate is deleted when the vAppTemplate lease expires. If false, the storage is flagged for deletion, but not deleted
+     */
+    deleteOnStorageLeaseExpiration: boolean;
+    /**
+     * How long vApp templates are available before being automatically cleaned up (in seconds)
+     */
+    maximumStorageLeaseInSec: number;
+}
+
+export interface GetOrgVdcComputeCapacity {
+    cpus: outputs.GetOrgVdcComputeCapacityCpus[];
+    memories: outputs.GetOrgVdcComputeCapacityMemory[];
+}
+
+export interface GetOrgVdcComputeCapacityCpus {
+    /**
+     * Capacity that is committed to be available. Value in MB or MHz. Used with AllocationPool (Allocation pool) and ReservationPool (Reservation pool).
+     */
+    allocated: number;
+    /**
+     * Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies over provisioning. A value of 0 specifies unlimited units. Value in MB or MHz. Used with AllocationVApp (Pay as you go).
+     */
+    limit: number;
+    reserved: number;
+    used: number;
+}
+
+export interface GetOrgVdcComputeCapacityMemory {
+    /**
+     * Capacity that is committed to be available. Value in MB or MHz. Used with AllocationPool (Allocation pool) and ReservationPool (Reservation pool).
+     */
+    allocated: number;
+    /**
+     * Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies over provisioning. A value of 0 specifies unlimited units. Value in MB or MHz. Used with AllocationVApp (Pay as you go).
+     */
+    limit: number;
+    reserved: number;
+    used: number;
+}
+
+export interface GetOrgVdcMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetOrgVdcStorageProfile {
+    /**
+     * True if this is default storage profile for this VDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.
+     */
+    default: boolean;
+    /**
+     * True if this storage profile is enabled for use in the VDC.
+     */
+    enabled: boolean;
+    /**
+     * Maximum number of MB allocated for this storage profile. A value of 0 specifies unlimited MB.
+     */
+    limit: number;
+    /**
+     * Organization VDC name
+     */
+    name: string;
+    /**
+     * Storage used in MB
+     */
+    storageUsedInMb: number;
+}
+
+export interface GetOrgVdcTemplateComputeConfiguration {
+    /**
+     * The maximum amount of CPU, in MHz, available to the VMs running within the VDC that is instantiated from this template
+     */
+    cpuAllocated: number;
+    /**
+     * The percentage of the CPU guaranteed to be available to VMs running within the VDC instantiated from this template
+     */
+    cpuGuaranteed: number;
+    /**
+     * The limit amount of CPU, in MHz, of the VDC that is instantiated from this template. 0 means unlimited
+     */
+    cpuLimit: number;
+    /**
+     * Specifies the clock frequency, in MHz, for any virtual CPU that is allocated to a VM
+     */
+    cpuSpeed: number;
+    /**
+     * True if compute capacity can grow or shrink based on demand
+     */
+    elasticity: boolean;
+    /**
+     * True if the instantiated VDC includes memory overhead into its accounting for admission control
+     */
+    includeVmMemoryOverhead: boolean;
+    /**
+     * The maximum amount of Memory, in MB, available to the VMs running within the VDC that is instantiated from this template
+     */
+    memoryAllocated: number;
+    /**
+     * The percentage of the Memory guaranteed to be available to VMs running within the VDC instantiated from this template
+     */
+    memoryGuaranteed: number;
+    /**
+     * The limit amount of Memory, in MB, of the VDC that is instantiated from this template. 0 means unlimited
+     */
+    memoryLimit: number;
+}
+
+export interface GetOrgVdcTemplateEdgeGateway {
+    /**
+     * Description of the Edge Gateway
+     */
+    description: string;
+    /**
+     * Storage used in MB
+     */
+    ipAllocationCount: number;
+    /**
+     * Name of the existing Organization VDC Template to read
+     */
+    name: string;
+    /**
+     * Description of the routed network to create with the Edge Gateway
+     */
+    routedNetworkDescription: string;
+    /**
+     * CIDR of the Edge Gateway for the routed network created with the Edge Gateway
+     */
+    routedNetworkGatewayCidr: string;
+    /**
+     * Name of the routed network to create with the Edge Gateway
+     */
+    routedNetworkName: string;
+    /**
+     * IP ranges used for the network created with the Edge Gateway. Only required if the 'edge_gateway' block is used
+     */
+    staticIpPools: outputs.GetOrgVdcTemplateEdgeGatewayStaticIpPool[];
+}
+
+export interface GetOrgVdcTemplateEdgeGatewayStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface GetOrgVdcTemplateProviderVdc {
+    /**
+     * ID of the External network that the VDCs instantiated from this template use
+     */
+    externalNetworkId: string;
+    /**
+     * ID of the Edge Cluster that the VDCs instantiated from this template use with the NSX-T Gateway
+     */
+    gatewayEdgeClusterId: string;
+    /**
+     * ID of Provider VDC
+     */
+    id: string;
+    /**
+     * ID of the Edge Cluster that the VDCs instantiated from this template use for services
+     */
+    servicesEdgeClusterId: string;
+}
+
+export interface GetOrgVdcTemplateStorageProfile {
+    /**
+     * True if this is default storage profile for the VDCs instantiated from this template
+     */
+    default: boolean;
+    /**
+     * Storage limit of the VDCs instantiated from this template, in Megabytes. 0 means unlimited
+     */
+    limit: number;
+    /**
+     * Name of the existing Organization VDC Template to read
+     */
+    name: string;
+}
+
+export interface GetProviderVdcComputeCapacity {
+    /**
+     * Single-element list with an indicator of CPU capacity available in the Provider VDC
+     */
+    cpus: outputs.GetProviderVdcComputeCapacityCpus[];
+    /**
+     * True if compute capacity can grow or shrink based on demand
+     */
+    isElastic: boolean;
+    /**
+     * True if compute capacity is highly available
+     */
+    isHa: boolean;
+    /**
+     * Single-element list with an indicator of Memory capacity available in the Provider VDC
+     */
+    memories: outputs.GetProviderVdcComputeCapacityMemory[];
+}
+
+export interface GetProviderVdcComputeCapacityCpus {
+    /**
+     * Allocated CPU for this Provider VDC
+     */
+    allocation: number;
+    /**
+     * CPU overhead for this Provider VDC
+     */
+    overhead: number;
+    /**
+     * Reserved CPU for this Provider VDC
+     */
+    reserved: number;
+    /**
+     * Total CPU for this Provider VDC
+     */
+    total: number;
+    /**
+     * Units for the CPU of this Provider VDC
+     */
+    units: string;
+    /**
+     * Used CPU in this Provider VDC
+     */
+    used: number;
+}
+
+export interface GetProviderVdcComputeCapacityMemory {
+    /**
+     * Allocated Memory for this Provider VDC
+     */
+    allocation: number;
+    /**
+     * Memory overhead for this Provider VDC
+     */
+    overhead: number;
+    /**
+     * Reserved Memory for this Provider VDC
+     */
+    reserved: number;
+    /**
+     * Total Memory for this Provider VDC
+     */
+    total: number;
+    /**
+     * Units for the Memory of this Provider VDC
+     */
+    units: string;
+    /**
+     * Used Memory in this Provider VDC
+     */
+    used: number;
+}
+
+export interface GetProviderVdcMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetRdeMetadataEntry {
+    /**
+     * Only meaningful for providers. Allows them to share entries with their tenants. One of: `TENANT`, `PROVIDER`
+     */
+    domain: string;
+    /**
+     * ID of the metadata entry
+     */
+    id: string;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Namespace of the metadata entry
+     */
+    namespace: string;
+    /**
+     * Persistent metadata entries can be copied over on some entity operation
+     */
+    persistent: boolean;
+    /**
+     * True if the metadata entry is read only
+     */
+    readonly: boolean;
+    /**
+     * Type of this metadata entry. One of: 'StringEntry', 'NumberEntry', 'BoolEntry'
+     */
+    type: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetRdeTypeHook {
+    /**
+     * Existing Behavior that will be automatically invoked when the RDE of this RDE Type triggers the event
+     */
+    behaviorId: string;
+    /**
+     * Event that will invoke the Behavior, one of PostCreate, PostUpdate, PreDelete, PostDelete
+     */
+    event: string;
+}
+
+export interface GetResourceSchemaAttribute {
+    /**
+     * whether the attribute is computed
+     */
+    computed: boolean;
+    /**
+     * an optional description of the attribute
+     */
+    description: string;
+    /**
+     * An unique name to identify the data source
+     */
+    name: string;
+    /**
+     * whether the attribute is optional
+     */
+    optional: boolean;
+    /**
+     * whether the attribute is required
+     */
+    required: boolean;
+    /**
+     * whether the attribute is sensitive
+     */
+    sensitive: boolean;
+    /**
+     * attribute type
+     */
+    type: string;
+}
+
+export interface GetResourceSchemaBlockAttribute {
+    /**
+     * (Computed) Same composition of the simple `attributes` above.
+     */
+    attributes: outputs.GetResourceSchemaBlockAttributeAttribute[];
+    /**
+     * An unique name to identify the data source
+     */
+    name: string;
+    /**
+     * How the block is nested
+     */
+    nestingMode: string;
+}
+
+export interface GetResourceSchemaBlockAttributeAttribute {
+    /**
+     * whether the attribute is computed
+     */
+    computed: boolean;
+    /**
+     * an optional description of the attribute
+     */
+    description: string;
+    /**
+     * An unique name to identify the data source
+     */
+    name: string;
+    /**
+     * whether the attribute is optional
+     */
+    optional: boolean;
+    /**
+     * whether the attribute is required
+     */
+    required: boolean;
+    /**
+     * whether the attribute is sensitive
+     */
+    sensitive: boolean;
+    /**
+     * attribute type
+     */
+    type: string;
+}
+
+export interface GetRightImpliedRight {
+    /**
+     * ID of the implied right
+     */
+    id: string;
+    /**
+     * The name of the right.
+     */
+    name: string;
+}
+
+export interface GetSolutionLandingZoneCatalog {
+    /**
+     * Capability set for catalog
+     */
+    capabilities: string[];
+    /**
+     * ID of catalog
+     */
+    id: string;
+    /**
+     * Catalog Name
+     */
+    name: string;
+}
+
+export interface GetSolutionLandingZoneVdc {
+    /**
+     * Set of capabilities of the VDC
+     */
+    capabilities: string[];
+    /**
+     * Details of Compute Policy element
+     */
+    computePolicies: outputs.GetSolutionLandingZoneVdcComputePolicy[];
+    /**
+     * VDC ID
+     */
+    id: string;
+    /**
+     * Defines if this VDC should be treated as the default one
+     */
+    isDefault: boolean;
+    /**
+     * VDC Name
+     */
+    name: string;
+    /**
+     * Details of Org VDC Network element
+     */
+    orgVdcNetworks: outputs.GetSolutionLandingZoneVdcOrgVdcNetwork[];
+    /**
+     * Details of Storage Policy element
+     */
+    storagePolicies: outputs.GetSolutionLandingZoneVdcStoragePolicy[];
+}
+
+export interface GetSolutionLandingZoneVdcComputePolicy {
+    /**
+     * Set of capabilities for Compute Policy
+     */
+    capabilities: string[];
+    /**
+     * ID of Compute Policy
+     */
+    id: string;
+    /**
+     * Boolean value that marks if this Compute Policy should be default
+     */
+    isDefault: boolean;
+    /**
+     * Name of Compute Policy
+     */
+    name: string;
+}
+
+export interface GetSolutionLandingZoneVdcOrgVdcNetwork {
+    /**
+     * Set of capabilities for Org VDC Network
+     */
+    capabilities: string[];
+    /**
+     * ID of Org VDC Network
+     */
+    id: string;
+    /**
+     * Boolean value that marks if this Org VDC Network should be default
+     */
+    isDefault: boolean;
+    /**
+     * Name of Org VDC Network
+     */
+    name: string;
+}
+
+export interface GetSolutionLandingZoneVdcStoragePolicy {
+    /**
+     * Set of capabilities for Storage Policy
+     */
+    capabilities: string[];
+    /**
+     * ID of Storage Policy
+     */
+    id: string;
+    /**
+     * Boolean value that marks if this Storage Policy should be default
+     */
+    isDefault: boolean;
+    /**
+     * Name of Storage Policy
+     */
+    name: string;
+}
+
+export interface GetStorageProfileIopsSetting {
+    /**
+     * Value of 0 for disk IOPS means that no IOPS would be reserved or provisioned for that virtual disk
+     */
+    defaultDiskIops: number;
+    /**
+     * The maximum disk IOPs per GB value that this storage profile is permitted to deliver. A value of 0 means there is no per GB IOPS restriction
+     */
+    diskIopsPerGbMax: number;
+    /**
+     * Maximum number of IOPs that can be allocated for this profile. `0` means `maximum possible`
+     */
+    iopsLimit: number;
+    /**
+     * True if this storage profile is IOPS-based placement enabled
+     */
+    iopsLimitingEnabled: boolean;
+    /**
+     * The maximum IOPS value that this storage profile is permitted to deliver. Value of 0 means this max setting is disabled and there is no max disk IOPS restriction
+     */
+    maximumDiskIops: number;
+}
+
+export interface GetStorageProfileMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetSubscribedCatalogFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * Optional metadata of the catalog. This is inherited from the publishing catalog
+     */
+    metadatas?: outputs.GetSubscribedCatalogFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetSubscribedCatalogFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetVappLease {
+    /**
+     * How long any of the VMs in the vApp can run before the vApp is automatically powered off or suspended. 0 means never expires.
+     */
+    runtimeLeaseInSec: number;
+    /**
+     * How long the vApp is available before being automatically deleted or marked as expired. 0 means never expires.
+     */
+    storageLeaseInSec: number;
+}
+
+export interface GetVappMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetVappNetworkDhcpPool {
+    defaultLeaseTime: number;
+    enabled: boolean;
+    endAddress: string;
+    maxLeaseTime: number;
+    startAddress: string;
+}
+
+export interface GetVappNetworkStaticIpPool {
+    endAddress: string;
+    startAddress: string;
+}
+
+export interface GetVappVmBootOption {
+    /**
+     * Number of milliseconds to wait between powering-on and booting the VM
+     */
+    bootDelay: number;
+    /**
+     * Delay in milliseconds before a boot retry. Only works if 'boot_retry_enabled' is set to true.
+     */
+    bootRetryDelay: number;
+    /**
+     * If set to true, a VM that fails to boot will try again after the 'boot_retry_delay' time period has expired
+     */
+    bootRetryEnabled: boolean;
+    /**
+     * If set to true, enables EFI Secure Boot for the VM. Can only be changed when the VM is powered off.
+     */
+    efiSecureBoot: boolean;
+    /**
+     * If set to true, the VM will enter BIOS setup on boot.
+     */
+    enterBiosSetupOnNextBoot: boolean;
+}
+
+export interface GetVappVmCustomization {
+    /**
+     * Manually specify admin password
+     */
+    adminPassword: string;
+    /**
+     * Allow local administrator password
+     */
+    allowLocalAdminPassword: boolean;
+    /**
+     * Auto generate password
+     */
+    autoGeneratePassword: boolean;
+    /**
+     * 'true' value will change SID. Applicable only for Windows VMs
+     */
+    changeSid: boolean;
+    /**
+     * 'true' value will enable guest customization. It may occur on first boot or when 'force' is used
+     */
+    enabled: boolean;
+    /**
+     * 'true' value will cause the VM to reboot on every 'apply' operation
+     */
+    force: boolean;
+    /**
+     * Script to run on initial boot or with customization.force=true set
+     */
+    initscript: string;
+    /**
+     * Enable this VM to join a domain
+     */
+    joinDomain: boolean;
+    /**
+     * Account organizational unit for domain name join
+     */
+    joinDomainAccountOu: string;
+    /**
+     * Custom domain name for join
+     */
+    joinDomainName: string;
+    /**
+     * Password for custom domain name join
+     */
+    joinDomainPassword: string;
+    /**
+     * Username for custom domain name join
+     */
+    joinDomainUser: string;
+    /**
+     * Use organization's domain for joining
+     */
+    joinOrgDomain: boolean;
+    /**
+     * Require Administrator to change password on first login
+     */
+    mustChangePasswordOnFirstLogin: boolean;
+    /**
+     * Number of times to log on automatically
+     */
+    numberOfAutoLogons: number;
+}
+
+export interface GetVappVmDisk {
+    /**
+     * Bus number on which to place the disk controller
+     */
+    busNumber: string;
+    /**
+     * A name for the VM, unique within the vApp
+     */
+    name: string;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Unit number (slot) on the bus specified by BusNumber
+     */
+    unitNumber: string;
+}
+
+export interface GetVappVmExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: string;
+    /**
+     * Whether the extra configuration item is required
+     */
+    required: boolean;
+    /**
+     * The value of the extra configuration item
+     */
+    value: string;
+}
+
+export interface GetVappVmInternalDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: number;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: string;
+    /**
+     * The disk ID.
+     */
+    diskId: string;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops: number;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Storage profile to override the VM default one
+     */
+    storageProfile: string;
+    /**
+     * Specifies whether the disk storage is pre-allocated or allocated on demand.
+     */
+    thinProvisioned: boolean;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: number;
+}
+
+export interface GetVappVmMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetVappVmNetwork {
+    /**
+     * Network card adapter type. (e.g. 'E1000', 'E1000E', 'SRIOVETHERNETCARD', 'VMXNET3', 'PCNet32')
+     */
+    adapterType: string;
+    /**
+     * It defines if NIC is connected or not.
+     */
+    connected: boolean;
+    /**
+     * IP of the VM. Settings depend on `ipAllocationMode`
+     */
+    ip: string;
+    /**
+     * IP address allocation mode.
+     */
+    ipAllocationMode: string;
+    /**
+     * Set to true if network interface should be primary. First network card in the list will be primary by default
+     */
+    isPrimary: boolean;
+    /**
+     * Mac address of network interface
+     */
+    mac: string;
+    /**
+     * A name for the VM, unique within the vApp
+     */
+    name: string;
+    /**
+     * Secondary (IPv6) IP of the VM. Settings depend on `ipAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    secondaryIp: string;
+    /**
+     * Secondary (IPv6) IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    secondaryIpAllocationMode: string;
+    /**
+     * Network type
+     */
+    type: string;
+}
+
+export interface GetVdcGroupParticipatingOrgVdc {
+    /**
+     * Represents the fault domain of a given organization VDC
+     */
+    faultDomainTag: string;
+    /**
+     * Specifies whether the VDC is local to this VCD site
+     */
+    isRemoteOrg: boolean;
+    /**
+     * Specifies the network provider scope of the VDC
+     */
+    networkProviderScope: string;
+    /**
+     * Organization VDC belongs
+     */
+    orgId: string;
+    /**
+     * Organization VDC belongs
+     */
+    orgName: string;
+    /**
+     * Site VDC belongs
+     */
+    siteId: string;
+    /**
+     * Site VDC belongs
+     */
+    siteName: string;
+    /**
+     * The status that the VDC can be in e.g. 'SAVING', 'SAVED', 'CONFIGURING', 'REALIZED', 'REALIZATION_FAILED', 'DELETING', 'DELETE_FAILED', 'OBJECT_NOT_FOUND', 'UNCONFIGURED')
+     */
+    status: string;
+    /**
+     * VDC ID
+     */
+    vdcId: string;
+    /**
+     * VDC name
+     */
+    vdcName: string;
+}
+
+export interface GetVmBootOption {
+    /**
+     * Number of milliseconds to wait between powering-on and booting the VM
+     */
+    bootDelay: number;
+    /**
+     * Delay in milliseconds before a boot retry. Only works if 'boot_retry_enabled' is set to true.
+     */
+    bootRetryDelay: number;
+    /**
+     * If set to true, a VM that fails to boot will try again after the 'boot_retry_delay' time period has expired
+     */
+    bootRetryEnabled: boolean;
+    /**
+     * If set to true, enables EFI Secure Boot for the VM. Can only be changed when the VM is powered off.
+     */
+    efiSecureBoot: boolean;
+    /**
+     * If set to true, the VM will enter BIOS setup on boot.
+     */
+    enterBiosSetupOnNextBoot: boolean;
+}
+
+export interface GetVmCustomization {
+    /**
+     * Manually specify admin password
+     */
+    adminPassword: string;
+    /**
+     * Allow local administrator password
+     */
+    allowLocalAdminPassword: boolean;
+    /**
+     * Auto generate password
+     */
+    autoGeneratePassword: boolean;
+    /**
+     * 'true' value will change SID. Applicable only for Windows VMs
+     */
+    changeSid: boolean;
+    /**
+     * 'true' value will enable guest customization. It may occur on first boot or when 'force' is used
+     */
+    enabled: boolean;
+    /**
+     * 'true' value will cause the VM to reboot on every 'apply' operation
+     */
+    force: boolean;
+    /**
+     * Script to run on initial boot or with customization.force=true set
+     */
+    initscript: string;
+    /**
+     * Enable this VM to join a domain
+     */
+    joinDomain: boolean;
+    /**
+     * Account organizational unit for domain name join
+     */
+    joinDomainAccountOu: string;
+    /**
+     * Custom domain name for join
+     */
+    joinDomainName: string;
+    /**
+     * Password for custom domain name join
+     */
+    joinDomainPassword: string;
+    /**
+     * Username for custom domain name join
+     */
+    joinDomainUser: string;
+    /**
+     * Use organization's domain for joining
+     */
+    joinOrgDomain: boolean;
+    /**
+     * Require Administrator to change password on first login
+     */
+    mustChangePasswordOnFirstLogin: boolean;
+    /**
+     * Number of times to log on automatically
+     */
+    numberOfAutoLogons: number;
+}
+
+export interface GetVmDisk {
+    /**
+     * Bus number on which to place the disk controller
+     */
+    busNumber: string;
+    /**
+     * A name or ID for the standalone VM in VDC
+     */
+    name: string;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Unit number (slot) on the bus specified by BusNumber
+     */
+    unitNumber: string;
+}
+
+export interface GetVmExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: string;
+    /**
+     * Whether the extra configuration item is required
+     */
+    required: boolean;
+    /**
+     * The value of the extra configuration item
+     */
+    value: string;
+}
+
+export interface GetVmInternalDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: number;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: string;
+    /**
+     * The disk ID.
+     */
+    diskId: string;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops: number;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Storage profile to override the VM default one
+     */
+    storageProfile: string;
+    /**
+     * Specifies whether the disk storage is pre-allocated or allocated on demand.
+     */
+    thinProvisioned: boolean;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: number;
+}
+
+export interface GetVmMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface GetVmNetwork {
+    /**
+     * Network card adapter type. (e.g. 'E1000', 'E1000E', 'SRIOVETHERNETCARD', 'VMXNET3', 'PCNet32')
+     */
+    adapterType: string;
+    /**
+     * It defines if NIC is connected or not.
+     */
+    connected: boolean;
+    /**
+     * IP of the VM. Settings depend on `ipAllocationMode`
+     */
+    ip: string;
+    /**
+     * IP address allocation mode.
+     */
+    ipAllocationMode: string;
+    /**
+     * Set to true if network interface should be primary. First network card in the list will be primary by default
+     */
+    isPrimary: boolean;
+    /**
+     * Mac address of network interface
+     */
+    mac: string;
+    /**
+     * A name or ID for the standalone VM in VDC
+     */
+    name: string;
+    /**
+     * Secondary (IPv6) IP of the VM. Settings depend on `ipAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    secondaryIp: string;
+    /**
+     * Secondary (IPv6) IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    secondaryIpAllocationMode: string;
+    /**
+     * Network type
+     */
+    type: string;
+}
+
+export interface GetVmSizingPolicyCpus {
+    /**
+     * The number of cores per socket for a VM. This is a VM hardware configuration. The number of vCPUs that is defined in the VM sizing policy must be divisible by the number of cores per socket. If the number of vCPUs is not divisible by the number of cores per socket, the number of cores per socket becomes invalid.
+     */
+    coresPerSocket: string;
+    /**
+     * Defines the number of vCPUs configured for a VM. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, this count becomes the configured number of vCPUs for the VM.
+     */
+    count: string;
+    /**
+     * Defines the CPU limit in MHz for a VM. If not defined in the VDC compute policy, CPU limit is equal to the vCPU speed multiplied by the number of vCPUs.
+     */
+    limitInMhz: string;
+    /**
+     * Defines how much of the CPU resources of a VM are reserved. The allocated CPU for a VM equals the number of vCPUs times the vCPU speed in MHz. The value of the attribute ranges between 0 and one. Value of 0 CPU reservation guarantee defines no CPU reservation. Value of 1 defines 100% of CPU reserved.
+     */
+    reservationGuarantee: string;
+    /**
+     * Defines the number of CPU shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of CPU as another VM, it is entitled to consume twice as much CPU when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares: string;
+    /**
+     * Defines the vCPU speed of a core in MHz.
+     */
+    speedInMhz: string;
+}
+
+export interface GetVmSizingPolicyMemory {
+    /**
+     * Defines the memory limit in MB for a VM. If not defined in the VM sizing policy, memory limit is equal to the allocated memory for the VM.
+     */
+    limitInMb: string;
+    /**
+     * Defines the reserved amount of memory that is configured for a VM. The value of the attribute ranges between 0 and one. Value of 0 memory reservation guarantee defines no memory reservation. Value of 1 defines 100% of memory reserved.
+     */
+    reservationGuarantee: string;
+    /**
+     * Defines the number of memory shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of memory as another VM, it is entitled to consume twice as much memory when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares: string;
+    /**
+     * Defines the memory configured for a VM in MB. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, the VM receives the amount of memory defined by this attribute.
+     */
+    sizeInMb: string;
+}
+
+export interface GetVmVgpuPolicyCpus {
+    /**
+     * The number of cores per socket for a VM. This is a VM hardware configuration. The number of vCPUs that is defined in the VM sizing policy must be divisible by the number of cores per socket. If the number of vCPUs is not divisible by the number of cores per socket, the number of cores per socket becomes invalid.
+     */
+    coresPerSocket: string;
+    /**
+     * Defines the number of vCPUs configured for a VM. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, this count becomes the configured number of vCPUs for the VM.
+     */
+    count: string;
+    /**
+     * Defines the CPU limit in MHz for a VM. If not defined in the VDC compute policy, CPU limit is equal to the vCPU speed multiplied by the number of vCPUs.
+     */
+    limitInMhz: string;
+    /**
+     * Defines how much of the CPU resources of a VM are reserved. The allocated CPU for a VM equals the number of vCPUs times the vCPU speed in MHz. The value of the attribute ranges between 0 and one. Value of 0 CPU reservation guarantee defines no CPU reservation. Value of 1 defines 100% of CPU reserved.
+     */
+    reservationGuarantee: string;
+    /**
+     * Defines the number of CPU shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of CPU as another VM, it is entitled to consume twice as much CPU when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares: string;
+    /**
+     * Defines the vCPU speed of a core in MHz.
+     */
+    speedInMhz: string;
+}
+
+export interface GetVmVgpuPolicyMemory {
+    /**
+     * Defines the memory limit in MB for a VM. If not defined in the VM sizing policy, memory limit is equal to the allocated memory for the VM.
+     */
+    limitInMb: string;
+    /**
+     * Defines the reserved amount of memory that is configured for a VM. The value of the attribute ranges between 0 and one. Value of 0 memory reservation guarantee defines no memory reservation. Value of 1 defines 100% of memory reserved.
+     */
+    reservationGuarantee: string;
+    /**
+     * Defines the number of memory shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of memory as another VM, it is entitled to consume twice as much memory when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares: string;
+    /**
+     * Defines the memory configured for a VM in MB. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, the VM receives the amount of memory defined by this attribute.
+     */
+    sizeInMb: string;
+}
+
+export interface GetVmVgpuPolicyProviderVdcScope {
+    /**
+     * Set of cluster names within the provider virtual data center.
+     */
+    clusterNames: string[];
+    /**
+     * Identifier for the provider virtual data center.
+     */
+    providerVdcId: string;
+    /**
+     * Identifier for a VM group within the provider VDC scope.
+     */
+    vmGroupId: string;
+}
+
+export interface GetVmVgpuPolicyVgpuProfile {
+    /**
+     * Specifies the number of vGPU profiles.
+     */
+    count: number;
+    /**
+     * The identifier of the vGPU profile.
+     */
+    id: string;
+}
+
+export interface IndependentDiskMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface IpSpaceCustomQuotaIpPrefixQuota {
+    /**
+     * Prefix length
+     */
+    prefixLength: string;
+    /**
+     * IP Prefix Quota
+     */
+    quota: string;
+}
+
+export interface IpSpaceIpPrefix {
+    /**
+     * Floating IP quota
+     */
+    defaultQuota?: string;
+    /**
+     * One or more prefixes
+     */
+    prefixes: outputs.IpSpaceIpPrefixPrefix[];
+}
+
+export interface IpSpaceIpPrefixPrefix {
+    /**
+     * First IP
+     */
+    firstIp: string;
+    /**
+     * ID of IP Prefix
+     */
+    id: string;
+    /**
+     * Number of prefixes to define
+     */
+    prefixCount: string;
+    /**
+     * Prefix length
+     */
+    prefixLength: string;
+}
+
+export interface IpSpaceIpRange {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * ID of IP Range
+     */
+    id: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface LbServerPoolMember {
+    /**
+     * Defines member state. One of enabled, drain, disabled.
+     */
+    condition: string;
+    /**
+     * The NSX ID of the load balancer server pool
+     */
+    id: string;
+    /**
+     * IP address of member in server pool
+     */
+    ipAddress: string;
+    /**
+     * The maximum number of concurrent connections the member can handle. If exceeded requests are queued and the load balancer waits for a connection to be released
+     */
+    maxConnections?: number;
+    /**
+     * Minimum number of concurrent connections a member must always accept
+     */
+    minConnections?: number;
+    /**
+     * Port at which the member is to receive health monitor requests. Can be the same as port
+     */
+    monitorPort: number;
+    /**
+     * Server Pool name
+     */
+    name: string;
+    /**
+     * Port at which the member is to receive traffic from the load balancer
+     */
+    port: number;
+    /**
+     * Proportion of traffic this member is to handle. Must be an integer in the range 1-256
+     */
+    weight: number;
+}
+
+export interface NetworkDirectMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface NetworkIsolatedDhcpPool {
+    /**
+     * The default DHCP lease time to use
+     */
+    defaultLeaseTime?: number;
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The maximum DHCP lease time to use
+     */
+    maxLeaseTime?: number;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface NetworkIsolatedMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface NetworkIsolatedStaticIpPool {
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface NetworkIsolatedV2MetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface NetworkIsolatedV2SecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface NetworkIsolatedV2StaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface NetworkPoolBacking {
+    /**
+     * (Optional) A backing structure used for `VLAN` network pool
+     */
+    distributedSwitch: outputs.NetworkPoolBackingDistributedSwitch;
+    /**
+     * (Optional) A list of backing structure used for `PORTGROUP_BACKED` network pool
+     */
+    portGroups: outputs.NetworkPoolBackingPortGroup[];
+    /**
+     * (Optional) A list of range IDs, required with `VLAN` network pools
+     */
+    rangeIds?: outputs.NetworkPoolBackingRangeId[];
+    /**
+     * (Optional) A backing structure used for `GENEVE` network pool
+     */
+    transportZone: outputs.NetworkPoolBackingTransportZone;
+}
+
+export interface NetworkPoolBackingDistributedSwitch {
+    /**
+     * (Computed) The ID of the backing element
+     */
+    id: string;
+    /**
+     * Unique name of network pool
+     */
+    name: string;
+    /**
+     * Type of the network pool (one of `GENEVE`, `VLAN`, `PORTGROUP_BACKED`)
+     */
+    type: string;
+}
+
+export interface NetworkPoolBackingPortGroup {
+    /**
+     * (Computed) The ID of the backing element
+     */
+    id: string;
+    /**
+     * Unique name of network pool
+     */
+    name: string;
+    /**
+     * Type of the network pool (one of `GENEVE`, `VLAN`, `PORTGROUP_BACKED`)
+     */
+    type: string;
+}
+
+export interface NetworkPoolBackingRangeId {
+    /**
+     * (Required) The last ID of the range
+     */
+    endId: number;
+    /**
+     * (Required) The first ID of the range
+     */
+    startId: number;
+}
+
+export interface NetworkPoolBackingTransportZone {
+    /**
+     * (Computed) The ID of the backing element
+     */
+    id: string;
+    /**
+     * Unique name of network pool
+     */
+    name: string;
+    /**
+     * Type of the network pool (one of `GENEVE`, `VLAN`, `PORTGROUP_BACKED`)
+     */
+    type: string;
+}
+
+export interface NetworkRoutedDhcpPool {
+    /**
+     * The default DHCP lease time to use
+     */
+    defaultLeaseTime: number;
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The maximum DHCP lease time to use
+     */
+    maxLeaseTime?: number;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface NetworkRoutedMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface NetworkRoutedStaticIpPool {
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: string;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: string;
+}
+
+export interface NetworkRoutedV2MetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface NetworkRoutedV2SecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface NetworkRoutedV2StaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface NsxtAlbPoolHealthMonitor {
+    /**
+     * A name for ALB Pool
+     */
+    name: string;
+    systemDefined: boolean;
+    /**
+     * Type of health monitor. One of `HTTP`, `HTTPS`, `TCP`, `UDP`, `PING`
+     */
+    type: string;
+}
+
+export interface NsxtAlbPoolMember {
+    /**
+     * Detailed health message
+     */
+    detailedHealthMessage: string;
+    /**
+     * Boolean value if ALB Pool should be enabled (default `true`)
+     */
+    enabled?: boolean;
+    /**
+     * Health status
+     */
+    healthStatus: string;
+    /**
+     * IP address of pool member
+     */
+    ipAddress: string;
+    /**
+     * Marked down by provides a set of health monitors that marked the service down
+     */
+    markedDownBies: string[];
+    /**
+     * Member port
+     */
+    port?: number;
+    /**
+     * Ratio of selecting eligible servers in the pool
+     */
+    ratio?: number;
+}
+
+export interface NsxtAlbPoolPersistenceProfile {
+    /**
+     * A name for ALB Pool
+     */
+    name: string;
+    /**
+     * Type of persistence strategy. One of `CLIENT_IP`, `HTTP_COOKIE`, `CUSTOM_HTTP_HEADER`, `APP_COOKIE`, `TLS`
+     */
+    type: string;
+    /**
+     * Value of attribute based on persistence type
+     */
+    value?: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleActions;
+    /**
+     * Defines if the rule is active or not
+     */
+    active?: boolean;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging?: boolean;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriteria: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteria;
+    /**
+     * Name of the rule
+     */
+    name: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActions {
+    /**
+     * A set of header modification rules
+     */
+    modifyHeaders?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleActionsModifyHeader[];
+    /**
+     * Redirect request
+     */
+    redirect?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleActionsRedirect;
+    /**
+     * URL rewrite rules
+     */
+    rewriteUrl?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleActionsRewriteUrl;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActionsModifyHeader {
+    /**
+     * One of the following HTTP header actions. Options - ADD, REMOVE, REPLACE
+     */
+    action: string;
+    /**
+     * HTTP header name
+     */
+    name: string;
+    /**
+     * HTTP header value
+     */
+    value?: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActionsRedirect {
+    /**
+     * Host to which redirect the request
+     */
+    host?: string;
+    /**
+     * Should the query part be preserved
+     */
+    keepQuery?: boolean;
+    /**
+     * Path to which redirect the request
+     */
+    path?: string;
+    /**
+     * Port to which redirect the request. Default is 80 for HTTP and 443 for HTTPS protocol
+     */
+    port?: string;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: string;
+    /**
+     * One of the redirect status codes - 301, 302, 307
+     */
+    statusCode: number;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActionsRewriteUrl {
+    /**
+     * Path to use for the rewritten URL
+     */
+    existingPath: string;
+    /**
+     * Host to use for the rewritten URL
+     */
+    hostHeader: string;
+    /**
+     * Whether or not to keep the existing query string when rewriting the URL
+     */
+    keepQuery?: boolean;
+    /**
+     * Query string to use or append to the existing query string in the rewritten URL
+     */
+    query?: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddress?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaClientIpAddress;
+    /**
+     * Criteria for matching cookie
+     */
+    cookie?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaCookie;
+    /**
+     * HTTP methods that should be matched
+     */
+    httpMethods?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaHttpMethods;
+    /**
+     * Request path criteria
+     */
+    path?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaPath;
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType?: string;
+    /**
+     * HTTP request query strings to match
+     */
+    queries?: string[];
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaRequestHeader[];
+    /**
+     * Service Port criteria
+     */
+    servicePorts?: outputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaServicePorts;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: string;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaHttpMethods {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: string;
+    /**
+     * HTTP methods to match. Options - GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK
+     */
+    methods: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: string;
+    /**
+     * String values to match the path
+     */
+    paths: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaServicePorts {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: string;
+    /**
+     * A set of TCP ports. Allowed values are 1-65535
+     */
+    ports: number[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleActions;
+    /**
+     * Defines if the rule is active or not
+     */
+    active?: boolean;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging?: boolean;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriteria: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteria;
+    /**
+     * Name of the rule
+     */
+    name: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleActions {
+    /**
+     * Modify header
+     */
+    modifyHeaders?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleActionsModifyHeader[];
+    /**
+     * Rewrite location header
+     */
+    rewriteLocationHeader?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleActionsRewriteLocationHeader;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleActionsModifyHeader {
+    /**
+     * One of the following HTTP header actions. Options - ADD, REMOVE, REPLACE
+     */
+    action: string;
+    /**
+     * HTTP header name
+     */
+    name: string;
+    /**
+     * HTTP header value
+     */
+    value?: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleActionsRewriteLocationHeader {
+    /**
+     * Host to which redirect the request
+     */
+    host?: string;
+    /**
+     * Should the query part be preserved
+     */
+    keepQuery?: boolean;
+    /**
+     * Path to which redirect the request
+     */
+    path?: string;
+    /**
+     * Port to which redirect the request
+     */
+    port: string;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddress?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaClientIpAddress;
+    /**
+     * Criteria for matching cookie
+     */
+    cookie?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaCookie;
+    /**
+     * HTTP methods that should be matched
+     */
+    httpMethods?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaHttpMethods;
+    /**
+     * A matching criteria for Location header
+     */
+    locationHeader?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaLocationHeader;
+    /**
+     * Request path criteria
+     */
+    path?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaPath;
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType?: string;
+    /**
+     * HTTP request query strings to match
+     */
+    queries?: string[];
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaRequestHeader[];
+    /**
+     * A set of criteria to match response headers
+     */
+    responseHeaders?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaResponseHeader[];
+    /**
+     * Service Port criteria
+     */
+    servicePorts?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaServicePorts;
+    /**
+     * HTTP Status code to match
+     */
+    statusCode?: outputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaStatusCode;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: string;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaHttpMethods {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: string;
+    /**
+     * HTTP methods to match. Options - GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK
+     */
+    methods: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaLocationHeader {
+    /**
+     * Criteria to use for matching location header. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: string;
+    /**
+     * A set of values to match for criteria
+     */
+    values: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: string;
+    /**
+     * String values to match the path
+     */
+    paths: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaResponseHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name?: string;
+    /**
+     * A set of values to match for an HTTP header
+     */
+    values?: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaServicePorts {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: string;
+    /**
+     * A set of TCP ports. Allowed values are 1-65535
+     */
+    ports: number[];
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaStatusCode {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: string;
+    /**
+     * Enter a http status code or range
+     */
+    httpStatusCode: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleActions;
+    /**
+     * Defines is the rule is active or not
+     */
+    active?: boolean;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging?: boolean;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriteria: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteria;
+    /**
+     * Name of the rule
+     */
+    name: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActions {
+    /**
+     * ALLOW or CLOSE connections
+     */
+    connections?: string;
+    /**
+     * Apply actions based on rate limits
+     */
+    rateLimit?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimit;
+    /**
+     * Port number that should be redirected to HTTPS
+     */
+    redirectToHttps?: string;
+    /**
+     * Send custom response
+     */
+    sendResponse?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsSendResponse;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimit {
+    /**
+     * Set to true if the connection should be closed
+     */
+    actionCloseConnection?: boolean;
+    /**
+     * Send custom response
+     */
+    actionLocalResponses?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionLocalResponse[];
+    /**
+     * Redirect based on rate limits
+     */
+    actionRedirects?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionRedirect[];
+    /**
+     * Maximum number of connections, requests or packets permitted each period. The count must be between 1 and 1000000000
+     */
+    count: string;
+    /**
+     * Time value in seconds to enforce rate count. The period must be between 1 and 1000000000
+     */
+    period: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionLocalResponse {
+    /**
+     * Base64 encoded content
+     */
+    content?: string;
+    /**
+     * MIME type for the content
+     */
+    contentType?: string;
+    /**
+     * HTTP Status code to send
+     */
+    statusCode: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionRedirect {
+    /**
+     * Host to which redirect the request
+     */
+    host?: string;
+    /**
+     * Should the query part be preserved
+     */
+    keepQuery?: boolean;
+    /**
+     * Path to which redirect the request
+     */
+    path?: string;
+    /**
+     * Port to which redirect the request
+     */
+    port: string;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: string;
+    /**
+     * One of the redirect status codes - 301, 302, 307
+     */
+    statusCode: number;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsSendResponse {
+    /**
+     * Base64 encoded content
+     */
+    content?: string;
+    /**
+     * MIME type for the content
+     */
+    contentType?: string;
+    /**
+     * HTTP Status code to send
+     */
+    statusCode: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddress?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaClientIpAddress;
+    /**
+     * Criteria for matching cookie
+     */
+    cookie?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaCookie;
+    /**
+     * HTTP methods that should be matched
+     */
+    httpMethods?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaHttpMethods;
+    /**
+     * Request path criteria
+     */
+    path?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaPath;
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType?: string;
+    /**
+     * HTTP request query strings to match
+     */
+    queries?: string[];
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaRequestHeader[];
+    /**
+     * Service Port criteria
+     */
+    servicePorts?: outputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaServicePorts;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: string;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: string;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaHttpMethods {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: string;
+    /**
+     * HTTP methods to match. Options - GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK
+     */
+    methods: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: string;
+    /**
+     * String values to match the path
+     */
+    paths: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: string;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: string;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: string[];
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaServicePorts {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: string;
+    /**
+     * A set of TCP ports. Allowed values are 1-65535
+     */
+    ports: number[];
+}
+
+export interface NsxtAlbVirtualServiceServicePort {
+    /**
+     * Last port in the range
+     */
+    endPort?: number;
+    /**
+     * Defines if certificate should be used
+     */
+    sslEnabled?: boolean;
+    /**
+     * Starting port in the range
+     */
+    startPort: number;
+    /**
+     * One of 'TCP_PROXY', 'TCP_FAST_PATH', 'UDP_FAST_PATH'
+     */
+    type: string;
+}
+
+export interface NsxtAppPortProfileAppPort {
+    /**
+     * Set of ports or ranges
+     */
+    ports?: string[];
+    protocol: string;
+}
+
+export interface NsxtDistributedFirewallRule {
+    /**
+     * Defines if the rule should 'ALLOW', 'DROP', 'REJECT' matching traffic
+     */
+    action: string;
+    /**
+     * A set of Application Port Profile IDs. Leaving it empty means 'Any'
+     */
+    appPortProfileIds?: string[];
+    /**
+     * Comment that is shown next to rule in UI (VCD 10.3.2+)
+     */
+    comment?: string;
+    /**
+     * Description is not shown in UI
+     */
+    description?: string;
+    /**
+     * Reverses firewall matching for to match all except Destinations Groups specified in 'destination_ids' (VCD 10.3.2+)
+     */
+    destinationGroupsExcluded?: boolean;
+    /**
+     * A set of Destination Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    destinationIds?: string[];
+    /**
+     * Direction on which Firewall Rule applies (One of 'IN', 'OUT', 'IN_OUT')
+     */
+    direction?: string;
+    /**
+     * Defined if Firewall Rule is active
+     */
+    enabled?: boolean;
+    /**
+     * Firewall Rule ID
+     */
+    id: string;
+    /**
+     * Firewall Rule Protocol (One of 'IPV4', 'IPV6', 'IPV4_IPV6')
+     */
+    ipProtocol?: string;
+    /**
+     * Defines if matching traffic should be logged
+     */
+    logging?: boolean;
+    /**
+     * Firewall Rule name
+     */
+    name: string;
+    /**
+     * A set of Network Context Profile IDs. Leaving it empty means 'Any'
+     */
+    networkContextProfileIds?: string[];
+    /**
+     * Reverses firewall matching for to match all except Source Groups specified in 'source_ids' (VCD 10.3.2+)
+     */
+    sourceGroupsExcluded?: boolean;
+    /**
+     * A set of Source Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    sourceIds?: string[];
+}
+
+export interface NsxtDynamicSecurityGroupCriteria {
+    /**
+     * Up to 4 rules for matching VMs. List of rules are matched with boolean `AND`
+     * operation and all defines rules must match to include object. See Rule for rule
+     * definition structure.
+     *
+     *
+     * <a id="rule"></a>
+     */
+    rules?: outputs.NsxtDynamicSecurityGroupCriteriaRule[];
+}
+
+export interface NsxtDynamicSecurityGroupCriteriaRule {
+    /**
+     * Operator can be one of 'EQUALS', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH'
+     */
+    operator: string;
+    /**
+     * Type of object matching 'VM_TAG' or 'VM_NAME'
+     */
+    type: string;
+    /**
+     * Filter value
+     */
+    value: string;
+}
+
+export interface NsxtDynamicSecurityGroupMemberVm {
+    /**
+     * Parent vApp name (if exists) for member VM
+     */
+    vappId: string;
+    /**
+     * Parent vApp ID (if exists) for member VM
+     */
+    vappName: string;
+    /**
+     * Member VM ID
+     */
+    vmId: string;
+    /**
+     * Member VM Name
+     */
+    vmName: string;
+}
+
+export interface NsxtEdgegatewayBgpIpPrefixListIpPrefix {
+    /**
+     * Action 'PERMIT' or 'DENY'
+     */
+    action: string;
+    /**
+     * Greater than or equal to subnet mask
+     */
+    greaterThanOrEqualTo?: number;
+    /**
+     * Less than or equal to subnet mask
+     */
+    lessThanOrEqualTo?: number;
+    /**
+     * Network in CIDR notation (e.g. '192.168.100.0/24', '2001:db8::/48')
+     */
+    network: string;
+}
+
+export interface NsxtEdgegatewayDnsConditionalForwarderZone {
+    /**
+     * Set of domain names on which conditional forwarding is based.
+     */
+    domainNames: string[];
+    /**
+     * Unique ID of the forwarder zone.
+     */
+    id: string;
+    /**
+     * Name of the forwarder zone.
+     */
+    name: string;
+    /**
+     * Servers to which DNS requests should be forwarded to.
+     */
+    upstreamServers: string[];
+}
+
+export interface NsxtEdgegatewayDnsDefaultForwarderZone {
+    /**
+     * Unique ID of the forwarder zone.
+     */
+    id: string;
+    /**
+     * Name of the forwarder zone.
+     */
+    name: string;
+    /**
+     * Servers to which DNS requests should be forwarded to.
+     */
+    upstreamServers: string[];
+}
+
+export interface NsxtEdgegatewayExternalNetwork {
+    /**
+     * Number of allocated IPs
+     */
+    allocatedIpCount: number;
+    /**
+     * An external network ID. **Note:** Data source [vcd.ExternalNetworkV2](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+     * can be used to lookup ID by name.
+     */
+    externalNetworkId: string;
+    /**
+     * Gateway IP Address
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp: string;
+}
+
+export interface NsxtEdgegatewayL2VpnTunnelStretchedNetwork {
+    /**
+     * ID of the Org VDC network
+     */
+    networkId: string;
+    /**
+     * Tunnel ID of the network for the tunnel. Read-only for `SERVER` sessions.
+     */
+    tunnelId: number;
+}
+
+export interface NsxtEdgegatewayStaticRouteNextHop {
+    /**
+     * Admin distance of next hop
+     */
+    adminDistance: number;
+    /**
+     * IP Address of next hop
+     */
+    ipAddress: string;
+    scope?: outputs.NsxtEdgegatewayStaticRouteNextHopScope;
+}
+
+export interface NsxtEdgegatewayStaticRouteNextHopScope {
+    /**
+     * ID of Scope element
+     */
+    id: string;
+    /**
+     * Name for NSX-T Edge Gateway Static Route
+     */
+    name: string;
+    /**
+     * Scope type - One of 'NETWORK', 'SYSTEM_OWNED'
+     */
+    type: string;
+}
+
+export interface NsxtEdgegatewaySubnet {
+    /**
+     * Define one or more blocks to sub-allocate pools on the edge gateway
+     */
+    allocatedIps: outputs.NsxtEdgegatewaySubnetAllocatedIp[];
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp?: string;
+}
+
+export interface NsxtEdgegatewaySubnetAllocatedIp {
+    endAddress: string;
+    startAddress: string;
+}
+
+export interface NsxtEdgegatewaySubnetWithIpCount {
+    /**
+     * Number of IP addresses to allocate
+     */
+    allocatedIpCount: number;
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp: string;
+}
+
+export interface NsxtEdgegatewaySubnetWithTotalIpCount {
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: string;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: number;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp: string;
+}
+
+export interface NsxtFirewallRule {
+    /**
+     * Defines if the rule should 'ALLOW', 'DROP' or 'REJECT' matching traffic
+     */
+    action: string;
+    /**
+     * A set of Application Port Profile IDs. Leaving it empty means 'Any'
+     */
+    appPortProfileIds?: string[];
+    /**
+     * A set of Destination Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    destinationIds?: string[];
+    /**
+     * Direction on which Firewall Rule applies (One of 'IN', 'OUT', 'IN_OUT')
+     */
+    direction: string;
+    /**
+     * Defined if Firewall Rule is active
+     */
+    enabled?: boolean;
+    /**
+     * Firewall Rule ID
+     */
+    id: string;
+    /**
+     * Firewall Rule Protocol (One of 'IPV4', 'IPV6', 'IPV4_IPV6')
+     */
+    ipProtocol: string;
+    /**
+     * Defines if matching traffic should be logged
+     */
+    logging?: boolean;
+    /**
+     * Firewall Rule name
+     */
+    name: string;
+    /**
+     * A set of Source Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    sourceIds?: string[];
+}
+
+export interface NsxtIpsecVpnTunnelSecurityProfileCustomization {
+    /**
+     * Value in seconds of dead probe detection interval. Minimum is 3 seconds and the maximum is 60 seconds
+     */
+    dpdProbeInternal?: number;
+    /**
+     * Diffie-Hellman groups to be used if Perfect Forward Secrecy is enabled. One of GROUP2, GROUP5, GROUP14, GROUP15, GROUP16, GROUP19, GROUP20, GROUP21
+     */
+    ikeDhGroups: string[];
+    /**
+     * Secure hashing algorithms to use during the IKE negotiation. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    ikeDigestAlgorithms?: string[];
+    /**
+     * Encryption algorithms. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    ikeEncryptionAlgorithms: string[];
+    /**
+     * Security Association life time (in seconds). It is number of seconds before the IPsec tunnel needs to reestablish
+     */
+    ikeSaLifetime?: number;
+    /**
+     * IKE version one of IKE_V1, IKE_V2, IKE_FLEX
+     */
+    ikeVersion: string;
+    /**
+     * Policy for handling defragmentation bit. One of COPY, CLEAR
+     */
+    tunnelDfPolicy?: string;
+    /**
+     * Diffie-Hellman groups to be used is PFS is enabled. One of GROUP2, GROUP5, GROUP14, GROUP15, GROUP16, GROUP19, GROUP20, GROUP21
+     */
+    tunnelDhGroups: string[];
+    /**
+     * Digest algorithms to be used for message digest. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    tunnelDigestAlgorithms?: string[];
+    /**
+     * Encryption algorithms to use in IPSec tunnel establishment. One of AES_128, AES_256, AES_GCM_128, AES_GCM_192, AES_GCM_256, NO_ENCRYPTION_AUTH_AES_GMAC_128, NO_ENCRYPTION_AUTH_AES_GMAC_192, NO_ENCRYPTION_AUTH_AES_GMAC_256, NO_ENCRYPTION
+     */
+    tunnelEncryptionAlgorithms: string[];
+    /**
+     * Perfect Forward Secrecy Enabled or Disabled. Default (enabled)
+     */
+    tunnelPfsEnabled?: boolean;
+    /**
+     * Security Association life time (in seconds)
+     */
+    tunnelSaLifetime?: number;
+}
+
+export interface NsxtNetworkDhcpBindingDhcpV4Config {
+    /**
+     * IPv4 gateway address
+     */
+    gatewayIpAddress?: string;
+    /**
+     * Hostname for the DHCP client
+     */
+    hostname?: string;
+}
+
+export interface NsxtNetworkDhcpBindingDhcpV6Config {
+    /**
+     * Set of domain names
+     */
+    domainNames?: string[];
+    /**
+     * Set of SNTP servers
+     */
+    sntpServers?: string[];
+}
+
+export interface NsxtNetworkDhcpPool {
+    /**
+     * End address of DHCP pool IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of DHCP pool IP range
+     */
+    startAddress: string;
+}
+
+export interface NsxtNetworkImportedSecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface NsxtNetworkImportedStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface NsxtSecurityGroupMemberVm {
+    /**
+     * Parent vApp name (if exists) for member VM
+     */
+    vappId: string;
+    /**
+     * Parent vApp ID (if exists) for member VM
+     */
+    vappName: string;
+    /**
+     * Member VM ID
+     */
+    vmId: string;
+    /**
+     * Member VM Name
+     */
+    vmName: string;
+}
+
+export interface NsxvDhcpRelayRelayAgent {
+    /**
+     * Optional gateway IP address of org network which is to be used for relaying DHCP message to specified servers
+     */
+    gatewayIpAddress: string;
+    /**
+     * Org network which is to be used for relaying DHCP message to specified servers
+     */
+    networkName: string;
+}
+
+export interface NsxvDistributedFirewallRule {
+    /**
+     * Action of the rule (allow, deny)
+     */
+    action: string;
+    /**
+     * Application definitions for this rule. An empty value means 'any'
+     */
+    applications?: outputs.NsxvDistributedFirewallRuleApplication[];
+    /**
+     * List of elements to which this rule applies
+     */
+    appliedTos: outputs.NsxvDistributedFirewallRuleAppliedTo[];
+    /**
+     * List of destination traffic for this rule. An empty value means 'any'
+     */
+    destinations?: outputs.NsxvDistributedFirewallRuleDestination[];
+    /**
+     * Direction of the rule (in, out, inout)
+     */
+    direction: string;
+    /**
+     * Shows whether the NSX-V Distributed Firewall is enabled.
+     */
+    enabled?: boolean;
+    /**
+     * If true, the content of the destination elements is reversed
+     */
+    excludeDestination?: boolean;
+    /**
+     * If true, the content of the source elements is reversed
+     */
+    excludeSource?: boolean;
+    /**
+     * Firewall Rule ID
+     */
+    id: number;
+    /**
+     * Whether the rule traffic is logged
+     */
+    logged?: boolean;
+    /**
+     * Firewall Rule name
+     */
+    name?: string;
+    /**
+     * Packet type of the rule (any, ipv4, ipv6)
+     */
+    packetType?: string;
+    /**
+     * List of source traffic for this rule. An empty value means 'any'
+     */
+    sources?: outputs.NsxvDistributedFirewallRuleSource[];
+}
+
+export interface NsxvDistributedFirewallRuleApplication {
+    /**
+     * Destination port for this application. Leaving it empty means 'any' port
+     */
+    destinationPort?: string;
+    /**
+     * Name of application (Application, ApplicationGroup)
+     */
+    name?: string;
+    /**
+     * Protocol of the application (one of TCP, UDP, ICMP) (When not using name/value)
+     */
+    protocol?: string;
+    /**
+     * Source port for this application. Leaving it empty means 'any' port
+     */
+    sourcePort?: string;
+    /**
+     * Type of application
+     */
+    type?: string;
+    /**
+     * Value of the application
+     */
+    value?: string;
+}
+
+export interface NsxvDistributedFirewallRuleAppliedTo {
+    /**
+     * Name of the applied-to entity
+     */
+    name: string;
+    /**
+     * Type of the applied-to entity (one of Network, Edge, VirtualMachine, IPSet, VDC, Ipv4Address)
+     */
+    type: string;
+    /**
+     * Value of the applied-to entity
+     */
+    value: string;
+}
+
+export interface NsxvDistributedFirewallRuleDestination {
+    /**
+     * Name of the destination entity
+     */
+    name: string;
+    /**
+     * Type of the destination entity (one of Network, Edge, VirtualMachine, IpSet, VDC, Ipv4Address)
+     */
+    type: string;
+    /**
+     * Value of the destination entity
+     */
+    value: string;
+}
+
+export interface NsxvDistributedFirewallRuleSource {
+    /**
+     * Name of the source entity
+     */
+    name: string;
+    /**
+     * Type of the source entity (one of Network, Edge, VirtualMachine, IpSet, VDC, Ipv4Address)
+     */
+    type: string;
+    /**
+     * Value of the source entity
+     */
+    value: string;
+}
+
+export interface NsxvFirewallRuleDestination {
+    /**
+     * Rule is applied to traffic going to any destinations except for the excluded destination. Default 'false'
+     */
+    exclude?: boolean;
+    /**
+     * 'vse', 'internal', 'external' or network name
+     */
+    gatewayInterfaces?: string[];
+    /**
+     * IP address, CIDR, an IP range, or the keyword 'any'
+     */
+    ipAddresses?: string[];
+    /**
+     * Set of IP set names
+     */
+    ipSets?: string[];
+    /**
+     * Set of org network names
+     */
+    orgNetworks?: string[];
+    /**
+     * Set of VM IDs
+     */
+    vmIds?: string[];
+}
+
+export interface NsxvFirewallRuleService {
+    port: string;
+    protocol: string;
+    sourcePort: string;
+}
+
+export interface NsxvFirewallRuleSource {
+    /**
+     * Rule is applied to traffic coming from all sources except for the excluded source. Default 'false'
+     */
+    exclude?: boolean;
+    /**
+     * 'vse', 'internal', 'external' or network name
+     */
+    gatewayInterfaces?: string[];
+    /**
+     * IP address, CIDR, an IP range, or the keyword 'any'
+     */
+    ipAddresses?: string[];
+    /**
+     * Set of IP set names
+     */
+    ipSets?: string[];
+    /**
+     * Set of org network names
+     */
+    orgNetworks?: string[];
+    /**
+     * Set of VM IDs
+     */
+    vmIds?: string[];
+}
+
+export interface OrgAccountLockout {
+    /**
+     * Whether account lockout is enabled or not
+     */
+    enabled: boolean;
+    /**
+     * Number of login attempts that will trigger an account lockout for the given user
+     */
+    invalidLoginsBeforeLockout: number;
+    /**
+     * Once a user is locked out, they will not be able to log back in for this time period
+     */
+    lockoutIntervalMinutes: number;
+}
+
+export interface OrgLdapCustomSettings {
+    /**
+     * authentication method: one of SIMPLE, MD5DIGEST, NTLM
+     */
+    authenticationMethod: string;
+    /**
+     * LDAP search base
+     */
+    baseDistinguishedName?: string;
+    /**
+     * type of connector: one of OPEN_LDAP, ACTIVE_DIRECTORY
+     */
+    connectorType: string;
+    /**
+     * Group settings when `ldapMode` is CUSTOM
+     */
+    groupAttributes: outputs.OrgLdapCustomSettingsGroupAttributes;
+    /**
+     * True if the LDAP service requires an SSL connection
+     */
+    isSsl?: boolean;
+    /**
+     * Password for the user identified by UserName. This value is never returned by GET. It is inspected on create and modify. On modify, the absence of this element indicates that the password should not be changed
+     */
+    password?: string;
+    /**
+     * Port number for LDAP service
+     */
+    port: number;
+    /**
+     * host name or IP of the LDAP server
+     */
+    server: string;
+    /**
+     * User settings when `ldapMode` is CUSTOM
+     */
+    userAttributes: outputs.OrgLdapCustomSettingsUserAttributes;
+    /**
+     * Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn="ldap-admin", c="example", dc="com")
+     */
+    username?: string;
+}
+
+export interface OrgLdapCustomSettingsGroupAttributes {
+    /**
+     * LDAP group attribute used to identify a group member
+     */
+    groupBackLinkIdentifier?: string;
+    /**
+     * LDAP attribute that identifies a group as a member of another group. For example, dn
+     */
+    groupMembershipIdentifier: string;
+    /**
+     * LDAP attribute to use when getting the members of a group. For example, member
+     */
+    membership: string;
+    /**
+     * LDAP attribute to use for the group name. For example, cn
+     */
+    name: string;
+    /**
+     * LDAP objectClass of which imported groups are members. For example, group
+     */
+    objectClass: string;
+    /**
+     * LDAP attribute to use as the unique identifier for a group. For example, objectGuid
+     */
+    uniqueIdentifier: string;
+}
+
+export interface OrgLdapCustomSettingsUserAttributes {
+    /**
+     * LDAP attribute to use for the user's full name. For example, displayName
+     */
+    displayName: string;
+    /**
+     * LDAP attribute to use for the user's email address. For example, mail
+     */
+    email: string;
+    /**
+     * LDAP attribute to use for the user's given name. For example, givenName
+     */
+    givenName: string;
+    /**
+     * LDAP attribute that returns the identifiers of all the groups of which the user is a member
+     */
+    groupBackLinkIdentifier?: string;
+    /**
+     * LDAP attribute that identifies a user as a member of a group. For example, dn
+     */
+    groupMembershipIdentifier: string;
+    /**
+     * LDAP objectClass of which imported users are members. For example, user or person
+     */
+    objectClass: string;
+    /**
+     * LDAP attribute to use for the user's surname. For example, sn
+     */
+    surname: string;
+    /**
+     * LDAP attribute to use for the user's telephone number. For example, telephoneNumber
+     */
+    telephone: string;
+    /**
+     * LDAP attribute to use as the unique identifier for a user. For example, objectGuid
+     */
+    uniqueIdentifier: string;
+    /**
+     * LDAP attribute to use when looking up a user name to import. For example, userPrincipalName or samAccountName
+     */
+    username: string;
+}
+
+export interface OrgMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface OrgOidcClaimsMapping {
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    email: string;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    firstName: string;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    fullName: string;
+    /**
+     * Optional
+     */
+    groups: string;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    lastName: string;
+    /**
+     * Optional
+     */
+    roles: string;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    subject: string;
+}
+
+export interface OrgOidcKey {
+    /**
+     * Algorithm used by the key. Can be `RSA` or `EC`
+     */
+    algorithm: string;
+    /**
+     * The contents of a PEM file to create/update the key
+     */
+    certificate: string;
+    /**
+     * Expiration date for the key. The accepted format is `YYYY-MM-DD`, like `2077-12-31`
+     */
+    expirationDate?: string;
+    /**
+     * Identifier of the key
+     */
+    id: string;
+}
+
+export interface OrgVappLease {
+    /**
+     * If true, storage for a vApp is deleted when the vApp's lease expires. If false, the storage is flagged for deletion, but not deleted.
+     */
+    deleteOnStorageLeaseExpiration: boolean;
+    /**
+     * How long vApps can run before they are automatically stopped (in seconds). 0 means never expires
+     */
+    maximumRuntimeLeaseInSec: number;
+    /**
+     * How long stopped vApps are available before being automatically cleaned up (in seconds). 0 means never expires
+     */
+    maximumStorageLeaseInSec: number;
+    /**
+     * When true, vApps are powered off when the runtime lease expires. When false, vApps are suspended when the runtime lease expires
+     */
+    powerOffOnRuntimeLeaseExpiration: boolean;
+}
+
+export interface OrgVappTemplateLease {
+    /**
+     * If true, storage for a vAppTemplate is deleted when the vAppTemplate lease expires. If false, the storage is flagged for deletion, but not deleted
+     */
+    deleteOnStorageLeaseExpiration: boolean;
+    /**
+     * How long vApp templates are available before being automatically cleaned up (in seconds). 0 means never expires
+     */
+    maximumStorageLeaseInSec: number;
+}
+
+export interface OrgVdcAccessControlSharedWith {
+    /**
+     * The access level for the user or group to which we are sharing. (Only `ReadOnly` is available)
+     */
+    accessLevel: string;
+    /**
+     * The ID of a group which we are sharing with. Required if `userId` is not set.
+     */
+    groupId?: string;
+    /**
+     * The name of the subject (group or user) which we are sharing with.
+     */
+    subjectName: string;
+    /**
+     * The ID of a user which we are sharing with. Required if `groupId` is not set.
+     */
+    userId?: string;
+}
+
+export interface OrgVdcComputeCapacity {
+    cpu: outputs.OrgVdcComputeCapacityCpu;
+    memory: outputs.OrgVdcComputeCapacityMemory;
+}
+
+export interface OrgVdcComputeCapacityCpu {
+    /**
+     * Capacity that is committed to be available. Value in MB or MHz. Used with AllocationPool (Allocation pool) and ReservationPool (Reservation pool).
+     */
+    allocated: number;
+    /**
+     * Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies over provisioning. A value of 0 specifies unlimited units. Value in MB or MHz. Used with AllocationVApp (Pay as you go).
+     */
+    limit: number;
+    reserved: number;
+    used: number;
+}
+
+export interface OrgVdcComputeCapacityMemory {
+    /**
+     * Capacity that is committed to be available. Value in MB or MHz. Used with AllocationPool (Allocation pool) and ReservationPool (Reservation pool).
+     */
+    allocated: number;
+    /**
+     * Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies over provisioning. A value of 0 specifies unlimited units. Value in MB or MHz. Used with AllocationVApp (Pay as you go).
+     */
+    limit: number;
+    reserved: number;
+    used: number;
+}
+
+export interface OrgVdcMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface OrgVdcStorageProfile {
+    /**
+     * True if this is default storage profile for this VDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.
+     */
+    default: boolean;
+    /**
+     * True if this VDC is enabled for use by the organization VDCs. Default is true.
+     */
+    enabled?: boolean;
+    /**
+     * Maximum number of MB allocated for this storage profile. A value of 0 specifies unlimited MB.
+     */
+    limit: number;
+    /**
+     * VDC name
+     */
+    name: string;
+    /**
+     * Storage used in MB
+     */
+    storageUsedInMb: number;
+}
+
+export interface OrgVdcTemplateComputeConfiguration {
+    /**
+     * The maximum amount of CPU, in MHz, available to the VMs running within the VDC that is instantiated from this template. Minimum is 256MHz
+     */
+    cpuAllocated?: number;
+    /**
+     * The percentage of the CPU guaranteed to be available to VMs running within the VDC instantiated from this template
+     */
+    cpuGuaranteed?: number;
+    /**
+     * The limit amount of CPU, in MHz, of the VDC that is instantiated from this template. Minimum is 256MHz. 0 means unlimited
+     */
+    cpuLimit: number;
+    /**
+     * Specifies the clock frequency, in MHz, for any virtual CPU that is allocated to a VM. Minimum is 256MHz
+     */
+    cpuSpeed?: number;
+    /**
+     * True if compute capacity can grow or shrink based on demand
+     */
+    elasticity: boolean;
+    /**
+     * True if the instantiated VDC includes memory overhead into its accounting for admission control
+     */
+    includeVmMemoryOverhead: boolean;
+    /**
+     * The maximum amount of Memory, in MB, available to the VMs running within the VDC that is instantiated from this template
+     */
+    memoryAllocated?: number;
+    /**
+     * The percentage of the Memory guaranteed to be available to VMs running within the VDC instantiated from this template
+     */
+    memoryGuaranteed?: number;
+    /**
+     * The limit amount of Memory, in MB, of the VDC that is instantiated from this template. Minimum is 1024MB. 0 means unlimited
+     */
+    memoryLimit?: number;
+}
+
+export interface OrgVdcTemplateEdgeGateway {
+    /**
+     * Description of the Edge Gateway
+     */
+    description?: string;
+    /**
+     * Allocated IPs for the Edge Gateway. Defaults to 0
+     */
+    ipAllocationCount?: number;
+    /**
+     * Name of the Edge Gateway
+     */
+    name: string;
+    /**
+     * Description of the routed network to create with the Edge Gateway
+     */
+    routedNetworkDescription?: string;
+    /**
+     * CIDR of the Edge Gateway for the created routed network
+     */
+    routedNetworkGatewayCidr: string;
+    /**
+     * Name of the routed network to create with the Edge Gateway
+     */
+    routedNetworkName: string;
+    /**
+     * **One block** with a single IP range (this is a constraint due to a bug in VCD 10.5+) that has two properties: `startAddress`, the start address of the IP range;
+     * `endAddress`, the end address of the IP range
+     */
+    staticIpPool?: outputs.OrgVdcTemplateEdgeGatewayStaticIpPool;
+}
+
+export interface OrgVdcTemplateEdgeGatewayStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: string;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: string;
+}
+
+export interface OrgVdcTemplateProviderVdc {
+    /**
+     * ID of the Provider Gateway to use, can be obtained with
+     * [`vcd.ExternalNetworkV2` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+     */
+    externalNetworkId: string;
+    /**
+     * ID of the Edge Cluster that the VDCs instantiated from this template will use with the Edge Gateway.
+     * Can be obtained with [`vcd.getNsxtEdgeCluster` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster).
+     * If set, a `edgeGateway` block **must** be present in the VDC Template configuration (see below).
+     */
+    gatewayEdgeClusterId?: string;
+    /**
+     * ID of the Provider VDC, can be obtained with
+     * [`vcd.ProviderVdc` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/provider_vdc)
+     */
+    id: string;
+    /**
+     * ID of the Edge Cluster that the VDCs instantiated from this template will use for services.
+     * Can be obtained with [`vcd.getNsxtEdgeCluster` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster)
+     */
+    servicesEdgeClusterId?: string;
+}
+
+export interface OrgVdcTemplateStorageProfile {
+    /**
+     * True if this is default storage profile for the VDCs instantiated from this template. Only **one** block should have this set to `true`
+     */
+    default: boolean;
+    /**
+     * Storage limit for the VDCs instantiated from this template, in MB. 0 means unlimited
+     */
+    limit: number;
+    /**
+     * Name of Provider VDC storage profile to use for the VDCs instantiated from this template
+     */
+    name: string;
+}
+
+export interface ProviderVdcComputeCapacity {
+    /**
+     * Single-element list with an indicator of CPU capacity available in the Provider VDC
+     */
+    cpus: outputs.ProviderVdcComputeCapacityCpus[];
+    /**
+     * True if compute capacity can grow or shrink based on demand
+     */
+    isElastic: boolean;
+    /**
+     * True if compute capacity is highly available
+     */
+    isHa: boolean;
+    /**
+     * Single-element list with an indicator of Memory capacity available in the Provider VDC
+     */
+    memories: outputs.ProviderVdcComputeCapacityMemory[];
+}
+
+export interface ProviderVdcComputeCapacityCpus {
+    /**
+     * Allocated CPU for this Provider VDC
+     */
+    allocation: number;
+    /**
+     * CPU overhead for this Provider VDC
+     */
+    overhead: number;
+    /**
+     * Reserved CPU for this Provider VDC
+     */
+    reserved: number;
+    /**
+     * Total CPU for this Provider VDC
+     */
+    total: number;
+    /**
+     * Units for the CPU of this Provider VDC
+     */
+    units: string;
+    /**
+     * Used CPU in this Provider VDC
+     */
+    used: number;
+}
+
+export interface ProviderVdcComputeCapacityMemory {
+    /**
+     * Allocated Memory for this Provider VDC
+     */
+    allocation: number;
+    /**
+     * Memory overhead for this Provider VDC
+     */
+    overhead: number;
+    /**
+     * Reserved Memory for this Provider VDC
+     */
+    reserved: number;
+    /**
+     * Total Memory for this Provider VDC
+     */
+    total: number;
+    /**
+     * Units for the Memory of this Provider VDC
+     */
+    units: string;
+    /**
+     * Used Memory in this Provider VDC
+     */
+    used: number;
+}
+
+export interface ProviderVdcMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL. Defaults to false
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry
+     */
+    key: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'. Defaults to 'MetadataStringValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'. Defaults to 'READWRITE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry
+     */
+    value: string;
+}
+
+export interface RdeMetadataEntry {
+    /**
+     * Only meaningful for providers. Allows them to share entries with their tenants. Currently, accepted values are: `TENANT`, `PROVIDER`
+     */
+    domain?: string;
+    /**
+     * ID of the metadata entry
+     */
+    id: string;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key: string;
+    /**
+     * Namespace of the metadata entry
+     */
+    namespace?: string;
+    /**
+     * Persistent metadata entries can be copied over on some entity operation
+     */
+    persistent?: boolean;
+    /**
+     * True if the metadata entry is read only
+     */
+    readonly?: boolean;
+    /**
+     * Type of this metadata entry. One of: 'StringEntry', 'NumberEntry', 'BoolEntry'
+     */
+    type?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value: string;
+}
+
+export interface RdeTypeHook {
+    /**
+     * Existing Behavior that will be automatically invoked when any RDE of this RDE Type triggers the event.
+     */
+    behaviorId: string;
+    /**
+     * Event that will invoke the Behavior, one of `PostCreate`, `PostUpdate`, `PreDelete`, `PostDelete`.
+     */
+    event: string;
+}
+
+export interface SolutionLandingZoneCatalog {
+    /**
+     * Capability set for catalog
+     */
+    capabilities?: string[];
+    /**
+     * ID of catalog
+     */
+    id: string;
+    /**
+     * Catalog Name
+     */
+    name: string;
+}
+
+export interface SolutionLandingZoneVdc {
+    /**
+     * Capability set for VDC
+     */
+    capabilities?: string[];
+    /**
+     * Structure for Compute Policy
+     */
+    computePolicies: outputs.SolutionLandingZoneVdcComputePolicy[];
+    /**
+     * ID of VDC
+     */
+    id: string;
+    /**
+     * Defines if the entity should be considered as default
+     */
+    isDefault: boolean;
+    /**
+     * VDC Name
+     */
+    name: string;
+    /**
+     * Structure for Org VDC Network
+     */
+    orgVdcNetworks: outputs.SolutionLandingZoneVdcOrgVdcNetwork[];
+    /**
+     * Structure for Storage Policy
+     */
+    storagePolicies: outputs.SolutionLandingZoneVdcStoragePolicy[];
+}
+
+export interface SolutionLandingZoneVdcComputePolicy {
+    /**
+     * Set of capabilities for Compute Policy
+     */
+    capabilities?: string[];
+    /**
+     * ID of Compute Policy
+     */
+    id: string;
+    /**
+     * Boolean value that marks if this Compute Policy should be default
+     */
+    isDefault?: boolean;
+    /**
+     * Name of Compute Policy
+     */
+    name: string;
+}
+
+export interface SolutionLandingZoneVdcOrgVdcNetwork {
+    /**
+     * Set of capabilities for Org VDC Network
+     */
+    capabilities?: string[];
+    /**
+     * ID of Org VDC Network
+     */
+    id: string;
+    /**
+     * Boolean value that marks if this Org VDC Network should be default
+     */
+    isDefault?: boolean;
+    /**
+     * Name of Org VDC Network
+     */
+    name: string;
+}
+
+export interface SolutionLandingZoneVdcStoragePolicy {
+    /**
+     * Set of capabilities for Storage Policy
+     */
+    capabilities?: string[];
+    /**
+     * ID of Storage Policy
+     */
+    id: string;
+    /**
+     * Boolean value that marks if this Storage Policy should be default
+     */
+    isDefault?: boolean;
+    /**
+     * Name of Storage Policy
+     */
+    name: string;
+}
+
+export interface VappAccessControlSharedWith {
+    /**
+     * The access level for the user or group to which we are sharing. (One of `ReadOnly`, `Change`, `FullControl`)
+     */
+    accessLevel: string;
+    /**
+     * The ID of a group with which we are sharing. Required if `userId` is not set.
+     */
+    groupId?: string;
+    /**
+     * the name of the subject (group or user) with which we are sharing.
+     */
+    subjectName: string;
+    /**
+     * The ID of a user with which we are sharing. Required if `groupId` is not set.
+     */
+    userId?: string;
+}
+
+export interface VappFirewallRulesRule {
+    /**
+     * Destination IP address to which the rule applies. A value of `Any` matches any IP address.
+     */
+    destinationIp?: string;
+    /**
+     * Destination port to which this rule applies.
+     */
+    destinationPort?: string;
+    /**
+     * Destination VM identifier
+     */
+    destinationVmId?: string;
+    /**
+     * The value can be one of: `assigned` - assigned internal IP will be automatically chosen. `NAT`: NATed external IP will be automatically chosen.
+     */
+    destinationVmIpType?: string;
+    /**
+     * Destination VM NIC ID to which this rule applies.
+     */
+    destinationVmNicId?: number;
+    /**
+     * 'true' value will enable rule logging. Default is false
+     */
+    enableLogging?: boolean;
+    /**
+     * Enable or disable firewall. Default is `true`.
+     */
+    enabled?: boolean;
+    /**
+     * Rule name
+     */
+    name?: string;
+    /**
+     * One of: `drop` (drop packets that match the rule), `allow` (allow packets that match the rule to pass through the firewall)
+     */
+    policy?: string;
+    /**
+     * Specify the protocols to which the rule should be applied. One of: `any`, `icmp`, `tcp`, `udp`, `tcp&udp`
+     */
+    protocol?: string;
+    /**
+     * Source IP address to which the rule applies. A value of `Any` matches any IP address.
+     */
+    sourceIp?: string;
+    /**
+     * Source port to which this rule applies.
+     */
+    sourcePort?: string;
+    /**
+     * Source VM identifier
+     */
+    sourceVmId?: string;
+    /**
+     * The value can be one of: `assigned` - assigned internal IP will be automatically chosen. `NAT`: NATed external IP will be automatically chosen.
+     */
+    sourceVmIpType?: string;
+    /**
+     * Source VM NIC ID to which this rule applies.
+     */
+    sourceVmNicId?: number;
+}
+
+export interface VappLease {
+    /**
+     * How long any of the VMs in the vApp can run before the vApp is automatically powered off or suspended. 0 means never expires (or maximum allowed by Org). Regular values accepted from 3600+.
+     */
+    runtimeLeaseInSec: number;
+    /**
+     * How long the vApp is available before being automatically deleted or marked as expired. 0 means never expires (or maximum allowed by Org). Regular values accepted from 3600+.
+     */
+    storageLeaseInSec: number;
+}
+
+export interface VappMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface VappNatRulesRule {
+    /**
+     * External IP address to forward to or External IP address to map to VM
+     */
+    externalIp: string;
+    /**
+     * External port to forward.
+     */
+    externalPort?: number;
+    /**
+     * Internal port to forward.
+     */
+    forwardToPort?: number;
+    /**
+     * ID of the rule. Can be used to track syslog messages.
+     */
+    id: string;
+    /**
+     * Mapping mode. One of: `automatic`, `manual`
+     */
+    mappingMode?: string;
+    /**
+     * Protocol to forward. One of: `TCP` (forward TCP packets), `UDP` (forward UDP packets), `TCP_UDP` (forward TCP and UDP packets).
+     */
+    protocol?: string;
+    /**
+     * VM to which this rule applies.
+     */
+    vmId: string;
+    /**
+     * VM NIC ID to which this rule applies.
+     */
+    vmNicId: number;
+}
+
+export interface VappNetworkDhcpPool {
+    defaultLeaseTime?: number;
+    enabled?: boolean;
+    endAddress?: string;
+    maxLeaseTime?: number;
+    startAddress: string;
+}
+
+export interface VappNetworkStaticIpPool {
+    endAddress: string;
+    startAddress: string;
+}
+
+export interface VappStaticRoutingRule {
+    /**
+     * Name for the static route.
+     */
+    name: string;
+    /**
+     * network specification in CIDR.
+     */
+    networkCidr: string;
+    /**
+     * IP Address of Next Hop router/gateway.
+     */
+    nextHopIp: string;
+}
+
+export interface VappVmBootOptions {
+    /**
+     * Number of milliseconds to wait between powering-on and booting the VM
+     */
+    bootDelay: number;
+    /**
+     * Delay in milliseconds before a boot retry. Only works if 'boot_retry_enabled' is set to true.
+     */
+    bootRetryDelay: number;
+    /**
+     * If set to true, a VM that fails to boot will try again after the 'boot_retry_delay' time period has expired
+     */
+    bootRetryEnabled: boolean;
+    /**
+     * If set to true, enables EFI Secure Boot for the VM. Can only be changed when the VM is powered off.
+     */
+    efiSecureBoot: boolean;
+    enterBiosSetupOnNextBoot?: boolean;
+}
+
+export interface VappVmCustomization {
+    /**
+     * Manually specify admin password
+     */
+    adminPassword: string;
+    /**
+     * Allow local administrator password
+     */
+    allowLocalAdminPassword: boolean;
+    /**
+     * Auto generate password
+     */
+    autoGeneratePassword: boolean;
+    /**
+     * 'true' value will change SID. Applicable only for Windows VMs
+     */
+    changeSid: boolean;
+    /**
+     * 'true' value will enable guest customization. It may occur on first boot or when 'force' is used
+     */
+    enabled: boolean;
+    /**
+     * 'true' value will cause the VM to reboot on every 'apply' operation
+     */
+    force?: boolean;
+    /**
+     * Script to run on initial boot or with customization.force=true set
+     */
+    initscript: string;
+    /**
+     * Enable this VM to join a domain
+     */
+    joinDomain: boolean;
+    /**
+     * Account organizational unit for domain name join
+     */
+    joinDomainAccountOu: string;
+    /**
+     * Custom domain name for join
+     */
+    joinDomainName: string;
+    /**
+     * Password for custom domain name join
+     */
+    joinDomainPassword: string;
+    /**
+     * Username for custom domain name join
+     */
+    joinDomainUser: string;
+    /**
+     * Use organization's domain for joining
+     */
+    joinOrgDomain: boolean;
+    /**
+     * Require Administrator to change password on first login
+     */
+    mustChangePasswordOnFirstLogin: boolean;
+    /**
+     * Number of times to log on automatically. '0' - disabled.
+     */
+    numberOfAutoLogons: number;
+}
+
+export interface VappVmDisk {
+    /**
+     * Bus number on which to place the disk controller
+     */
+    busNumber: string;
+    /**
+     * A name for the VM, unique within the vApp
+     */
+    name: string;
+    /**
+     * (*v2.7+*) Independent disk size in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Unit number (slot) on the bus specified by BusNumber
+     */
+    unitNumber: string;
+}
+
+export interface VappVmExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: string;
+    /**
+     * Whether the extra configuration item is required
+     */
+    required: boolean;
+    /**
+     * The value of the extra configuration item
+     */
+    value: string;
+}
+
+export interface VappVmInternalDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: number;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: string;
+    /**
+     * The disk ID.
+     */
+    diskId: string;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops: number;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Storage profile to override the default one
+     */
+    storageProfile: string;
+    /**
+     * Specifies whether the disk storage is pre-allocated or allocated on demand.
+     */
+    thinProvisioned: boolean;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: number;
+}
+
+export interface VappVmMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface VappVmNetwork {
+    /**
+     * Network card adapter type. (e.g. 'E1000', 'E1000E', 'SRIOVETHERNETCARD', 'VMXNET3', 'PCNet32')
+     */
+    adapterType: string;
+    /**
+     * It defines if NIC is connected or not.
+     */
+    connected?: boolean;
+    /**
+     * IP of the VM. Settings depend on `ipAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    ip: string;
+    /**
+     * IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    ipAllocationMode: string;
+    /**
+     * Set to true if network interface should be primary. First network card in the list will be primary by default
+     */
+    isPrimary: boolean;
+    /**
+     * Mac address of network interface
+     */
+    mac: string;
+    /**
+     * A name for the VM, unique within the vApp
+     */
+    name?: string;
+    /**
+     * Secondary (IPv6) IP of the VM. Settings depend on `secondaryIpAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    secondaryIp: string;
+    /**
+     * Secondary (IPv6) IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    secondaryIpAllocationMode: string;
+    /**
+     * Network type to use: 'vapp', 'org' or 'none'. Use 'vapp' for vApp network, 'org' to attach Org VDC network. 'none' for empty NIC.
+     */
+    type: string;
+}
+
+export interface VappVmOverrideTemplateDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: number;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: string;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops?: number;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Storage profile to override the default one
+     */
+    storageProfile?: string;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: number;
+}
+
+export interface VappVmSetExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: string;
+    /**
+     * The value of the extra configuration item. Leaving the `value` field empty will result in the item deletion
+     */
+    value: string;
+}
+
+export interface VdcGroupParticipatingOrgVdc {
+    /**
+     * Represents the fault domain of a given organization VDC
+     */
+    faultDomainTag: string;
+    /**
+     * Specifies whether the VDC is local to this VCD site
+     */
+    isRemoteOrg: boolean;
+    /**
+     * Specifies the network provider scope of the VDC
+     */
+    networkProviderScope: string;
+    /**
+     * Organization VDC belongs
+     */
+    orgId: string;
+    /**
+     * Organization VDC belongs
+     */
+    orgName: string;
+    /**
+     * Site VDC belongs
+     */
+    siteId: string;
+    /**
+     * Site VDC belongs
+     */
+    siteName: string;
+    /**
+     * The status that the group can be in (e.g. 'SAVING', 'SAVED', 'CONFIGURING', 'REALIZED', 'REALIZATION_FAILED', 'DELETING', 'DELETE_FAILED', 'OBJECT_NOT_FOUND', 'UNCONFIGURED').
+     */
+    status: string;
+    /**
+     * VDC ID
+     */
+    vdcId: string;
+    /**
+     * VDC name
+     */
+    vdcName: string;
+}
+
+export interface VmBootOptions {
+    /**
+     * Number of milliseconds to wait between powering-on and booting the VM
+     */
+    bootDelay: number;
+    /**
+     * Delay in milliseconds before a boot retry. Only works if 'boot_retry_enabled' is set to true.
+     */
+    bootRetryDelay: number;
+    /**
+     * If set to true, a VM that fails to boot will try again after the 'boot_retry_delay' time period has expired
+     */
+    bootRetryEnabled: boolean;
+    /**
+     * If set to true, enables EFI Secure Boot for the VM. Can only be changed when the VM is powered off.
+     */
+    efiSecureBoot: boolean;
+    enterBiosSetupOnNextBoot?: boolean;
+}
+
+export interface VmCustomization {
+    /**
+     * Manually specify admin password
+     */
+    adminPassword: string;
+    /**
+     * Allow local administrator password
+     */
+    allowLocalAdminPassword: boolean;
+    /**
+     * Auto generate password
+     */
+    autoGeneratePassword: boolean;
+    /**
+     * 'true' value will change SID. Applicable only for Windows VMs
+     */
+    changeSid: boolean;
+    /**
+     * 'true' value will enable guest customization. It may occur on first boot or when 'force' is used
+     */
+    enabled: boolean;
+    /**
+     * 'true' value will cause the VM to reboot on every 'apply' operation
+     */
+    force?: boolean;
+    /**
+     * Script to run on initial boot or with customization.force=true set
+     */
+    initscript: string;
+    /**
+     * Enable this VM to join a domain
+     */
+    joinDomain: boolean;
+    /**
+     * Account organizational unit for domain name join
+     */
+    joinDomainAccountOu: string;
+    /**
+     * Custom domain name for join
+     */
+    joinDomainName: string;
+    /**
+     * Password for custom domain name join
+     */
+    joinDomainPassword: string;
+    /**
+     * Username for custom domain name join
+     */
+    joinDomainUser: string;
+    /**
+     * Use organization's domain for joining
+     */
+    joinOrgDomain: boolean;
+    /**
+     * Require Administrator to change password on first login
+     */
+    mustChangePasswordOnFirstLogin: boolean;
+    /**
+     * Number of times to log on automatically. '0' - disabled.
+     */
+    numberOfAutoLogons: number;
+}
+
+export interface VmDisk {
+    /**
+     * Bus number on which to place the disk controller
+     */
+    busNumber: string;
+    /**
+     * Independent disk name
+     */
+    name: string;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Unit number (slot) on the bus specified by BusNumber
+     */
+    unitNumber: string;
+}
+
+export interface VmExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: string;
+    /**
+     * Whether the extra configuration item is required
+     */
+    required: boolean;
+    /**
+     * The value of the extra configuration item
+     */
+    value: string;
+}
+
+export interface VmInternalDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: number;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: string;
+    /**
+     * The disk ID.
+     */
+    diskId: string;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops: number;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Storage profile to override the VM default one
+     */
+    storageProfile: string;
+    /**
+     * Specifies whether the disk storage is pre-allocated or allocated on demand.
+     */
+    thinProvisioned: boolean;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: number;
+}
+
+export interface VmMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: boolean;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: string;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: string;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: string;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: string;
+}
+
+export interface VmNetwork {
+    /**
+     * Network card adapter type. (e.g. 'E1000', 'E1000E', 'SRIOVETHERNETCARD', 'VMXNET3', 'PCNet32')
+     */
+    adapterType: string;
+    /**
+     * It defines if NIC is connected or not.
+     */
+    connected?: boolean;
+    /**
+     * IP of the VM. Settings depend on `ipAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    ip: string;
+    /**
+     * IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    ipAllocationMode: string;
+    /**
+     * Set to true if network interface should be primary. First network card in the list will be primary by default
+     */
+    isPrimary: boolean;
+    /**
+     * Mac address of network interface
+     */
+    mac: string;
+    /**
+     * Name of the network this VM should connect to. Always required except for `type` `NONE`
+     */
+    name?: string;
+    /**
+     * Secondary (IPv6) IP of the VM. Settings depend on `secondaryIpAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    secondaryIp: string;
+    /**
+     * Secondary (IPv6) IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    secondaryIpAllocationMode: string;
+    /**
+     * Network type to use: 'vapp', 'org' or 'none'. Use 'vapp' for vApp network, 'org' to attach Org VDC network. 'none' for empty NIC.
+     */
+    type: string;
+}
+
+export interface VmOverrideTemplateDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: number;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: string;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops?: number;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: number;
+    /**
+     * Storage profile to override the VM default one
+     */
+    storageProfile?: string;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: number;
+}
+
+export interface VmSetExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: string;
+    /**
+     * The value of the extra configuration item. Leaving the `value` field empty will result in the item deletion
+     */
+    value: string;
+}
+
+export interface VmSizingPolicyCpu {
+    /**
+     * The number of cores per socket for a VM. This is a VM hardware configuration. The number of vCPUs that is defined in the VM sizing policy must be divisible by the number of cores per socket. If the number of vCPUs is not divisible by the number of cores per socket, the number of cores per socket becomes invalid.
+     */
+    coresPerSocket?: string;
+    /**
+     * Defines the number of vCPUs configured for a VM. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, this count becomes the configured number of vCPUs for the VM.
+     */
+    count?: string;
+    /**
+     * Defines the CPU limit in MHz for a VM. If not defined in the VDC compute policy, CPU limit is equal to the vCPU speed multiplied by the number of vCPUs. -1 means unlimited
+     */
+    limitInMhz?: string;
+    /**
+     * Defines how much of the CPU resources of a VM are reserved. The allocated CPU for a VM equals the number of vCPUs times the vCPU speed in MHz. The value of the attribute ranges between 0 and one. Value of 0 CPU reservation guarantee defines no CPU reservation. Value of 1 defines 100% of CPU reserved.
+     */
+    reservationGuarantee?: string;
+    /**
+     * Defines the number of CPU shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of CPU as another VM, it is entitled to consume twice as much CPU when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: string;
+    /**
+     * Defines the vCPU speed of a core in MHz.
+     */
+    speedInMhz?: string;
+}
+
+export interface VmSizingPolicyMemory {
+    /**
+     * Defines the memory limit in MB for a VM. If not defined in the VM sizing policy, memory limit is equal to the allocated memory for the VM.
+     */
+    limitInMb?: string;
+    /**
+     * Defines the reserved amount of memory that is configured for a VM. The value of the attribute ranges between 0 and one. Value of 0 memory reservation guarantee defines no memory reservation. Value of 1 defines 100% of memory reserved.
+     */
+    reservationGuarantee?: string;
+    /**
+     * Defines the number of memory shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of memory as another VM, it is entitled to consume twice as much memory when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: string;
+    /**
+     * Defines the memory configured for a VM in MB. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, the VM receives the amount of memory defined by this attribute.
+     */
+    sizeInMb?: string;
+}
+
+export interface VmVgpuPolicyCpu {
+    /**
+     * The number of cores per socket for a VM. This is a VM hardware configuration. The number of vCPUs that is defined in the VM sizing policy must be divisible by the number of cores per socket. If the number of vCPUs is not divisible by the number of cores per socket, the number of cores per socket becomes invalid.
+     */
+    coresPerSocket?: string;
+    /**
+     * Defines the number of vCPUs configured for a VM. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, this count becomes the configured number of vCPUs for the VM.
+     */
+    count?: string;
+    /**
+     * Defines the CPU limit in MHz for a VM. If not defined in the VDC compute policy, CPU limit is equal to the vCPU speed multiplied by the number of vCPUs. -1 means unlimited
+     */
+    limitInMhz?: string;
+    /**
+     * Defines how much of the CPU resources of a VM are reserved. The allocated CPU for a VM equals the number of vCPUs times the vCPU speed in MHz. The value of the attribute ranges between 0 and one. Value of 0 CPU reservation guarantee defines no CPU reservation. Value of 1 defines 100% of CPU reserved.
+     */
+    reservationGuarantee?: string;
+    /**
+     * Defines the number of CPU shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of CPU as another VM, it is entitled to consume twice as much CPU when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: string;
+    /**
+     * Defines the vCPU speed of a core in MHz.
+     */
+    speedInMhz?: string;
+}
+
+export interface VmVgpuPolicyMemory {
+    /**
+     * Defines the memory limit in MB for a VM. If not defined in the VM sizing policy, memory limit is equal to the allocated memory for the VM.
+     */
+    limitInMb?: string;
+    /**
+     * Defines the reserved amount of memory that is configured for a VM. The value of the attribute ranges between 0 and one. Value of 0 memory reservation guarantee defines no memory reservation. Value of 1 defines 100% of memory reserved.
+     */
+    reservationGuarantee?: string;
+    /**
+     * Defines the number of memory shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of memory as another VM, it is entitled to consume twice as much memory when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: string;
+    /**
+     * Defines the memory configured for a VM in MB. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, the VM receives the amount of memory defined by this attribute.
+     */
+    sizeInMb?: string;
+}
+
+export interface VmVgpuPolicyProviderVdcScope {
+    /**
+     * A set of vCenter cluster names on which the provider VDC is hosted. 
+     * If none are provided, the provider attempts to find one automatically. Can be fetched using `data.vcd_resource_pool.cluster_moref` attribute.
+     */
+    clusterNames?: string[];
+    /**
+     * The ID of the provider VDC that should be in the scope.
+     */
+    providerVdcId: string;
+    /**
+     * Optional identifier for a VM group within the provider VDC scope.
+     */
+    vmGroupId?: string;
+}
+
+export interface VmVgpuPolicyVgpuProfile {
+    /**
+     * Specifies the number of vGPU profiles. Must be at least 1.
+     */
+    count: number;
+    /**
+     * The identifier of the vGPU profile.
+     */
+    id: string;
+}
+
+export namespace config {
+    export interface IgnoreMetadataChanges {
+        conflictAction?: string;
+        /**
+         * Regular expression of the metadata entry keys to ignore. Either `keyRegex` or `valueRegex` is required
+         */
+        keyRegex?: string;
+        /**
+         * Ignores metadata from the specific entity in VCD named like this argument
+         */
+        resourceName?: string;
+        /**
+         * Ignores metadata from the specific resource type
+         */
+        resourceType?: string;
+        /**
+         * Regular expression of the metadata entry values to ignore. Either `keyRegex` or `valueRegex` is required
+         */
+        valueRegex?: string;
+    }
+
+}
