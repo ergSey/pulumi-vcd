@@ -20,11 +20,12 @@ import (
 	// Allow embedding bridge-metadata.json in the provider.
 	_ "embed"
 
+	vcd "github.com/vmware/terraform-provider-vcd/v3/vcd" // Import the upstream provider
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	vcd "github.com/vmware/terraform-provider-vcd/v3/vcd" // Import the upstream provider
 
 	"github.com/ergSey/pulumi-vcd/provider/pkg/version"
 )
@@ -38,7 +39,7 @@ const (
 	mainMod = "index" // the vcd module
 )
 
-// go:embed cmd/pulumi-resource-vcd/bridge-metadata.json
+//go:embed cmd/pulumi-resource-vcd/bridge-metadata.json
 var metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the provider.
