@@ -1,6 +1,9 @@
 {
-    "name": "@pulumi/vcd",
+    "name": "@ergsey/pulumi-vcd",
     "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "A Pulumi package for creating and managing vcd cloud resources.",
     "keywords": [
         "vcd",
