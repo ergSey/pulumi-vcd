@@ -122,6 +122,13 @@ jobs:
       with:
         tools: pulumictl, pulumicli, dotnet, go, nodejs, python
         cache-go: false
+    - name: Set up .npmrc for npmjs.org
+      run: |
+        echo "@ergsey:registry=https://registry.npmjs.org/" > ~/.npmrc
+        echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
     - name: Publish SDKs
       if: inputs.skipJavaSdk == false
       uses: pulumi/pulumi-package-publisher@696a0fe98f86d86ada2a842d1859f3e8c40d6cd7 # v0.0.21
@@ -133,8 +140,10 @@ jobs:
       uses: pulumi/pulumi-package-publisher@696a0fe98f86d86ada2a842d1859f3e8c40d6cd7 # v0.0.21
       with:
         # sdk: all,!java,!java
-        sdk: python,go
+        sdk: nodejs
         version: ${{ inputs.version }}
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: Download Go SDK
       uses: ./.github/actions/download-sdk
       with:
