@@ -115,7 +115,7 @@ func Provider() tfbridge.ProviderInfo {
 		DisplayName: "Pulumi vCD",
 		// Change this to your personal name (or a company name) that you would like to be shown in
 		// the Pulumi Registry if this package is published there.
-		Publisher: "Pulumi",
+		Publisher: "ergSey",
 		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
 		// if this package is published there.
 		//

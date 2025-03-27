@@ -11,7 +11,7 @@
     "attribution": "This Pulumi package is based on the [`vcd` Terraform Provider](https://github.com/vmware/terraform-provider-vcd).",
     "repository": "https://github.com/ergSey/pulumi-vcd",
     "pluginDownloadURL": "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/",
-    "publisher": "Pulumi",
+    "publisher": "ergSey",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
