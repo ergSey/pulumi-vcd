@@ -6,3 +6,4606 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 
+export interface CatalogAccessControlSharedWith {
+    /**
+     * The access level for the user or group to which we are sharing. (One of `ReadOnly`, 
+     * `Change`, `FullControl`, but it can only be `ReadOnly` when we share to an Organization)
+     */
+    accessLevel: pulumi.Input<string>;
+    /**
+     * The ID of a group with which we are sharing. Required if `userId` or `orgId` is not set.
+     */
+    groupId?: pulumi.Input<string>;
+    /**
+     * The ID of a group with which we are sharing. Required if `userId` or `groupId` is not set.
+     */
+    orgId?: pulumi.Input<string>;
+    /**
+     * the name of the subject (Org, group, or user) with which we are sharing.
+     */
+    subjectName?: pulumi.Input<string>;
+    /**
+     * The ID of a user with which we are sharing. Required if `groupId` or `orgId` is not set.
+     */
+    userId?: pulumi.Input<string>;
+}
+
+export interface CatalogItemMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface CatalogMediaMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface CatalogMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface CatalogVappTemplateCaptureVapp {
+    /**
+     * Defines if Trusted Platform Module should be copied (false) or created (true). Default 'false'. VCD 10.4.2+
+     */
+    copyTpmOnInstantiate?: pulumi.Input<boolean>;
+    /**
+     * Marks if instantiating applies customization settings ('true'). Default is 'false` - create an identical copy.
+     */
+    customizeOnInstantiate?: pulumi.Input<boolean>;
+    /**
+     * An existing catalog item ID to overwrite
+     */
+    overwriteCatalogItemId?: pulumi.Input<string>;
+    /**
+     * Source vApp ID (can be a vApp ID or 'vapp_id' field of standalone VM 'vcd_vm')
+     */
+    sourceId?: pulumi.Input<string>;
+}
+
+export interface CatalogVappTemplateLease {
+    /**
+     * How long the vApp Template is available before being automatically deleted or marked as expired. 0 means never expires (or maximum allowed by parent Org). Regular values accepted from 3600+.
+     */
+    storageLeaseInSec: pulumi.Input<number>;
+}
+
+export interface CatalogVappTemplateMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface CseKubernetesClusterControlPlane {
+    /**
+     * Disk size, in **Gibibytes (Gi)**, for the control plane VMs. Must be at least `20`. Defaults to `20`
+     */
+    diskSizeGi?: pulumi.Input<number>;
+    /**
+     * IP for the control plane. It will be automatically assigned during cluster creation if left empty
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * The number of nodes that the control plane has. Must be an odd number and higher than `0`. Defaults to `3`
+     */
+    machineCount?: pulumi.Input<number>;
+    /**
+     * VM Placement policy for the control plane VMs
+     */
+    placementPolicyId?: pulumi.Input<string>;
+    /**
+     * VM Sizing policy for the control plane VMs. Must be one of the ones made available during CSE installation
+     */
+    sizingPolicyId?: pulumi.Input<string>;
+    /**
+     * Storage profile for the control plane VMs
+     */
+    storageProfileId?: pulumi.Input<string>;
+}
+
+export interface CseKubernetesClusterDefaultStorageClass {
+    /**
+     * Filesystem of the storage class, can be either `ext4` or `xfs`
+     */
+    filesystem: pulumi.Input<string>;
+    /**
+     * The name of the default storage class. It must contain only lowercase alphanumeric characters or "-",
+     * start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A value of `delete` deletes the volume when the PersistentVolumeClaim is deleted. `retain` does not,
+     * and the volume can be manually reclaimed
+     */
+    reclaimPolicy: pulumi.Input<string>;
+    /**
+     * Storage profile for the default storage class
+     */
+    storageProfileId: pulumi.Input<string>;
+}
+
+export interface CseKubernetesClusterEvent {
+    /**
+     * Details of the event
+     */
+    details?: pulumi.Input<string>;
+    /**
+     * The name of the Kubernetes cluster. It must contain only lowercase alphanumeric characters or "-",
+     * start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * When the event happened
+     */
+    occurredAt?: pulumi.Input<string>;
+    /**
+     * ID of the resource that caused the event
+     */
+    resourceId?: pulumi.Input<string>;
+    /**
+     * Type of the event, either `event` or `error`
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface CseKubernetesClusterWorkerPool {
+    /**
+     * Maximum replicas for the autoscaling capabilities of this worker pool. Requires 'autoscaler_min_replicas'
+     */
+    autoscalerMaxReplicas?: pulumi.Input<number>;
+    /**
+     * Minimum replicas for the autoscaling capabilities of this worker pool. Requires 'autoscaler_max_replicas'
+     */
+    autoscalerMinReplicas?: pulumi.Input<number>;
+    /**
+     * Disk size, in Gibibytes (Gi), for this worker pool
+     */
+    diskSizeGi?: pulumi.Input<number>;
+    /**
+     * The number of nodes that this worker pool has. Must be higher than or equal to 0. Ignored if 'autoscaler_max_replicas' and 'autoscaler_min_replicas' are set
+     */
+    machineCount?: pulumi.Input<number>;
+    /**
+     * The name of the Kubernetes cluster. It must contain only lowercase alphanumeric characters or "-",
+     * start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters
+     */
+    name: pulumi.Input<string>;
+    /**
+     * VM Placement policy for this worker pool
+     */
+    placementPolicyId?: pulumi.Input<string>;
+    /**
+     * VM Sizing policy for this worker pool
+     */
+    sizingPolicyId?: pulumi.Input<string>;
+    /**
+     * Storage profile for this worker pool
+     */
+    storageProfileId?: pulumi.Input<string>;
+    /**
+     * vGPU policy for this worker pool
+     */
+    vgpuPolicyId?: pulumi.Input<string>;
+}
+
+export interface DseRegistryConfigurationContainerRegistry {
+    /**
+     * Registry description
+     */
+    description: pulumi.Input<string>;
+    /**
+     * Registry host
+     */
+    host: pulumi.Input<string>;
+    /**
+     * Password for registry user
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * Username for registry access
+     */
+    username?: pulumi.Input<string>;
+}
+
+export interface EdgegatewayExternalNetwork {
+    /**
+     * Enable rate limiting
+     */
+    enableRateLimit?: pulumi.Input<boolean>;
+    /**
+     * Incoming rate limit (Mbps)
+     */
+    incomingRateLimit?: pulumi.Input<number>;
+    /**
+     * A unique name for the edge gateway.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Outgoing rate limit (Mbps)
+     */
+    outgoingRateLimit?: pulumi.Input<number>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.EdgegatewayExternalNetworkSubnet>[]>;
+}
+
+export interface EdgegatewayExternalNetworkSubnet {
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * IP address on the edge gateway - will be auto-assigned if not defined
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * Netmask address for a subnet
+     */
+    netmask: pulumi.Input<string>;
+    /**
+     * Define zero or more blocks to sub-allocate pools on the edge gateway
+     */
+    suballocatePools?: pulumi.Input<pulumi.Input<inputs.EdgegatewayExternalNetworkSubnetSuballocatePool>[]>;
+    /**
+     * Defines if this subnet should be used as default gateway for edge
+     */
+    useForDefaultRoute?: pulumi.Input<boolean>;
+}
+
+export interface EdgegatewayExternalNetworkSubnetSuballocatePool {
+    endAddress: pulumi.Input<string>;
+    startAddress: pulumi.Input<string>;
+}
+
+export interface EdgegatewayVpnLocalSubnet {
+    localSubnetGateway: pulumi.Input<string>;
+    localSubnetMask: pulumi.Input<string>;
+    localSubnetName: pulumi.Input<string>;
+}
+
+export interface EdgegatewayVpnPeerSubnet {
+    peerSubnetGateway: pulumi.Input<string>;
+    peerSubnetMask: pulumi.Input<string>;
+    peerSubnetName: pulumi.Input<string>;
+}
+
+export interface ExternalNetworkIpScope {
+    /**
+     * Primary DNS server
+     */
+    dns1?: pulumi.Input<string>;
+    /**
+     * Secondary DNS server
+     */
+    dns2?: pulumi.Input<string>;
+    /**
+     * DNS suffix
+     */
+    dnsSuffix?: pulumi.Input<string>;
+    /**
+     * Gateway of the network
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * Network mask
+     */
+    netmask: pulumi.Input<string>;
+    /**
+     * IP ranges used for static pool allocation in the network
+     */
+    staticIpPools?: pulumi.Input<pulumi.Input<inputs.ExternalNetworkIpScopeStaticIpPool>[]>;
+}
+
+export interface ExternalNetworkIpScopeStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface ExternalNetworkV2IpScope {
+    /**
+     * Primary DNS server
+     */
+    dns1?: pulumi.Input<string>;
+    /**
+     * Secondary DNS server
+     */
+    dns2?: pulumi.Input<string>;
+    /**
+     * DNS suffix
+     */
+    dnsSuffix?: pulumi.Input<string>;
+    /**
+     * If subnet is enabled
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Gateway of the network
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * Network mask
+     */
+    prefixLength: pulumi.Input<number>;
+    /**
+     * IP ranges used for static pool allocation in the network
+     */
+    staticIpPools?: pulumi.Input<pulumi.Input<inputs.ExternalNetworkV2IpScopeStaticIpPool>[]>;
+}
+
+export interface ExternalNetworkV2IpScopeStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface ExternalNetworkV2NsxtNetwork {
+    /**
+     * ID of NSX-T manager
+     */
+    nsxtManagerId: pulumi.Input<string>;
+    /**
+     * Name of NSX-T segment (for NSX-T segment backed external network)
+     */
+    nsxtSegmentName?: pulumi.Input<string>;
+    /**
+     * ID of NSX-T Tier-0 router (for T0 gateway backed external network)
+     */
+    nsxtTier0RouterId?: pulumi.Input<string>;
+}
+
+export interface ExternalNetworkV2VsphereNetwork {
+    /**
+     * The name of the port group
+     */
+    portgroupId: pulumi.Input<string>;
+    /**
+     * The vCenter server name
+     */
+    vcenterId: pulumi.Input<string>;
+}
+
+export interface ExternalNetworkVsphereNetwork {
+    /**
+     * A unique name for the network
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The vSphere port group type. One of: DV_PORTGROUP (distributed virtual port group), NETWORK
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The vCenter server name
+     */
+    vcenter: pulumi.Input<string>;
+}
+
+export interface GetCatalogFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * (Deprecated; *v3.6+*) Use `metadataEntry` instead. Key value map of metadata.
+     */
+    metadatas?: inputs.GetCatalogFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogFilterArgs {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: pulumi.Input<string>;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: pulumi.Input<boolean>;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: pulumi.Input<boolean>;
+    /**
+     * (Deprecated; *v3.6+*) Use `metadataEntry` instead. Key value map of metadata.
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetCatalogFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetCatalogFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetCatalogItemFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * Key value map of metadata assigned to the associated vApp template.
+     */
+    metadatas?: inputs.GetCatalogItemFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogItemFilterArgs {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: pulumi.Input<string>;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: pulumi.Input<boolean>;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: pulumi.Input<boolean>;
+    /**
+     * Key value map of metadata assigned to the associated vApp template.
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetCatalogItemFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetCatalogItemFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogItemFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetCatalogMediaFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * metadata filter
+     */
+    metadatas?: inputs.GetCatalogMediaFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogMediaFilterArgs {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: pulumi.Input<string>;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: pulumi.Input<boolean>;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: pulumi.Input<boolean>;
+    /**
+     * metadata filter
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetCatalogMediaFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetCatalogMediaFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogMediaFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetCatalogVappTemplateFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * (Deprecated) Use `metadataEntry` instead. Key/value map of metadata for the associated vApp template.
+     */
+    metadatas?: inputs.GetCatalogVappTemplateFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetCatalogVappTemplateFilterArgs {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: pulumi.Input<string>;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: pulumi.Input<boolean>;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: pulumi.Input<boolean>;
+    /**
+     * (Deprecated) Use `metadataEntry` instead. Key/value map of metadata for the associated vApp template.
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetCatalogVappTemplateFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetCatalogVappTemplateFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetCatalogVappTemplateFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetEdgegatewayFilter {
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetEdgegatewayFilterArgs {
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetNetworkDirectFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * metadata filter
+     */
+    metadatas?: inputs.GetNetworkDirectFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkDirectFilterArgs {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * metadata filter
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetNetworkDirectFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetNetworkDirectFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetNetworkDirectFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetNetworkIsolatedFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * metadata filter
+     */
+    metadatas?: inputs.GetNetworkIsolatedFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkIsolatedFilterArgs {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * metadata filter
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetNetworkIsolatedFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetNetworkIsolatedFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetNetworkIsolatedFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetNetworkIsolatedV2Filter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkIsolatedV2FilterArgs {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetNetworkRoutedFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * metadata filter
+     */
+    metadatas?: inputs.GetNetworkRoutedFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkRoutedFilterArgs {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * metadata filter
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetNetworkRoutedFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetNetworkRoutedFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetNetworkRoutedFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface GetNetworkRoutedV2Filter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNetworkRoutedV2FilterArgs {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetNsxtNetworkImportedFilter {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: string;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetNsxtNetworkImportedFilterArgs {
+    /**
+     * Search by IP. The value can be a regular expression
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetSubscribedCatalogFilter {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: string;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: boolean;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: boolean;
+    /**
+     * Optional metadata of the catalog. This is inherited from the publishing catalog
+     */
+    metadatas?: inputs.GetSubscribedCatalogFilterMetadata[];
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: string;
+}
+
+export interface GetSubscribedCatalogFilterArgs {
+    /**
+     * Search by date comparison ({>|>=|<|<=|==} yyyy-mm-dd[ hh[:mm[:ss]]])
+     */
+    date?: pulumi.Input<string>;
+    /**
+     * Retrieves the oldest item
+     */
+    earliest?: pulumi.Input<boolean>;
+    /**
+     * Retrieves the newest item
+     */
+    latest?: pulumi.Input<boolean>;
+    /**
+     * Optional metadata of the catalog. This is inherited from the publishing catalog
+     */
+    metadatas?: pulumi.Input<pulumi.Input<inputs.GetSubscribedCatalogFilterMetadataArgs>[]>;
+    /**
+     * Search by name with a regular expression
+     */
+    nameRegex?: pulumi.Input<string>;
+}
+
+export interface GetSubscribedCatalogFilterMetadata {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: boolean;
+    /**
+     * Metadata key (field name)
+     */
+    key: string;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: string;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: boolean;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: string;
+}
+
+export interface GetSubscribedCatalogFilterMetadataArgs {
+    /**
+     * True if is a metadata@SYSTEM key
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Metadata key (field name)
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of metadata value (needed only if "useApiSearch" is true)
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * If true, will search the vCD using native metadata query (without regular expressions)
+     */
+    useApiSearch?: pulumi.Input<boolean>;
+    /**
+     * Metadata value (can be a regular expression if "useApiSearch" is false)
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface IndependentDiskMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface IpSpaceCustomQuotaIpPrefixQuota {
+    /**
+     * Prefix length
+     */
+    prefixLength: pulumi.Input<string>;
+    /**
+     * IP Prefix Quota
+     */
+    quota: pulumi.Input<string>;
+}
+
+export interface IpSpaceIpPrefix {
+    /**
+     * Floating IP quota
+     */
+    defaultQuota?: pulumi.Input<string>;
+    /**
+     * One or more prefixes
+     */
+    prefixes: pulumi.Input<pulumi.Input<inputs.IpSpaceIpPrefixPrefix>[]>;
+}
+
+export interface IpSpaceIpPrefixPrefix {
+    /**
+     * First IP
+     */
+    firstIp: pulumi.Input<string>;
+    /**
+     * ID of IP Prefix
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Number of prefixes to define
+     */
+    prefixCount: pulumi.Input<string>;
+    /**
+     * Prefix length
+     */
+    prefixLength: pulumi.Input<string>;
+}
+
+export interface IpSpaceIpRange {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * ID of IP Range
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface LbServerPoolMember {
+    /**
+     * Defines member state. One of enabled, drain, disabled.
+     */
+    condition: pulumi.Input<string>;
+    /**
+     * The NSX ID of the load balancer server pool
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * IP address of member in server pool
+     */
+    ipAddress: pulumi.Input<string>;
+    /**
+     * The maximum number of concurrent connections the member can handle. If exceeded requests are queued and the load balancer waits for a connection to be released
+     */
+    maxConnections?: pulumi.Input<number>;
+    /**
+     * Minimum number of concurrent connections a member must always accept
+     */
+    minConnections?: pulumi.Input<number>;
+    /**
+     * Port at which the member is to receive health monitor requests. Can be the same as port
+     */
+    monitorPort: pulumi.Input<number>;
+    /**
+     * Server Pool name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Port at which the member is to receive traffic from the load balancer
+     */
+    port: pulumi.Input<number>;
+    /**
+     * Proportion of traffic this member is to handle. Must be an integer in the range 1-256
+     */
+    weight: pulumi.Input<number>;
+}
+
+export interface NetworkDirectMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NetworkIsolatedDhcpPool {
+    /**
+     * The default DHCP lease time to use
+     */
+    defaultLeaseTime?: pulumi.Input<number>;
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * The maximum DHCP lease time to use
+     */
+    maxLeaseTime?: pulumi.Input<number>;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkIsolatedMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NetworkIsolatedStaticIpPool {
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkIsolatedV2MetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NetworkIsolatedV2SecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkIsolatedV2StaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkPoolBacking {
+    /**
+     * (Optional) A backing structure used for `VLAN` network pool
+     */
+    distributedSwitch?: pulumi.Input<inputs.NetworkPoolBackingDistributedSwitch>;
+    /**
+     * (Optional) A list of backing structure used for `PORTGROUP_BACKED` network pool
+     */
+    portGroups?: pulumi.Input<pulumi.Input<inputs.NetworkPoolBackingPortGroup>[]>;
+    /**
+     * (Optional) A list of range IDs, required with `VLAN` network pools
+     */
+    rangeIds?: pulumi.Input<pulumi.Input<inputs.NetworkPoolBackingRangeId>[]>;
+    /**
+     * (Optional) A backing structure used for `GENEVE` network pool
+     */
+    transportZone?: pulumi.Input<inputs.NetworkPoolBackingTransportZone>;
+}
+
+export interface NetworkPoolBackingDistributedSwitch {
+    /**
+     * (Computed) The ID of the backing element
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Unique name of network pool
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Type of the network pool (one of `GENEVE`, `VLAN`, `PORTGROUP_BACKED`)
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface NetworkPoolBackingPortGroup {
+    /**
+     * (Computed) The ID of the backing element
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Unique name of network pool
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Type of the network pool (one of `GENEVE`, `VLAN`, `PORTGROUP_BACKED`)
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface NetworkPoolBackingRangeId {
+    /**
+     * (Required) The last ID of the range
+     */
+    endId: pulumi.Input<number>;
+    /**
+     * (Required) The first ID of the range
+     */
+    startId: pulumi.Input<number>;
+}
+
+export interface NetworkPoolBackingTransportZone {
+    /**
+     * (Computed) The ID of the backing element
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Unique name of network pool
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Type of the network pool (one of `GENEVE`, `VLAN`, `PORTGROUP_BACKED`)
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface NetworkRoutedDhcpPool {
+    /**
+     * The default DHCP lease time to use
+     */
+    defaultLeaseTime?: pulumi.Input<number>;
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * The maximum DHCP lease time to use
+     */
+    maxLeaseTime?: pulumi.Input<number>;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkRoutedMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NetworkRoutedStaticIpPool {
+    /**
+     * The final address in the IP Range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * The first address in the IP Range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkRoutedV2MetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NetworkRoutedV2SecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NetworkRoutedV2StaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NsxtAlbPoolHealthMonitor {
+    /**
+     * A name for ALB Pool
+     */
+    name?: pulumi.Input<string>;
+    systemDefined?: pulumi.Input<boolean>;
+    /**
+     * Type of health monitor. One of `HTTP`, `HTTPS`, `TCP`, `UDP`, `PING`
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface NsxtAlbPoolMember {
+    /**
+     * Detailed health message
+     */
+    detailedHealthMessage?: pulumi.Input<string>;
+    /**
+     * Boolean value if ALB Pool should be enabled (default `true`)
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Health status
+     */
+    healthStatus?: pulumi.Input<string>;
+    /**
+     * IP address of pool member
+     */
+    ipAddress: pulumi.Input<string>;
+    /**
+     * Marked down by provides a set of health monitors that marked the service down
+     */
+    markedDownBies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Member port
+     */
+    port?: pulumi.Input<number>;
+    /**
+     * Ratio of selecting eligible servers in the pool
+     */
+    ratio?: pulumi.Input<number>;
+}
+
+export interface NsxtAlbPoolPersistenceProfile {
+    /**
+     * A name for ALB Pool
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Type of persistence strategy. One of `CLIENT_IP`, `HTTP_COOKIE`, `CUSTOM_HTTP_HEADER`, `APP_COOKIE`, `TLS`
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of attribute based on persistence type
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleActions>;
+    /**
+     * Defines if the rule is active or not
+     */
+    active?: pulumi.Input<boolean>;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging?: pulumi.Input<boolean>;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriteria: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteria>;
+    /**
+     * Name of the rule
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActions {
+    /**
+     * A set of header modification rules
+     */
+    modifyHeaders?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleActionsModifyHeader>[]>;
+    /**
+     * Redirect request
+     */
+    redirect?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleActionsRedirect>;
+    /**
+     * URL rewrite rules
+     */
+    rewriteUrl?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleActionsRewriteUrl>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActionsModifyHeader {
+    /**
+     * One of the following HTTP header actions. Options - ADD, REMOVE, REPLACE
+     */
+    action: pulumi.Input<string>;
+    /**
+     * HTTP header name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * HTTP header value
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActionsRedirect {
+    /**
+     * Host to which redirect the request
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Should the query part be preserved
+     */
+    keepQuery?: pulumi.Input<boolean>;
+    /**
+     * Path to which redirect the request
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Port to which redirect the request. Default is 80 for HTTP and 443 for HTTPS protocol
+     */
+    port?: pulumi.Input<string>;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: pulumi.Input<string>;
+    /**
+     * One of the redirect status codes - 301, 302, 307
+     */
+    statusCode: pulumi.Input<number>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleActionsRewriteUrl {
+    /**
+     * Path to use for the rewritten URL
+     */
+    existingPath: pulumi.Input<string>;
+    /**
+     * Host to use for the rewritten URL
+     */
+    hostHeader: pulumi.Input<string>;
+    /**
+     * Whether or not to keep the existing query string when rewriting the URL
+     */
+    keepQuery?: pulumi.Input<boolean>;
+    /**
+     * Query string to use or append to the existing query string in the rewritten URL
+     */
+    query?: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddress?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaClientIpAddress>;
+    /**
+     * Criteria for matching cookie
+     */
+    cookie?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaCookie>;
+    /**
+     * HTTP methods that should be matched
+     */
+    httpMethods?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaHttpMethods>;
+    /**
+     * Request path criteria
+     */
+    path?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaPath>;
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType?: pulumi.Input<string>;
+    /**
+     * HTTP request query strings to match
+     */
+    queries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaRequestHeader>[]>;
+    /**
+     * Service Port criteria
+     */
+    servicePorts?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaServicePorts>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: pulumi.Input<string>;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaHttpMethods {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * HTTP methods to match. Options - GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK
+     */
+    methods: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * String values to match the path
+     */
+    paths: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: pulumi.Input<string>;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpReqRulesRuleMatchCriteriaServicePorts {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of TCP ports. Allowed values are 1-65535
+     */
+    ports: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleActions>;
+    /**
+     * Defines if the rule is active or not
+     */
+    active?: pulumi.Input<boolean>;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging?: pulumi.Input<boolean>;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriteria: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteria>;
+    /**
+     * Name of the rule
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleActions {
+    /**
+     * Modify header
+     */
+    modifyHeaders?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleActionsModifyHeader>[]>;
+    /**
+     * Rewrite location header
+     */
+    rewriteLocationHeader?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleActionsRewriteLocationHeader>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleActionsModifyHeader {
+    /**
+     * One of the following HTTP header actions. Options - ADD, REMOVE, REPLACE
+     */
+    action: pulumi.Input<string>;
+    /**
+     * HTTP header name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * HTTP header value
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleActionsRewriteLocationHeader {
+    /**
+     * Host to which redirect the request
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Should the query part be preserved
+     */
+    keepQuery?: pulumi.Input<boolean>;
+    /**
+     * Path to which redirect the request
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Port to which redirect the request
+     */
+    port: pulumi.Input<string>;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddress?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaClientIpAddress>;
+    /**
+     * Criteria for matching cookie
+     */
+    cookie?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaCookie>;
+    /**
+     * HTTP methods that should be matched
+     */
+    httpMethods?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaHttpMethods>;
+    /**
+     * A matching criteria for Location header
+     */
+    locationHeader?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaLocationHeader>;
+    /**
+     * Request path criteria
+     */
+    path?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaPath>;
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType?: pulumi.Input<string>;
+    /**
+     * HTTP request query strings to match
+     */
+    queries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaRequestHeader>[]>;
+    /**
+     * A set of criteria to match response headers
+     */
+    responseHeaders?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaResponseHeader>[]>;
+    /**
+     * Service Port criteria
+     */
+    servicePorts?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaServicePorts>;
+    /**
+     * HTTP Status code to match
+     */
+    statusCode?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaStatusCode>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: pulumi.Input<string>;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaHttpMethods {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * HTTP methods to match. Options - GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK
+     */
+    methods: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaLocationHeader {
+    /**
+     * Criteria to use for matching location header. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of values to match for criteria
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * String values to match the path
+     */
+    paths: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: pulumi.Input<string>;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaResponseHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A set of values to match for an HTTP header
+     */
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaServicePorts {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of TCP ports. Allowed values are 1-65535
+     */
+    ports: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpRespRulesRuleMatchCriteriaStatusCode {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Enter a http status code or range
+     */
+    httpStatusCode: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRule {
+    /**
+     * Actions to perform with the rule that matches
+     */
+    actions: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleActions>;
+    /**
+     * Defines is the rule is active or not
+     */
+    active?: pulumi.Input<boolean>;
+    /**
+     * Defines whether to enable logging with headers on rule match or not
+     */
+    logging?: pulumi.Input<boolean>;
+    /**
+     * Rule matching Criteria
+     */
+    matchCriteria: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteria>;
+    /**
+     * Name of the rule
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActions {
+    /**
+     * ALLOW or CLOSE connections
+     */
+    connections?: pulumi.Input<string>;
+    /**
+     * Apply actions based on rate limits
+     */
+    rateLimit?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimit>;
+    /**
+     * Port number that should be redirected to HTTPS
+     */
+    redirectToHttps?: pulumi.Input<string>;
+    /**
+     * Send custom response
+     */
+    sendResponse?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsSendResponse>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimit {
+    /**
+     * Set to true if the connection should be closed
+     */
+    actionCloseConnection?: pulumi.Input<boolean>;
+    /**
+     * Send custom response
+     */
+    actionLocalResponses?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionLocalResponse>[]>;
+    /**
+     * Redirect based on rate limits
+     */
+    actionRedirects?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionRedirect>[]>;
+    /**
+     * Maximum number of connections, requests or packets permitted each period. The count must be between 1 and 1000000000
+     */
+    count: pulumi.Input<string>;
+    /**
+     * Time value in seconds to enforce rate count. The period must be between 1 and 1000000000
+     */
+    period: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionLocalResponse {
+    /**
+     * Base64 encoded content
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * MIME type for the content
+     */
+    contentType?: pulumi.Input<string>;
+    /**
+     * HTTP Status code to send
+     */
+    statusCode: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsRateLimitActionRedirect {
+    /**
+     * Host to which redirect the request
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * Should the query part be preserved
+     */
+    keepQuery?: pulumi.Input<boolean>;
+    /**
+     * Path to which redirect the request
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * Port to which redirect the request
+     */
+    port: pulumi.Input<string>;
+    /**
+     * HTTP or HTTPS protocol
+     */
+    protocol: pulumi.Input<string>;
+    /**
+     * One of the redirect status codes - 301, 302, 307
+     */
+    statusCode: pulumi.Input<number>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleActionsSendResponse {
+    /**
+     * Base64 encoded content
+     */
+    content?: pulumi.Input<string>;
+    /**
+     * MIME type for the content
+     */
+    contentType?: pulumi.Input<string>;
+    /**
+     * HTTP Status code to send
+     */
+    statusCode: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteria {
+    /**
+     * Client IP Address criteria
+     */
+    clientIpAddress?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaClientIpAddress>;
+    /**
+     * Criteria for matching cookie
+     */
+    cookie?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaCookie>;
+    /**
+     * HTTP methods that should be matched
+     */
+    httpMethods?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaHttpMethods>;
+    /**
+     * Request path criteria
+     */
+    path?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaPath>;
+    /**
+     * Protocol to match - 'HTTP' or 'HTTPS'
+     */
+    protocolType?: pulumi.Input<string>;
+    /**
+     * HTTP request query strings to match
+     */
+    queries?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A set of rules for matching request headers
+     */
+    requestHeaders?: pulumi.Input<pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaRequestHeader>[]>;
+    /**
+     * Service Port criteria
+     */
+    servicePorts?: pulumi.Input<inputs.NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaServicePorts>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaClientIpAddress {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN.
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of IP addresses
+     */
+    ipAddresses: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaCookie {
+    /**
+     * Criteria to use for matching cookies in the HTTP request. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP cookie whose value is to be matched
+     */
+    name: pulumi.Input<string>;
+    /**
+     * String values to match for an HTTP cookie
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaHttpMethods {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * HTTP methods to match. Options - GET, PUT, POST, DELETE, HEAD, OPTIONS, TRACE, CONNECT, PATCH, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK
+     */
+    methods: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaPath {
+    /**
+     * Criteria to use for matching the path in the HTTP request URI. Options - BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL, REGEX_MATCH, REGEX_DOES_NOT_MATCH
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * String values to match the path
+     */
+    paths: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaRequestHeader {
+    /**
+     * Criteria to use for matching headers and cookies in the HTTP request amd response. Options - EXISTS, DOES_NOT_EXIST, BEGINS_WITH, DOES_NOT_BEGIN_WITH, CONTAINS, DOES_NOT_CONTAIN, ENDS_WITH, DOES_NOT_END_WITH, EQUALS, DOES_NOT_EQUAL
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * Name of the HTTP header whose value is to be matched
+     */
+    name: pulumi.Input<string>;
+    /**
+     * String values to match for an HTTP header
+     */
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtAlbVirtualServiceHttpSecRulesRuleMatchCriteriaServicePorts {
+    /**
+     * Criteria to use for IP address matching the HTTP request. Options - IS_IN, IS_NOT_IN
+     */
+    criteria: pulumi.Input<string>;
+    /**
+     * A set of TCP ports. Allowed values are 1-65535
+     */
+    ports: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface NsxtAlbVirtualServiceServicePort {
+    /**
+     * Last port in the range
+     */
+    endPort?: pulumi.Input<number>;
+    /**
+     * Defines if certificate should be used
+     */
+    sslEnabled?: pulumi.Input<boolean>;
+    /**
+     * Starting port in the range
+     */
+    startPort: pulumi.Input<number>;
+    /**
+     * One of 'TCP_PROXY', 'TCP_FAST_PATH', 'UDP_FAST_PATH'
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface NsxtAppPortProfileAppPort {
+    /**
+     * Set of ports or ranges
+     */
+    ports?: pulumi.Input<pulumi.Input<string>[]>;
+    protocol: pulumi.Input<string>;
+}
+
+export interface NsxtDistributedFirewallRule {
+    /**
+     * Defines if the rule should 'ALLOW', 'DROP', 'REJECT' matching traffic
+     */
+    action: pulumi.Input<string>;
+    /**
+     * A set of Application Port Profile IDs. Leaving it empty means 'Any'
+     */
+    appPortProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Comment that is shown next to rule in UI (VCD 10.3.2+)
+     */
+    comment?: pulumi.Input<string>;
+    /**
+     * Description is not shown in UI
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Reverses firewall matching for to match all except Destinations Groups specified in 'destination_ids' (VCD 10.3.2+)
+     */
+    destinationGroupsExcluded?: pulumi.Input<boolean>;
+    /**
+     * A set of Destination Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    destinationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Direction on which Firewall Rule applies (One of 'IN', 'OUT', 'IN_OUT')
+     */
+    direction?: pulumi.Input<string>;
+    /**
+     * Defined if Firewall Rule is active
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Firewall Rule ID
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Firewall Rule Protocol (One of 'IPV4', 'IPV6', 'IPV4_IPV6')
+     */
+    ipProtocol?: pulumi.Input<string>;
+    /**
+     * Defines if matching traffic should be logged
+     */
+    logging?: pulumi.Input<boolean>;
+    /**
+     * Firewall Rule name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A set of Network Context Profile IDs. Leaving it empty means 'Any'
+     */
+    networkContextProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Reverses firewall matching for to match all except Source Groups specified in 'source_ids' (VCD 10.3.2+)
+     */
+    sourceGroupsExcluded?: pulumi.Input<boolean>;
+    /**
+     * A set of Source Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtDynamicSecurityGroupCriteria {
+    /**
+     * Up to 4 rules for matching VMs. List of rules are matched with boolean `AND`
+     * operation and all defines rules must match to include object. See Rule for rule
+     * definition structure.
+     *
+     *
+     * <a id="rule"></a>
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.NsxtDynamicSecurityGroupCriteriaRule>[]>;
+}
+
+export interface NsxtDynamicSecurityGroupCriteriaRule {
+    /**
+     * Operator can be one of 'EQUALS', 'CONTAINS', 'STARTS_WITH', 'ENDS_WITH'
+     */
+    operator: pulumi.Input<string>;
+    /**
+     * Type of object matching 'VM_TAG' or 'VM_NAME'
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Filter value
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxtDynamicSecurityGroupMemberVm {
+    /**
+     * Parent vApp name (if exists) for member VM
+     */
+    vappId?: pulumi.Input<string>;
+    /**
+     * Parent vApp ID (if exists) for member VM
+     */
+    vappName?: pulumi.Input<string>;
+    /**
+     * Member VM ID
+     */
+    vmId?: pulumi.Input<string>;
+    /**
+     * Member VM Name
+     */
+    vmName?: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewayBgpIpPrefixListIpPrefix {
+    /**
+     * Action 'PERMIT' or 'DENY'
+     */
+    action: pulumi.Input<string>;
+    /**
+     * Greater than or equal to subnet mask
+     */
+    greaterThanOrEqualTo?: pulumi.Input<number>;
+    /**
+     * Less than or equal to subnet mask
+     */
+    lessThanOrEqualTo?: pulumi.Input<number>;
+    /**
+     * Network in CIDR notation (e.g. '192.168.100.0/24', '2001:db8::/48')
+     */
+    network: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewayDnsConditionalForwarderZone {
+    /**
+     * Set of domain names on which conditional forwarding is based.
+     */
+    domainNames: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Unique ID of the forwarder zone.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the forwarder zone.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Servers to which DNS requests should be forwarded to.
+     */
+    upstreamServers: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtEdgegatewayDnsDefaultForwarderZone {
+    /**
+     * Unique ID of the forwarder zone.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the forwarder zone.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Servers to which DNS requests should be forwarded to.
+     */
+    upstreamServers: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtEdgegatewayExternalNetwork {
+    /**
+     * Number of allocated IPs
+     */
+    allocatedIpCount: pulumi.Input<number>;
+    /**
+     * An external network ID. **Note:** Data source [vcd.ExternalNetworkV2](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+     * can be used to lookup ID by name.
+     */
+    externalNetworkId: pulumi.Input<string>;
+    /**
+     * Gateway IP Address
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: pulumi.Input<number>;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp?: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewayL2VpnTunnelStretchedNetwork {
+    /**
+     * ID of the Org VDC network
+     */
+    networkId: pulumi.Input<string>;
+    /**
+     * Tunnel ID of the network for the tunnel. Read-only for `SERVER` sessions.
+     */
+    tunnelId?: pulumi.Input<number>;
+}
+
+export interface NsxtEdgegatewayStaticRouteNextHop {
+    /**
+     * Admin distance of next hop
+     */
+    adminDistance: pulumi.Input<number>;
+    /**
+     * IP Address of next hop
+     */
+    ipAddress: pulumi.Input<string>;
+    scope?: pulumi.Input<inputs.NsxtEdgegatewayStaticRouteNextHopScope>;
+}
+
+export interface NsxtEdgegatewayStaticRouteNextHopScope {
+    /**
+     * ID of Scope element
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Name for NSX-T Edge Gateway Static Route
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Scope type - One of 'NETWORK', 'SYSTEM_OWNED'
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewaySubnet {
+    /**
+     * Define one or more blocks to sub-allocate pools on the edge gateway
+     */
+    allocatedIps?: pulumi.Input<pulumi.Input<inputs.NsxtEdgegatewaySubnetAllocatedIp>[]>;
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: pulumi.Input<number>;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp?: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewaySubnetAllocatedIp {
+    endAddress: pulumi.Input<string>;
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewaySubnetWithIpCount {
+    /**
+     * Number of IP addresses to allocate
+     */
+    allocatedIpCount: pulumi.Input<number>;
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: pulumi.Input<number>;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp?: pulumi.Input<string>;
+}
+
+export interface NsxtEdgegatewaySubnetWithTotalIpCount {
+    /**
+     * Gateway address for a subnet
+     */
+    gateway: pulumi.Input<string>;
+    /**
+     * Prefix length for a subnet (e.g. 24)
+     */
+    prefixLength: pulumi.Input<number>;
+    /**
+     * Primary IP address exposed for an easy access without nesting.
+     */
+    primaryIp?: pulumi.Input<string>;
+}
+
+export interface NsxtFirewallRule {
+    /**
+     * Defines if the rule should 'ALLOW', 'DROP' or 'REJECT' matching traffic
+     */
+    action: pulumi.Input<string>;
+    /**
+     * A set of Application Port Profile IDs. Leaving it empty means 'Any'
+     */
+    appPortProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A set of Destination Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    destinationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Direction on which Firewall Rule applies (One of 'IN', 'OUT', 'IN_OUT')
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * Defined if Firewall Rule is active
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Firewall Rule ID
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Firewall Rule Protocol (One of 'IPV4', 'IPV6', 'IPV4_IPV6')
+     */
+    ipProtocol: pulumi.Input<string>;
+    /**
+     * Defines if matching traffic should be logged
+     */
+    logging?: pulumi.Input<boolean>;
+    /**
+     * Firewall Rule name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A set of Source Firewall Group IDs (IP Sets or Security Groups). Leaving it empty means 'Any'
+     */
+    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtIpsecVpnTunnelSecurityProfileCustomization {
+    /**
+     * Value in seconds of dead probe detection interval. Minimum is 3 seconds and the maximum is 60 seconds
+     */
+    dpdProbeInternal?: pulumi.Input<number>;
+    /**
+     * Diffie-Hellman groups to be used if Perfect Forward Secrecy is enabled. One of GROUP2, GROUP5, GROUP14, GROUP15, GROUP16, GROUP19, GROUP20, GROUP21
+     */
+    ikeDhGroups: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Secure hashing algorithms to use during the IKE negotiation. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    ikeDigestAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Encryption algorithms. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    ikeEncryptionAlgorithms: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Security Association life time (in seconds). It is number of seconds before the IPsec tunnel needs to reestablish
+     */
+    ikeSaLifetime?: pulumi.Input<number>;
+    /**
+     * IKE version one of IKE_V1, IKE_V2, IKE_FLEX
+     */
+    ikeVersion: pulumi.Input<string>;
+    /**
+     * Policy for handling defragmentation bit. One of COPY, CLEAR
+     */
+    tunnelDfPolicy?: pulumi.Input<string>;
+    /**
+     * Diffie-Hellman groups to be used is PFS is enabled. One of GROUP2, GROUP5, GROUP14, GROUP15, GROUP16, GROUP19, GROUP20, GROUP21
+     */
+    tunnelDhGroups: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Digest algorithms to be used for message digest. One of SHA1, SHA2_256, SHA2_384, SHA2_512
+     */
+    tunnelDigestAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Encryption algorithms to use in IPSec tunnel establishment. One of AES_128, AES_256, AES_GCM_128, AES_GCM_192, AES_GCM_256, NO_ENCRYPTION_AUTH_AES_GMAC_128, NO_ENCRYPTION_AUTH_AES_GMAC_192, NO_ENCRYPTION_AUTH_AES_GMAC_256, NO_ENCRYPTION
+     */
+    tunnelEncryptionAlgorithms: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Perfect Forward Secrecy Enabled or Disabled. Default (enabled)
+     */
+    tunnelPfsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Security Association life time (in seconds)
+     */
+    tunnelSaLifetime?: pulumi.Input<number>;
+}
+
+export interface NsxtNetworkDhcpBindingDhcpV4Config {
+    /**
+     * IPv4 gateway address
+     */
+    gatewayIpAddress?: pulumi.Input<string>;
+    /**
+     * Hostname for the DHCP client
+     */
+    hostname?: pulumi.Input<string>;
+}
+
+export interface NsxtNetworkDhcpBindingDhcpV6Config {
+    /**
+     * Set of domain names
+     */
+    domainNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of SNTP servers
+     */
+    sntpServers?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxtNetworkDhcpPool {
+    /**
+     * End address of DHCP pool IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of DHCP pool IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NsxtNetworkImportedSecondaryStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NsxtNetworkImportedStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface NsxtSecurityGroupMemberVm {
+    /**
+     * Parent vApp name (if exists) for member VM
+     */
+    vappId?: pulumi.Input<string>;
+    /**
+     * Parent vApp ID (if exists) for member VM
+     */
+    vappName?: pulumi.Input<string>;
+    /**
+     * Member VM ID
+     */
+    vmId?: pulumi.Input<string>;
+    /**
+     * Member VM Name
+     */
+    vmName?: pulumi.Input<string>;
+}
+
+export interface NsxvDhcpRelayRelayAgent {
+    /**
+     * Optional gateway IP address of org network which is to be used for relaying DHCP message to specified servers
+     */
+    gatewayIpAddress?: pulumi.Input<string>;
+    /**
+     * Org network which is to be used for relaying DHCP message to specified servers
+     */
+    networkName: pulumi.Input<string>;
+}
+
+export interface NsxvDistributedFirewallRule {
+    /**
+     * Action of the rule (allow, deny)
+     */
+    action: pulumi.Input<string>;
+    /**
+     * Application definitions for this rule. An empty value means 'any'
+     */
+    applications?: pulumi.Input<pulumi.Input<inputs.NsxvDistributedFirewallRuleApplication>[]>;
+    /**
+     * List of elements to which this rule applies
+     */
+    appliedTos: pulumi.Input<pulumi.Input<inputs.NsxvDistributedFirewallRuleAppliedTo>[]>;
+    /**
+     * List of destination traffic for this rule. An empty value means 'any'
+     */
+    destinations?: pulumi.Input<pulumi.Input<inputs.NsxvDistributedFirewallRuleDestination>[]>;
+    /**
+     * Direction of the rule (in, out, inout)
+     */
+    direction: pulumi.Input<string>;
+    /**
+     * Shows whether the NSX-V Distributed Firewall is enabled.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * If true, the content of the destination elements is reversed
+     */
+    excludeDestination?: pulumi.Input<boolean>;
+    /**
+     * If true, the content of the source elements is reversed
+     */
+    excludeSource?: pulumi.Input<boolean>;
+    /**
+     * Firewall Rule ID
+     */
+    id?: pulumi.Input<number>;
+    /**
+     * Whether the rule traffic is logged
+     */
+    logged?: pulumi.Input<boolean>;
+    /**
+     * Firewall Rule name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Packet type of the rule (any, ipv4, ipv6)
+     */
+    packetType?: pulumi.Input<string>;
+    /**
+     * List of source traffic for this rule. An empty value means 'any'
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.NsxvDistributedFirewallRuleSource>[]>;
+}
+
+export interface NsxvDistributedFirewallRuleApplication {
+    /**
+     * Destination port for this application. Leaving it empty means 'any' port
+     */
+    destinationPort?: pulumi.Input<string>;
+    /**
+     * Name of application (Application, ApplicationGroup)
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Protocol of the application (one of TCP, UDP, ICMP) (When not using name/value)
+     */
+    protocol?: pulumi.Input<string>;
+    /**
+     * Source port for this application. Leaving it empty means 'any' port
+     */
+    sourcePort?: pulumi.Input<string>;
+    /**
+     * Type of application
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of the application
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface NsxvDistributedFirewallRuleAppliedTo {
+    /**
+     * Name of the applied-to entity
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Type of the applied-to entity (one of Network, Edge, VirtualMachine, IPSet, VDC, Ipv4Address)
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the applied-to entity
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxvDistributedFirewallRuleDestination {
+    /**
+     * Name of the destination entity
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Type of the destination entity (one of Network, Edge, VirtualMachine, IpSet, VDC, Ipv4Address)
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the destination entity
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxvDistributedFirewallRuleSource {
+    /**
+     * Name of the source entity
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Type of the source entity (one of Network, Edge, VirtualMachine, IpSet, VDC, Ipv4Address)
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Value of the source entity
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface NsxvFirewallRuleDestination {
+    /**
+     * Rule is applied to traffic going to any destinations except for the excluded destination. Default 'false'
+     */
+    exclude?: pulumi.Input<boolean>;
+    /**
+     * 'vse', 'internal', 'external' or network name
+     */
+    gatewayInterfaces?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IP address, CIDR, an IP range, or the keyword 'any'
+     */
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of IP set names
+     */
+    ipSets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of org network names
+     */
+    orgNetworks?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of VM IDs
+     */
+    vmIds?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface NsxvFirewallRuleService {
+    port?: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
+    sourcePort?: pulumi.Input<string>;
+}
+
+export interface NsxvFirewallRuleSource {
+    /**
+     * Rule is applied to traffic coming from all sources except for the excluded source. Default 'false'
+     */
+    exclude?: pulumi.Input<boolean>;
+    /**
+     * 'vse', 'internal', 'external' or network name
+     */
+    gatewayInterfaces?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IP address, CIDR, an IP range, or the keyword 'any'
+     */
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of IP set names
+     */
+    ipSets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of org network names
+     */
+    orgNetworks?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of VM IDs
+     */
+    vmIds?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface OrgAccountLockout {
+    /**
+     * Whether account lockout is enabled or not
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Number of login attempts that will trigger an account lockout for the given user
+     */
+    invalidLoginsBeforeLockout: pulumi.Input<number>;
+    /**
+     * Once a user is locked out, they will not be able to log back in for this time period
+     */
+    lockoutIntervalMinutes: pulumi.Input<number>;
+}
+
+export interface OrgLdapCustomSettings {
+    /**
+     * authentication method: one of SIMPLE, MD5DIGEST, NTLM
+     */
+    authenticationMethod: pulumi.Input<string>;
+    /**
+     * LDAP search base
+     */
+    baseDistinguishedName?: pulumi.Input<string>;
+    /**
+     * type of connector: one of OPEN_LDAP, ACTIVE_DIRECTORY
+     */
+    connectorType: pulumi.Input<string>;
+    /**
+     * Group settings when `ldapMode` is CUSTOM
+     */
+    groupAttributes: pulumi.Input<inputs.OrgLdapCustomSettingsGroupAttributes>;
+    /**
+     * True if the LDAP service requires an SSL connection
+     */
+    isSsl?: pulumi.Input<boolean>;
+    /**
+     * Password for the user identified by UserName. This value is never returned by GET. It is inspected on create and modify. On modify, the absence of this element indicates that the password should not be changed
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * Port number for LDAP service
+     */
+    port: pulumi.Input<number>;
+    /**
+     * host name or IP of the LDAP server
+     */
+    server: pulumi.Input<string>;
+    /**
+     * User settings when `ldapMode` is CUSTOM
+     */
+    userAttributes: pulumi.Input<inputs.OrgLdapCustomSettingsUserAttributes>;
+    /**
+     * Username to use when logging in to LDAP, specified using LDAP attribute=value pairs (for example: cn="ldap-admin", c="example", dc="com")
+     */
+    username?: pulumi.Input<string>;
+}
+
+export interface OrgLdapCustomSettingsGroupAttributes {
+    /**
+     * LDAP group attribute used to identify a group member
+     */
+    groupBackLinkIdentifier?: pulumi.Input<string>;
+    /**
+     * LDAP attribute that identifies a group as a member of another group. For example, dn
+     */
+    groupMembershipIdentifier: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use when getting the members of a group. For example, member
+     */
+    membership: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use for the group name. For example, cn
+     */
+    name: pulumi.Input<string>;
+    /**
+     * LDAP objectClass of which imported groups are members. For example, group
+     */
+    objectClass: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use as the unique identifier for a group. For example, objectGuid
+     */
+    uniqueIdentifier: pulumi.Input<string>;
+}
+
+export interface OrgLdapCustomSettingsUserAttributes {
+    /**
+     * LDAP attribute to use for the user's full name. For example, displayName
+     */
+    displayName: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use for the user's email address. For example, mail
+     */
+    email: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use for the user's given name. For example, givenName
+     */
+    givenName: pulumi.Input<string>;
+    /**
+     * LDAP attribute that returns the identifiers of all the groups of which the user is a member
+     */
+    groupBackLinkIdentifier?: pulumi.Input<string>;
+    /**
+     * LDAP attribute that identifies a user as a member of a group. For example, dn
+     */
+    groupMembershipIdentifier: pulumi.Input<string>;
+    /**
+     * LDAP objectClass of which imported users are members. For example, user or person
+     */
+    objectClass: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use for the user's surname. For example, sn
+     */
+    surname: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use for the user's telephone number. For example, telephoneNumber
+     */
+    telephone: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use as the unique identifier for a user. For example, objectGuid
+     */
+    uniqueIdentifier: pulumi.Input<string>;
+    /**
+     * LDAP attribute to use when looking up a user name to import. For example, userPrincipalName or samAccountName
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface OrgMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface OrgOidcClaimsMapping {
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    email?: pulumi.Input<string>;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    firstName?: pulumi.Input<string>;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    fullName?: pulumi.Input<string>;
+    /**
+     * Optional
+     */
+    groups?: pulumi.Input<string>;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    lastName?: pulumi.Input<string>;
+    /**
+     * Optional
+     */
+    roles?: pulumi.Input<string>;
+    /**
+     * Required if `wellknownEndpoint` doesn't give info about it
+     */
+    subject?: pulumi.Input<string>;
+}
+
+export interface OrgOidcKey {
+    /**
+     * Algorithm used by the key. Can be `RSA` or `EC`
+     */
+    algorithm: pulumi.Input<string>;
+    /**
+     * The contents of a PEM file to create/update the key
+     */
+    certificate: pulumi.Input<string>;
+    /**
+     * Expiration date for the key. The accepted format is `YYYY-MM-DD`, like `2077-12-31`
+     */
+    expirationDate?: pulumi.Input<string>;
+    /**
+     * Identifier of the key
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface OrgVappLease {
+    /**
+     * If true, storage for a vApp is deleted when the vApp's lease expires. If false, the storage is flagged for deletion, but not deleted.
+     */
+    deleteOnStorageLeaseExpiration: pulumi.Input<boolean>;
+    /**
+     * How long vApps can run before they are automatically stopped (in seconds). 0 means never expires
+     */
+    maximumRuntimeLeaseInSec: pulumi.Input<number>;
+    /**
+     * How long stopped vApps are available before being automatically cleaned up (in seconds). 0 means never expires
+     */
+    maximumStorageLeaseInSec: pulumi.Input<number>;
+    /**
+     * When true, vApps are powered off when the runtime lease expires. When false, vApps are suspended when the runtime lease expires
+     */
+    powerOffOnRuntimeLeaseExpiration: pulumi.Input<boolean>;
+}
+
+export interface OrgVappTemplateLease {
+    /**
+     * If true, storage for a vAppTemplate is deleted when the vAppTemplate lease expires. If false, the storage is flagged for deletion, but not deleted
+     */
+    deleteOnStorageLeaseExpiration: pulumi.Input<boolean>;
+    /**
+     * How long vApp templates are available before being automatically cleaned up (in seconds). 0 means never expires
+     */
+    maximumStorageLeaseInSec: pulumi.Input<number>;
+}
+
+export interface OrgVdcAccessControlSharedWith {
+    /**
+     * The access level for the user or group to which we are sharing. (Only `ReadOnly` is available)
+     */
+    accessLevel: pulumi.Input<string>;
+    /**
+     * The ID of a group which we are sharing with. Required if `userId` is not set.
+     */
+    groupId?: pulumi.Input<string>;
+    /**
+     * The name of the subject (group or user) which we are sharing with.
+     */
+    subjectName?: pulumi.Input<string>;
+    /**
+     * The ID of a user which we are sharing with. Required if `groupId` is not set.
+     */
+    userId?: pulumi.Input<string>;
+}
+
+export interface OrgVdcComputeCapacity {
+    cpu: pulumi.Input<inputs.OrgVdcComputeCapacityCpu>;
+    memory: pulumi.Input<inputs.OrgVdcComputeCapacityMemory>;
+}
+
+export interface OrgVdcComputeCapacityCpu {
+    /**
+     * Capacity that is committed to be available. Value in MB or MHz. Used with AllocationPool (Allocation pool) and ReservationPool (Reservation pool).
+     */
+    allocated?: pulumi.Input<number>;
+    /**
+     * Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies over provisioning. A value of 0 specifies unlimited units. Value in MB or MHz. Used with AllocationVApp (Pay as you go).
+     */
+    limit?: pulumi.Input<number>;
+    reserved?: pulumi.Input<number>;
+    used?: pulumi.Input<number>;
+}
+
+export interface OrgVdcComputeCapacityMemory {
+    /**
+     * Capacity that is committed to be available. Value in MB or MHz. Used with AllocationPool (Allocation pool) and ReservationPool (Reservation pool).
+     */
+    allocated?: pulumi.Input<number>;
+    /**
+     * Capacity limit relative to the value specified for Allocation. It must not be less than that value. If it is greater than that value, it implies over provisioning. A value of 0 specifies unlimited units. Value in MB or MHz. Used with AllocationVApp (Pay as you go).
+     */
+    limit?: pulumi.Input<number>;
+    reserved?: pulumi.Input<number>;
+    used?: pulumi.Input<number>;
+}
+
+export interface OrgVdcMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface OrgVdcStorageProfile {
+    /**
+     * True if this is default storage profile for this VDC. The default storage profile is used when an object that can specify a storage profile is created with no storage profile specified.
+     */
+    default: pulumi.Input<boolean>;
+    /**
+     * True if this VDC is enabled for use by the organization VDCs. Default is true.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Maximum number of MB allocated for this storage profile. A value of 0 specifies unlimited MB.
+     */
+    limit: pulumi.Input<number>;
+    /**
+     * VDC name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Storage used in MB
+     */
+    storageUsedInMb?: pulumi.Input<number>;
+}
+
+export interface OrgVdcTemplateComputeConfiguration {
+    /**
+     * The maximum amount of CPU, in MHz, available to the VMs running within the VDC that is instantiated from this template. Minimum is 256MHz
+     */
+    cpuAllocated?: pulumi.Input<number>;
+    /**
+     * The percentage of the CPU guaranteed to be available to VMs running within the VDC instantiated from this template
+     */
+    cpuGuaranteed?: pulumi.Input<number>;
+    /**
+     * The limit amount of CPU, in MHz, of the VDC that is instantiated from this template. Minimum is 256MHz. 0 means unlimited
+     */
+    cpuLimit?: pulumi.Input<number>;
+    /**
+     * Specifies the clock frequency, in MHz, for any virtual CPU that is allocated to a VM. Minimum is 256MHz
+     */
+    cpuSpeed?: pulumi.Input<number>;
+    /**
+     * True if compute capacity can grow or shrink based on demand
+     */
+    elasticity?: pulumi.Input<boolean>;
+    /**
+     * True if the instantiated VDC includes memory overhead into its accounting for admission control
+     */
+    includeVmMemoryOverhead?: pulumi.Input<boolean>;
+    /**
+     * The maximum amount of Memory, in MB, available to the VMs running within the VDC that is instantiated from this template
+     */
+    memoryAllocated?: pulumi.Input<number>;
+    /**
+     * The percentage of the Memory guaranteed to be available to VMs running within the VDC instantiated from this template
+     */
+    memoryGuaranteed?: pulumi.Input<number>;
+    /**
+     * The limit amount of Memory, in MB, of the VDC that is instantiated from this template. Minimum is 1024MB. 0 means unlimited
+     */
+    memoryLimit?: pulumi.Input<number>;
+}
+
+export interface OrgVdcTemplateEdgeGateway {
+    /**
+     * Description of the Edge Gateway
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Allocated IPs for the Edge Gateway. Defaults to 0
+     */
+    ipAllocationCount?: pulumi.Input<number>;
+    /**
+     * Name of the Edge Gateway
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Description of the routed network to create with the Edge Gateway
+     */
+    routedNetworkDescription?: pulumi.Input<string>;
+    /**
+     * CIDR of the Edge Gateway for the created routed network
+     */
+    routedNetworkGatewayCidr: pulumi.Input<string>;
+    /**
+     * Name of the routed network to create with the Edge Gateway
+     */
+    routedNetworkName: pulumi.Input<string>;
+    /**
+     * **One block** with a single IP range (this is a constraint due to a bug in VCD 10.5+) that has two properties: `startAddress`, the start address of the IP range;
+     * `endAddress`, the end address of the IP range
+     */
+    staticIpPool?: pulumi.Input<inputs.OrgVdcTemplateEdgeGatewayStaticIpPool>;
+}
+
+export interface OrgVdcTemplateEdgeGatewayStaticIpPool {
+    /**
+     * End address of the IP range
+     */
+    endAddress: pulumi.Input<string>;
+    /**
+     * Start address of the IP range
+     */
+    startAddress: pulumi.Input<string>;
+}
+
+export interface OrgVdcTemplateProviderVdc {
+    /**
+     * ID of the Provider Gateway to use, can be obtained with
+     * [`vcd.ExternalNetworkV2` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+     */
+    externalNetworkId: pulumi.Input<string>;
+    /**
+     * ID of the Edge Cluster that the VDCs instantiated from this template will use with the Edge Gateway.
+     * Can be obtained with [`vcd.getNsxtEdgeCluster` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster).
+     * If set, a `edgeGateway` block **must** be present in the VDC Template configuration (see below).
+     */
+    gatewayEdgeClusterId?: pulumi.Input<string>;
+    /**
+     * ID of the Provider VDC, can be obtained with
+     * [`vcd.ProviderVdc` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/provider_vdc)
+     */
+    id: pulumi.Input<string>;
+    /**
+     * ID of the Edge Cluster that the VDCs instantiated from this template will use for services.
+     * Can be obtained with [`vcd.getNsxtEdgeCluster` data source](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster)
+     */
+    servicesEdgeClusterId?: pulumi.Input<string>;
+}
+
+export interface OrgVdcTemplateStorageProfile {
+    /**
+     * True if this is default storage profile for the VDCs instantiated from this template. Only **one** block should have this set to `true`
+     */
+    default: pulumi.Input<boolean>;
+    /**
+     * Storage limit for the VDCs instantiated from this template, in MB. 0 means unlimited
+     */
+    limit: pulumi.Input<number>;
+    /**
+     * Name of Provider VDC storage profile to use for the VDCs instantiated from this template
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface ProviderIgnoreMetadataChange {
+    conflictAction?: pulumi.Input<string>;
+    /**
+     * Regular expression of the metadata entry keys to ignore. Either `keyRegex` or `valueRegex` is required
+     */
+    keyRegex?: pulumi.Input<string>;
+    /**
+     * Ignores metadata from the specific entity in VCD named like this argument
+     */
+    resourceName?: pulumi.Input<string>;
+    /**
+     * Ignores metadata from the specific resource type
+     */
+    resourceType?: pulumi.Input<string>;
+    /**
+     * Regular expression of the metadata entry values to ignore. Either `keyRegex` or `valueRegex` is required
+     */
+    valueRegex?: pulumi.Input<string>;
+}
+
+export interface ProviderVdcComputeCapacity {
+    /**
+     * Single-element list with an indicator of CPU capacity available in the Provider VDC
+     */
+    cpus?: pulumi.Input<pulumi.Input<inputs.ProviderVdcComputeCapacityCpus>[]>;
+    /**
+     * True if compute capacity can grow or shrink based on demand
+     */
+    isElastic?: pulumi.Input<boolean>;
+    /**
+     * True if compute capacity is highly available
+     */
+    isHa?: pulumi.Input<boolean>;
+    /**
+     * Single-element list with an indicator of Memory capacity available in the Provider VDC
+     */
+    memories?: pulumi.Input<pulumi.Input<inputs.ProviderVdcComputeCapacityMemory>[]>;
+}
+
+export interface ProviderVdcComputeCapacityCpus {
+    /**
+     * Allocated CPU for this Provider VDC
+     */
+    allocation?: pulumi.Input<number>;
+    /**
+     * CPU overhead for this Provider VDC
+     */
+    overhead?: pulumi.Input<number>;
+    /**
+     * Reserved CPU for this Provider VDC
+     */
+    reserved?: pulumi.Input<number>;
+    /**
+     * Total CPU for this Provider VDC
+     */
+    total?: pulumi.Input<number>;
+    /**
+     * Units for the CPU of this Provider VDC
+     */
+    units?: pulumi.Input<string>;
+    /**
+     * Used CPU in this Provider VDC
+     */
+    used?: pulumi.Input<number>;
+}
+
+export interface ProviderVdcComputeCapacityMemory {
+    /**
+     * Allocated Memory for this Provider VDC
+     */
+    allocation?: pulumi.Input<number>;
+    /**
+     * Memory overhead for this Provider VDC
+     */
+    overhead?: pulumi.Input<number>;
+    /**
+     * Reserved Memory for this Provider VDC
+     */
+    reserved?: pulumi.Input<number>;
+    /**
+     * Total Memory for this Provider VDC
+     */
+    total?: pulumi.Input<number>;
+    /**
+     * Units for the Memory of this Provider VDC
+     */
+    units?: pulumi.Input<string>;
+    /**
+     * Used Memory in this Provider VDC
+     */
+    used?: pulumi.Input<number>;
+}
+
+export interface ProviderVdcMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL. Defaults to false
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'. Defaults to 'MetadataStringValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'. Defaults to 'READWRITE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface RdeMetadataEntry {
+    /**
+     * Only meaningful for providers. Allows them to share entries with their tenants. Currently, accepted values are: `TENANT`, `PROVIDER`
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * ID of the metadata entry
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key: pulumi.Input<string>;
+    /**
+     * Namespace of the metadata entry
+     */
+    namespace?: pulumi.Input<string>;
+    /**
+     * Persistent metadata entries can be copied over on some entity operation
+     */
+    persistent?: pulumi.Input<boolean>;
+    /**
+     * True if the metadata entry is read only
+     */
+    readonly?: pulumi.Input<boolean>;
+    /**
+     * Type of this metadata entry. One of: 'StringEntry', 'NumberEntry', 'BoolEntry'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface RdeTypeHook {
+    /**
+     * Existing Behavior that will be automatically invoked when any RDE of this RDE Type triggers the event.
+     */
+    behaviorId: pulumi.Input<string>;
+    /**
+     * Event that will invoke the Behavior, one of `PostCreate`, `PostUpdate`, `PreDelete`, `PostDelete`.
+     */
+    event: pulumi.Input<string>;
+}
+
+export interface SolutionLandingZoneCatalog {
+    /**
+     * Capability set for catalog
+     */
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of catalog
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Catalog Name
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface SolutionLandingZoneVdc {
+    /**
+     * Capability set for VDC
+     */
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Structure for Compute Policy
+     */
+    computePolicies: pulumi.Input<pulumi.Input<inputs.SolutionLandingZoneVdcComputePolicy>[]>;
+    /**
+     * ID of VDC
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Defines if the entity should be considered as default
+     */
+    isDefault: pulumi.Input<boolean>;
+    /**
+     * VDC Name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Structure for Org VDC Network
+     */
+    orgVdcNetworks: pulumi.Input<pulumi.Input<inputs.SolutionLandingZoneVdcOrgVdcNetwork>[]>;
+    /**
+     * Structure for Storage Policy
+     */
+    storagePolicies: pulumi.Input<pulumi.Input<inputs.SolutionLandingZoneVdcStoragePolicy>[]>;
+}
+
+export interface SolutionLandingZoneVdcComputePolicy {
+    /**
+     * Set of capabilities for Compute Policy
+     */
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of Compute Policy
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Boolean value that marks if this Compute Policy should be default
+     */
+    isDefault?: pulumi.Input<boolean>;
+    /**
+     * Name of Compute Policy
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface SolutionLandingZoneVdcOrgVdcNetwork {
+    /**
+     * Set of capabilities for Org VDC Network
+     */
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of Org VDC Network
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Boolean value that marks if this Org VDC Network should be default
+     */
+    isDefault?: pulumi.Input<boolean>;
+    /**
+     * Name of Org VDC Network
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface SolutionLandingZoneVdcStoragePolicy {
+    /**
+     * Set of capabilities for Storage Policy
+     */
+    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID of Storage Policy
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Boolean value that marks if this Storage Policy should be default
+     */
+    isDefault?: pulumi.Input<boolean>;
+    /**
+     * Name of Storage Policy
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface VappAccessControlSharedWith {
+    /**
+     * The access level for the user or group to which we are sharing. (One of `ReadOnly`, `Change`, `FullControl`)
+     */
+    accessLevel: pulumi.Input<string>;
+    /**
+     * The ID of a group with which we are sharing. Required if `userId` is not set.
+     */
+    groupId?: pulumi.Input<string>;
+    /**
+     * the name of the subject (group or user) with which we are sharing.
+     */
+    subjectName?: pulumi.Input<string>;
+    /**
+     * The ID of a user with which we are sharing. Required if `groupId` is not set.
+     */
+    userId?: pulumi.Input<string>;
+}
+
+export interface VappFirewallRulesRule {
+    /**
+     * Destination IP address to which the rule applies. A value of `Any` matches any IP address.
+     */
+    destinationIp?: pulumi.Input<string>;
+    /**
+     * Destination port to which this rule applies.
+     */
+    destinationPort?: pulumi.Input<string>;
+    /**
+     * Destination VM identifier
+     */
+    destinationVmId?: pulumi.Input<string>;
+    /**
+     * The value can be one of: `assigned` - assigned internal IP will be automatically chosen. `NAT`: NATed external IP will be automatically chosen.
+     */
+    destinationVmIpType?: pulumi.Input<string>;
+    /**
+     * Destination VM NIC ID to which this rule applies.
+     */
+    destinationVmNicId?: pulumi.Input<number>;
+    /**
+     * 'true' value will enable rule logging. Default is false
+     */
+    enableLogging?: pulumi.Input<boolean>;
+    /**
+     * Enable or disable firewall. Default is `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Rule name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * One of: `drop` (drop packets that match the rule), `allow` (allow packets that match the rule to pass through the firewall)
+     */
+    policy?: pulumi.Input<string>;
+    /**
+     * Specify the protocols to which the rule should be applied. One of: `any`, `icmp`, `tcp`, `udp`, `tcp&udp`
+     */
+    protocol?: pulumi.Input<string>;
+    /**
+     * Source IP address to which the rule applies. A value of `Any` matches any IP address.
+     */
+    sourceIp?: pulumi.Input<string>;
+    /**
+     * Source port to which this rule applies.
+     */
+    sourcePort?: pulumi.Input<string>;
+    /**
+     * Source VM identifier
+     */
+    sourceVmId?: pulumi.Input<string>;
+    /**
+     * The value can be one of: `assigned` - assigned internal IP will be automatically chosen. `NAT`: NATed external IP will be automatically chosen.
+     */
+    sourceVmIpType?: pulumi.Input<string>;
+    /**
+     * Source VM NIC ID to which this rule applies.
+     */
+    sourceVmNicId?: pulumi.Input<number>;
+}
+
+export interface VappLease {
+    /**
+     * How long any of the VMs in the vApp can run before the vApp is automatically powered off or suspended. 0 means never expires (or maximum allowed by Org). Regular values accepted from 3600+.
+     */
+    runtimeLeaseInSec: pulumi.Input<number>;
+    /**
+     * How long the vApp is available before being automatically deleted or marked as expired. 0 means never expires (or maximum allowed by Org). Regular values accepted from 3600+.
+     */
+    storageLeaseInSec: pulumi.Input<number>;
+}
+
+export interface VappMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface VappNatRulesRule {
+    /**
+     * External IP address to forward to or External IP address to map to VM
+     */
+    externalIp?: pulumi.Input<string>;
+    /**
+     * External port to forward.
+     */
+    externalPort?: pulumi.Input<number>;
+    /**
+     * Internal port to forward.
+     */
+    forwardToPort?: pulumi.Input<number>;
+    /**
+     * ID of the rule. Can be used to track syslog messages.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Mapping mode. One of: `automatic`, `manual`
+     */
+    mappingMode?: pulumi.Input<string>;
+    /**
+     * Protocol to forward. One of: `TCP` (forward TCP packets), `UDP` (forward UDP packets), `TCP_UDP` (forward TCP and UDP packets).
+     */
+    protocol?: pulumi.Input<string>;
+    /**
+     * VM to which this rule applies.
+     */
+    vmId: pulumi.Input<string>;
+    /**
+     * VM NIC ID to which this rule applies.
+     */
+    vmNicId: pulumi.Input<number>;
+}
+
+export interface VappNetworkDhcpPool {
+    defaultLeaseTime?: pulumi.Input<number>;
+    enabled?: pulumi.Input<boolean>;
+    endAddress?: pulumi.Input<string>;
+    maxLeaseTime?: pulumi.Input<number>;
+    startAddress: pulumi.Input<string>;
+}
+
+export interface VappNetworkStaticIpPool {
+    endAddress: pulumi.Input<string>;
+    startAddress: pulumi.Input<string>;
+}
+
+export interface VappStaticRoutingRule {
+    /**
+     * Name for the static route.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * network specification in CIDR.
+     */
+    networkCidr: pulumi.Input<string>;
+    /**
+     * IP Address of Next Hop router/gateway.
+     */
+    nextHopIp: pulumi.Input<string>;
+}
+
+export interface VappVmBootOptions {
+    /**
+     * Number of milliseconds to wait between powering-on and booting the VM
+     */
+    bootDelay?: pulumi.Input<number>;
+    /**
+     * Delay in milliseconds before a boot retry. Only works if 'boot_retry_enabled' is set to true.
+     */
+    bootRetryDelay?: pulumi.Input<number>;
+    /**
+     * If set to true, a VM that fails to boot will try again after the 'boot_retry_delay' time period has expired
+     */
+    bootRetryEnabled?: pulumi.Input<boolean>;
+    /**
+     * If set to true, enables EFI Secure Boot for the VM. Can only be changed when the VM is powered off.
+     */
+    efiSecureBoot?: pulumi.Input<boolean>;
+    enterBiosSetupOnNextBoot?: pulumi.Input<boolean>;
+}
+
+export interface VappVmCustomization {
+    /**
+     * Manually specify admin password
+     */
+    adminPassword?: pulumi.Input<string>;
+    /**
+     * Allow local administrator password
+     */
+    allowLocalAdminPassword?: pulumi.Input<boolean>;
+    /**
+     * Auto generate password
+     */
+    autoGeneratePassword?: pulumi.Input<boolean>;
+    /**
+     * 'true' value will change SID. Applicable only for Windows VMs
+     */
+    changeSid?: pulumi.Input<boolean>;
+    /**
+     * 'true' value will enable guest customization. It may occur on first boot or when 'force' is used
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * 'true' value will cause the VM to reboot on every 'apply' operation
+     */
+    force?: pulumi.Input<boolean>;
+    /**
+     * Script to run on initial boot or with customization.force=true set
+     */
+    initscript?: pulumi.Input<string>;
+    /**
+     * Enable this VM to join a domain
+     */
+    joinDomain?: pulumi.Input<boolean>;
+    /**
+     * Account organizational unit for domain name join
+     */
+    joinDomainAccountOu?: pulumi.Input<string>;
+    /**
+     * Custom domain name for join
+     */
+    joinDomainName?: pulumi.Input<string>;
+    /**
+     * Password for custom domain name join
+     */
+    joinDomainPassword?: pulumi.Input<string>;
+    /**
+     * Username for custom domain name join
+     */
+    joinDomainUser?: pulumi.Input<string>;
+    /**
+     * Use organization's domain for joining
+     */
+    joinOrgDomain?: pulumi.Input<boolean>;
+    /**
+     * Require Administrator to change password on first login
+     */
+    mustChangePasswordOnFirstLogin?: pulumi.Input<boolean>;
+    /**
+     * Number of times to log on automatically. '0' - disabled.
+     */
+    numberOfAutoLogons?: pulumi.Input<number>;
+}
+
+export interface VappVmDisk {
+    /**
+     * Bus number on which to place the disk controller
+     */
+    busNumber: pulumi.Input<string>;
+    /**
+     * A name for the VM, unique within the vApp
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (*v2.7+*) Independent disk size in MB.
+     */
+    sizeInMb?: pulumi.Input<number>;
+    /**
+     * Unit number (slot) on the bus specified by BusNumber
+     */
+    unitNumber: pulumi.Input<string>;
+}
+
+export interface VappVmExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Whether the extra configuration item is required
+     */
+    required?: pulumi.Input<boolean>;
+    /**
+     * The value of the extra configuration item
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface VappVmInternalDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber?: pulumi.Input<number>;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType?: pulumi.Input<string>;
+    /**
+     * The disk ID.
+     */
+    diskId?: pulumi.Input<string>;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops?: pulumi.Input<number>;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb?: pulumi.Input<number>;
+    /**
+     * Storage profile to override the default one
+     */
+    storageProfile?: pulumi.Input<string>;
+    /**
+     * Specifies whether the disk storage is pre-allocated or allocated on demand.
+     */
+    thinProvisioned?: pulumi.Input<boolean>;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber?: pulumi.Input<number>;
+}
+
+export interface VappVmMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface VappVmNetwork {
+    /**
+     * Network card adapter type. (e.g. 'E1000', 'E1000E', 'SRIOVETHERNETCARD', 'VMXNET3', 'PCNet32')
+     */
+    adapterType?: pulumi.Input<string>;
+    /**
+     * It defines if NIC is connected or not.
+     */
+    connected?: pulumi.Input<boolean>;
+    /**
+     * IP of the VM. Settings depend on `ipAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    ipAllocationMode: pulumi.Input<string>;
+    /**
+     * Set to true if network interface should be primary. First network card in the list will be primary by default
+     */
+    isPrimary?: pulumi.Input<boolean>;
+    /**
+     * Mac address of network interface
+     */
+    mac?: pulumi.Input<string>;
+    /**
+     * A name for the VM, unique within the vApp
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Secondary (IPv6) IP of the VM. Settings depend on `secondaryIpAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    secondaryIp?: pulumi.Input<string>;
+    /**
+     * Secondary (IPv6) IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    secondaryIpAllocationMode?: pulumi.Input<string>;
+    /**
+     * Network type to use: 'vapp', 'org' or 'none'. Use 'vapp' for vApp network, 'org' to attach Org VDC network. 'none' for empty NIC.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface VappVmOverrideTemplateDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: pulumi.Input<number>;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: pulumi.Input<string>;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops?: pulumi.Input<number>;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: pulumi.Input<number>;
+    /**
+     * Storage profile to override the default one
+     */
+    storageProfile?: pulumi.Input<string>;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: pulumi.Input<number>;
+}
+
+export interface VappVmSetExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The value of the extra configuration item. Leaving the `value` field empty will result in the item deletion
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface VdcGroupParticipatingOrgVdc {
+    /**
+     * Represents the fault domain of a given organization VDC
+     */
+    faultDomainTag?: pulumi.Input<string>;
+    /**
+     * Specifies whether the VDC is local to this VCD site
+     */
+    isRemoteOrg?: pulumi.Input<boolean>;
+    /**
+     * Specifies the network provider scope of the VDC
+     */
+    networkProviderScope?: pulumi.Input<string>;
+    /**
+     * Organization VDC belongs
+     */
+    orgId?: pulumi.Input<string>;
+    /**
+     * Organization VDC belongs
+     */
+    orgName?: pulumi.Input<string>;
+    /**
+     * Site VDC belongs
+     */
+    siteId?: pulumi.Input<string>;
+    /**
+     * Site VDC belongs
+     */
+    siteName?: pulumi.Input<string>;
+    /**
+     * The status that the group can be in (e.g. 'SAVING', 'SAVED', 'CONFIGURING', 'REALIZED', 'REALIZATION_FAILED', 'DELETING', 'DELETE_FAILED', 'OBJECT_NOT_FOUND', 'UNCONFIGURED').
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * VDC ID
+     */
+    vdcId?: pulumi.Input<string>;
+    /**
+     * VDC name
+     */
+    vdcName?: pulumi.Input<string>;
+}
+
+export interface VmBootOptions {
+    /**
+     * Number of milliseconds to wait between powering-on and booting the VM
+     */
+    bootDelay?: pulumi.Input<number>;
+    /**
+     * Delay in milliseconds before a boot retry. Only works if 'boot_retry_enabled' is set to true.
+     */
+    bootRetryDelay?: pulumi.Input<number>;
+    /**
+     * If set to true, a VM that fails to boot will try again after the 'boot_retry_delay' time period has expired
+     */
+    bootRetryEnabled?: pulumi.Input<boolean>;
+    /**
+     * If set to true, enables EFI Secure Boot for the VM. Can only be changed when the VM is powered off.
+     */
+    efiSecureBoot?: pulumi.Input<boolean>;
+    enterBiosSetupOnNextBoot?: pulumi.Input<boolean>;
+}
+
+export interface VmCustomization {
+    /**
+     * Manually specify admin password
+     */
+    adminPassword?: pulumi.Input<string>;
+    /**
+     * Allow local administrator password
+     */
+    allowLocalAdminPassword?: pulumi.Input<boolean>;
+    /**
+     * Auto generate password
+     */
+    autoGeneratePassword?: pulumi.Input<boolean>;
+    /**
+     * 'true' value will change SID. Applicable only for Windows VMs
+     */
+    changeSid?: pulumi.Input<boolean>;
+    /**
+     * 'true' value will enable guest customization. It may occur on first boot or when 'force' is used
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * 'true' value will cause the VM to reboot on every 'apply' operation
+     */
+    force?: pulumi.Input<boolean>;
+    /**
+     * Script to run on initial boot or with customization.force=true set
+     */
+    initscript?: pulumi.Input<string>;
+    /**
+     * Enable this VM to join a domain
+     */
+    joinDomain?: pulumi.Input<boolean>;
+    /**
+     * Account organizational unit for domain name join
+     */
+    joinDomainAccountOu?: pulumi.Input<string>;
+    /**
+     * Custom domain name for join
+     */
+    joinDomainName?: pulumi.Input<string>;
+    /**
+     * Password for custom domain name join
+     */
+    joinDomainPassword?: pulumi.Input<string>;
+    /**
+     * Username for custom domain name join
+     */
+    joinDomainUser?: pulumi.Input<string>;
+    /**
+     * Use organization's domain for joining
+     */
+    joinOrgDomain?: pulumi.Input<boolean>;
+    /**
+     * Require Administrator to change password on first login
+     */
+    mustChangePasswordOnFirstLogin?: pulumi.Input<boolean>;
+    /**
+     * Number of times to log on automatically. '0' - disabled.
+     */
+    numberOfAutoLogons?: pulumi.Input<number>;
+}
+
+export interface VmDisk {
+    /**
+     * Bus number on which to place the disk controller
+     */
+    busNumber: pulumi.Input<string>;
+    /**
+     * Independent disk name
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb?: pulumi.Input<number>;
+    /**
+     * Unit number (slot) on the bus specified by BusNumber
+     */
+    unitNumber: pulumi.Input<string>;
+}
+
+export interface VmExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Whether the extra configuration item is required
+     */
+    required?: pulumi.Input<boolean>;
+    /**
+     * The value of the extra configuration item
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface VmInternalDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber?: pulumi.Input<number>;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType?: pulumi.Input<string>;
+    /**
+     * The disk ID.
+     */
+    diskId?: pulumi.Input<string>;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops?: pulumi.Input<number>;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb?: pulumi.Input<number>;
+    /**
+     * Storage profile to override the VM default one
+     */
+    storageProfile?: pulumi.Input<string>;
+    /**
+     * Specifies whether the disk storage is pre-allocated or allocated on demand.
+     */
+    thinProvisioned?: pulumi.Input<boolean>;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber?: pulumi.Input<number>;
+}
+
+export interface VmMetadataEntry {
+    /**
+     * Domain for this metadata entry. true, if it belongs to SYSTEM. false, if it belongs to GENERAL
+     */
+    isSystem?: pulumi.Input<boolean>;
+    /**
+     * Key of this metadata entry. Required if the metadata entry is not empty
+     */
+    key?: pulumi.Input<string>;
+    /**
+     * Type of this metadata entry. One of: 'MetadataStringValue', 'MetadataNumberValue', 'MetadataBooleanValue', 'MetadataDateTimeValue'
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * User access level for this metadata entry. One of: 'READWRITE', 'READONLY', 'PRIVATE'
+     */
+    userAccess?: pulumi.Input<string>;
+    /**
+     * Value of this metadata entry. Required if the metadata entry is not empty
+     */
+    value?: pulumi.Input<string>;
+}
+
+export interface VmNetwork {
+    /**
+     * Network card adapter type. (e.g. 'E1000', 'E1000E', 'SRIOVETHERNETCARD', 'VMXNET3', 'PCNet32')
+     */
+    adapterType?: pulumi.Input<string>;
+    /**
+     * It defines if NIC is connected or not.
+     */
+    connected?: pulumi.Input<boolean>;
+    /**
+     * IP of the VM. Settings depend on `ipAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    ip?: pulumi.Input<string>;
+    /**
+     * IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    ipAllocationMode: pulumi.Input<string>;
+    /**
+     * Set to true if network interface should be primary. First network card in the list will be primary by default
+     */
+    isPrimary?: pulumi.Input<boolean>;
+    /**
+     * Mac address of network interface
+     */
+    mac?: pulumi.Input<string>;
+    /**
+     * Name of the network this VM should connect to. Always required except for `type` `NONE`
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Secondary (IPv6) IP of the VM. Settings depend on `secondaryIpAllocationMode`. Omitted or empty for DHCP, POOL, NONE. Required for MANUAL
+     */
+    secondaryIp?: pulumi.Input<string>;
+    /**
+     * Secondary (IPv6) IP address allocation mode. One of POOL, DHCP, MANUAL, NONE
+     */
+    secondaryIpAllocationMode?: pulumi.Input<string>;
+    /**
+     * Network type to use: 'vapp', 'org' or 'none'. Use 'vapp' for vApp network, 'org' to attach Org VDC network. 'none' for empty NIC.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface VmOverrideTemplateDisk {
+    /**
+     * The number of the SCSI or IDE controller itself.
+     */
+    busNumber: pulumi.Input<number>;
+    /**
+     * The type of disk controller. Possible values: ide, parallel( LSI Logic Parallel SCSI), sas(LSI Logic SAS (SCSI)), paravirtual(Paravirtual (SCSI)), sata, nvme
+     */
+    busType: pulumi.Input<string>;
+    /**
+     * Specifies the IOPS for the disk. Default is 0.
+     */
+    iops?: pulumi.Input<number>;
+    /**
+     * The size of the disk in MB.
+     */
+    sizeInMb: pulumi.Input<number>;
+    /**
+     * Storage profile to override the VM default one
+     */
+    storageProfile?: pulumi.Input<string>;
+    /**
+     * The device number on the SCSI or IDE controller of the disk.
+     */
+    unitNumber: pulumi.Input<number>;
+}
+
+export interface VmSetExtraConfig {
+    /**
+     * The key of the extra configuration item
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The value of the extra configuration item. Leaving the `value` field empty will result in the item deletion
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface VmSizingPolicyCpu {
+    /**
+     * The number of cores per socket for a VM. This is a VM hardware configuration. The number of vCPUs that is defined in the VM sizing policy must be divisible by the number of cores per socket. If the number of vCPUs is not divisible by the number of cores per socket, the number of cores per socket becomes invalid.
+     */
+    coresPerSocket?: pulumi.Input<string>;
+    /**
+     * Defines the number of vCPUs configured for a VM. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, this count becomes the configured number of vCPUs for the VM.
+     */
+    count?: pulumi.Input<string>;
+    /**
+     * Defines the CPU limit in MHz for a VM. If not defined in the VDC compute policy, CPU limit is equal to the vCPU speed multiplied by the number of vCPUs. -1 means unlimited
+     */
+    limitInMhz?: pulumi.Input<string>;
+    /**
+     * Defines how much of the CPU resources of a VM are reserved. The allocated CPU for a VM equals the number of vCPUs times the vCPU speed in MHz. The value of the attribute ranges between 0 and one. Value of 0 CPU reservation guarantee defines no CPU reservation. Value of 1 defines 100% of CPU reserved.
+     */
+    reservationGuarantee?: pulumi.Input<string>;
+    /**
+     * Defines the number of CPU shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of CPU as another VM, it is entitled to consume twice as much CPU when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: pulumi.Input<string>;
+    /**
+     * Defines the vCPU speed of a core in MHz.
+     */
+    speedInMhz?: pulumi.Input<string>;
+}
+
+export interface VmSizingPolicyMemory {
+    /**
+     * Defines the memory limit in MB for a VM. If not defined in the VM sizing policy, memory limit is equal to the allocated memory for the VM.
+     */
+    limitInMb?: pulumi.Input<string>;
+    /**
+     * Defines the reserved amount of memory that is configured for a VM. The value of the attribute ranges between 0 and one. Value of 0 memory reservation guarantee defines no memory reservation. Value of 1 defines 100% of memory reserved.
+     */
+    reservationGuarantee?: pulumi.Input<string>;
+    /**
+     * Defines the number of memory shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of memory as another VM, it is entitled to consume twice as much memory when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: pulumi.Input<string>;
+    /**
+     * Defines the memory configured for a VM in MB. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, the VM receives the amount of memory defined by this attribute.
+     */
+    sizeInMb?: pulumi.Input<string>;
+}
+
+export interface VmVgpuPolicyCpu {
+    /**
+     * The number of cores per socket for a VM. This is a VM hardware configuration. The number of vCPUs that is defined in the VM sizing policy must be divisible by the number of cores per socket. If the number of vCPUs is not divisible by the number of cores per socket, the number of cores per socket becomes invalid.
+     */
+    coresPerSocket?: pulumi.Input<string>;
+    /**
+     * Defines the number of vCPUs configured for a VM. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, this count becomes the configured number of vCPUs for the VM.
+     */
+    count?: pulumi.Input<string>;
+    /**
+     * Defines the CPU limit in MHz for a VM. If not defined in the VDC compute policy, CPU limit is equal to the vCPU speed multiplied by the number of vCPUs. -1 means unlimited
+     */
+    limitInMhz?: pulumi.Input<string>;
+    /**
+     * Defines how much of the CPU resources of a VM are reserved. The allocated CPU for a VM equals the number of vCPUs times the vCPU speed in MHz. The value of the attribute ranges between 0 and one. Value of 0 CPU reservation guarantee defines no CPU reservation. Value of 1 defines 100% of CPU reserved.
+     */
+    reservationGuarantee?: pulumi.Input<string>;
+    /**
+     * Defines the number of CPU shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of CPU as another VM, it is entitled to consume twice as much CPU when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: pulumi.Input<string>;
+    /**
+     * Defines the vCPU speed of a core in MHz.
+     */
+    speedInMhz?: pulumi.Input<string>;
+}
+
+export interface VmVgpuPolicyMemory {
+    /**
+     * Defines the memory limit in MB for a VM. If not defined in the VM sizing policy, memory limit is equal to the allocated memory for the VM.
+     */
+    limitInMb?: pulumi.Input<string>;
+    /**
+     * Defines the reserved amount of memory that is configured for a VM. The value of the attribute ranges between 0 and one. Value of 0 memory reservation guarantee defines no memory reservation. Value of 1 defines 100% of memory reserved.
+     */
+    reservationGuarantee?: pulumi.Input<string>;
+    /**
+     * Defines the number of memory shares for a VM. Shares specify the relative importance of a VM within a virtual data center. If a VM has twice as many shares of memory as another VM, it is entitled to consume twice as much memory when these two virtual machines are competing for resources. If not defined in the VDC compute policy, normal shares are applied to the VM.
+     */
+    shares?: pulumi.Input<string>;
+    /**
+     * Defines the memory configured for a VM in MB. This is a VM hardware configuration. When a tenant assigns the VM sizing policy to a VM, the VM receives the amount of memory defined by this attribute.
+     */
+    sizeInMb?: pulumi.Input<string>;
+}
+
+export interface VmVgpuPolicyProviderVdcScope {
+    /**
+     * A set of vCenter cluster names on which the provider VDC is hosted. 
+     * If none are provided, the provider attempts to find one automatically. Can be fetched using `data.vcd_resource_pool.cluster_moref` attribute.
+     */
+    clusterNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the provider VDC that should be in the scope.
+     */
+    providerVdcId: pulumi.Input<string>;
+    /**
+     * Optional identifier for a VM group within the provider VDC scope.
+     */
+    vmGroupId?: pulumi.Input<string>;
+}
+
+export interface VmVgpuPolicyVgpuProfile {
+    /**
+     * Specifies the number of vGPU profiles. Must be at least 1.
+     */
+    count: pulumi.Input<number>;
+    /**
+     * The identifier of the vGPU profile.
+     */
+    id: pulumi.Input<string>;
+}
+export namespace config {
+}

@@ -26,6 +26,7 @@ jobs:
       is_pr: ${{ github.event_name == 'pull_request' }}
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
 
+
   build_provider:
     uses: ./.github/workflows/build_provider.yml
     needs: prerequisites
@@ -41,13 +42,13 @@ jobs:
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
-  post_build:
-    name: post_build
-    needs: prerequisites
-    uses: ./.github/workflows/main-post-build.yml
-    secrets: inherit
-    with:
-      version: ${{ needs.prerequisites.outputs.version }}
+  # post_build:
+  #   name: post_build
+  #   needs: prerequisites
+  #   uses: ./.github/workflows/main-post-build.yml
+  #   secrets: inherit
+  #   with:
+  #     version: ${{ needs.prerequisites.outputs.version }}
 
   lint:
     name: lint

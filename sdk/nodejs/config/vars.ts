@@ -8,15 +8,236 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 declare var exports: any;
-const __config = new pulumi.Config("xyz");
+const __config = new pulumi.Config("vcd");
 
 /**
- * A region which should be used.
+ * Set this to true if you understand the security risks of using API token files and would like to suppress the warnings
  */
-export declare const region: enums.region.Region | undefined;
-Object.defineProperty(exports, "region", {
+export declare const allowApiTokenFile: boolean | undefined;
+Object.defineProperty(exports, "allowApiTokenFile", {
     get() {
-        return __config.getObject<enums.region.Region>("region");
+        return __config.getObject<boolean>("allowApiTokenFile");
+    },
+    enumerable: true,
+});
+
+/**
+ * Set this to true if you understand the security risks of using Service Account token files and would like to suppress
+ * the warnings
+ */
+export declare const allowServiceAccountTokenFile: boolean | undefined;
+Object.defineProperty(exports, "allowServiceAccountTokenFile", {
+    get() {
+        return __config.getObject<boolean>("allowServiceAccountTokenFile");
+    },
+    enumerable: true,
+});
+
+/**
+ * If set, VCDClient will permit unverifiable SSL certificates.
+ */
+export declare const allowUnverifiedSsl: boolean | undefined;
+Object.defineProperty(exports, "allowUnverifiedSsl", {
+    get() {
+        return __config.getObject<boolean>("allowUnverifiedSsl");
+    },
+    enumerable: true,
+});
+
+/**
+ * The API token used instead of username/password for VCD API operations. (Requires VCD 10.3.1+)
+ */
+export declare const apiToken: string | undefined;
+Object.defineProperty(exports, "apiToken", {
+    get() {
+        return __config.get("apiToken");
+    },
+    enumerable: true,
+});
+
+/**
+ * The API token file instead of username/password for VCD API operations. (Requires VCD 10.3.1+)
+ */
+export declare const apiTokenFile: string | undefined;
+Object.defineProperty(exports, "apiTokenFile", {
+    get() {
+        return __config.get("apiTokenFile");
+    },
+    enumerable: true,
+});
+
+/**
+ * 'integrated', 'saml_adfs', 'token', 'api_token', 'api_token_file' and 'service_account_token_file' are supported.
+ * 'integrated' is default.
+ */
+export declare const authType: string | undefined;
+Object.defineProperty(exports, "authType", {
+    get() {
+        return __config.get("authType");
+    },
+    enumerable: true,
+});
+
+/**
+ * Defines a set of `metadataEntry` that need to be ignored by this provider. All filters on this attribute are computed
+ * with a logical AND
+ */
+export declare const ignoreMetadataChanges: outputs.config.IgnoreMetadataChanges[] | undefined;
+Object.defineProperty(exports, "ignoreMetadataChanges", {
+    get() {
+        return __config.getObject<outputs.config.IgnoreMetadataChanges[]>("ignoreMetadataChanges");
+    },
+    enumerable: true,
+});
+
+export declare const importSeparator: string | undefined;
+Object.defineProperty(exports, "importSeparator", {
+    get() {
+        return __config.get("importSeparator");
+    },
+    enumerable: true,
+});
+
+/**
+ * If set, it will enable logging of API requests and responses
+ */
+export declare const logging: boolean | undefined;
+Object.defineProperty(exports, "logging", {
+    get() {
+        return __config.getObject<boolean>("logging");
+    },
+    enumerable: true,
+});
+
+/**
+ * Defines the full name of the logging file for API calls (requires 'logging')
+ */
+export declare const loggingFile: string | undefined;
+Object.defineProperty(exports, "loggingFile", {
+    get() {
+        return __config.get("loggingFile");
+    },
+    enumerable: true,
+});
+
+/**
+ * Max num seconds to wait for successful response when operating on resources within vCloud (defaults to 60)
+ */
+export declare const maxRetryTimeout: number | undefined;
+Object.defineProperty(exports, "maxRetryTimeout", {
+    get() {
+        return __config.getObject<number>("maxRetryTimeout");
+    },
+    enumerable: true,
+});
+
+/**
+ * The VCD Org for API operations
+ */
+export declare const org: string | undefined;
+Object.defineProperty(exports, "org", {
+    get() {
+        return __config.get("org");
+    },
+    enumerable: true,
+});
+
+/**
+ * The user password for VCD API operations.
+ */
+export declare const password: string | undefined;
+Object.defineProperty(exports, "password", {
+    get() {
+        return __config.get("password");
+    },
+    enumerable: true,
+});
+
+/**
+ * Allows to specify custom cookie for ADFS server lookup. '{{.Org}}' is replaced by real Org - e.g. 'sso-preferred=yes;
+ * sso_redirect_org={{.Org}}'
+ */
+export declare const samlAdfsCookie: string | undefined;
+Object.defineProperty(exports, "samlAdfsCookie", {
+    get() {
+        return __config.get("samlAdfsCookie");
+    },
+    enumerable: true,
+});
+
+/**
+ * Allows to specify custom Relaying Party Trust Identifier for auth_type=saml_adfs
+ */
+export declare const samlAdfsRptId: string | undefined;
+Object.defineProperty(exports, "samlAdfsRptId", {
+    get() {
+        return __config.get("samlAdfsRptId");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Service Account API token file instead of username/password for VCD API operations. (Requires VCD 10.4.0+)
+ */
+export declare const serviceAccountTokenFile: string | undefined;
+Object.defineProperty(exports, "serviceAccountTokenFile", {
+    get() {
+        return __config.get("serviceAccountTokenFile");
+    },
+    enumerable: true,
+});
+
+/**
+ * The VCD Org for user authentication
+ */
+export declare const sysorg: string | undefined;
+Object.defineProperty(exports, "sysorg", {
+    get() {
+        return __config.get("sysorg");
+    },
+    enumerable: true,
+});
+
+/**
+ * The token used instead of username/password for VCD API operations.
+ */
+export declare const token: string | undefined;
+Object.defineProperty(exports, "token", {
+    get() {
+        return __config.get("token");
+    },
+    enumerable: true,
+});
+
+/**
+ * The VCD url for VCD API operations.
+ */
+export declare const url: string | undefined;
+Object.defineProperty(exports, "url", {
+    get() {
+        return __config.get("url");
+    },
+    enumerable: true,
+});
+
+/**
+ * The user name for VCD API operations.
+ */
+export declare const user: string | undefined;
+Object.defineProperty(exports, "user", {
+    get() {
+        return __config.get("user");
+    },
+    enumerable: true,
+});
+
+/**
+ * The VDC for API operations
+ */
+export declare const vdc: string | undefined;
+Object.defineProperty(exports, "vdc", {
+    get() {
+        return __config.get("vdc");
     },
     enumerable: true,
 });

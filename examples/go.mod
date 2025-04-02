@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-xyz/examples
+module github.com/ergSey/pulumi-vcd/examples
 
 go 1.22
 
