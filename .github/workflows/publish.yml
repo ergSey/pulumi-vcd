@@ -145,7 +145,7 @@ jobs:
       with:
         language: go
     - uses: pulumi/publish-go-sdk-action@v1
-      if: inputs.skipGoSdk == false
+      if: inputs.skipGoSdk == true
       with:
         repository: ${{ github.repository }}
         base-ref: ${{ github.sha }}
