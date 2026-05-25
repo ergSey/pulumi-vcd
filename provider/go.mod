@@ -1,4 +1,4 @@
-module github.com/ergSey/pulumi-vcd/provider
+module github.com/ergSey/pulumi-vcd/provider/v3
 
 go 1.22.7
 

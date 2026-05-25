@@ -27,7 +27,7 @@ import (
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 
-	"github.com/ergSey/pulumi-vcd/provider/pkg/version"
+	"github.com/ergSey/pulumi-vcd/provider/v3/pkg/version"
 )
 
 // all of the token components used below.
@@ -126,7 +126,7 @@ func Provider() tfbridge.ProviderInfo {
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g. https://github.com/org/pulumi-provider-name/releases/download/v${VERSION}/
-		PluginDownloadURL: "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/",
+		PluginDownloadURL: "github://api.github.com/ergSey/pulumi-vcd",
 		Description:       "A Pulumi package for creating and managing vcd cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in

@@ -19,6 +19,45 @@ namespace Pulumi.Vcd
         /// &gt; **Note:** This data source supports only NSX-V backed Org VDC networks.
         /// Please use newer [`vcd.NetworkRoutedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
         /// data source which is compatible with NSX-T.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Vcd = Pulumi.Vcd;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var net = Vcd.GetNetworkRouted.Invoke(new()
+        ///     {
+        ///         Org = "my-org",
+        ///         Vdc = "my-vdc",
+        ///         Name = "my-net",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["edgeGateway"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.EdgeGateway),
+        ///         ["gateway"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.Gateway),
+        ///         ["dhcpStartAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.DhcpPools[0]?.StartAddress),
+        ///         ["dhcpEndAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.DhcpPools[0]?.EndAddress),
+        ///         ["staticIpStartAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.StaticIpPools[0]?.StartAddress),
+        ///         ["staticIpEndAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.StaticIpPools[0]?.EndAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Filter arguments
+        /// 
+        /// (Supported in provider *v2.9+*)
+        /// 
+        /// * `name_regex` - (Optional) matches the name using a regular expression.
+        /// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+        /// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+        /// 
+        /// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
         /// </summary>
         public static Task<GetNetworkRoutedResult> InvokeAsync(GetNetworkRoutedArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkRoutedResult>("vcd:index/getNetworkRouted:getNetworkRouted", args ?? new GetNetworkRoutedArgs(), options.WithDefaults());
@@ -31,6 +70,45 @@ namespace Pulumi.Vcd
         /// &gt; **Note:** This data source supports only NSX-V backed Org VDC networks.
         /// Please use newer [`vcd.NetworkRoutedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
         /// data source which is compatible with NSX-T.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Vcd = Pulumi.Vcd;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var net = Vcd.GetNetworkRouted.Invoke(new()
+        ///     {
+        ///         Org = "my-org",
+        ///         Vdc = "my-vdc",
+        ///         Name = "my-net",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["edgeGateway"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.EdgeGateway),
+        ///         ["gateway"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.Gateway),
+        ///         ["dhcpStartAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.DhcpPools[0]?.StartAddress),
+        ///         ["dhcpEndAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.DhcpPools[0]?.EndAddress),
+        ///         ["staticIpStartAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.StaticIpPools[0]?.StartAddress),
+        ///         ["staticIpEndAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.StaticIpPools[0]?.EndAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Filter arguments
+        /// 
+        /// (Supported in provider *v2.9+*)
+        /// 
+        /// * `name_regex` - (Optional) matches the name using a regular expression.
+        /// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+        /// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+        /// 
+        /// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
         /// </summary>
         public static Output<GetNetworkRoutedResult> Invoke(GetNetworkRoutedInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkRoutedResult>("vcd:index/getNetworkRouted:getNetworkRouted", args ?? new GetNetworkRoutedInvokeArgs(), options.WithDefaults());
@@ -43,6 +121,45 @@ namespace Pulumi.Vcd
         /// &gt; **Note:** This data source supports only NSX-V backed Org VDC networks.
         /// Please use newer [`vcd.NetworkRoutedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
         /// data source which is compatible with NSX-T.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Vcd = Pulumi.Vcd;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var net = Vcd.GetNetworkRouted.Invoke(new()
+        ///     {
+        ///         Org = "my-org",
+        ///         Vdc = "my-vdc",
+        ///         Name = "my-net",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["edgeGateway"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.EdgeGateway),
+        ///         ["gateway"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.Gateway),
+        ///         ["dhcpStartAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.DhcpPools[0]?.StartAddress),
+        ///         ["dhcpEndAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.DhcpPools[0]?.EndAddress),
+        ///         ["staticIpStartAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.StaticIpPools[0]?.StartAddress),
+        ///         ["staticIpEndAddress"] = net.Apply(getNetworkRoutedResult =&gt; getNetworkRoutedResult.StaticIpPools[0]?.EndAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Filter arguments
+        /// 
+        /// (Supported in provider *v2.9+*)
+        /// 
+        /// * `name_regex` - (Optional) matches the name using a regular expression.
+        /// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+        /// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+        /// 
+        /// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
         /// </summary>
         public static Output<GetNetworkRoutedResult> Invoke(GetNetworkRoutedInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkRoutedResult>("vcd:index/getNetworkRouted:getNetworkRouted", args ?? new GetNetworkRoutedInvokeArgs(), options.WithDefaults());

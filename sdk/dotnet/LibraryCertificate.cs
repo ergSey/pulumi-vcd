@@ -72,7 +72,7 @@ namespace Pulumi.Vcd
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/",
+                PluginDownloadURL = "github://api.github.com/ergSey/pulumi-vcd",
                 AdditionalSecretOutputs =
                 {
                     "privateKey",

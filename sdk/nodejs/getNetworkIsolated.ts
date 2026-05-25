@@ -16,6 +16,35 @@ import * as utilities from "./utilities";
  * > **Note:** This data source supports only NSX-V backed Org VDC networks.
  * Please use newer [`vcd.NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
  * data source which is compatible with NSX-T.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as vcd from "@pulumi/vcd";
+ *
+ * const net = vcd.getNetworkIsolated({
+ *     org: "my-org",
+ *     vdc: "my-vdc",
+ *     name: "my-net",
+ * });
+ * export const gateway = net.then(net => net.gateway);
+ * export const dns1 = net.then(net => net.dns1);
+ * export const dhcpStartAddress = net.then(net => net.dhcpPools?.[0]?.startAddress);
+ * export const dhcpEndAddress = net.then(net => net.dhcpPools?.[0]?.endAddress);
+ * export const staticIpStartAddress = net.then(net => net.staticIpPools?.[0]?.startAddress);
+ * export const staticIpEndAddress = net.then(net => net.staticIpPools?.[0]?.endAddress);
+ * ```
+ *
+ * ## Filter arguments
+ *
+ * (Supported in provider *v2.9+*)
+ *
+ * * `nameRegex` - (Optional) matches the name using a regular expression.
+ * * `ip` - (Optional) matches the IP of the resource using a regular expression.
+ * * `metadata` - (Optional) One or more parameters that will match metadata contents.
+ *
+ * See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
  */
 export function getNetworkIsolated(args?: GetNetworkIsolatedArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkIsolatedResult> {
     args = args || {};
@@ -87,6 +116,35 @@ export interface GetNetworkIsolatedResult {
  * > **Note:** This data source supports only NSX-V backed Org VDC networks.
  * Please use newer [`vcd.NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
  * data source which is compatible with NSX-T.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as vcd from "@pulumi/vcd";
+ *
+ * const net = vcd.getNetworkIsolated({
+ *     org: "my-org",
+ *     vdc: "my-vdc",
+ *     name: "my-net",
+ * });
+ * export const gateway = net.then(net => net.gateway);
+ * export const dns1 = net.then(net => net.dns1);
+ * export const dhcpStartAddress = net.then(net => net.dhcpPools?.[0]?.startAddress);
+ * export const dhcpEndAddress = net.then(net => net.dhcpPools?.[0]?.endAddress);
+ * export const staticIpStartAddress = net.then(net => net.staticIpPools?.[0]?.startAddress);
+ * export const staticIpEndAddress = net.then(net => net.staticIpPools?.[0]?.endAddress);
+ * ```
+ *
+ * ## Filter arguments
+ *
+ * (Supported in provider *v2.9+*)
+ *
+ * * `nameRegex` - (Optional) matches the name using a regular expression.
+ * * `ip` - (Optional) matches the IP of the resource using a regular expression.
+ * * `metadata` - (Optional) One or more parameters that will match metadata contents.
+ *
+ * See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
  */
 export function getNetworkIsolatedOutput(args?: GetNetworkIsolatedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkIsolatedResult> {
     args = args || {};

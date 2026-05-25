@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/ergSey/pulumi-vcd/sdk/go/vcd/internal"
+	"github.com/ergSey/pulumi-vcd/sdk/v3/go/vcd/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 

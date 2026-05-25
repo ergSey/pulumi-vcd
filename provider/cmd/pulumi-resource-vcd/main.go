@@ -19,8 +19,8 @@ import (
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 
-	vcd "github.com/ergSey/pulumi-vcd/provider"
-	"github.com/ergSey/pulumi-vcd/provider/pkg/version"
+	vcd "github.com/ergSey/pulumi-vcd/provider/v3"
+	"github.com/ergSey/pulumi-vcd/provider/v3/pkg/version"
 )
 
 //go:embed schema.json

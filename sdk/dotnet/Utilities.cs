@@ -53,7 +53,7 @@ namespace Pulumi.Vcd
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/ergSey/pulumi-vcd";
             return dst;
         }
 
@@ -61,7 +61,7 @@ namespace Pulumi.Vcd
         {
             var dst = src ?? new global::Pulumi.InvokeOutputOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/ergSey/pulumi-vcd";
             return dst;
         }
 

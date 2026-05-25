@@ -1,10 +1,6 @@
 {
-    "name": "@ergsey/vcd",
-    "version": "1.0.0",
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
-    },
+    "name": "@pulumi/vcd",
+    "version": "3.14.1",
     "description": "A Pulumi package for creating and managing vcd cloud resources.",
     "keywords": [
         "vcd",
@@ -26,7 +22,7 @@
     "pulumi": {
         "resource": true,
         "name": "vcd",
-        "version": "1.0.0",
-        "server": "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/"
+        "version": "3.14.1",
+        "server": "github://api.github.com/ergSey/pulumi-vcd"
     }
 }

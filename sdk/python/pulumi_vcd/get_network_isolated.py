@@ -211,6 +211,33 @@ def get_network_isolated(filter: Optional[Union['GetNetworkIsolatedFilterArgs', 
     Please use newer [`NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
     data source which is compatible with NSX-T.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_vcd as vcd
+
+    net = vcd.get_network_isolated(org="my-org",
+        vdc="my-vdc",
+        name="my-net")
+    pulumi.export("gateway", net.gateway)
+    pulumi.export("dns1", net.dns1)
+    pulumi.export("dhcpStartAddress", net.dhcp_pools[0].start_address)
+    pulumi.export("dhcpEndAddress", net.dhcp_pools[0].end_address)
+    pulumi.export("staticIpStartAddress", net.static_ip_pools[0].start_address)
+    pulumi.export("staticIpEndAddress", net.static_ip_pools[0].end_address)
+    ```
+
+    ## Filter arguments
+
+    (Supported in provider *v2.9+*)
+
+    * `name_regex` - (Optional) matches the name using a regular expression.
+    * `ip` - (Optional) matches the IP of the resource using a regular expression.
+    * `metadata` - (Optional) One or more parameters that will match metadata contents.
+
+    See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+
 
     :param Union['GetNetworkIsolatedFilterArgs', 'GetNetworkIsolatedFilterArgsDict'] filter: Retrieves the data source using one or more filter parameters
     :param str name: A unique name for the network (optional when `filter` is used)
@@ -257,6 +284,33 @@ def get_network_isolated_output(filter: Optional[pulumi.Input[Optional[Union['Ge
     > **Note:** This data source supports only NSX-V backed Org VDC networks.
     Please use newer [`NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
     data source which is compatible with NSX-T.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_vcd as vcd
+
+    net = vcd.get_network_isolated(org="my-org",
+        vdc="my-vdc",
+        name="my-net")
+    pulumi.export("gateway", net.gateway)
+    pulumi.export("dns1", net.dns1)
+    pulumi.export("dhcpStartAddress", net.dhcp_pools[0].start_address)
+    pulumi.export("dhcpEndAddress", net.dhcp_pools[0].end_address)
+    pulumi.export("staticIpStartAddress", net.static_ip_pools[0].start_address)
+    pulumi.export("staticIpEndAddress", net.static_ip_pools[0].end_address)
+    ```
+
+    ## Filter arguments
+
+    (Supported in provider *v2.9+*)
+
+    * `name_regex` - (Optional) matches the name using a regular expression.
+    * `ip` - (Optional) matches the IP of the resource using a regular expression.
+    * `metadata` - (Optional) One or more parameters that will match metadata contents.
+
+    See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
 
 
     :param Union['GetNetworkIsolatedFilterArgs', 'GetNetworkIsolatedFilterArgsDict'] filter: Retrieves the data source using one or more filter parameters

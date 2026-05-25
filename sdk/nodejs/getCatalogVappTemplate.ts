@@ -29,12 +29,12 @@ import * as utilities from "./utilities";
  *     name: "my-first-vapp-template",
  * }));
  * const my_second_vappTemplate = new vcd.CatalogVappTemplate("my-second-vapp_template", {
- *     metadataEntries: Object.entries(photon.metadataEntry).map(([k, v]) => ({key: k, value: v})).map(entry => ({
- *         key: entry.value.key,
- *         value: entry.value.value,
- *         type: entry.value.type,
- *         isSystem: entry.value.is_system,
- *         userAccess: entry.value.user_access,
+ *     metadataEntries: .map(([key, entry]) => ({
+ *         key: entry.key,
+ *         value: entry.value,
+ *         type: entry.type,
+ *         isSystem: entry.is_system,
+ *         userAccess: entry.user_access,
  *     })),
  *     org: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.org),
  *     catalogId: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.catalogId),
@@ -61,12 +61,12 @@ import * as utilities from "./utilities";
  *     name: "my-first-vapp-template",
  * }));
  * const my_second_vappTemplate = new vcd.CatalogVappTemplate("my-second-vapp_template", {
- *     metadataEntries: Object.entries(photon.metadataEntry).map(([k, v]) => ({key: k, value: v})).map(entry => ({
- *         key: entry.value.key,
- *         value: entry.value.value,
- *         type: entry.value.type,
- *         isSystem: entry.value.is_system,
- *         userAccess: entry.value.user_access,
+ *     metadataEntries: .map(([key, entry]) => ({
+ *         key: entry.key,
+ *         value: entry.value,
+ *         type: entry.type,
+ *         isSystem: entry.is_system,
+ *         userAccess: entry.user_access,
  *     })),
  *     org: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.org),
  *     catalogId: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.catalogId),
@@ -192,12 +192,12 @@ export interface GetCatalogVappTemplateResult {
  *     name: "my-first-vapp-template",
  * }));
  * const my_second_vappTemplate = new vcd.CatalogVappTemplate("my-second-vapp_template", {
- *     metadataEntries: Object.entries(photon.metadataEntry).map(([k, v]) => ({key: k, value: v})).map(entry => ({
- *         key: entry.value.key,
- *         value: entry.value.value,
- *         type: entry.value.type,
- *         isSystem: entry.value.is_system,
- *         userAccess: entry.value.user_access,
+ *     metadataEntries: .map(([key, entry]) => ({
+ *         key: entry.key,
+ *         value: entry.value,
+ *         type: entry.type,
+ *         isSystem: entry.is_system,
+ *         userAccess: entry.user_access,
  *     })),
  *     org: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.org),
  *     catalogId: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.catalogId),
@@ -224,12 +224,12 @@ export interface GetCatalogVappTemplateResult {
  *     name: "my-first-vapp-template",
  * }));
  * const my_second_vappTemplate = new vcd.CatalogVappTemplate("my-second-vapp_template", {
- *     metadataEntries: Object.entries(photon.metadataEntry).map(([k, v]) => ({key: k, value: v})).map(entry => ({
- *         key: entry.value.key,
- *         value: entry.value.value,
- *         type: entry.value.type,
- *         isSystem: entry.value.is_system,
- *         userAccess: entry.value.user_access,
+ *     metadataEntries: .map(([key, entry]) => ({
+ *         key: entry.key,
+ *         value: entry.value,
+ *         type: entry.type,
+ *         isSystem: entry.is_system,
+ *         userAccess: entry.user_access,
  *     })),
  *     org: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.org),
  *     catalogId: my_first_vapp_template.then(my_first_vapp_template => my_first_vapp_template.catalogId),

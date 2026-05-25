@@ -46,11 +46,11 @@ namespace Pulumi.Vcd
         ///         {
         ///             return new Vcd.Inputs.CatalogVappTemplateMetadataEntryArgs
         ///             {
-        ///                 Key = entry.Value.Key,
-        ///                 Value = entry.Value.Value,
-        ///                 Type = entry.Value.Type,
-        ///                 IsSystem = entry.Value.Is_system,
-        ///                 UserAccess = entry.Value.User_access,
+        ///                 Key = entry.Key,
+        ///                 Value = entry.Value,
+        ///                 Type = entry.Type,
+        ///                 IsSystem = entry.Is_system,
+        ///                 UserAccess = entry.User_access,
         ///             };
         ///         }).ToList(),
         ///         Org = my_first_vapp_template.Apply(my_first_vapp_template =&gt; my_first_vapp_template.Apply(getCatalogVappTemplateResult =&gt; getCatalogVappTemplateResult.Org)),
@@ -93,11 +93,11 @@ namespace Pulumi.Vcd
         ///         {
         ///             return new Vcd.Inputs.CatalogVappTemplateMetadataEntryArgs
         ///             {
-        ///                 Key = entry.Value.Key,
-        ///                 Value = entry.Value.Value,
-        ///                 Type = entry.Value.Type,
-        ///                 IsSystem = entry.Value.Is_system,
-        ///                 UserAccess = entry.Value.User_access,
+        ///                 Key = entry.Key,
+        ///                 Value = entry.Value,
+        ///                 Type = entry.Type,
+        ///                 IsSystem = entry.Is_system,
+        ///                 UserAccess = entry.User_access,
         ///             };
         ///         }).ToList(),
         ///         Org = my_first_vapp_template.Apply(my_first_vapp_template =&gt; my_first_vapp_template.Apply(getCatalogVappTemplateResult =&gt; getCatalogVappTemplateResult.Org)),
@@ -165,11 +165,11 @@ namespace Pulumi.Vcd
         ///         {
         ///             return new Vcd.Inputs.CatalogVappTemplateMetadataEntryArgs
         ///             {
-        ///                 Key = entry.Value.Key,
-        ///                 Value = entry.Value.Value,
-        ///                 Type = entry.Value.Type,
-        ///                 IsSystem = entry.Value.Is_system,
-        ///                 UserAccess = entry.Value.User_access,
+        ///                 Key = entry.Key,
+        ///                 Value = entry.Value,
+        ///                 Type = entry.Type,
+        ///                 IsSystem = entry.Is_system,
+        ///                 UserAccess = entry.User_access,
         ///             };
         ///         }).ToList(),
         ///         Org = my_first_vapp_template.Apply(my_first_vapp_template =&gt; my_first_vapp_template.Apply(getCatalogVappTemplateResult =&gt; getCatalogVappTemplateResult.Org)),
@@ -212,11 +212,11 @@ namespace Pulumi.Vcd
         ///         {
         ///             return new Vcd.Inputs.CatalogVappTemplateMetadataEntryArgs
         ///             {
-        ///                 Key = entry.Value.Key,
-        ///                 Value = entry.Value.Value,
-        ///                 Type = entry.Value.Type,
-        ///                 IsSystem = entry.Value.Is_system,
-        ///                 UserAccess = entry.Value.User_access,
+        ///                 Key = entry.Key,
+        ///                 Value = entry.Value,
+        ///                 Type = entry.Type,
+        ///                 IsSystem = entry.Is_system,
+        ///                 UserAccess = entry.User_access,
         ///             };
         ///         }).ToList(),
         ///         Org = my_first_vapp_template.Apply(my_first_vapp_template =&gt; my_first_vapp_template.Apply(getCatalogVappTemplateResult =&gt; getCatalogVappTemplateResult.Org)),
@@ -284,11 +284,11 @@ namespace Pulumi.Vcd
         ///         {
         ///             return new Vcd.Inputs.CatalogVappTemplateMetadataEntryArgs
         ///             {
-        ///                 Key = entry.Value.Key,
-        ///                 Value = entry.Value.Value,
-        ///                 Type = entry.Value.Type,
-        ///                 IsSystem = entry.Value.Is_system,
-        ///                 UserAccess = entry.Value.User_access,
+        ///                 Key = entry.Key,
+        ///                 Value = entry.Value,
+        ///                 Type = entry.Type,
+        ///                 IsSystem = entry.Is_system,
+        ///                 UserAccess = entry.User_access,
         ///             };
         ///         }).ToList(),
         ///         Org = my_first_vapp_template.Apply(my_first_vapp_template =&gt; my_first_vapp_template.Apply(getCatalogVappTemplateResult =&gt; getCatalogVappTemplateResult.Org)),
@@ -331,11 +331,11 @@ namespace Pulumi.Vcd
         ///         {
         ///             return new Vcd.Inputs.CatalogVappTemplateMetadataEntryArgs
         ///             {
-        ///                 Key = entry.Value.Key,
-        ///                 Value = entry.Value.Value,
-        ///                 Type = entry.Value.Type,
-        ///                 IsSystem = entry.Value.Is_system,
-        ///                 UserAccess = entry.Value.User_access,
+        ///                 Key = entry.Key,
+        ///                 Value = entry.Value,
+        ///                 Type = entry.Type,
+        ///                 IsSystem = entry.Is_system,
+        ///                 UserAccess = entry.User_access,
         ///             };
         ///         }).ToList(),
         ///         Org = my_first_vapp_template.Apply(my_first_vapp_template =&gt; my_first_vapp_template.Apply(getCatalogVappTemplateResult =&gt; getCatalogVappTemplateResult.Org)),

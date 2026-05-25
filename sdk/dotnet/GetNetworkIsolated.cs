@@ -20,6 +20,45 @@ namespace Pulumi.Vcd
         /// &gt; **Note:** This data source supports only NSX-V backed Org VDC networks.
         /// Please use newer [`vcd.NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
         /// data source which is compatible with NSX-T.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Vcd = Pulumi.Vcd;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var net = Vcd.GetNetworkIsolated.Invoke(new()
+        ///     {
+        ///         Org = "my-org",
+        ///         Vdc = "my-vdc",
+        ///         Name = "my-net",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gateway"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.Gateway),
+        ///         ["dns1"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.Dns1),
+        ///         ["dhcpStartAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.DhcpPools[0]?.StartAddress),
+        ///         ["dhcpEndAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.DhcpPools[0]?.EndAddress),
+        ///         ["staticIpStartAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.StaticIpPools[0]?.StartAddress),
+        ///         ["staticIpEndAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.StaticIpPools[0]?.EndAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Filter arguments
+        /// 
+        /// (Supported in provider *v2.9+*)
+        /// 
+        /// * `name_regex` - (Optional) matches the name using a regular expression.
+        /// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+        /// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+        /// 
+        /// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
         /// </summary>
         public static Task<GetNetworkIsolatedResult> InvokeAsync(GetNetworkIsolatedArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkIsolatedResult>("vcd:index/getNetworkIsolated:getNetworkIsolated", args ?? new GetNetworkIsolatedArgs(), options.WithDefaults());
@@ -33,6 +72,45 @@ namespace Pulumi.Vcd
         /// &gt; **Note:** This data source supports only NSX-V backed Org VDC networks.
         /// Please use newer [`vcd.NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
         /// data source which is compatible with NSX-T.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Vcd = Pulumi.Vcd;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var net = Vcd.GetNetworkIsolated.Invoke(new()
+        ///     {
+        ///         Org = "my-org",
+        ///         Vdc = "my-vdc",
+        ///         Name = "my-net",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gateway"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.Gateway),
+        ///         ["dns1"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.Dns1),
+        ///         ["dhcpStartAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.DhcpPools[0]?.StartAddress),
+        ///         ["dhcpEndAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.DhcpPools[0]?.EndAddress),
+        ///         ["staticIpStartAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.StaticIpPools[0]?.StartAddress),
+        ///         ["staticIpEndAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.StaticIpPools[0]?.EndAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Filter arguments
+        /// 
+        /// (Supported in provider *v2.9+*)
+        /// 
+        /// * `name_regex` - (Optional) matches the name using a regular expression.
+        /// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+        /// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+        /// 
+        /// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
         /// </summary>
         public static Output<GetNetworkIsolatedResult> Invoke(GetNetworkIsolatedInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkIsolatedResult>("vcd:index/getNetworkIsolated:getNetworkIsolated", args ?? new GetNetworkIsolatedInvokeArgs(), options.WithDefaults());
@@ -46,6 +124,45 @@ namespace Pulumi.Vcd
         /// &gt; **Note:** This data source supports only NSX-V backed Org VDC networks.
         /// Please use newer [`vcd.NetworkIsolatedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
         /// data source which is compatible with NSX-T.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Vcd = Pulumi.Vcd;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var net = Vcd.GetNetworkIsolated.Invoke(new()
+        ///     {
+        ///         Org = "my-org",
+        ///         Vdc = "my-vdc",
+        ///         Name = "my-net",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["gateway"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.Gateway),
+        ///         ["dns1"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.Dns1),
+        ///         ["dhcpStartAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.DhcpPools[0]?.StartAddress),
+        ///         ["dhcpEndAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.DhcpPools[0]?.EndAddress),
+        ///         ["staticIpStartAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.StaticIpPools[0]?.StartAddress),
+        ///         ["staticIpEndAddress"] = net.Apply(getNetworkIsolatedResult =&gt; getNetworkIsolatedResult.StaticIpPools[0]?.EndAddress),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ## Filter arguments
+        /// 
+        /// (Supported in provider *v2.9+*)
+        /// 
+        /// * `name_regex` - (Optional) matches the name using a regular expression.
+        /// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+        /// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+        /// 
+        /// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
         /// </summary>
         public static Output<GetNetworkIsolatedResult> Invoke(GetNetworkIsolatedInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkIsolatedResult>("vcd:index/getNetworkIsolated:getNetworkIsolated", args ?? new GetNetworkIsolatedInvokeArgs(), options.WithDefaults());

@@ -201,7 +201,7 @@ namespace Pulumi.Vcd
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/vmware/terraform-provider-vcd/releases/download/v3.14.1/",
+                PluginDownloadURL = "github://api.github.com/ergSey/pulumi-vcd",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

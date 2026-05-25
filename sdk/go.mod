@@ -1,4 +1,4 @@
-module github.com/ergSey/pulumi-vcd/sdk
+module github.com/ergSey/pulumi-vcd/sdk/v3
 
 go 1.22
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/ergSey/pulumi-vcd/sdk/go/vcd/internal"
+	"github.com/ergSey/pulumi-vcd/sdk/v3/go/vcd/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,6 +18,50 @@ import (
 // > **Note:** This data source supports only NSX-V backed Org VDC networks.
 // Please use newer [`NetworkRoutedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
 // data source which is compatible with NSX-T.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/ergSey/pulumi-vcd/sdk/v3/go/vcd"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			net, err := vcd.LookupNetworkRouted(ctx, &vcd.LookupNetworkRoutedArgs{
+//				Org:  pulumi.StringRef("my-org"),
+//				Vdc:  pulumi.StringRef("my-vdc"),
+//				Name: pulumi.StringRef("my-net"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("edgeGateway", net.EdgeGateway)
+//			ctx.Export("gateway", net.Gateway)
+//			ctx.Export("dhcpStartAddress", net.DhcpPools[0].StartAddress)
+//			ctx.Export("dhcpEndAddress", net.DhcpPools[0].EndAddress)
+//			ctx.Export("staticIpStartAddress", net.StaticIpPools[0].StartAddress)
+//			ctx.Export("staticIpEndAddress", net.StaticIpPools[0].EndAddress)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Filter arguments
+//
+// (Supported in provider *v2.9+*)
+//
+// * `nameRegex` - (Optional) matches the name using a regular expression.
+// * `ip` - (Optional) matches the IP of the resource using a regular expression.
+// * `metadata` - (Optional) One or more parameters that will match metadata contents.
+//
+// See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
 func LookupNetworkRouted(ctx *pulumi.Context, args *LookupNetworkRoutedArgs, opts ...pulumi.InvokeOption) (*LookupNetworkRoutedResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkRoutedResult

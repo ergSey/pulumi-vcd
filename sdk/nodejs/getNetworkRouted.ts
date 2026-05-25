@@ -15,6 +15,35 @@ import * as utilities from "./utilities";
  * > **Note:** This data source supports only NSX-V backed Org VDC networks.
  * Please use newer [`vcd.NetworkRoutedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
  * data source which is compatible with NSX-T.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as vcd from "@pulumi/vcd";
+ *
+ * const net = vcd.getNetworkRouted({
+ *     org: "my-org",
+ *     vdc: "my-vdc",
+ *     name: "my-net",
+ * });
+ * export const edgeGateway = net.then(net => net.edgeGateway);
+ * export const gateway = net.then(net => net.gateway);
+ * export const dhcpStartAddress = net.then(net => net.dhcpPools?.[0]?.startAddress);
+ * export const dhcpEndAddress = net.then(net => net.dhcpPools?.[0]?.endAddress);
+ * export const staticIpStartAddress = net.then(net => net.staticIpPools?.[0]?.startAddress);
+ * export const staticIpEndAddress = net.then(net => net.staticIpPools?.[0]?.endAddress);
+ * ```
+ *
+ * ## Filter arguments
+ *
+ * (Supported in provider *v2.9+*)
+ *
+ * * `nameRegex` - (Optional) matches the name using a regular expression.
+ * * `ip` - (Optional) matches the IP of the resource using a regular expression.
+ * * `metadata` - (Optional) One or more parameters that will match metadata contents.
+ *
+ * See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
  */
 export function getNetworkRouted(args?: GetNetworkRoutedArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkRoutedResult> {
     args = args || {};
@@ -87,6 +116,35 @@ export interface GetNetworkRoutedResult {
  * > **Note:** This data source supports only NSX-V backed Org VDC networks.
  * Please use newer [`vcd.NetworkRoutedV2`](https://www.terraform.io/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
  * data source which is compatible with NSX-T.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as vcd from "@pulumi/vcd";
+ *
+ * const net = vcd.getNetworkRouted({
+ *     org: "my-org",
+ *     vdc: "my-vdc",
+ *     name: "my-net",
+ * });
+ * export const edgeGateway = net.then(net => net.edgeGateway);
+ * export const gateway = net.then(net => net.gateway);
+ * export const dhcpStartAddress = net.then(net => net.dhcpPools?.[0]?.startAddress);
+ * export const dhcpEndAddress = net.then(net => net.dhcpPools?.[0]?.endAddress);
+ * export const staticIpStartAddress = net.then(net => net.staticIpPools?.[0]?.startAddress);
+ * export const staticIpEndAddress = net.then(net => net.staticIpPools?.[0]?.endAddress);
+ * ```
+ *
+ * ## Filter arguments
+ *
+ * (Supported in provider *v2.9+*)
+ *
+ * * `nameRegex` - (Optional) matches the name using a regular expression.
+ * * `ip` - (Optional) matches the IP of the resource using a regular expression.
+ * * `metadata` - (Optional) One or more parameters that will match metadata contents.
+ *
+ * See [Filters reference](https://www.terraform.io/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
  */
 export function getNetworkRoutedOutput(args?: GetNetworkRoutedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkRoutedResult> {
     args = args || {};
